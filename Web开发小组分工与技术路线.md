@@ -40,7 +40,8 @@
 * 后端：python + django
 * 数据库：已有部分先继续使用excel文件，待基本功能开发完成后再考虑转移到MySQL下
 * 项目部署：Docker
-* 协同开发：
+* 协同开发与版本控制：GitHub私有仓库
+* 文档：Markdown
 
 ---
 
