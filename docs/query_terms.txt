@@ -1,5 +1,0 @@
-(Alzheimer disease) AND (α-synuclein)
-(Cardiovascular disease) AND (sST2)
-("bacterial") AND ("extracellular vesicles") AND "has abstract"[Filters] AND "english"[Language]
-(microbiome OR microbiota OR microbe) AND (has abstract[FILT]) AND ("2000/01/01"[Date - Publication]:"3000"[Date - Publication])
-(Dysphagia) AND (humans[FILT]) AND (supplement OR supplementary) OR intake) AND ((meta-analysis[FILT]) OR (randomized controlled trial[FILT]) OR (systematic review[FILT]) OR (clinical trial[FILT])) AND (has abstract[FILT])
