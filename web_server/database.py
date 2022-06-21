@@ -35,9 +35,9 @@ class Database:
         """
         self.user_list = []
         self.all_uuids = []
-        # 连接到Docker上的MySQL服务容器，主要要先到Docker里手动运行MySQL
+        # 连接到Docker上的MySQL服务容器，注意要先到Docker里手动运行MySQL
         # TODO: Docker容器中的MySQL服务端口号每次启动会发生改变，这里不应该使用固定值，寻找获取当前正确端口号的方法
-        self.conn = connect(host='host.docker.internal', port=49154, user='root', password='mysqlpw',
+        self.conn = connect(host='host.docker.internal', port=49153, user='root', password='mysqlpw',
                             database='gensci-web-doc-retrieval-db', charset='utf8')
         self.cursor = self.conn.cursor()
         # 使用 web_server_user 表中的数据初始化 self.user_list 和 self.all_uuids
@@ -178,10 +178,11 @@ class User:
 DATABASE = Database()
 
 if __name__ == "__main__":
-    # 测试数据库读写
-    # cache = DATABASE.user_list[0].search_history
-    # json_test = json.dumps(cache)
-    # print(json_test)
+    # 读数据库
+    cache = DATABASE.user_list[0].search_history
+    json_test = json.dumps(cache)
+    print(json_test)
 
-    test_user = User(username='艾AA', password='114514', email='test@test.com')
-    DATABASE.write_user(test_user)
+    # 写数据库
+    # test_user = User(username='田所浩二', password='114514', email='test@test.com')
+    # DATABASE.write_user(test_user)
