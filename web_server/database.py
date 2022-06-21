@@ -47,25 +47,27 @@ class Database:
 
         # 遍历 web_server_user 表中所有的行
         for user in users:
-            uuid = user[0]
-            if len(self.user_list) < USER_LIST_MAX_LENGTH:  # 控制内存中的用户数量不超出上限
-                username = user[1]
-                password = user[2]
-                email = user[3]
-                search_history = user[4]
-                search_history_json = json.loads(search_history)  # 得到的 search_history_json 是字典
-                favourites = user[5]
-                favourites_json = json.loads(favourites)
-                confirm_code = user[6]
-                email_confirmed = bool(user[7])
-                permissions = user[8]
-                user_in_memory = User(uuid=uuid, username=username, password=password, email=email,
-                                      search_history=search_history_json, favourites=favourites_json,
-                                      confirm_code=confirm_code, email_confirmed=email_confirmed,
-                                      permissions=permissions)
-                self.user_list.append(user_in_memory)
+            removed_flag = bool(user[-1])
+            if removed_flag is False:
+                uuid = user[0]
+                if len(self.user_list) < USER_LIST_MAX_LENGTH:  # 控制内存中的用户数量不超出上限
+                    username = user[1]
+                    password = user[2]
+                    email = user[3]
+                    search_history = user[4]
+                    search_history_json = json.loads(search_history)  # 得到的 search_history_json 是字典
+                    favourites = user[5]
+                    favourites_json = json.loads(favourites)
+                    confirm_code = user[6]
+                    email_confirmed = bool(user[7])
+                    permissions = user[8]
+                    user_in_memory = User(uuid=uuid, username=username, password=password, email=email,
+                                          search_history=search_history_json, favourites=favourites_json,
+                                          confirm_code=confirm_code, email_confirmed=email_confirmed,
+                                          permissions=permissions)
+                    self.user_list.append(user_in_memory)
 
-            self.all_uuids.append(uuid)
+                self.all_uuids.append(uuid)
 
     def write_user(self, user):
         """将User对象拆分为基本数据元，然后写入数据库
@@ -85,8 +87,9 @@ class Database:
         permissions = user.permissions
 
         # 生成 MySQL 指令并执行插入操作
-        sql = """insert into web_server_user values ("%d","%s","%s","%s","%s","%s","%s","%s","%s")""" % (
-            uuid, username, password, email, search_history, favourites, confirm_code, email_confirmed, permissions)
+        sql = """insert into web_server_user values ("%d","%s","%s","%s","%s","%s","%s","%s","%s", "%s")""" % (
+            uuid, username, password, email, search_history, favourites, confirm_code, email_confirmed, permissions,
+            "False")
         self.cursor.execute(sql)
         self.conn.commit()
 
@@ -96,7 +99,13 @@ class Database:
         :param user: (User object) 新注册的用户对象
         :return: None
         """
-        pass
+        self.user_list.append(user)
+        self.all_uuids.append(user.uuid)
+        self.write_user(user)
+
+        # 控制 user_list 中的对象数量
+        while len(self.user_list) > USER_LIST_MAX_LENGTH:
+            self.user_list.pop(0)
 
     def get_user(self, uuid):
         """使用uuid查找用户对象
@@ -104,10 +113,49 @@ class Database:
         用uuid先在user_list中查找，找到后返回User对象；如果找不到再到数据库中查找，找到后使用数据库中的数据初始化User对象，返回该User对象，然
         后将该User对象放入user_list尾部，并删除user_list头部元素
 
-        :param uuid: (str) 用户编号
+        :param uuid: (int) 用户编号
         :return: (User object) 找到的用户对象
         """
-        pass
+        if uuid not in self.all_uuids:  # 用户不存在
+            return 'user not found'
+        else:
+            found_flag = False
+            # 先在内存中查找
+            for index in range(len(self.user_list)):
+                if self.user_list[index].uuid == uuid:
+                    found_flag = True
+                    found_user = self.user_list[index]
+                    # 将被找到的用户对象移至表尾
+                    self.user_list.append(found_user)
+                    self.user_list.pop(index)
+                    return found_user
+
+            # 到数据库中查找
+            if found_flag is False:
+                sql = """select * from web_server_user where uuid = "%d" """ % uuid
+                self.cursor.execute(sql)
+                user = self.cursor.fetchall()
+                username = user[1]
+                password = user[2]
+                email = user[3]
+                search_history = user[4]
+                search_history_json = json.loads(search_history)
+                favourites = user[5]
+                favourites_json = json.loads(favourites)
+                confirm_code = user[6]
+                email_confirmed = bool(user[7])
+                permissions = user[8]
+                found_user = User(uuid=uuid, username=username, password=password, email=email,
+                                  search_history=search_history_json, favourites=favourites_json,
+                                  confirm_code=confirm_code, email_confirmed=email_confirmed,
+                                  permissions=permissions)
+                self.user_list.append(found_user)
+
+                # 控制 user_list 中的对象数量
+                while len(self.user_list) > USER_LIST_MAX_LENGTH:
+                    self.user_list.pop(0)
+
+                return found_user
 
     def rewrite_user(self, changed_user):
         """覆盖写入更改后的User对象以起到修改数据库中数据的效果
@@ -117,17 +165,48 @@ class Database:
         :param changed_user: (User object) 更改后的用户对象
         :return: None
         """
-        pass
+        uuid = changed_user.uuid
+        if uuid not in self.all_uuids:  # 用户不存在
+            pass
+        else:
+            # 先在内存中更改
+            for index in range(len(self.user_list)):
+                if self.user_list[index].uuid == uuid:
+                    self.user_list.append(changed_user)
+                    self.user_list.pop(index)
+                    break
+
+            # 覆盖写入到数据库中
+            sql = """update web_server_user set uuid = ('%d'),username = ('%s'), password = ('%s'), email = ('%s'), search_history = ('%s'), favourites = ('%s'), confirm_code = ('%s'), email_confirmed = ('%s'), permissions = ('%s') where uuid = ('%d') """ % (
+                uuid, changed_user.username, changed_user.password, changed_user.email, changed_user.search_history,
+                changed_user.favourites, changed_user.confirm_code, changed_user.email_confirmed,
+                changed_user.permissions,
+                uuid)
+            self.cursor.execute(sql)
+            self.conn.commit()
 
     def remove_user(self, uuid):
         """ 根据uuid删除用户
 
-        将指定uuid的用户在数据库中的removed标签置为Ture
+        先在user_list中删除，然后将指定uuid的用户在数据库中的removed标签置为Ture
 
-        :param uuid: (str) 用户编号
+        :param uuid: (int) 用户编号
         :return: None
         """
-        pass
+        if uuid not in self.all_uuids:  # 用户不存在
+            pass
+        else:
+            # 先在内存中删除
+            self.all_uuids.remove(uuid)
+            for index in range(len(self.user_list)):
+                if self.user_list[index].uuid == uuid:
+                    self.user_list.pop(index)
+                    break
+
+            # 将指定uuid的用户在数据库中的removed标签置为Ture
+            sql = """update web_server_user set removed = "Ture" where uuid = ('%d')""" % uuid
+            self.cursor.execute(sql)
+            self.conn.commit()
 
 
 class User:
