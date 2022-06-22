@@ -1,4 +1,4 @@
-# token.py
+# uuid_token.py
 # token生成与解析
 # Written by Steve D. J. on 2022/6/17.
 

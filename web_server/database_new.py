@@ -1,6 +1,7 @@
-# database.py
+# database_new.py
 # 内存中数据对象与硬盘中数据库表文件交互
-# Written by Steve D. J. on 2022/6/17.
+# Based on database.py
+# Written by Steve D. J. on 2022/6/22.
 
 import json
 
@@ -36,38 +37,50 @@ class Database:
         self.user_list = []
         self.all_uuids = []
         # 连接到Docker上的MySQL服务容器，注意要先到Docker里手动运行MySQL
-        # TODO: Docker容器中的MySQL服务端口号每次启动会发生改变，这里不应该使用固定值，寻找获取当前正确端口号的方法
-        self.conn = connect(host='host.docker.internal', port=49153, user='root', password='mysqlpw',
+        self.conn = connect(host='42.192.44.52', port=3306, user='root', password='root',
                             database='gensci-web-doc-retrieval-db', charset='utf8')
         self.cursor = self.conn.cursor()
-        # 使用 web_server_user 表中的数据初始化 self.user_list 和 self.all_uuids
-        sql = """select * from web_server_user"""
+        # 使用 User 表和 search_history 表中的数据初始化 self.user_list 和 self.all_uuids
+        # 读 User 表
+        sql = """select * from user"""
         self.cursor.execute(sql)
         users = self.cursor.fetchall()
 
-        # 遍历 web_server_user 表中所有的行
+        # 遍历 User 表中所有的行
         for user in users:
-            removed_flag = bool(user[-1])
-            if removed_flag is False:
+            removed_flag = user[-1]
+            if removed_flag == 'False':
                 uuid = user[0]
                 if len(self.user_list) < USER_LIST_MAX_LENGTH:  # 控制内存中的用户数量不超出上限
                     username = user[1]
                     password = user[2]
                     email = user[3]
-                    search_history = user[4]
-                    search_history_json = json.loads(search_history)  # 得到的 search_history_json 是字典
-                    favourites = user[5]
-                    favourites_json = json.loads(favourites)
-                    confirm_code = user[6]
-                    email_confirmed = bool(user[7])
-                    permissions = user[8]
+                    confirm_code = user[4]
+                    email_confirmed = bool(user[5])
+                    permissions = user[6]
                     user_in_memory = User(uuid=uuid, username=username, password=password, email=email,
-                                          search_history=search_history_json, favourites=favourites_json,
+                                          search_history={},
                                           confirm_code=confirm_code, email_confirmed=email_confirmed,
                                           permissions=permissions)
                     self.user_list.append(user_in_memory)
 
                 self.all_uuids.append(uuid)
+
+        # 为 self.user_list 中的用户初始化 search_history 成员
+        for index in range(len(self.user_list)):
+            uuid = self.user_list[index].uuid
+            sql = """select * from search_history where uuid = "%d" """ % uuid
+            self.cursor.execute(sql)
+            histories = self.cursor.fetchall()
+            for history in histories:
+                timestamp = history[0]
+                result_timestamp = history[1]
+                keywords = history[2]
+                search_completed_flag = history[3]
+                uuid = history[4]
+                favourite_flag = history[5]
+                self.user_list[index].search_history[timestamp] = [result_timestamp, keywords, search_completed_flag,
+                                                                   uuid, favourite_flag]
 
     def write_user(self, user):
         """将User对象拆分为基本数据元，然后写入数据库
@@ -80,16 +93,13 @@ class Database:
         username = user.username
         password = user.password
         email = user.email
-        search_history = json.dumps(user.search_history)  # 得到的 search_history 是字符串
-        favourites = json.dumps(user.favourites)
         confirm_code = user.confirm_code
         email_confirmed = str(user.email_confirmed)
         permissions = user.permissions
 
         # 生成 MySQL 指令并执行插入操作
-        sql = """insert into web_server_user values ("%d","%s","%s","%s","%s","%s","%s","%s","%s", "%s")""" % (
-            uuid, username, password, email, search_history, favourites, confirm_code, email_confirmed, permissions,
-            "False")
+        sql = """insert into user values ("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s")""" % (
+            uuid, username, password, email, confirm_code, email_confirmed, permissions, 'False')
         self.cursor.execute(sql)
         self.conn.commit()
 
@@ -132,23 +142,34 @@ class Database:
 
             # 到数据库中查找
             if found_flag is False:
-                sql = """select * from web_server_user where uuid = "%d" """ % uuid
+                sql = """select * from user where uuid = "%d" """ % uuid
                 self.cursor.execute(sql)
                 user = self.cursor.fetchall()
                 username = user[1]
                 password = user[2]
                 email = user[3]
-                search_history = user[4]
-                search_history_json = json.loads(search_history)
-                favourites = user[5]
-                favourites_json = json.loads(favourites)
-                confirm_code = user[6]
-                email_confirmed = bool(user[7])
-                permissions = user[8]
+                confirm_code = user[4]
+                email_confirmed = bool(user[5])
+                permissions = user[6]
                 found_user = User(uuid=uuid, username=username, password=password, email=email,
-                                  search_history=search_history_json, favourites=favourites_json,
+                                  search_history={},
                                   confirm_code=confirm_code, email_confirmed=email_confirmed,
                                   permissions=permissions)
+
+                sql = """select * from search_history where uuid = "%d" """ % uuid
+                self.cursor.execute(sql)
+                histories = self.cursor.fetchall()
+                for history in histories:
+                    timestamp = history[0]
+                    result_timestamp = history[1]
+                    keywords = history[2]
+                    search_completed_flag = history[3]
+                    uuid = history[4]
+                    favourite_flag = history[5]
+                    found_user.search_history[timestamp] = [result_timestamp, keywords,
+                                                            search_completed_flag,
+                                                            uuid, favourite_flag]
+
                 self.user_list.append(found_user)
 
                 # 控制 user_list 中的对象数量
@@ -177,9 +198,8 @@ class Database:
                     break
 
             # 覆盖写入到数据库中
-            sql = """update web_server_user set uuid = ('%d'),username = ('%s'), password = ('%s'), email = ('%s'), search_history = ('%s'), favourites = ('%s'), confirm_code = ('%s'), email_confirmed = ('%s'), permissions = ('%s') where uuid = ('%d') """ % (
-                uuid, changed_user.username, changed_user.password, changed_user.email, changed_user.search_history,
-                changed_user.favourites, changed_user.confirm_code, changed_user.email_confirmed,
+            sql = """update user set uuid = ('%d'),username = ('%s'), password = ('%s'), email = ('%s'), confirm_code = ('%s'), email_confirmed = ('%s'), permissions = ('%s') where uuid = ('%d') """ % (
+                uuid, changed_user.username, changed_user.password, changed_user.email, changed_user.confirm_code, changed_user.email_confirmed,
                 changed_user.permissions,
                 uuid)
             self.cursor.execute(sql)
@@ -204,7 +224,7 @@ class Database:
                     break
 
             # 将指定uuid的用户在数据库中的removed标签置为Ture
-            sql = """update web_server_user set removed = "Ture" where uuid = ('%d')""" % uuid
+            sql = """update user set removed = "Ture" where uuid = ('%d')""" % uuid
             self.cursor.execute(sql)
             self.conn.commit()
 
@@ -222,7 +242,6 @@ class User:
         -password
         -email
         -search_history
-        -favourites
         -confirm_code
         -email_confirmed
         -permissions
@@ -237,7 +256,6 @@ class User:
             self.password = password
             self.email = email
             self.search_history = {}
-            self.favourites = {}
             self.confirm_code = None
             self.email_confirmed = False
             self.permissions = None
@@ -247,7 +265,6 @@ class User:
             self.password = password
             self.email = email
             self.search_history = kwargs['search_history']
-            self.favourites = kwargs['favourites']
             self.confirm_code = kwargs['confirm_code']
             self.email_confirmed = kwargs['email_confirmed']
             self.permissions = kwargs['permissions']
@@ -276,8 +293,11 @@ if __name__ == "__main__":
     # DATABASE.write_user(test_user)
 
     # 添加用户
-    test_user = User(username='野兽先辈', password='114514', email='test@test.com')
-    DATABASE.add_user(test_user)
+    # test_user = User(username='野兽先辈', password='114514', email='test@test.com')
+    # DATABASE.add_user(test_user)
+
+    # 删除用户
+    # DATABASE.remove_user(2)
 
     for user in DATABASE.user_list:
-        pass
+        print(user.username)

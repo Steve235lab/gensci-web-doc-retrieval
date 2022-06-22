@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="web_server_db" uuid="6864b8bb-d466-4d21-a951-a76c86a57ae5">
+    <data-source source="LOCAL" name="MySQL_on_Tencent_server" uuid="24171f45-42db-4988-8b20-7d1a13eb81bb">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
+      <remarks>部署在42.192.44.52:3306上的MySQL数据库</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://host.docker.internal:49153/gensci-web-doc-retrieval-db</jdbc-url>
+      <jdbc-url>jdbc:mysql://42.192.44.52:3306/gensci-web-doc-retrieval-db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
