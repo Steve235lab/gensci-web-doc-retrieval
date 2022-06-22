@@ -17,6 +17,7 @@ def sign_in(request):
     # 解包前端请求
     email = request.GET.get('email')
     input_password = request.GET.get('password')
+    # print(request.GET)
 
     # 判断用户是否已注册
     if email not in DATABASE.email_list:    # 用户未注册
@@ -30,7 +31,7 @@ def sign_in(request):
         # 验证密码正误
         uuid = DATABASE.user_index[email]
         user = DATABASE.get_user(uuid)
-        if input_password == user.passwprd:     # 密码正确
+        if input_password == user.password:     # 密码正确
             # 生成token
             new_token = forge_token(uuid)
             json_rsp = {
@@ -38,6 +39,7 @@ def sign_in(request):
                 "token": new_token,
                 "result": "success"
             }
+            # print(json_rsp)
             return JsonResponse(json_rsp)
         else:   # 密码错误
             json_rsp = {
