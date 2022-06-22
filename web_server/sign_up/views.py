@@ -5,7 +5,7 @@ from django.http import JsonResponse
 
 from database_new import User, DATABASE
 from uuid_token import forge_token, get_uuid_from_token
-from email_sender import EmailSender
+from .email_sender import EmailSender
 
 
 def sign_up(request):
