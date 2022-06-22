@@ -19,6 +19,8 @@ class Database:
     数据成员：
         -user_list: (list) 保存在内存中的用户对象集合，可以限制最大长度为 USER_LIST_MAX_LENGTH：向尾部添加元素，从头部删除元素
         -all_uuids: (list) 包含所有已被分配的uuid
+        -email_list: (list) 包含所有用户的注册邮箱
+        -user_index: (dict) 将用户中两个具有唯一性的可做标识的成员email和uuid放在字典中，便于查找
 
     方法成员：
         -write_user: 将User对象拆分为基本数据元，然后写入数据库
@@ -36,6 +38,8 @@ class Database:
         """
         self.user_list = []
         self.all_uuids = []
+        self.email_list = []
+        self.user_index = {}    # {email: uuid}
         # 连接到Docker上的MySQL服务容器，注意要先到Docker里手动运行MySQL
         self.conn = connect(host='42.192.44.52', port=3306, user='root', password='root',
                             database='gensci-web-doc-retrieval-db', charset='utf8')
@@ -65,6 +69,8 @@ class Database:
                     self.user_list.append(user_in_memory)
 
                 self.all_uuids.append(uuid)
+                self.email_list.append(email)
+                self.user_index[email] = uuid
 
         # 为 self.user_list 中的用户初始化 search_history 成员
         for index in range(len(self.user_list)):
@@ -111,6 +117,8 @@ class Database:
         """
         self.user_list.append(user)
         self.all_uuids.append(user.uuid)
+        self.email_list.append(user.email)
+        self.user_index[user.email] = user.uuid
         self.write_user(user)
 
         # 控制 user_list 中的对象数量
@@ -217,7 +225,10 @@ class Database:
             pass
         else:
             # 先在内存中删除
+            user = self.get_user(uuid)
+            self.email_list.remove(user.email)
             self.all_uuids.remove(uuid)
+            self.user_index.pop(user.email)
             for index in range(len(self.user_list)):
                 if self.user_list[index].uuid == uuid:
                     self.user_list.pop(index)
@@ -256,9 +267,9 @@ class User:
             self.password = password
             self.email = email
             self.search_history = {}
-            self.confirm_code = None
+            self.confirm_code = kwargs['confirm_code']
             self.email_confirmed = False
-            self.permissions = None
+            self.permissions = 'all'    # 后续完善权限系统后再做更改
         else:  # 传入了uuid，执行加载数据操作，使用已保存的数据初始化对象
             self.uuid = uuid
             self.username = username

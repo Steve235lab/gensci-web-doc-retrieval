@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6eebaf57-8042-44b2-8a62-7d8d4e12c2ea" name="变更" comment="编写用户对象查找、修改、删除功能">
-      <change afterPath="$PROJECT_DIR$/web_server/database_new.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6864b8bb-d466-4d21-a951-a76c86a57ae5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6864b8bb-d466-4d21-a951-a76c86a57ae5.xml" afterDir="false" />
+    <list default="true" id="6eebaf57-8042-44b2-8a62-7d8d4e12c2ea" name="变更" comment="* 后台数据库从本地迁移至王义成的个人服务器&#10;* 数据库结构调整&#10;* 数据库相关代码适配修改">
+      <change afterPath="$PROJECT_DIR$/web_server/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_server/sign_up/email_sender.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6864b8bb-d466-4d21-a951-a76c86a57ae5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6864b8bb-d466-4d21-a951-a76c86a57ae5/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6864b8bb-d466-4d21-a951-a76c86a57ae5/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6864b8bb-d466-4d21-a951-a76c86a57ae5/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6864b8bb-d466-4d21-a951-a76c86a57ae5/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/MySQL+adminer使用手册.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/用户信息数据类设计.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/用户信息数据类设计.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_server/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_server/token.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/uuid_token.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/用户注册.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/用户注册.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/用户登录.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/用户登录.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_server/database_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/database_new.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_server/sign_in/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/sign_in/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_server/sign_in/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/sign_in/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_server/sign_up/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/sign_up/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_server/sign_up/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/sign_up/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +54,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/gensci_internship/gensci-web-doc-retrieval/web_server/sign_up",
     "nodejs_package_manager_path": "yarn"
   },
   "keyToStringList": {
@@ -57,11 +64,14 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\gensci_internship\gensci-web-doc-retrieval\web_server\sign_up" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\gensci_internship\gensci-web-doc-retrieval\web_server" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.database_new">
+  <component name="RunManager" selected="Python.views">
     <configuration name="database" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="gensci-web-doc-retrieval" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -88,6 +98,9 @@
       <module name="gensci-web-doc-retrieval" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/web_server" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -95,6 +108,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/web_server/database_new.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="gensci-web-doc-retrieval" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/web_server/sign_up" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/web_server/sign_up/views.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -119,12 +154,14 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.views" />
       <item itemvalue="Python.database" />
       <item itemvalue="Python.database_new" />
       <item itemvalue="Python 测试.Python 测试 (E:/gensci_internship/gensci-web-doc-retrieval/web_server/tests/test_database.py 内)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.views" />
         <item itemvalue="Python.database_new" />
         <item itemvalue="Python 测试.Python 测试 (E:/gensci_internship/gensci-web-doc-retrieval/web_server/tests/test_database.py 内)" />
         <item itemvalue="Python.database" />
@@ -142,7 +179,8 @@
       <workItem from="1655537912327" duration="1204000" />
       <workItem from="1655703336687" duration="8494000" />
       <workItem from="1655789868268" duration="9947000" />
-      <workItem from="1655816465099" duration="11451000" />
+      <workItem from="1655816465099" duration="11810000" />
+      <workItem from="1655916484037" duration="7293000" />
     </task>
     <task id="LOCAL-00001" summary="拼写错误修正">
       <created>1655797285799</created>
@@ -158,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655811740980</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="* 后台数据库从本地迁移至王义成的个人服务器&#10;* 数据库结构调整&#10;* 数据库相关代码适配修改">
+      <created>1655899883278</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1655899883278</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,9 +223,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="拼写错误修正" />
     <MESSAGE value="编写用户对象查找、修改、删除功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="编写用户对象查找、修改、删除功能" />
+    <MESSAGE value="* 后台数据库从本地迁移至王义成的个人服务器&#10;* 数据库结构调整&#10;* 数据库相关代码适配修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="* 后台数据库从本地迁移至王义成的个人服务器&#10;* 数据库结构调整&#10;* 数据库相关代码适配修改" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/gensci_web_doc_retrieval$views.coverage" NAME="views 覆盖结果" MODIFIED="1655920290142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_server/sign_up" />
     <SUITE FILE_PATH="coverage/gensci_web_doc_retrieval$database.coverage" NAME="database 覆盖结果" MODIFIED="1655791350699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_server" />
     <SUITE FILE_PATH="coverage/gensci_web_doc_retrieval$database_new.coverage" NAME="database_new 覆盖结果" MODIFIED="1655899518470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_server" />
     <SUITE FILE_PATH="coverage/gensci_web_doc_retrieval$token.coverage" NAME="token 覆盖结果" MODIFIED="1655453383651" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_server" />
