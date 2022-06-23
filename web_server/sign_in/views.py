@@ -17,7 +17,7 @@ def sign_in(request):
     # 解包前端请求
     email = request.GET.get('email')
     input_password = request.GET.get('password')
-    # print(request.GET)
+    print(request.GET)
 
     # 判断用户是否已注册
     if email not in DATABASE.email_list:    # 用户未注册
@@ -26,7 +26,9 @@ def sign_in(request):
             "token": 'None',
             "result": "unregistered_user"
         }
-        return JsonResponse(json_rsp)
+        cache = JsonResponse(json_rsp)
+        cache["Access-Control-Allow-Origin"] = "*"
+        return cache
     else:
         # 验证密码正误
         uuid = DATABASE.user_index[email]
@@ -39,14 +41,19 @@ def sign_in(request):
                 "token": new_token,
                 "result": "success"
             }
-            # print(json_rsp)
-            return JsonResponse(json_rsp)
+            # json_rsp["Access-Control-Allow-Origin"] = "*"
+            print(json_rsp)
+            cache = JsonResponse(json_rsp)
+            cache["Access-Control-Allow-Origin"] = "*"
+            return cache
         else:   # 密码错误
             json_rsp = {
                 "message_type": "rsp_sign_in",
                 "token": 'None',
                 "result": "wrong_password"
             }
-            return JsonResponse(json_rsp)
+            cache = JsonResponse(json_rsp)
+            cache["Access-Control-Allow-Origin"] = "*"
+            return cache
 
 

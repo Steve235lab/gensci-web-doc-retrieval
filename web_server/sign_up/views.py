@@ -26,7 +26,9 @@ def sign_up(request):
             "token": 'None',
             "result": "email_occupied"
         }
-        return JsonResponse(json_rsp)
+        cache = JsonResponse(json_rsp)
+        cache["Access-Control-Allow-Origin"] = "*"
+        return cache
     else:   # 邮箱可用
         # 生成验证码
         email_sender = EmailSender(email, username)
@@ -44,7 +46,9 @@ def sign_up(request):
             "token": new_token,
             "result": "success"
         }
-        return JsonResponse(json_rsp)
+        cache = JsonResponse(json_rsp)
+        cache["Access-Control-Allow-Origin"] = "*"
+        return cache
 
 
 def email_confirm(request):
@@ -62,7 +66,9 @@ def email_confirm(request):
     # token时效性判断
     if uuid_str == 'token expired':
         json_rsp = {"message_type": "token_expired"}
-        return JsonResponse(json_rsp)
+        cache = JsonResponse(json_rsp)
+        cache["Access-Control-Allow-Origin"] = "*"
+        return cache
     else:
         uuid = int(uuid_str)
         user = DATABASE.get_user(uuid)
@@ -74,11 +80,15 @@ def email_confirm(request):
                 "token": new_token,
                 "confirmed": True
             }
-            return JsonResponse(json_rsp)
+            cache = JsonResponse(json_rsp)
+            cache["Access-Control-Allow-Origin"] = "*"
+            return cache
         else:
             json_rsp = {
                 "message_type": "rsp_email_confirm",
                 "token": new_token,
                 "confirmed": False
             }
-            return JsonResponse(json_rsp)
+            cache = JsonResponse(json_rsp)
+            cache["Access-Control-Allow-Origin"] = "*"
+            return cache
