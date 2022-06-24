@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="6eebaf57-8042-44b2-8a62-7d8d4e12c2ea" name="变更" comment="增加对HTTP POST类型请求的支持，完成搜索页面相关API">
+    <list default="true" id="6eebaf57-8042-44b2-8a62-7d8d4e12c2ea" name="变更" comment="搜索及结果显示页面">
+      <change afterPath="$PROJECT_DIR$/web_client/web_client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_client/web_client/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_client/web_client/babel.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_client/web_client/jsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_client/web_client/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_client/web_client/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_client/web_client/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_client/web_client/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_client/web_client/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_client/web_client/src/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_client/web_client/src/components/HelloWorld.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_client/web_client/src/example/history_list.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_client/web_client/src/example/result.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_client/web_client/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_client/web_client/vue.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_client/web_client/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax_tests/test_get_history.html" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_tests/test_get_history.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax_tests/test_get_result.html" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_tests/test_get_result.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax_tests/test_search.html" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_tests/test_search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax_tests/test_sign_in.html" beforeDir="false" afterPath="$PROJECT_DIR$/ajax_tests/test_sign_in.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/搜索.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/搜索.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,10 +34,27 @@
         <option value="Python Unit Test" />
         <option value="Python Script" />
         <option value="HTML File" />
+        <option value="package.json" />
       </list>
     </option>
   </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="main" />
+  </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/develop" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -40,23 +71,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/gensci_internship/gensci-web-doc-retrieval/ajax_tests",
-    "nodejs_package_manager_path": "yarn",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
-    ]
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\gensci_internship\gensci-web-doc-retrieval\ajax_tests" />
@@ -66,7 +92,7 @@
       <recent name="E:\gensci_internship\gensci-web-doc-retrieval\web_server" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.temp">
+  <component name="RunManager">
     <configuration name="database" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="gensci-web-doc-retrieval" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -167,22 +193,6 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Python.temp" />
-      <item itemvalue="Python.views" />
-      <item itemvalue="Python.database" />
-      <item itemvalue="Python.database_new" />
-      <item itemvalue="Python 测试.Python 测试 (E:/gensci_internship/gensci-web-doc-retrieval/web_server/tests/test_database.py 内)" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.temp" />
-        <item itemvalue="Python.views" />
-        <item itemvalue="Python.database_new" />
-        <item itemvalue="Python 测试.Python 测试 (E:/gensci_internship/gensci-web-doc-retrieval/web_server/tests/test_database.py 内)" />
-        <item itemvalue="Python.database" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -198,6 +208,7 @@
       <workItem from="1655816465099" duration="11810000" />
       <workItem from="1655916484037" duration="11529000" />
       <workItem from="1655978648309" duration="33792000" />
+      <workItem from="1656073473468" duration="2729000" />
     </task>
     <task id="LOCAL-00001" summary="拼写错误修正">
       <created>1655797285799</created>
@@ -259,20 +270,14 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="拼写错误修正" />
     <MESSAGE value="编写用户对象查找、修改、删除功能" />
     <MESSAGE value="* 后台数据库从本地迁移至王义成的个人服务器&#10;* 数据库结构调整&#10;* 数据库相关代码适配修改" />
     <MESSAGE value="完成用户注册、登录后端功能，包括请求路由及响应，同时对相关文档做了修改" />
     <MESSAGE value="文档细节修正" />
     <MESSAGE value="增加对HTTP POST类型请求的支持，完成搜索页面相关API" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加对HTTP POST类型请求的支持，完成搜索页面相关API" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/gensci_web_doc_retrieval$views.coverage" NAME="views 覆盖结果" MODIFIED="1655920290142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_server/sign_up" />
-    <SUITE FILE_PATH="coverage/gensci_web_doc_retrieval$database.coverage" NAME="database 覆盖结果" MODIFIED="1655791350699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_server" />
-    <SUITE FILE_PATH="coverage/gensci_web_doc_retrieval$database_new.coverage" NAME="database_new 覆盖结果" MODIFIED="1655899518470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_server" />
-    <SUITE FILE_PATH="coverage/gensci_web_doc_retrieval$token.coverage" NAME="token 覆盖结果" MODIFIED="1655453383651" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_server" />
-    <SUITE FILE_PATH="coverage/gensci_web_doc_retrieval$temp.coverage" NAME="temp 覆盖结果" MODIFIED="1656009652747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_server/search" />
-    <SUITE FILE_PATH="coverage/gensci_web_doc_retrieval$.coverage" NAME=" 覆盖结果" MODIFIED="1655816672433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_server/tests" />
+    <MESSAGE value="搜索及结果显示页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="搜索及结果显示页面" />
   </component>
 </project>
