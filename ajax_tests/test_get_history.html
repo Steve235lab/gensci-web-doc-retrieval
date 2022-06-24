@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test get history</title>
+</head>
+<body>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        //location = 'http://42.192.44.52:8000/sign_in/';
+        $.ajax({
+            url:"http://42.192.44.52:8000/search/history/",
+            type:'get',
+            dataType: 'json',
+            crossDomain: true,
+            data: {
+                token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjA2Njc3NS45ODQ4NzM1LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.-h_aB-8UjNhq2Z8hrkrvpjPMFU4napi72Is-Wq-NXCA",
+                message_type: "get_history",
+            },
+            success: function (dataDict) {
+                            alert('success');
+                            console.log(dataDict);
+                        },
+            error: function(err) {
+                alert('error');
+                console.log(err);
+            }
+        });
+    </script>
+</body>
+</html>

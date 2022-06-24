@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test sign in</title>
+</head>
+<body>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        //location = 'http://42.192.44.52:8000/sign_in/';
+        $.ajax({
+            url:"http://42.192.44.52:8000/sign_in/",
+            type:'post',
+            dataType: 'json',
+            crossDomain: true,
+            data: {
+                message_type: "sign_in",
+                email: "steve235lab@hotmail.com",
+                password: "114514",
+            },
+            success: function (dataDict) {
+                            alert('success');
+                            token = dataDict.token;
+                            console.log(token);
+                        },
+            error: function(err) {
+                alert('error');
+                console.log(err);
+            }
+        });
+    </script>
+</body>
+</html>

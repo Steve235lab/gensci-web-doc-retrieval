@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-aae68)ppyyk0y=-4of$%^d96-h48fxqcry2!g@j1g0ns6=zapa
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -40,13 +40,13 @@ INSTALLED_APPS = [
     'sign_up.apps.SignUpConfig',
     'sign_in.apps.SignInConfig',
     'search.apps.SearchConfig',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -124,3 +124,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+
+CORS_ORIGIN_ALLOW_ALL = True
