@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="MySQL_on_Tencent_server">
-  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.39">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.40">
     <root id="1">
       <DefaultCasing>lower/lower</DefaultCasing>
       <DefaultEngine>InnoDB</DefaultEngine>
@@ -997,9 +997,9 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Type>btree</Type>
     </index>
     <key id="294" parent="284" name="PRIMARY">
-      <ColNames>timestamp</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
+      <UnderlyingIndexColNames>timestamp</UnderlyingIndexColNames>
     </key>
     <column id="295" parent="285" name="uuid">
       <DataType>int|0s</DataType>
@@ -1042,9 +1042,9 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>8</Position>
     </column>
     <key id="303" parent="285" name="PRIMARY">
-      <ColNames>uuid</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
+      <UnderlyingIndexColNames>uuid</UnderlyingIndexColNames>
     </key>
   </database-model>
 </dataSource>

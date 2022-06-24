@@ -15,9 +15,13 @@ def sign_in(request):
     登录信息验证，并向前端返回结果
     """
     # 解包前端请求
-    email = request.GET.get('email')
-    input_password = request.GET.get('password')
-    print(request.GET)
+    if request.method == 'GET':
+        email = request.GET.get('email')
+        input_password = request.GET.get('password')
+        # print(request.GET)
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        input_password = request.POST.get('password')
 
     # 判断用户是否已注册
     if email not in DATABASE.email_list:    # 用户未注册

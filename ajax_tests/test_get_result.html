@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test get result</title>
+</head>
+<body>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        //location = 'http://42.192.44.52:8000/sign_in/';
+        $.ajax({
+            url:"http://127.0.0.1:8000/search/result/",
+            type:'get',
+            dataType: 'json',
+            crossDomain: true,
+            data: {
+                token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjA2Mzg1Ni42NzgyMTc2LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.c-u1nsbOXs8__XQXh45_WJLPi4das3zdybNczoYcdU8",
+                message_type: "get_result",
+                timestamp: "114514",
+                page_num: "1"
+            },
+            success: function (dataDict) {
+                            alert('success');
+                            console.log(dataDict);
+                        },
+            error: function(err) {
+                alert('error');
+                console.log(err);
+            }
+        });
+    </script>
+</body>
+</html>

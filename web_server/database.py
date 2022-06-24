@@ -1,4 +1,5 @@
 # database.py
+# 已弃用，请使用 database_new.py
 # 内存中数据对象与硬盘中数据库表文件交互
 # Written by Steve D. J. on 2022/6/17.
 

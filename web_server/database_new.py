@@ -3,7 +3,7 @@
 # Based on database.py
 # Written by Steve D. J. on 2022/6/22.
 
-import json
+import time
 
 from pymysql import connect
 
@@ -21,6 +21,10 @@ class Database:
         -all_uuids: (list) 包含所有已被分配的uuid
         -email_list: (list) 包含所有用户的注册邮箱
         -user_index: (dict) 将用户中两个具有唯一性的可做标识的成员email和uuid放在字典中，便于查找
+            {email: uuid}
+        -searched_keywords: (dict) 以被搜索过的关键词为键，[result_timestamp, favourite_flag]为值的字典，方便归并重复关键词搜索
+            其中 favourite_flag 初始为 False，当有任意用户收藏此关键词后置为True
+            {keywords: [result_timestamp, favourite_flag]}
 
     方法成员：
         -write_user: 将User对象拆分为基本数据元，然后写入数据库
@@ -28,7 +32,7 @@ class Database:
         -get_user: 使用uuid先在user_list中查找，找到后返回User对象；如果找不到再到数据库中查找，找到后使用数据库中的数据初始化User对象，返
         回该User对象，然后将该User对象放入user_list尾部，并删除user_list头部元素
         -rewrite_user: 覆盖写入更改后的User对象以起到修改数据库中数据的效果
-        -remove_user: 根据uuid删除用户，实际将指定uuid的用户在数据库中的removed标签置为Ture
+        -remove_user: 根据uuid删除用户，实际将指定uuid的用户在数据库中的removed标签置为True
     """
 
     def __init__(self):
@@ -39,7 +43,8 @@ class Database:
         self.user_list = []
         self.all_uuids = []
         self.email_list = []
-        self.user_index = {}    # {email: uuid}
+        self.user_index = {}  # {email: uuid}
+        self.searched_keywords = {}  # {keywords: [result_timestamp, favourite_flag]}
         # 连接到Docker上的MySQL服务容器，注意要先到Docker里手动运行MySQL
         self.conn = connect(host='42.192.44.52', port=3306, user='root', password='root',
                             database='gensci-web-doc-retrieval-db', charset='utf8')
@@ -75,7 +80,7 @@ class Database:
         # 为 self.user_list 中的用户初始化 search_history 成员
         for index in range(len(self.user_list)):
             uuid = self.user_list[index].uuid
-            sql = """select * from search_history where uuid = "%d" """ % uuid
+            sql = """select * from search_history where uuid = '%d' """ % uuid
             self.cursor.execute(sql)
             histories = self.cursor.fetchall()
             for history in histories:
@@ -87,6 +92,33 @@ class Database:
                 favourite_flag = history[5]
                 self.user_list[index].search_history[timestamp] = [result_timestamp, keywords, search_completed_flag,
                                                                    uuid, favourite_flag]
+
+        # 遍历 search_history 表，初始化searched_keywords
+        sql = """select * from search_history"""
+        self.cursor.execute(sql)
+        histories = self.cursor.fetchall()
+        for history in histories:
+            keywords = history[2]
+            if keywords in self.searched_keywords:  # searched_keywords中已经有相同关键词的搜索记录
+                favourite_flag = history[5]
+                if favourite_flag == 'True':
+                    self.searched_keywords[keywords][1] = True
+            else:  # 此条记录是第一条搜索该关键词的搜索记录
+                result_timestamp = history[1]
+                favourite_flag = history[5]
+                if favourite_flag == 'True':
+                    favourite_flag = True
+                else:
+                    favourite_flag = False
+                self.searched_keywords[keywords] = [result_timestamp, favourite_flag]
+
+    def is_connected(self):
+        """Check if the server is alive"""
+        try:
+            self.conn.ping(reconnect=True)
+        except:
+            self.conn = connect(host='42.192.44.52', port=3306, user='root', password='root',
+                                database='gensci-web-doc-retrieval-db', charset='utf8')
 
     def write_user(self, user):
         """将User对象拆分为基本数据元，然后写入数据库
@@ -103,8 +135,9 @@ class Database:
         email_confirmed = str(user.email_confirmed)
         permissions = user.permissions
 
+        self.is_connected()
         # 生成 MySQL 指令并执行插入操作
-        sql = """insert into user values ("%d", "%s", "%s", "%s", "%s", "%s", "%s", "%s")""" % (
+        sql = """insert into user values ('%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s')""" % (
             uuid, username, password, email, confirm_code, email_confirmed, permissions, 'False')
         self.cursor.execute(sql)
         self.conn.commit()
@@ -150,7 +183,8 @@ class Database:
 
             # 到数据库中查找
             if found_flag is False:
-                sql = """select * from user where uuid = "%d" """ % uuid
+                self.is_connected()
+                sql = """select * from user where uuid = '%d' """ % uuid
                 self.cursor.execute(sql)
                 user = self.cursor.fetchall()
                 username = user[1]
@@ -164,7 +198,7 @@ class Database:
                                   confirm_code=confirm_code, email_confirmed=email_confirmed,
                                   permissions=permissions)
 
-                sql = """select * from search_history where uuid = "%d" """ % uuid
+                sql = """select * from search_history where uuid = '%d' """ % uuid
                 self.cursor.execute(sql)
                 histories = self.cursor.fetchall()
                 for history in histories:
@@ -206,8 +240,10 @@ class Database:
                     break
 
             # 覆盖写入到数据库中
+            self.is_connected()
             sql = """update user set uuid = ('%d'),username = ('%s'), password = ('%s'), email = ('%s'), confirm_code = ('%s'), email_confirmed = ('%s'), permissions = ('%s') where uuid = ('%d') """ % (
-                uuid, changed_user.username, changed_user.password, changed_user.email, changed_user.confirm_code, changed_user.email_confirmed,
+                uuid, changed_user.username, changed_user.password, changed_user.email, changed_user.confirm_code,
+                changed_user.email_confirmed,
                 changed_user.permissions,
                 uuid)
             self.cursor.execute(sql)
@@ -216,7 +252,7 @@ class Database:
     def remove_user(self, uuid):
         """ 根据uuid删除用户
 
-        先在user_list中删除，然后将指定uuid的用户在数据库中的removed标签置为Ture
+        先在user_list中删除，然后将指定uuid的用户在数据库中的removed标签置为True
 
         :param uuid: (int) 用户编号
         :return: None
@@ -234,10 +270,65 @@ class Database:
                     self.user_list.pop(index)
                     break
 
-            # 将指定uuid的用户在数据库中的removed标签置为Ture
-            sql = """update user set removed = "Ture" where uuid = ('%d')""" % uuid
+            # 将指定uuid的用户在数据库中的removed标签置为True
+            self.is_connected()
+            sql = """update user set removed = 'True' where uuid = ('%d')""" % uuid
             self.cursor.execute(sql)
             self.conn.commit()
+
+    def add_search_history(self, keywords, uuid):
+        """向数据库中添加一条新的搜索记录
+
+        生成当前时间戳，查找并更新 self.searched_keywords 确定 result_timestamp，写入数据库
+
+        :param keywords: (str) 用户搜索的关键词组合
+        :param uuid: (int) 进行该次搜索的用户序号
+        :return: None
+        """
+        timestamp = int(time.mktime(time.localtime(time.time())))
+
+        if keywords in self.searched_keywords:
+            result_timestamp = self.searched_keywords[keywords][0]
+        else:
+            result_timestamp = timestamp
+            self.searched_keywords[keywords] = [timestamp, False]
+
+        self.is_connected()
+        sql = """insert into search_history values ('%d', '%d', '%s', '%s', '%d', '%s')""" % (
+            timestamp, result_timestamp, keywords, "False", uuid, "False")
+        self.cursor.execute(sql)
+        self.conn.commit()
+
+    def get_search_history(self, uuid):
+        """获取给定uuid用户的搜索记录
+
+        :param uuid: (int)
+        :return history_list: (list)
+        """
+        # 返回记录的最大条数
+        max_history_num = 100
+
+        self.is_connected()
+        sql = """select * from search_history where uuid = '%d' AND search_completed_flag = 'True' """ % uuid
+        self.cursor.execute(sql)
+        history_list = self.cursor.fetchall()
+        if len(history_list) <= max_history_num:
+            return history_list
+        else:
+            return history_list[(-1*max_history_num):]
+
+    def get_result(self, timestamp):
+        """获取给定时间戳的历史记录
+
+        :param timestamp: (int)
+        :return history: (list) 根据给定时间戳从数据表中找到的一条历史记录
+        """
+        self.is_connected()
+        sql = """select * from search_history where timestamp = '%d' """ % timestamp
+        self.cursor.execute(sql)
+        history = self.cursor.fetchall()
+
+        return history
 
 
 class User:
@@ -269,7 +360,7 @@ class User:
             self.search_history = {}
             self.confirm_code = kwargs['confirm_code']
             self.email_confirmed = False
-            self.permissions = 'all'    # 后续完善权限系统后再做更改
+            self.permissions = 'all'  # 后续完善权限系统后再做更改
         else:  # 传入了uuid，执行加载数据操作，使用已保存的数据初始化对象
             self.uuid = uuid
             self.username = username
@@ -295,6 +386,7 @@ DATABASE = Database()
 if __name__ == "__main__":
     # test
     # 读数据库
+    # import json
     # cache = DATABASE.user_list[0].search_history
     # json_test = json.dumps(cache)
     # print(json_test)

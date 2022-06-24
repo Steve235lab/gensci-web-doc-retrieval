@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6eebaf57-8042-44b2-8a62-7d8d4e12c2ea" name="变更" comment="* 后台数据库从本地迁移至王义成的个人服务器&#10;* 数据库结构调整&#10;* 数据库相关代码适配修改">
-      <change afterPath="$PROJECT_DIR$/web_server/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_server/sign_up/email_sender.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6864b8bb-d466-4d21-a951-a76c86a57ae5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6864b8bb-d466-4d21-a951-a76c86a57ae5/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6864b8bb-d466-4d21-a951-a76c86a57ae5/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6864b8bb-d466-4d21-a951-a76c86a57ae5/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6864b8bb-d466-4d21-a951-a76c86a57ae5/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
+    <list default="true" id="6eebaf57-8042-44b2-8a62-7d8d4e12c2ea" name="变更" comment="文档细节修正">
+      <change afterPath="$PROJECT_DIR$/ajax_tests/test_get_history.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ajax_tests/test_get_result.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ajax_tests/test_search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ajax_tests/test_sign_in.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ajax_tests/test_sign_up.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web_server/search/temp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/24171f45-42db-4988-8b20-7d1a13eb81bb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/24171f45-42db-4988-8b20-7d1a13eb81bb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/用户注册.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/用户注册.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/用户登录.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/用户登录.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/搜索.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/搜索.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_server/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web_server/database_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/database_new.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_server/sign_in/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/sign_in/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_server/search/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/search/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_server/search/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/search/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web_server/sign_in/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/sign_in/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_server/sign_up/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/sign_up/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web_server/sign_up/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/sign_up/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +29,7 @@
       <list>
         <option value="Python Unit Test" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -51,11 +53,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/gensci_internship/gensci-web-doc-retrieval/web_server/sign_up",
-    "nodejs_package_manager_path": "yarn"
+    "last_opened_file_path": "E:/gensci_internship/gensci-web-doc-retrieval/ajax_tests",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -65,13 +69,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\gensci_internship\gensci-web-doc-retrieval\ajax_tests" />
       <recent name="E:\gensci_internship\gensci-web-doc-retrieval\web_server\sign_up" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\gensci_internship\gensci-web-doc-retrieval\web_server" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.views">
+  <component name="RunManager" selected="Python.temp">
     <configuration name="database" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="gensci-web-doc-retrieval" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -116,6 +121,25 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="temp" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="gensci-web-doc-retrieval" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/web_server/search" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/web_server/search/temp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="gensci-web-doc-retrieval" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -154,6 +178,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.temp" />
       <item itemvalue="Python.views" />
       <item itemvalue="Python.database" />
       <item itemvalue="Python.database_new" />
@@ -161,6 +186,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.temp" />
         <item itemvalue="Python.views" />
         <item itemvalue="Python.database_new" />
         <item itemvalue="Python 测试.Python 测试 (E:/gensci_internship/gensci-web-doc-retrieval/web_server/tests/test_database.py 内)" />
@@ -180,7 +206,8 @@
       <workItem from="1655703336687" duration="8494000" />
       <workItem from="1655789868268" duration="9947000" />
       <workItem from="1655816465099" duration="11810000" />
-      <workItem from="1655916484037" duration="7293000" />
+      <workItem from="1655916484037" duration="11529000" />
+      <workItem from="1655978648309" duration="32724000" />
     </task>
     <task id="LOCAL-00001" summary="拼写错误修正">
       <created>1655797285799</created>
@@ -203,7 +230,21 @@
       <option name="project" value="LOCAL" />
       <updated>1655899883278</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="完成用户注册、登录后端功能，包括请求路由及响应，同时对相关文档做了修改">
+      <created>1655925839413</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1655925839413</updated>
+    </task>
+    <task id="LOCAL-00005" summary="文档细节修正">
+      <created>1655979967912</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1655979967912</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,13 +265,16 @@
     <MESSAGE value="拼写错误修正" />
     <MESSAGE value="编写用户对象查找、修改、删除功能" />
     <MESSAGE value="* 后台数据库从本地迁移至王义成的个人服务器&#10;* 数据库结构调整&#10;* 数据库相关代码适配修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="* 后台数据库从本地迁移至王义成的个人服务器&#10;* 数据库结构调整&#10;* 数据库相关代码适配修改" />
+    <MESSAGE value="完成用户注册、登录后端功能，包括请求路由及响应，同时对相关文档做了修改" />
+    <MESSAGE value="文档细节修正" />
+    <option name="LAST_COMMIT_MESSAGE" value="文档细节修正" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/gensci_web_doc_retrieval$views.coverage" NAME="views 覆盖结果" MODIFIED="1655920290142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_server/sign_up" />
     <SUITE FILE_PATH="coverage/gensci_web_doc_retrieval$database.coverage" NAME="database 覆盖结果" MODIFIED="1655791350699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_server" />
     <SUITE FILE_PATH="coverage/gensci_web_doc_retrieval$database_new.coverage" NAME="database_new 覆盖结果" MODIFIED="1655899518470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_server" />
     <SUITE FILE_PATH="coverage/gensci_web_doc_retrieval$token.coverage" NAME="token 覆盖结果" MODIFIED="1655453383651" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_server" />
+    <SUITE FILE_PATH="coverage/gensci_web_doc_retrieval$temp.coverage" NAME="temp 覆盖结果" MODIFIED="1656009652747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_server/search" />
     <SUITE FILE_PATH="coverage/gensci_web_doc_retrieval$.coverage" NAME=" 覆盖结果" MODIFIED="1655816672433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web_server/tests" />
   </component>
 </project>

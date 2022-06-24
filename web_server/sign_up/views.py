@@ -16,11 +16,17 @@ def sign_up(request):
     构造用户对象并写入数据库，以json形式向前端返回token
     """
     # 解包前端请求
-    username = request.GET.get('username')
-    password = request.GET.get('password')
-    email = request.GET.get('email')
+    if request.method == 'GET':
+        username = request.GET.get('username')
+        password = request.GET.get('password')
+        email = request.GET.get('email')
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        email = request.POST.get('email')
+
     # 判断邮箱是否已被占用
-    if email in DATABASE.email_list:    # 邮箱已被占用
+    if email in DATABASE.email_list:  # 邮箱已被占用
         json_rsp = {
             "message_type": "rsp_sign_up",
             "token": 'None',
@@ -29,7 +35,7 @@ def sign_up(request):
         cache = JsonResponse(json_rsp)
         cache["Access-Control-Allow-Origin"] = "*"
         return cache
-    else:   # 邮箱可用
+    else:  # 邮箱可用
         # 生成验证码
         email_sender = EmailSender(email, username)
         email_sender.generate_content()
@@ -46,6 +52,7 @@ def sign_up(request):
             "token": new_token,
             "result": "success"
         }
+        # print(json_rsp)
         cache = JsonResponse(json_rsp)
         cache["Access-Control-Allow-Origin"] = "*"
         return cache
@@ -59,8 +66,12 @@ def email_confirm(request):
     将用户输入的验证码与数据库中的值进行比对，并以json形式向前端返回验证结果
     """
     # 解包前端请求
-    token = request.GET.get('token')
-    input_confirm_code = request.GET.get('confirm_code')
+    if request.method == 'GET':
+        token = request.GET.get('token')
+        input_confirm_code = request.GET.get('confirm_code')
+    if request.method == 'POST':
+        token = request.POST.get('token')
+        input_confirm_code = request.POST.get('confirm_code')
     # 从token中获取uuid
     uuid_str = get_uuid_from_token(token)
     # token时效性判断
