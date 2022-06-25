@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6eebaf57-8042-44b2-8a62-7d8d4e12c2ea" name="变更" comment="搜索及结果显示页面">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/24171f45-42db-4988-8b20-7d1a13eb81bb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/24171f45-42db-4988-8b20-7d1a13eb81bb.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gensci-web-doc-retrieval.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gensci-web-doc-retrieval.iml" afterDir="false" />
+    <list default="true" id="6eebaf57-8042-44b2-8a62-7d8d4e12c2ea" name="变更" comment="添加搜索线程入口以及完成搜索善后逻辑">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_server/database_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/database_new.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_server/search/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/search/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +193,7 @@
       <workItem from="1656073473468" duration="2729000" />
       <workItem from="1656136049618" duration="109000" />
       <workItem from="1656136170959" duration="105000" />
-      <workItem from="1656141813260" duration="5306000" />
+      <workItem from="1656141813260" duration="8009000" />
     </task>
     <task id="LOCAL-00001" summary="拼写错误修正">
       <created>1655797285799</created>
@@ -241,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656064643091</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="添加搜索线程入口以及完成搜索善后逻辑">
+      <created>1656148351255</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1656148351255</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,6 +270,7 @@
     <MESSAGE value="文档细节修正" />
     <MESSAGE value="增加对HTTP POST类型请求的支持，完成搜索页面相关API" />
     <MESSAGE value="搜索及结果显示页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="搜索及结果显示页面" />
+    <MESSAGE value="添加搜索线程入口以及完成搜索善后逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加搜索线程入口以及完成搜索善后逻辑" />
   </component>
 </project>
