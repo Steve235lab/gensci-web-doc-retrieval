@@ -1,9 +1,6 @@
 <template>
-  <div id="app">
-    <!--    <img alt="Vue logo" src="./assets/logo.png">-->
-    <!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
-
-    <el-menu
+  <div>
+   <el-menu
         :default-active="activeIndex"
         class="el-menu-demo"
         mode="horizontal"
@@ -12,8 +9,8 @@
         text-color="#fff"
         active-text-color="#b4c8e0">
       <el-menu-item index="0">LOGO</el-menu-item>
-      <el-menu-item index="1" style="float: right">登录</el-menu-item>
-      <el-menu-item index="2" style="float: right">注册</el-menu-item>
+      <el-menu-item index="1" style="float: right" @click="gotoLogin">登录</el-menu-item>
+      <el-menu-item index="2" style="float: right" @click="gotoRegister">注册</el-menu-item>
     </el-menu>
     <el-row :gutter="20">
       <el-col :span="12" :offset="6">
@@ -207,10 +204,10 @@
 // import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
-  components: {
-    // HelloWorld
-  },
+  // name: 'HomeView',
+  // components: {
+  //
+  // },
   data() {
     return {
       activeIndex: '0',
@@ -258,6 +255,12 @@ export default {
     };
   },
   methods: {
+    gotoLogin(){
+      this.$router.push('login')
+    },
+    gotoRegister(){
+      this.$router.push('register')
+    },
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
     },
