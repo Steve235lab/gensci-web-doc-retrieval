@@ -163,6 +163,7 @@
     <el-row :gutter="5">
       <el-col :span="2" :offset="2">
         <div style="height:30px;">历史搜索记录</div>
+        <el-button @click="test">test</el-button>
         <!--        <div v-for="history in history_list" style="height:30px;">{{history}}</div>-->
       </el-col>
       <el-col :span="16" :offset="2">
@@ -237,6 +238,7 @@
 
 import qs from "qs";
 import md5 from "js-md5";
+import axios from "axios";
 
 export default {
   // name: 'HomeView',
@@ -289,10 +291,35 @@ export default {
           }
         },]
       },
-
+      result:[]
     };
   },
+  mounted() {
+
+  },
   methods: {
+    test(){
+      var that = this;
+      that.axios({
+        method:"get",
+        url:"http://42.192.44.52:8000/search/history/",
+        params:{
+          message_type: "get_history",
+          token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMDAxIiwiZXhwIjoxNjU1NDUzMzg2LjEyODI2LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.vLmc5nNmJc4xBN83CMneKEYG2GmIDan-p_fP91n7WTE"
+        }
+      })
+          .then(function (res){
+            console.log(res)
+            console.log('连接成功')
+            that.result = res.data.data
+            console.log(that.result)
+            console.log(res.data)
+          })
+          .catch(function(err){
+            console.log(err)
+            console.log('连接失败')
+          })
+    },
     gotoLogin(){
       this.$router.push('login')
     },
@@ -307,7 +334,7 @@ export default {
         this.$message('输入不能为空');
       }
       else {
-        let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMDAxIiwiZXhwIjoxNjU1NDUzMzg2LjEyODI2LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.vLmc5nNmJc4xBN83CMneKEYG2GmIDan-p_fP91n7WTE";
+        let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjA2Njc3NS45ODQ4NzM1LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.-h_aB-8UjNhq2Z8hrkrvpjPMFU4napi72Is-Wq-NXCA";
         var that=this;
         that.axios({
           method:"post",
@@ -331,6 +358,7 @@ export default {
         })
             .then(function(res){
               console.log(res);
+              console.log(res.data)
             })
             .catch(function(err){
               console.log(err)

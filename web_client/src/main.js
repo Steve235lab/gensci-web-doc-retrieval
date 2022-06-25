@@ -10,7 +10,7 @@ import cookies from 'vue-cookies'
 // import vueResource from 'vue-resource'
 
 Vue.prototype.$cookies = cookies;
-Vue.prototype.$axios = axios
+Vue.prototype.$http = axios
 Vue.use(VueAxios, axios)
 Vue.use(ElementUI);
 // Vue.use(vueResource)
