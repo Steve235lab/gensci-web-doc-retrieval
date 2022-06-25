@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
    <el-menu
         :default-active="activeIndex"
         class="el-menu-demo"
@@ -8,7 +8,7 @@
         background-color="#20558a"
         text-color="#fff"
         active-text-color="#b4c8e0">
-      <el-menu-item index="0">LOGO</el-menu-item>
+      <el-menu-item index="0">HOME</el-menu-item>
       <el-menu-item index="1" style="float: right" @click="gotoLogin">登录</el-menu-item>
       <el-menu-item index="2" style="float: right" @click="gotoRegister">注册</el-menu-item>
     </el-menu>
@@ -33,33 +33,18 @@
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
-            <div style="float:left;font-weight :bold;">SPECIES</div>
-          </el-col>
-          <el-col :span="6" :offset="0"
-          >
-            <el-checkbox-group v-model="species" @change="handleFilter" style="float:left;">
-
-              <el-checkbox label="Humans"/>
-              <el-checkbox label="Other Animals"/>
-
-            </el-checkbox-group>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20" style="height:45px;">
-          <el-col :span="3" :offset="2"
-          >
             <div style="float:left;font-weight :bold;">ARTICLE TYPE</div>
           </el-col>
           <el-col :span="17" :offset="0"
           >
-            <el-checkbox-group v-model="filters" @change="handleFilter" style="float:left;">
+            <el-checkbox-group v-model="article_type" @change="handleFilter" style="float:left;">
 
-              <el-checkbox label="Option A"/>
-              <el-checkbox label="Option B"/>
-              <el-checkbox label="Option C"/>
-              <el-checkbox label="Option A"/>
-              <el-checkbox label="Option B"/>
-              <el-checkbox label="Option C"/>
+              <el-checkbox label="Books and Documents"/>
+              <el-checkbox label="Clinical Trial"/>
+              <el-checkbox label="Meta-Analysis"/>
+              <el-checkbox label="Randomized Controlled Trial"/>
+              <el-checkbox label="Review"/>
+              <el-checkbox label="Systematic Review"/>
 
             </el-checkbox-group>
           </el-col>
@@ -86,16 +71,64 @@
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
-            <div style="float:left;font-weight :bold;">JOURNAL</div>
+            <div style="float:left;font-weight :bold;">LANGUAGE</div>
           </el-col>
           <el-col :span="6" :offset="0"
           >
-            <el-checkbox-group v-model="filters" @change="handleFilter" style="float:left;">
+            <el-checkbox-group v-model="language" @change="handleFilter" style="float:left;">
 
-              <el-checkbox label="Option a"/>
-              <el-checkbox label="Option b"/>
-              <el-checkbox label="Option c"/>
+              <el-checkbox label="English"/>
+              <el-checkbox label="Others"/>
 
+            </el-checkbox-group>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20" style="height:45px;">
+          <el-col :span="3" :offset="2"
+          >
+            <div style="float:left;font-weight :bold;">SPECIES</div>
+          </el-col>
+          <el-col :span="6" :offset="0"
+          >
+            <el-checkbox-group v-model="species" @change="handleFilter" style="float:left;">
+
+              <el-checkbox label="Humans"/>
+              <el-checkbox label="Other Animals"/>
+
+            </el-checkbox-group>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20" style="height:45px;">
+          <el-col :span="3" :offset="2"
+          >
+            <div style="float:left;font-weight :bold;">SEX</div>
+          </el-col>
+          <el-col :span="6" :offset="0"
+          >
+            <el-checkbox-group v-model="sex" @change="handleFilter" style="float:left;">
+
+              <el-checkbox label="Female"/>
+              <el-checkbox label="Male"/>
+
+            </el-checkbox-group>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20" style="height:45px;">
+          <el-col :span="3" :offset="2"
+          >
+            <div style="float:left;font-weight :bold;"><span style="color: crimson">AGE</span></div>
+          </el-col>
+          <el-col :span="6" :offset="0"
+          >
+            <el-checkbox-group v-model="age" @change="handleFilter" style="float:left;">
+              <el-row>
+                <el-col :span="3" >
+                  <el-checkbox label="Humans"/>
+                </el-col>
+                <el-col :span="3" :offset="10">
+                  <el-checkbox label="Other Animals"/>
+                </el-col>
+              </el-row>
             </el-checkbox-group>
           </el-col>
         </el-row>
@@ -201,7 +234,9 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+
+import qs from "qs";
+import md5 from "js-md5";
 
 export default {
   // name: 'HomeView',
@@ -213,8 +248,11 @@ export default {
       activeIndex: '0',
       input: '',
       activeNames: ['1'],
+      article_type: [],
       species: [],
-      filters: [],
+      language: [],
+      sex: [],
+      age: [],
       publication_date: [],
       pickerOptions: {
         shortcuts: [{
@@ -265,25 +303,44 @@ export default {
       console.log(key, keyPath);
     },
     handleSearch() {
-      console.log(this.input);
-      console.log(this.species);
-      console.log(this.filters);
-      console.log(this.publication_date);
-      let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMDAxIiwiZXhwIjoxNjU1NDUzMzg2LjEyODI2LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.vLmc5nNmJc4xBN83CMneKEYG2GmIDan-p_fP91n7WTE";
-      const data = [{
-        "token": token,
-        "message_type": "search",
-        "keywords": this.input,
-        "start_time": this.publication_date[0],
-        "end_time": this.publication_date[1],
-        "filters": this.filters,
-        "species": this.species
-      }];
-      console.log(data);
-      this.input = '';
-      this.species = [];
-      this.filters = [];
-      this.publication_date = [];
+      if (this.input === ''){
+        this.$message('输入不能为空');
+      }
+      else {
+        let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMDAxIiwiZXhwIjoxNjU1NDUzMzg2LjEyODI2LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.vLmc5nNmJc4xBN83CMneKEYG2GmIDan-p_fP91n7WTE";
+        var that=this;
+        that.axios({
+          method:"post",
+          url:"http://42.192.44.52:8000/search/",
+          data:qs.stringify({
+            "token": token,
+            "message_type": 'search',
+            "keywords": this.input,
+            "start_time": this.publication_date[0],
+            "end_time": this.publication_date[1],
+            "filters": [
+              {
+                "article_type": this.article_type,
+                "language": this.language,
+                "species": this.species,
+                "sex": this.sex,
+                "age": this.age,
+              }
+            ]
+          })
+        })
+            .then(function(res){
+              console.log(res);
+            })
+            .catch(function(err){
+              console.log(err)
+            })
+        this.input = '';
+        this.species = [];
+        this.filters = [];
+        this.publication_date = [];
+      }
+
     },
     // handleChange(val) {
     //   console.log(val);

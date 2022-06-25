@@ -1,12 +1,12 @@
 <template>
   <div class="logincontiner">
     <el-form
-      class="loginForm"
-      :model="loginForm"
-      ref="loginForm"
-      :inline="false"
-      size="medium"
-      :rules="loginrules"
+        class="loginForm"
+        :model="loginForm"
+        ref="loginForm"
+        :inline="false"
+        size="medium"
+        :rules="loginrules"
     >
       <el-form-item>
         <div class="loginTitle">注册</div>
@@ -55,7 +55,7 @@
 <script>
 import axios from 'axios';
 import md5 from 'js-md5';
-//import setStorage from 'G:/element-projects/element-projects/storage.js'
+import qs from 'qs';
 export default {
   data() {
     const validateNameLength = (loginrules, value, callback) => {
@@ -110,7 +110,7 @@ export default {
         password: "",
         epassword: "",
         code: "",
-        
+
       },
       loginrules: {
         username: [
@@ -156,17 +156,23 @@ export default {
       that.axios({
         method:"post",
         url:"http://42.192.44.52:8000/sign_up/email_confirm/",
-        params:{
+        data:qs.stringify({
           code:this.loginForm.code,
-        }      
+        })
       })
-      .then(function(res){})
-      .catch(function(err){})
+          .then(res=>{
+            this.$cookies.set("oatoken",res.data.data.token,"30m")
+            this.router.push('/home')
+            console.log(res)
+          })
+          .catch(error=>{
+            console.log(error)
+          })
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
           console.log(valid);
         }
-      }); 
+      });
     },
     back(){
       this.$router.push('login')
@@ -176,15 +182,19 @@ export default {
       that.axios({
         method:"post",
         url:"http://42.192.44.52:8000/sign_up/",
-        params:{
+        data:qs.stringify({
           message_type: "sign_up",
           username:this.loginForm.username,
           email:this.loginForm.email,
-          password:md5(this.loginForm.password),
-        }      
+          password:md5(this.loginForm.password)
+        }),
       })
-      .then(function(res){})
-      .catch(function(err){})
+          .then(function(res){
+            console.log(res)
+          })
+          .catch(function(err){
+            console.log(err)
+          })
     }
   }
 }
