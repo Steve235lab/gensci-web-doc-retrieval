@@ -17,7 +17,7 @@
         <div style="margin-top: 15px;">
           <el-input
               placeholder="请输入搜索关键词"
-              v-model="input"
+              v-model="keywords"
               class="input-with-select"
               clearable
               style="height:40px;"
@@ -37,7 +37,7 @@
           </el-col>
           <el-col :span="17" :offset="0"
           >
-            <el-checkbox-group v-model="article_type" @change="handleFilter" style="float:left;">
+            <el-checkbox-group v-model="article_type" style="float:left;">
 
               <el-checkbox label="Books and Documents"/>
               <el-checkbox label="Clinical Trial"/>
@@ -75,7 +75,7 @@
           </el-col>
           <el-col :span="6" :offset="0"
           >
-            <el-checkbox-group v-model="language" @change="handleFilter" style="float:left;">
+            <el-checkbox-group v-model="language" style="float:left;">
 
               <el-checkbox label="English"/>
               <el-checkbox label="Others"/>
@@ -90,7 +90,7 @@
           </el-col>
           <el-col :span="6" :offset="0"
           >
-            <el-checkbox-group v-model="species" @change="handleFilter" style="float:left;">
+            <el-checkbox-group v-model="species" style="float:left;">
 
               <el-checkbox label="Humans"/>
               <el-checkbox label="Other Animals"/>
@@ -105,7 +105,7 @@
           </el-col>
           <el-col :span="6" :offset="0"
           >
-            <el-checkbox-group v-model="sex" @change="handleFilter" style="float:left;">
+            <el-checkbox-group v-model="sex" style="float:left;">
 
               <el-checkbox label="Female"/>
               <el-checkbox label="Male"/>
@@ -120,7 +120,7 @@
           </el-col>
           <el-col :span="6" :offset="0"
           >
-            <el-checkbox-group v-model="age" @change="handleFilter" style="float:left;">
+            <el-checkbox-group v-model="age" style="float:left;">
               <el-row>
                 <el-col :span="3" >
                   <el-checkbox label="Humans"/>
@@ -171,31 +171,117 @@
 
           <el-tabs type="border-card">
             <el-tab-pane label="Paple_info">
+              <el-table
+                  :data="result"
+                  style="width: 100%"
+                  height=600>
+                <el-table-column type="expand">
+                  <template slot-scope="props">
+                    <div v-for="(row,item) in props.row" :key="row" v-show="row!==''">
+                      <p>
+                        <el-row :gutter="10">
+                          <el-col :span="5" >
+                            <span class="table-expand-label" v-if="item==='Chinese_Title'">&emsp;中文标题 : </span>
+                            <span class="table-expand-label" v-else-if="item==='Chinese_Abstract'">&emsp;中文摘要 : </span>
+                            <span class="table-expand-label" v-else>&emsp;{{item}} : </span>
+                          </el-col>
+                          <el-col :span="19" >
+                            <b  v-if="item==='Title'||item ==='Chinese_Title'">{{ row }}</b>
+                            <i  v-else-if="item==='Authors'||item==='First_Author'||item==='Corresponding_Author'">{{ row }}</i>
+                            <span  v-else>{{ row }}</span>
+                          </el-col>
+                        </el-row>
 
-              <!--              <el-table :data="paper_info" style="width: 100% "  height=600>-->
-              <!--                <el-table-column type="expand">-->
-              <!--                  <template #default="props">-->
-              <!--                    <div m="4">-->
-              <!--                      <p v-for="(item,key) in props.row" v-show="item">{{key }}:{{ item }}</p>-->
-              <!--                    </div>-->
-              <!--                  </template>-->
-              <!--                </el-table-column>-->
-              <!--                <el-table-column label="Title" prop="Title" width="400" />-->
-              <!--                <el-table-column label="Date" prop="Publication_Date"  width="100" sortable/>-->
-              <!--                <el-table-column label="First_Author" prop="First_Author"  width="200" />-->
-              <!--                <el-table-column label="Keywords" prop="Keywords" />-->
-              <!--              </el-table>-->
+
+                      </p>
+
+                    </div>
+
+<!--                    <el-form label-position="left" inline class="demo-table-expand">-->
+<!--                      <el-form-item label="Title">-->
+<!--                        <b>{{ props.row.Title }}</b>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="PMID">-->
+<!--                        <span>{{ props.row.Pmid }}</span>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="Journal">-->
+<!--                        <span>{{ props.row.Journal }}</span>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="Publication_Type">-->
+<!--                        <span>{{ props.row.Publication_Type }}</span>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="Publication_Year">-->
+<!--                        <span>{{ props.row.Publication_Year }}</span>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="Publication_Date">-->
+<!--                        <span>{{ props.row.Publication_Date }}</span>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="First_Author">-->
+<!--                        <i>{{ props.row.First_Author }}</i>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="Corresponding_Author">-->
+<!--                        <i>{{ props.row.Corresponding_Author }}</i>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="Authors">-->
+<!--                        <i>{{ props.row.Authors }}</i>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="Affiliations">-->
+<!--                        <span>{{ props.row.Affiliations }}</span>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="Abstract">-->
+<!--                        <span>{{ props.row.Abstract }}</span>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="Keywords">-->
+<!--                        <span>{{ props.row.Keywords }}</span>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="Doi">-->
+<!--                        <span>{{ props.row.Doi }}</span>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="Conclusion">-->
+<!--                        <span>{{ props.row.Conclusion }}</span>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="Journal_If">-->
+<!--                        <span>{{ props.row.Journal_If }}</span>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="中文标题">-->
+<!--                        <span>{{ props.row.Chinese_Title }}</span>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="中文摘要">-->
+<!--                        <span>{{ props.row.Chinese_Abstract }}</span>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="Sample_Size">-->
+<!--                        <span>{{ props.row.Sample_Size }}</span>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="Location">-->
+<!--                        <span>{{ props.row.Location }}</span>-->
+<!--                      </el-form-item>-->
+<!--                      <el-form-item label="Organization">-->
+<!--                        <span>{{ props.row.Organization }}</span>-->
+<!--                      </el-form-item>-->
+<!--                    </el-form>-->
+                  </template>
+                </el-table-column>
+                <el-table-column label="Title" prop="Title" sortable width="400">
+                </el-table-column>
+                <el-table-column label="Date" prop="Publication_Date" sortable>
+                </el-table-column>
+                <el-table-column label="Pmid" prop="Pmid" sortable>
+                </el-table-column>
+                <el-table-column label="Journal" prop="Journal" sortable>
+                </el-table-column>
+                <el-table-column label="Journal_If" prop="Journal_If" sortable>
+                </el-table-column>
+
+              </el-table>
+
               <el-row :gutter="20">
                 <el-col :span="12" :offset="6" justify="center">
-                  <!--                  <el-pagination-->
-                  <!--                      layout="prev, pager, next"-->
-                  <!--                      :page-size="20"-->
-                  <!--                      :hide-on-single-page="true"-->
-                  <!--                      :total="changePage.total"-->
-                  <!--                      @current-change="handleCurrentChange"-->
-                  <!--                      v-model:currentPage="changePage.currentPage"-->
-                  <!--                  >-->
-                  <!--                  </el-pagination>-->
+                  <el-pagination @current-change="handleCurrentChange"
+                                 :current-page="currentInfo.currentNumber" :page-size="20" :hide-on-single-page="true"
+                                 layout="total, prev, pager, next ,jumper" :total="currentInfo.total">
+                  </el-pagination>
+
+
                 </el-col>
 
               </el-row>
@@ -239,6 +325,7 @@
 import qs from "qs";
 import md5 from "js-md5";
 import axios from "axios";
+import example from "../../../docs/example.json"
 
 export default {
   // name: 'HomeView',
@@ -246,16 +333,21 @@ export default {
   //
   // },
   data() {
+    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjA2Njc3NS45ODQ4NzM1LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.-h_aB-8UjNhq2Z8hrkrvpjPMFU4napi72Is-Wq-NXCA";
+    let timestamp = 114514;
     return {
+      token,
+      timestamp,
       activeIndex: '0',
-      input: '',
-      activeNames: ['1'],
+      keywords: '',
       article_type: [],
       species: [],
       language: [],
       sex: [],
       age: [],
       publication_date: [],
+      activeNames: ['1'],
+
       pickerOptions: {
         shortcuts: [{
           text: '最近一个月',
@@ -291,11 +383,18 @@ export default {
           }
         },]
       },
-      result:[]
+      result:[],
+      example,
+      currentInfo: {
+        total: 100,
+        // 当前页数
+        currentNumber: 1,
+      }
+
     };
   },
   mounted() {
-
+    this.newpageInfo()
   },
   methods: {
     test(){
@@ -320,6 +419,17 @@ export default {
             console.log('连接失败')
           })
     },
+    // 监听 页码值 改变的事件
+    handleCurrentChange(newPage) {
+      console.log(newPage)
+      //把最新的页码（newPage）赋值给 动态的 pagenum
+      this.currentInfo.currentNumber = newPage
+      //获取到最新显示的页码值  重新发送axios请求 这里是封装好的请求方法
+      this.newpageInfo()
+    },
+
+
+
     gotoLogin(){
       this.$router.push('login')
     },
@@ -330,19 +440,19 @@ export default {
       console.log(key, keyPath);
     },
     handleSearch() {
-      if (this.input === ''){
+      if (this.keywords === ''){
         this.$message('输入不能为空');
       }
       else {
-        let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjA2Njc3NS45ODQ4NzM1LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.-h_aB-8UjNhq2Z8hrkrvpjPMFU4napi72Is-Wq-NXCA";
+
         var that=this;
         that.axios({
           method:"post",
           url:"http://42.192.44.52:8000/search/",
           data:qs.stringify({
-            "token": token,
+            "token": this.token,
             "message_type": 'search',
-            "keywords": this.input,
+            "keywords": this.keywords,
             "start_time": this.publication_date[0],
             "end_time": this.publication_date[1],
             "filters": [
@@ -363,19 +473,48 @@ export default {
             .catch(function(err){
               console.log(err)
             })
-        this.input = '';
+        this.keywords = '';
         this.species = [];
         this.filters = [];
         this.publication_date = [];
       }
 
     },
-    // handleChange(val) {
-    //   console.log(val);
-    // }
-    handleFilter(val) {
-      console.log(val);
 
+    // newpageInfo() {
+    //   var that=this;
+    //   that.axios({
+    //     method:"post",
+    //     url:"http://42.192.44.52:8000/search/",
+    //     data:qs.stringify({
+    //       "token": this.token,
+    //       "message_type": 'get_result',
+    //       "timestamp": this.timestamp,
+    //       "page_num": this.currentInfo.currentNumber
+    //     })
+    //   })
+    //       .then(function(res){
+    //         console.log(res);
+    //         console.log(res.data)
+    //       })
+    //       .catch(function(err){
+    //         console.log(err)
+    //       })
+    //
+    // }
+    newpageInfo(){
+      if(this.currentInfo.currentNumber===1){
+        this.result = example.paper_info_1
+      }
+      if(this.currentInfo.currentNumber===2){
+        this.result = example.paper_info_2
+      }
+      if(this.currentInfo.currentNumber===3){
+        this.result = example.paper_info_3
+      }
+      if(this.currentInfo.currentNumber===4){
+        this.result = example.paper_info_4
+      }
     }
   }
 }
@@ -394,5 +533,12 @@ export default {
 
 .input-with-select {
   background-color: #fff;
+}
+
+.table-expand-label {
+  width: 180px;
+  display:-moz-inline-box;
+  display:inline-block;
+  color: #A9A9A9;
 }
 </style>
