@@ -26,7 +26,6 @@ def search(request):
         start_time = request.GET.get('start_time')
         end_time = request.GET.get('end_time')
         filters = request.GET.get('filters')
-        species = request.GET.get('species')
     if request.method == 'POST':
         # print(request.POST)
         token = request.POST.get('token')
@@ -34,7 +33,6 @@ def search(request):
         start_time = request.POST.get('start_time')
         end_time = request.POST.get('end_time')
         filters = request.POST.get('filters')
-        species = request.POST.get('species')
 
     # 从token中获取uuid
     uuid_str = get_uuid_from_token(token)
@@ -49,10 +47,23 @@ def search(request):
 
         # 拼接搜索语句
         robust_keywords = '(' + keywords + ') AND ("' + start_time + '"[Date - Publication]:' + '"' + end_time + '"[Date - Publication]) AND ('
-        for filter in filters:
-            robust_keywords += '(' + filter + '[FILT]) AND'
-        robust_keywords = robust_keywords[:-4] + ') AND '
-        robust_keywords += '(' + species + '[FILT])'
+        for f in filters['article_type']:
+            robust_keywords += '(' + f + '[FILT]) OR ('
+        robust_keywords = robust_keywords[:-5] + ') AND ('
+        for f in filters['language']:
+            robust_keywords += '(' + f + '[Language]) OR ('
+        robust_keywords = robust_keywords[:-5] + ') AND ('
+        for f in filters['species']:
+            robust_keywords += '(' + f + '[FILT]) OR ('
+        robust_keywords = robust_keywords[:-5] + ') AND ('
+        for f in filters['sex']:
+            robust_keywords += '(' + f + '[FILT]) OR ('
+        robust_keywords = robust_keywords[:-5] + ') AND ('
+        for f in filters['age']:
+            robust_keywords += '(' + f + '[FILT]) OR ('
+        robust_keywords = robust_keywords[:-5] + ')'
+
+        print("Search keywords: ", robust_keywords)
 
         # 保存搜索记录
         timestamp = DATABASE.add_search_history(robust_keywords, uuid)
