@@ -1,60 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="MySQL_on_Tencent_server">
   <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.40">
-    <root id="1">
-      <DefaultCasing>lower/lower</DefaultCasing>
-      <DefaultEngine>InnoDB</DefaultEngine>
-      <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
-      <Grants>|root||root||ALTER|G
-|root||root||ALTER ROUTINE|G
-|root||mysql.infoschema|localhost|AUDIT_ABORT_EXEMPT|G
-|root||mysql.session|localhost|AUDIT_ABORT_EXEMPT|G
-|root||mysql.sys|localhost|AUDIT_ABORT_EXEMPT|G
-|root||mysql.session|localhost|BACKUP_ADMIN|G
-|root||mysql.session|localhost|CLONE_ADMIN|G
-|root||mysql.session|localhost|CONNECTION_ADMIN|G
-|root||root||CREATE|G
-|root||root||CREATE ROLE|G
-|root||root||CREATE ROUTINE|G
-|root||root||CREATE TABLESPACE|G
-|root||root||CREATE TEMPORARY TABLES|G
-|root||root||CREATE USER|G
-|root||root||CREATE VIEW|G
-|root||root||DELETE|G
-|root||root||DROP|G
-|root||root||DROP ROLE|G
-|root||root||EVENT|G
-|root||root||EXECUTE|G
-|root||root||FILE|G
-|root||root||INDEX|G
-|root||root||INSERT|G
-|root||root||LOCK TABLES|G
-|root||mysql.session|localhost|PERSIST_RO_VARIABLES_ADMIN|G
-|root||root||PROCESS|G
-|root||root||REFERENCES|G
-|root||root||RELOAD|G
-|root||root||REPLICATION CLIENT|G
-|root||root||REPLICATION SLAVE|G
-|root||mysql.infoschema|localhost|SELECT|G
-|root||root||SELECT|G
-|root||mysql.session|localhost|SESSION_VARIABLES_ADMIN|G
-|root||root||SHOW DATABASES|G
-|root||root||SHOW VIEW|G
-|root||mysql.session|localhost|SHUTDOWN|G
-|root||root||SHUTDOWN|G
-|root||mysql.session|localhost|SUPER|G
-|root||root||SUPER|G
-|root||mysql.infoschema|localhost|SYSTEM_USER|G
-|root||mysql.session|localhost|SYSTEM_USER|G
-|root||mysql.sys|localhost|SYSTEM_USER|G
-|root||mysql.session|localhost|SYSTEM_VARIABLES_ADMIN|G
-|root||root||TRIGGER|G
-|root||root||UPDATE|G
-|root||root||grant option|G
-performance_schema|schema||mysql.session|localhost|SELECT|G
-sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
-      <ServerVersion>8.0.29</ServerVersion>
-    </root>
+    <root id="1"/>
     <collation id="2" parent="1" name="armscii8_bin">
       <Charset>armscii8</Charset>
     </collation>

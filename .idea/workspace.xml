@@ -5,23 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6eebaf57-8042-44b2-8a62-7d8d4e12c2ea" name="变更" comment="搜索及结果显示页面">
-      <change afterPath="$PROJECT_DIR$/web_client/web_client/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_client/web_client/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_client/web_client/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_client/web_client/jsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_client/web_client/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_client/web_client/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_client/web_client/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_client/web_client/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_client/web_client/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_client/web_client/src/assets/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_client/web_client/src/components/HelloWorld.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_client/web_client/src/example/history_list.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_client/web_client/src/example/result.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_client/web_client/src/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_client/web_client/vue.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_client/web_client/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/24171f45-42db-4988-8b20-7d1a13eb81bb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/24171f45-42db-4988-8b20-7d1a13eb81bb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gensci-web-doc-retrieval.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gensci-web-doc-retrieval.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_server/database_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/database_new.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_server/search/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/web_server/search/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,18 +59,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\gensci_internship\gensci-web-doc-retrieval\ajax_tests" />
@@ -92,7 +75,7 @@
       <recent name="E:\gensci_internship\gensci-web-doc-retrieval\web_server" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.database">
     <configuration name="database" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="gensci-web-doc-retrieval" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,6 +124,9 @@
       <module name="gensci-web-doc-retrieval" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/web_server/search" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -209,6 +195,9 @@
       <workItem from="1655916484037" duration="11529000" />
       <workItem from="1655978648309" duration="33792000" />
       <workItem from="1656073473468" duration="2729000" />
+      <workItem from="1656136049618" duration="109000" />
+      <workItem from="1656136170959" duration="105000" />
+      <workItem from="1656141813260" duration="5306000" />
     </task>
     <task id="LOCAL-00001" summary="拼写错误修正">
       <created>1655797285799</created>

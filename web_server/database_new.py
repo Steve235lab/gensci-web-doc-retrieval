@@ -60,10 +60,10 @@ class Database:
             removed_flag = user[-1]
             if removed_flag == 'False':
                 uuid = user[0]
+                email = user[3]
                 if len(self.user_list) < USER_LIST_MAX_LENGTH:  # 控制内存中的用户数量不超出上限
                     username = user[1]
                     password = user[2]
-                    email = user[3]
                     confirm_code = user[4]
                     email_confirmed = bool(user[5])
                     permissions = user[6]
@@ -113,7 +113,10 @@ class Database:
                 self.searched_keywords[keywords] = [result_timestamp, favourite_flag]
 
     def is_connected(self):
-        """Check if the server is alive"""
+        """数据库连接保活
+
+        每次数据库操作前执行，确保该进程与MySQL数据库的连接处于可用状态，如果检测到连接已断开则执行重连操作
+        """
         try:
             self.conn.ping(reconnect=True)
         except:
@@ -283,9 +286,9 @@ class Database:
 
         :param keywords: (str) 用户搜索的关键词组合
         :param uuid: (int) 进行该次搜索的用户序号
-        :return: None
+        :return timestamp: (int) 该条新历史记录的时间戳
         """
-        timestamp = int(time.mktime(time.localtime(time.time())))
+        timestamp: int = int(time.mktime(time.localtime(time.time())))
 
         if keywords in self.searched_keywords:
             result_timestamp = self.searched_keywords[keywords][0]
@@ -298,6 +301,8 @@ class Database:
             timestamp, result_timestamp, keywords, "False", uuid, "False")
         self.cursor.execute(sql)
         self.conn.commit()
+
+        return timestamp
 
     def get_search_history(self, uuid):
         """获取给定uuid用户的搜索记录
@@ -329,6 +334,17 @@ class Database:
         history = self.cursor.fetchall()
 
         return history
+
+    def search_completed(self, keywords: str):
+        """将数据库中所有搜索该关键词的搜索记录标记为已完成搜索
+
+        :param keywords: (str) 关键词组合
+        :return: None
+        """
+        self.is_connected()
+        sql = """update search_history set search_completed_flag = 'True' where keywords = ('%s')""" % keywords
+        self.cursor.execute(sql)
+        self.conn.commit()
 
 
 class User:

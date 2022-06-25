@@ -1,3 +1,4 @@
+from threading import Thread
 import sys
 
 sys.path.append('..')
@@ -54,9 +55,11 @@ def search(request):
         robust_keywords += '(' + species + '[FILT])'
 
         # 保存搜索记录
-        DATABASE.add_search_history(robust_keywords, uuid)
+        timestamp = DATABASE.add_search_history(robust_keywords, uuid)
 
-        # TODO: 将 robust_keywords 输入搜索脚本，启动搜索服务。注意，应该创建一个单独线程来执行搜索任务，不要在这里阻塞。
+        # 开启一个单独的线程运行搜索服务并在搜索完成后执行善后处理
+        search_thread = Thread(target=run_search, args=(robust_keywords, timestamp))
+        search_thread.start()
 
         # 向前端返回响应
         new_token = forge_token(uuid_str)
@@ -67,6 +70,28 @@ def search(request):
         cache = JsonResponse(json_rsp)
         cache["Access-Control-Allow-Origin"] = "*"
         return cache
+
+
+def run_search(robust_keywords: str, timestamp: int):
+    """适用于单个线程的执行搜索及搜索完成善后任务的函数
+
+    将 robust_keywords 输入搜索脚本，启动搜索服务；完成搜索后将本次搜索在 search_history 表中的条目修改为已完成搜索
+
+    :param robust_keywords: (str) 经过鲁棒性处理后的搜索关键词组合
+    :param timestamp: (int) 本次搜索对应的搜索记录的时间戳
+    :return: None
+    """
+    # 获取结果保存路径
+    history = DATABASE.get_result(timestamp)[0]
+    result_timestamp = history[1]
+    result_dir = 'static/search_result/' + str(result_timestamp) + '/'
+
+    # TODO: 启动搜索，使用 robust_keywords 作为关键词进行搜索，将 paper_info.xlsx 和 clue_info.xlsx 两个文件输出到 result_dir 下
+
+    # 将数据库中所有搜索该关键词的搜索记录标记为已完成搜索
+    DATABASE.search_completed(robust_keywords)
+
+    # TODO: 向发起搜索的用户发送提醒邮件
 
 
 def get_history(request):
