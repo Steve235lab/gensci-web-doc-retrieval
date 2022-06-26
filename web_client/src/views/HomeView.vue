@@ -37,7 +37,7 @@
           </el-col>
           <el-col :span="17" :offset="0"
           >
-            <el-checkbox-group v-model="article_type" style="float:left;">
+            <el-checkbox-group v-model="article_type" style="float:left;" @change="handleFilter">
 
               <el-checkbox label="Books and Documents"/>
               <el-checkbox label="Clinical Trial"/>
@@ -343,7 +343,8 @@ export default {
   //
   // },
   data() {
-    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjIyODY0MS42NzkwNjg2LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.ZG08WrLQNMliQwMx4LSRhNyjn05IOS3U7e9HzM1Ys8E";
+
+    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjI0MjY0Ni4zMTg5MDc1LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.E61_Prnz_n0deVo2wxAuDFaArLJqMesfUO1Lxwd6SgQ";
     let timestamp = 114514;
     return {
       token,
@@ -351,6 +352,7 @@ export default {
       activeIndex: '0',
       keywords: '',
       article_type: [],
+      articleType:[],
       species: [],
       language: [],
       sex: [],
@@ -471,11 +473,11 @@ export default {
             "keywords": this.keywords,
             "start_time": this.publication_date[0],
             "end_time": this.publication_date[1],
-            "article_type": this.article_type,
-            "language": this.language,
-            "species": this.species,
-            "sex": this.sex,
-            "age": this.age
+              "article_type": JSON.stringify(this.article_type),
+              "language": JSON.stringify(this.language),
+              "species": JSON.stringify(this.species),
+              "sex": JSON.stringify(this.sex),
+              "age": JSON.stringify(this.age)
 
           })
         })
