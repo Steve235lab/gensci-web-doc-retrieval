@@ -173,20 +173,20 @@
       <el-col :span="2" :offset="2">
         <div style="height:30px;">历史搜索记录</div>
         <el-button @click="test">test</el-button>
-        <!--        <div v-for="history in history_list" style="height:30px;">{{history}}</div>-->
+        <el-link :underline="false" v-for="row in history" :key="row"  @click="paperInfo" @dblclick="gettimestamp">{{row}}</el-link>
       </el-col>
       <el-col :span="16" :offset="2">
         <div>
 
-          <el-tabs type="border-card">
-            <el-tab-pane label="Paple_info">
+          <el-tabs type="border-card" @tab-click="handleClick">
+            <el-tab-pane label="Paple_info" name="paper">
               <el-table
-                  :data="result"
+                  :data="paper_result"
                   style="width: 100%"
                   height=600>
                 <el-table-column type="expand">
                   <template slot-scope="props">
-                    <div v-for="(row,item) in props.row" :key="row" v-show="row!==''">
+                    <div v-for="(row,item) in props.row" :key="row" v-show="row">
                       <p>
                         <el-row :gutter="10">
                           <el-col :span="5" >
@@ -206,69 +206,6 @@
                       </p>
 
                     </div>
-
-<!--                    <el-form label-position="left" inline class="demo-table-expand">-->
-<!--                      <el-form-item label="Title">-->
-<!--                        <b>{{ props.row.Title }}</b>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="PMID">-->
-<!--                        <span>{{ props.row.Pmid }}</span>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="Journal">-->
-<!--                        <span>{{ props.row.Journal }}</span>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="Publication_Type">-->
-<!--                        <span>{{ props.row.Publication_Type }}</span>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="Publication_Year">-->
-<!--                        <span>{{ props.row.Publication_Year }}</span>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="Publication_Date">-->
-<!--                        <span>{{ props.row.Publication_Date }}</span>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="First_Author">-->
-<!--                        <i>{{ props.row.First_Author }}</i>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="Corresponding_Author">-->
-<!--                        <i>{{ props.row.Corresponding_Author }}</i>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="Authors">-->
-<!--                        <i>{{ props.row.Authors }}</i>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="Affiliations">-->
-<!--                        <span>{{ props.row.Affiliations }}</span>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="Abstract">-->
-<!--                        <span>{{ props.row.Abstract }}</span>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="Keywords">-->
-<!--                        <span>{{ props.row.Keywords }}</span>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="Doi">-->
-<!--                        <span>{{ props.row.Doi }}</span>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="Conclusion">-->
-<!--                        <span>{{ props.row.Conclusion }}</span>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="Journal_If">-->
-<!--                        <span>{{ props.row.Journal_If }}</span>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="中文标题">-->
-<!--                        <span>{{ props.row.Chinese_Title }}</span>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="中文摘要">-->
-<!--                        <span>{{ props.row.Chinese_Abstract }}</span>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="Sample_Size">-->
-<!--                        <span>{{ props.row.Sample_Size }}</span>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="Location">-->
-<!--                        <span>{{ props.row.Location }}</span>-->
-<!--                      </el-form-item>-->
-<!--                      <el-form-item label="Organization">-->
-<!--                        <span>{{ props.row.Organization }}</span>-->
-<!--                      </el-form-item>-->
-<!--                    </el-form>-->
                   </template>
                 </el-table-column>
                 <el-table-column label="Title" prop="Title" sortable width="400">
@@ -286,39 +223,54 @@
 
               <el-row :gutter="20">
                 <el-col :span="12" :offset="6" justify="center">
-                  <el-pagination @current-change="handleCurrentChange"
-                                 :current-page="currentInfo.currentNumber" :page-size="20" :hide-on-single-page="true"
-                                 layout="total, prev, pager, next ,jumper" :total="currentInfo.total">
+                  <el-pagination @current-change="handleCurrentChange1"
+                                 :current-page="paper_page_Info.currentNumber" :page-size="20" :hide-on-single-page="true"
+                                 layout="total, prev, pager, next ,jumper" :total="paper_page_Info.total">
                   </el-pagination>
-
-
                 </el-col>
-
               </el-row>
             </el-tab-pane>
-            <el-tab-pane label="Clue_info">
-              <!--              <el-table :data="clue_info" style="width: 100% "  height=600>-->
-              <!--                <el-table-column type="expand">-->
-              <!--                  <template #default="props">-->
-              <!--                    <div m="4">-->
-              <!--                      <p v-for="(item,key) in props.row" v-show="item">{{key }}:{{ item }}</p>-->
-              <!--                    </div>-->
-              <!--                  </template>-->
-              <!--                </el-table-column>-->
-              <!--                <el-table-column label="Node1" prop="Node1" sortable />-->
-              <!--                <el-table-column label="Edge_Type" prop="Edge_Type"   sortable/>-->
-              <!--                <el-table-column label="Node2" prop="Node2"   sortable/>-->
-              <!--                <el-table-column label="Weight" prop="Weight" width="100" sortable/>-->
-              <!--                <el-table-column label="Paper_List" prop="Paper_List" sortable/>-->
-              <!--              </el-table>-->
+            <el-tab-pane label="Clue_info" name="clue">
+              <el-table
+                  :data="clue_result"
+                  style="width: 100%"
+                  height=600>
+                <el-table-column type="expand">
+                  <template slot-scope="props">
+                    <div v-for="(row,item) in props.row" :key="row" v-show="row">
+                      <p>
+                        <el-row :gutter="10">
+                          <el-col :span="5" >
+                            <span class="table-expand-label">&emsp;{{item}} : </span>
+                          </el-col>
+                          <el-col :span="19" >
+                            <span>{{ row }}</span>
+                          </el-col>
+                        </el-row>
+
+
+                      </p>
+
+                    </div>
+                  </template>
+                </el-table-column>
+                <el-table-column label="Node1" prop="Node1" sortable />
+                <el-table-column label="Edge_Type" prop="Edge_Type"   sortable/>
+                <el-table-column label="Node2" prop="Node2"   sortable/>
+                <el-table-column label="Weight" prop="Weight" width="100" sortable/>
+                <el-table-column label="Paper_List" prop="Paper_List" sortable/>
+
+              </el-table>
               <el-row :gutter="20">
-                <el-col :span="12" :offset="6"
-                >
-                  <el-pagination layout="prev, pager, next" :total="5" :hide-on-single-page="true"/>
+                <el-col :span="12" :offset="6" justify="center">
+                  <el-pagination @current-change="handleCurrentChange2"
+                                 :current-page="clue_page_Info.currentNumber" :page-size="20" :hide-on-single-page="true"
+                                 layout="total, prev, pager, next ,jumper" :total="clue_page_Info.total">
+                  </el-pagination>
                 </el-col>
               </el-row>
             </el-tab-pane>
-            <el-tab-pane label="Network">network</el-tab-pane>
+            <el-tab-pane label="Network" name="network">network</el-tab-pane>
 
           </el-tabs>
         </div>
@@ -335,7 +287,7 @@
 import qs from "qs";
 import md5 from "js-md5";
 import axios from "axios";
-import example from "../../../docs/example.json"
+import example from "../../../docs/example_test.json"
 
 export default {
   // name: 'HomeView',
@@ -344,7 +296,7 @@ export default {
   // },
   data() {
 
-    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjI0MjY0Ni4zMTg5MDc1LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.E61_Prnz_n0deVo2wxAuDFaArLJqMesfUO1Lxwd6SgQ";
+    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjI2NDAzNS45MjMzNTIsInNhbHQiOiJTdGV2ZTIzNUxhYiJ9.fQJjSAGBthECeBfmg-m0NmLm1hkCeQA7xwiiRNjX_Co";
     let timestamp = 114514;
     return {
       token,
@@ -399,18 +351,21 @@ export default {
         },]
       },
       history:[],
-      result:[],
-      example,
-      currentInfo: {
-        total: 100,
-        // 当前页数
+      paper_result:[],
+      clue_result:[],
+      paper_page_Info: {
+        total: 0,
+        currentNumber: 1,
+      },
+      clue_page_Info: {
+        total: 0,
         currentNumber: 1,
       }
 
     };
   },
   mounted() {
-    this.newpageInfo()
+    // this.newpageInfo()
   },
   methods: {
     test(){
@@ -426,9 +381,9 @@ export default {
           .then(function (res){
             console.log(res)
             console.log('连接成功')
-            that.result = res.data.data
+            that.history = res.data.history
             that.token = res.data.token
-            console.log(that.result)
+            console.log(that.history)
             console.log(that.token)
             console.log(res.data)
           })
@@ -437,13 +392,43 @@ export default {
             console.log('连接失败')
           })
     },
+    handleClick(tab, event) {
+      console.log('tab：',tab);
+      console.log('event',event)
+      console.log(tab.name)
+      if(tab.name==='paper'){
+        console.log('请求paper数据')
+        this.paper_page_Info.currentNumber=1
+        this.paperInfo()
+      }
+      if(tab.name==='clue'){
+        console.log('请求clue数据')
+        this.clue_page_Info.currentNumber=1
+        this.clueInfo()
+      }
+      if(tab.name==='network'){
+        console.log('请求network数据')
+        this.clue_page_Info.currentNumber=0
+        this.clueInfo()
+      }
+    },
+    gettimestamp(){
+      console.log(this)
+    },
     // 监听 页码值 改变的事件
-    handleCurrentChange(newPage) {
+    handleCurrentChange1(newPage) {
       console.log(newPage)
       //把最新的页码（newPage）赋值给 动态的 pagenum
-      this.currentInfo.currentNumber = newPage
+      this.paper_page_Info.currentNumber = newPage
       //获取到最新显示的页码值  重新发送axios请求 这里是封装好的请求方法
-      this.newpageInfo()
+      this.paperInfo()
+    },
+    handleCurrentChange2(newPage) {
+      console.log(newPage)
+      //把最新的页码（newPage）赋值给 动态的 pagenum
+      this.clue_page_Info.currentNumber = newPage
+      //获取到最新显示的页码值  重新发送axios请求 这里是封装好的请求方法
+      this.clueInfo()
     },
 
 
@@ -453,9 +438,6 @@ export default {
     },
     gotoRegister(){
       this.$router.push('register')
-    },
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
     },
     handleSearch() {
       if (this.keywords === ''){
@@ -473,11 +455,11 @@ export default {
             "keywords": this.keywords,
             "start_time": this.publication_date[0],
             "end_time": this.publication_date[1],
-              "article_type": JSON.stringify(this.article_type),
-              "language": JSON.stringify(this.language),
-              "species": JSON.stringify(this.species),
-              "sex": JSON.stringify(this.sex),
-              "age": JSON.stringify(this.age)
+            "article_type": JSON.stringify(this.article_type),
+            "language": JSON.stringify(this.language),
+            "species": JSON.stringify(this.species),
+            "sex": JSON.stringify(this.sex),
+            "age": JSON.stringify(this.age)
 
           })
         })
@@ -490,6 +472,8 @@ export default {
             })
         this.keywords = '';
         this.species = [];
+        this.language = [];
+        this.article_type = [];
         this.age = [];
         this.sex = [];
         this.publication_date = [];
@@ -497,41 +481,70 @@ export default {
 
     },
 
-    // newpageInfo() {
-    //   var that=this;
-    //   that.axios({
-    //     method:"post",
-    //     url:"http://42.192.44.52:8000/search/",
-    //     data:qs.stringify({
-    //       "token": this.token,
-    //       "message_type": 'get_result',
-    //       "timestamp": this.timestamp,
-    //       "page_num": this.currentInfo.currentNumber
-    //     })
-    //   })
-    //       .then(function(res){
-    //         console.log(res);
-    //         console.log(res.data)
-    //       })
-    //       .catch(function(err){
-    //         console.log(err)
-    //       })
-    //
-    // }
-    newpageInfo(){
-      if(this.currentInfo.currentNumber===1){
-        this.result = example.paper_info_1
-      }
-      if(this.currentInfo.currentNumber===2){
-        this.result = example.paper_info_2
-      }
-      if(this.currentInfo.currentNumber===3){
-        this.result = example.paper_info_3
-      }
-      if(this.currentInfo.currentNumber===4){
-        this.result = example.paper_info_4
-      }
+    paperInfo() {
+      var that=this;
+      that.axios({
+        method:"post",
+        url:"http://42.192.44.52:8000/search/paper_info/",
+        data:qs.stringify({
+          "token": this.token,
+          "message_type": "get_paper_info",
+          "timestamp": this.timestamp,
+          "page_num": this.paper_page_Info.currentNumber
+          // "page_num": 1
+        })
+      })
+          .then(function(res){
+            console.log(res);
+            console.log('连接成功');
+            console.log(res.data)
+            that.paper_result=res.data.paper_info
+            that.paper_page_Info.total=res.data.total
+          })
+          .catch(function(err){
+            console.log(err)
+          })
+
+    },
+    clueInfo() {
+      var that=this;
+      that.axios({
+        method:"post",
+        url:"http://42.192.44.52:8000/search/clue_info/",
+        data:qs.stringify({
+          "token": this.token,
+          "message_type": "get_clue_info",
+          "timestamp": this.timestamp,
+          "page_num": this.clue_page_Info.currentNumber
+          // "page_num": 1
+        })
+      })
+          .then(function(res){
+            console.log(res);
+            console.log('连接成功');
+            console.log(res.data)
+            that.clue_result=res.data.clue_info
+            that.clue_page_Info.total=res.data.total
+          })
+          .catch(function(err){
+            console.log(err)
+          })
+
     }
+    // newpageInfo(){
+    //   if(this.currentInfo.currentNumber===1){
+    //     this.result = example.paper_info_1
+    //   }
+    //   if(this.currentInfo.currentNumber===2){
+    //     this.result = example.paper_info_2
+    //   }
+    //   if(this.currentInfo.currentNumber===3){
+    //     this.result = example.paper_info_3
+    //   }
+    //   if(this.currentInfo.currentNumber===4){
+    //     this.result = example.paper_info_4
+    //   }
+    // }
   }
 }
 
