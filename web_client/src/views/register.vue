@@ -62,11 +62,11 @@ export default {
       const str = value.trim();
       const length = str.length;
       const reStr = /^[a-zA-Z]{1}/;
-      const reEn = /^[a-zA-Z0-9/_)]{3,10}$/;
+      const reEn = /^[a-zA-Z0-9/_)]{6,16}$/;
       if (!reStr.test(value)) {
         callback(new Error("用户名必须以字母开头"));
-      } else if (length < 3 || length > 10) {
-        callback(new Error("用户名的长度是3到10个字符"));
+      } else if (length < 6 || length > 16) {
+        callback(new Error("用户名的长度是6到16个字符"));
       } else if (!reEn.test(value)) {
         callback(new Error("用户名只能包含字母、数字和下划线"));
       } else {
@@ -104,6 +104,7 @@ export default {
       }
     };
     return {
+      token: '',
       loginForm: {
         username: "",
         email: "",
@@ -157,7 +158,9 @@ export default {
         method:"post",
         url:"http://42.192.44.52:8000/sign_up/email_confirm/",
         data:qs.stringify({
-          code:this.loginForm.code,
+          message_type: "email_confirm",
+          token: this.token,
+          code:this.loginForm.code
         })
       })
           .then(res=>{
@@ -190,7 +193,9 @@ export default {
         }),
       })
           .then(function(res){
-            console.log(res)
+            console.log(res);
+            this.token = res.data.token;
+            console.log(res.data);
           })
           .catch(function(err){
             console.log(err)
