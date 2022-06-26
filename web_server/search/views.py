@@ -4,6 +4,7 @@ import sys
 
 sys.path.append('..')
 
+from emoji import emojize
 import openpyxl
 from django.http import JsonResponse
 
@@ -22,7 +23,10 @@ def search(request):
     """
     # 解包前端请求
     if request.method == 'GET':
-        print(request.GET)
+        if DATABASE.emoji_status is True:
+            print(emojize(':white_check_mark: 已收到 search 请求', language='alias'))
+            print(request.GET)
+
         token = request.GET.get('token')
         keywords = request.GET.get('keywords')
         start_time = request.GET.get('start_time')
@@ -32,8 +36,12 @@ def search(request):
         species = request.GET.get('species')
         sex = request.GET.get('sex')
         age = request.GET.get('age')
+
     if request.method == 'POST':
-        print(request.POST)
+        if DATABASE.emoji_status is True:
+            print(emojize(':white_check_mark: 已收到 search 请求', language='alias'))
+            print(request.POST)
+
         token = request.POST.get('token')
         keywords = request.POST.get('keywords')
         start_time = request.POST.get('start_time')
@@ -49,9 +57,6 @@ def search(request):
     # token时效性判断
     if uuid_str == 'token expired':
         json_rsp = {"message_type": "token_expired"}
-        cache = JsonResponse(json_rsp)
-        cache["Access-Control-Allow-Origin"] = "*"
-        return cache
     else:
         uuid = int(uuid_str)
 
@@ -102,9 +107,14 @@ def search(request):
             'message_type': 'search_received',
             'token': new_token
         }
-        cache = JsonResponse(json_rsp)
-        cache["Access-Control-Allow-Origin"] = "*"
-        return cache
+
+    if DATABASE.emoji_status is True:
+        print(emojize(':rocket: 已发送 search_received 应答', language='alias'))
+        print(json_rsp)
+
+    cache = JsonResponse(json_rsp)
+    cache["Access-Control-Allow-Origin"] = "*"
+    return cache
 
 
 def run_search(robust_keywords: str, timestamp: int):
@@ -142,14 +152,15 @@ def get_history(request):
     if request.method == 'POST':
         token = request.POST.get('token')
 
+    if DATABASE.emoji_status is True:
+        print(emojize(':white_check_mark: 已收到 get_history 请求', language='alias'))
+        print(emojize(':snake: token: ' + token, language='alias'))
+
     # 从token中获取uuid
     uuid_str = get_uuid_from_token(token)
     # token时效性判断
     if uuid_str == 'token expired':
         json_rsp = {"message_type": "token_expired"}
-        cache = JsonResponse(json_rsp)
-        cache["Access-Control-Allow-Origin"] = "*"
-        return cache
     else:
         uuid = int(uuid_str)
         # 使用uuid查找用户的历史记录。注意，这里查询到的不一定是全部记录，这取决于 Database.get_search_history 中设定的最大条数。
@@ -166,9 +177,14 @@ def get_history(request):
             timestamp = history[0]
             keywords = history[2]
             json_rsp['history'][timestamp] = keywords
-        cache = JsonResponse(json_rsp)
-        cache["Access-Control-Allow-Origin"] = "*"
-        return cache
+
+    if DATABASE.emoji_status is True:
+        print(emojize(':rocket: 已发送 rsp_get_history 应答', language='alias'))
+        print(json_rsp)
+
+    cache = JsonResponse(json_rsp)
+    cache["Access-Control-Allow-Origin"] = "*"
+    return cache
 
 
 # def get_result(request):

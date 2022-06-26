@@ -9,15 +9,15 @@
     <script>
         //location = 'http://42.192.44.52:8000/sign_in/';
         $.ajax({
-            url:"http://42.192.44.52:8000/sign_up/",
+            url:"http://127.0.0.1:8000/sign_up/",
             type:'post',
             dataType: 'json',
             crossDomain: true,
             data: {
                 message_type: "sign_up",
-                username: "email_confirm_test",
+                username: "中文用户名测试",
                 password: "114514",
-                email: "email_confirm@test.com"
+                email: "chinese_username@test.com"
             },
             success: function (dataDict) {
                             alert('success');

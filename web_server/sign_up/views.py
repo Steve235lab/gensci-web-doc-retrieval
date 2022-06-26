@@ -2,6 +2,7 @@ import sys
 sys.path.append('..')
 
 from django.http import JsonResponse
+from emoji import emojize
 
 from database_new import User, DATABASE
 from uuid_token import forge_token, get_uuid_from_token
@@ -25,6 +26,12 @@ def sign_up(request):
         password = request.POST.get('password')
         email = request.POST.get('email')
 
+    if DATABASE.emoji_status is True:
+        print(emojize(':white_check_mark: 已收到 sign_up 请求', language='alias'))
+        print(emojize(':snake: username: ' + username, language='alias'))
+        print(emojize(':key: password(已加密): ' + password, language='alias'))
+        print(emojize(':envelope: email: ' + email, language='alias'))
+
     # 判断邮箱是否已被占用
     if email in DATABASE.email_list:  # 邮箱已被占用
         json_rsp = {
@@ -32,9 +39,6 @@ def sign_up(request):
             "token": 'None',
             "result": "email_occupied"
         }
-        cache = JsonResponse(json_rsp)
-        cache["Access-Control-Allow-Origin"] = "*"
-        return cache
     else:  # 邮箱可用
         # 生成验证码
         email_sender = EmailSender(email, username)
@@ -52,10 +56,13 @@ def sign_up(request):
             "token": new_token,
             "result": "success"
         }
-        # print(json_rsp)
-        cache = JsonResponse(json_rsp)
-        cache["Access-Control-Allow-Origin"] = "*"
-        return cache
+    if DATABASE.emoji_status is True:
+        print(emojize(':rocket: 已发送 rsp_sign_up 应答', language='alias'))
+        print(json_rsp)
+
+    cache = JsonResponse(json_rsp)
+    cache["Access-Control-Allow-Origin"] = "*"
+    return cache
 
 
 def email_confirm(request):
@@ -72,14 +79,17 @@ def email_confirm(request):
     if request.method == 'POST':
         token = request.POST.get('token')
         input_confirm_code = request.POST.get('confirm_code')
+
+    if DATABASE.emoji_status is True:
+        print(emojize(':white_check_mark: 已收到 email_confirm 请求', language='alias'))
+        print(emojize(':snake: token: ' + token, language='alias'))
+        print(emojize(':key: confirm_code: ' + input_confirm_code, language='alias'))
+
     # 从token中获取uuid
     uuid_str = get_uuid_from_token(token)
     # token时效性判断
     if uuid_str == 'token expired':
         json_rsp = {"message_type": "token_expired"}
-        cache = JsonResponse(json_rsp)
-        cache["Access-Control-Allow-Origin"] = "*"
-        return cache
     else:
         uuid = int(uuid_str)
         user = DATABASE.get_user(uuid)
@@ -91,15 +101,17 @@ def email_confirm(request):
                 "token": new_token,
                 "confirmed": True
             }
-            cache = JsonResponse(json_rsp)
-            cache["Access-Control-Allow-Origin"] = "*"
-            return cache
         else:
             json_rsp = {
                 "message_type": "rsp_email_confirm",
                 "token": new_token,
                 "confirmed": False
             }
-            cache = JsonResponse(json_rsp)
-            cache["Access-Control-Allow-Origin"] = "*"
-            return cache
+
+    if DATABASE.emoji_status is True:
+        print(emojize(':rocket: 已发送 rsp_email_confirm 应答', language='alias'))
+        print(json_rsp)
+
+    cache = JsonResponse(json_rsp)
+    cache["Access-Control-Allow-Origin"] = "*"
+    return cache

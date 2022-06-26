@@ -1,6 +1,7 @@
 import sys
 sys.path.append('..')
 
+from emoji import emojize
 from django.http import JsonResponse
 
 from database_new import DATABASE
@@ -23,6 +24,11 @@ def sign_in(request):
         email = request.POST.get('email')
         input_password = request.POST.get('password')
 
+    if DATABASE.emoji_status is True:
+        print(emojize(':white_check_mark: 已收到 sign_in 请求', language='alias'))
+        print(emojize(':envelope: email: ' + email, language='alias'))
+        print(emojize(':key: password(已加密): ' + input_password, language='alias'))
+
     # 判断用户是否已注册
     if email not in DATABASE.email_list:    # 用户未注册
         json_rsp = {
@@ -30,9 +36,6 @@ def sign_in(request):
             "token": 'None',
             "result": "unregistered_user"
         }
-        cache = JsonResponse(json_rsp)
-        cache["Access-Control-Allow-Origin"] = "*"
-        return cache
     else:
         # 验证密码正误
         uuid = DATABASE.user_index[email]
@@ -46,18 +49,19 @@ def sign_in(request):
                 "result": "success"
             }
             # json_rsp["Access-Control-Allow-Origin"] = "*"
-            print(json_rsp)
-            cache = JsonResponse(json_rsp)
-            cache["Access-Control-Allow-Origin"] = "*"
-            return cache
         else:   # 密码错误
             json_rsp = {
                 "message_type": "rsp_sign_in",
                 "token": 'None',
                 "result": "wrong_password"
             }
-            cache = JsonResponse(json_rsp)
-            cache["Access-Control-Allow-Origin"] = "*"
-            return cache
+
+    if DATABASE.emoji_status is True:
+        print(emojize(':rocket: 已发送 rsp_sign_in 应答', language='alias'))
+        print(json_rsp)
+
+    cache = JsonResponse(json_rsp)
+    cache["Access-Control-Allow-Origin"] = "*"
+    return cache
 
 
