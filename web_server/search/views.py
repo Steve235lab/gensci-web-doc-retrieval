@@ -1,3 +1,4 @@
+import json
 from threading import Thread
 import sys
 
@@ -21,18 +22,24 @@ def search(request):
     """
     # 解包前端请求
     if request.method == 'GET':
+        print(request.GET)
         token = request.GET.get('token')
         keywords = request.GET.get('keywords')
         start_time = request.GET.get('start_time')
         end_time = request.GET.get('end_time')
         filters = request.GET.get('filters')
+        print(filters['article_type'])
     if request.method == 'POST':
-        # print(request.POST)
+        print(request.POST)
         token = request.POST.get('token')
         keywords = request.POST.get('keywords')
         start_time = request.POST.get('start_time')
         end_time = request.POST.get('end_time')
-        filters = request.POST.get('filters')
+        article_type = request.POST.get('article_type')
+        language = request.POST.get('language')
+        species = request.POST.get('species')
+        sex = request.POST.get('sex')
+        age = request.POST.get('age')
 
     # 从token中获取uuid
     uuid_str = get_uuid_from_token(token)
@@ -46,22 +53,36 @@ def search(request):
         uuid = int(uuid_str)
 
         # 拼接搜索语句
-        robust_keywords = '(' + keywords + ') AND ("' + start_time + '"[Date - Publication]:' + '"' + end_time + '"[Date - Publication]) AND ('
-        for f in filters['article_type']:
-            robust_keywords += '(' + f + '[FILT]) OR ('
-        robust_keywords = robust_keywords[:-5] + ') AND ('
-        for f in filters['language']:
-            robust_keywords += '(' + f + '[Language]) OR ('
-        robust_keywords = robust_keywords[:-5] + ') AND ('
-        for f in filters['species']:
-            robust_keywords += '(' + f + '[FILT]) OR ('
-        robust_keywords = robust_keywords[:-5] + ') AND ('
-        for f in filters['sex']:
-            robust_keywords += '(' + f + '[FILT]) OR ('
-        robust_keywords = robust_keywords[:-5] + ') AND ('
-        for f in filters['age']:
-            robust_keywords += '(' + f + '[FILT]) OR ('
-        robust_keywords = robust_keywords[:-5] + ')'
+        if start_time is None:
+            start_time = '1900-01-01'
+        if end_time is None:
+            end_time = '2022-07-10'
+        robust_keywords = '(' + keywords + ') AND ("' + start_time + '"[Date - Publication]:' + '"' + end_time + '"[Date - Publication])'
+        if article_type is not None:
+            robust_keywords += ' AND ('
+            for f in article_type:
+                robust_keywords += '(' + f + '[FILT]) OR ('
+            robust_keywords = robust_keywords[:-5] + ')'
+        if language is not None:
+            robust_keywords += ' AND ('
+            for f in language:
+                robust_keywords += '(' + f + '[Language]) OR ('
+            robust_keywords = robust_keywords[:-5] + ')'
+        if species is not None:
+            robust_keywords += ' AND ('
+            for f in species:
+                robust_keywords += '(' + f + '[FILT]) OR ('
+            robust_keywords = robust_keywords[:-5] + ')'
+        if sex is not None:
+            robust_keywords += ' AND ('
+            for f in sex:
+                robust_keywords += '(' + f + '[FILT]) OR ('
+            robust_keywords = robust_keywords[:-5] + ')'
+        if age is not None:
+            robust_keywords += ' AND ('
+            for f in age:
+                robust_keywords += '(' + f + '[FILT]) OR ('
+            robust_keywords = robust_keywords[:-5] + ')'
 
         print("Search keywords: ", robust_keywords)
 
