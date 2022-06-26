@@ -1,4 +1,4 @@
-import json
+import datetime
 from threading import Thread
 import sys
 
@@ -27,8 +27,11 @@ def search(request):
         keywords = request.GET.get('keywords')
         start_time = request.GET.get('start_time')
         end_time = request.GET.get('end_time')
-        filters = request.GET.get('filters')
-        print(filters['article_type'])
+        article_type = request.GET.get('article_type')
+        language = request.GET.get('language')
+        species = request.GET.get('species')
+        sex = request.GET.get('sex')
+        age = request.GET.get('age')
     if request.method == 'POST':
         print(request.POST)
         token = request.POST.get('token')
@@ -56,7 +59,7 @@ def search(request):
         if start_time is None:
             start_time = '1900-01-01'
         if end_time is None:
-            end_time = '2022-07-10'
+            end_time = datetime.datetime.now().strftime('%Y-%m-%d')
         robust_keywords = '(' + keywords + ') AND ("' + start_time + '"[Date - Publication]:' + '"' + end_time + '"[Date - Publication])'
         if article_type is not None:
             robust_keywords += ' AND ('
