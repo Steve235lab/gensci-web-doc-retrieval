@@ -1,93 +1,60 @@
 <template>
-
-  <div class="common-layout">
-    <el-container>
-      <el-header>
-        <el-row :gutter="20">
-          <el-col :span="12" :offset="6"
-          ><div id="search" class="mt-4 ">
-            <el-input
-                v-model="input"
-                placeholder="Please input"
-                class="input-with-select"
-                clearable
-                style="height:40px;"
-            >
-              <template #append>
-                <el-button type="primary" :icon="Search"  @click="Search"/>
-              </template>
-            </el-input>
-          </div></el-col>
-        </el-row>
-       </el-header>
-      <el-container>
-        <el-aside width="20%">
-          <div style="height:30px;">历史搜索记录</div>
-          <div v-for="history in history_list" style="height:30px;">{{history}}</div>
-        </el-aside>
-        <el-main >
-           <div class="example-pagination-block">
-             <el-table :data="paper_info" style="width: 80% "  height=600>
-               <el-table-column type="expand">
-                 <template #default="props">
-                   <div m="4">
-                     <p v-for="(item,key) in props.row" v-show="item">{{key }}:{{ item }}</p>
-                   </div>
-                 </template>
-               </el-table-column>
-               <el-table-column label="Title" prop="Title" width="400" />
-               <el-table-column label="Date" prop="Publication_Date"  width="100" sortable/>
-               <el-table-column label="First_Author" prop="First_Author"  width="200" />
-               <el-table-column label="Keywords" prop="Keywords" />
-             </el-table>
-             <el-row :gutter="20">
-               <el-col :span="12" :offset="6"
-               ><el-pagination layout="prev, pager, next" :total="50" />
-               </el-col>
-             </el-row>
-
-           </div>
-        </el-main>
-      </el-container>
-    </el-container>
+  <div class="hello">
+    <h1>{{ msg }}</h1>
+    <p>
+      For a guide and recipes on how to configure / customize this project,<br>
+      check out the
+      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
+    </p>
+    <h3>Installed CLI Plugins</h3>
+    <ul>
+      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
+      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router" target="_blank" rel="noopener">router</a></li>
+      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex" target="_blank" rel="noopener">vuex</a></li>
+      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
+    </ul>
+    <h3>Essential Links</h3>
+    <ul>
+      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
+      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
+      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
+      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
+    </ul>
+    <h3>Ecosystem</h3>
+    <ul>
+      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
+      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
+      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
+      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
+    </ul>
   </div>
 </template>
 
-
-<script lang="ts" setup>
-import {ref, VueElement} from 'vue'
-import type { TableColumnCtx } from 'element-plus/es/components/table/src/table-column/defaults'
-import {paper_info} from '../test/result.json'
-import {history_list} from '../test/history_list.json'
-defineProps({
-  msg: String
-})
-import {
-  Check,
-  Delete,
-  Edit,
-  Message,
-  Search,
-  Star,
-} from '@element-plus/icons-vue'
-
-const input = ref('')
-
-
-
-
-
-
+<script>
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  }
+}
 </script>
 
-<style scoped>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
 a {
   color: #42b983;
 }
-.input-with-select .el-input-group__prepend {
-  background-color: var(--el-fill-color-blank);
-}
-
 </style>
-
-
