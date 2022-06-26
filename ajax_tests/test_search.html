@@ -9,18 +9,19 @@
     <script>
         //location = 'http://42.192.44.52:8000/sign_in/';
         $.ajax({
-            url:"http://42.192.44.52:8000/search/",
+            url:"http://127.0.0.1:8000/search/",
             type:'post',
             dataType: 'json',
             crossDomain: true,
             data: {
-                token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjA2Njc3NS45ODQ4NzM1LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.-h_aB-8UjNhq2Z8hrkrvpjPMFU4napi72Is-Wq-NXCA",
+                token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjI0MzM0Ny4wNzQ0OTg0LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.Qm4eB3v5iTMrmLGD-20dVH--L6vXIS0RYCy6IgSIAC8",
                 message_type: "search",
-                keywords: "a AND B",
-                start_time: "2022-6-24",
-                end_time: "2022-6-24",
-                filters: ("have abstract", "book"),
-                species: "human"
+                keywords: "AA AND BBB",
+                article_type: ["Books and Documents","Clinical Trial"],
+                language: [],
+                species: [],
+                sex: [],
+                age: ["Child: birth-18 years"]
             },
             success: function (dataDict) {
                             alert('success');

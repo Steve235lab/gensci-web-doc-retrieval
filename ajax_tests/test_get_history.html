@@ -9,12 +9,12 @@
     <script>
         //location = 'http://42.192.44.52:8000/sign_in/';
         $.ajax({
-            url:"http://42.192.44.52:8000/search/history/",
+            url:"http://127.0.0.1:8000/search/history/",
             type:'get',
             dataType: 'json',
             crossDomain: true,
             data: {
-                token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjIyNDgyNS43NjQ1NTksInNhbHQiOiJTdGV2ZTIzNUxhYiJ9.fBixiOSJsGMDw1S_ldqOJiRjtUOnuL7L7ybnMGZx8uk",
+                token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjI0MzY2My43OTQ4NDA2LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.1MmYkLjZDcU18QhpsCh0qh7YwPVBw8YrtuWAZwifQZo",
                 message_type: "get_history",
             },
             success: function (dataDict) {
