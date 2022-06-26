@@ -50,24 +50,51 @@
           </el-col>
 
         </el-row>
-        <!--  <el-row :gutter="20" style="height:40px;">
-            <el-col :span="3" :offset="2"
-            ><div style="float:left;font-weight :bold;" >ARTICLE TYPE</div>
-            </el-col>
-            <el-col :span="17" :offset="0"
-            ><el-checkbox-group v-model="article_type" @change="filter" style="float:left;">
+        <el-row :gutter="20" style="height:45px;">
+          <el-col :span="3" :offset="2"
+          >
+            <div style="float:left;font-weight :bold;">AGE</div>
+          </el-col>
+          <el-col :span="17" :offset="0"
+          >
+            <el-checkbox-group v-model="age" style="float:left;">
+              <el-checkbox label="Child: birth-18 years"/>
+              <el-checkbox label="Newborn: birth-1 month"/>
+              <el-checkbox label="Infant: birth-23 months"/>
+              <el-checkbox label="Infant: 1-23 months"/>
+              <el-checkbox label="Preschool Child: 2-5 years"/>
 
-              <el-checkbox label="Option D" />
-              <el-checkbox label="Option B" />
-              <el-checkbox label="Option C" />
-              <el-checkbox label="Option A" />
-              <el-checkbox label="Option B" />
-              <el-checkbox label="Option C" />
 
             </el-checkbox-group>
-            </el-col>
-
-          </el-row>-->
+          </el-col>
+        </el-row>
+        <el-row :gutter="20" style="height:40px;">
+          <el-col :span="3" :offset="2"
+          >&emsp;</el-col>
+          <el-col :span="17" :offset="0"
+          >
+            <el-checkbox-group v-model="age" style="float:left;">
+              <el-checkbox label="Child: 6-12 years"/>
+              <el-checkbox label="Adolescent: 13-18 years" />
+              <el-checkbox label="Adult: 19+ years" />
+              <el-checkbox label="Young Adult: 19-24 years" />
+              <el-checkbox label="Adult: 19-44 years" />
+            </el-checkbox-group>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20" style="height:40px;">
+          <el-col :span="3" :offset="2"
+          >&emsp;</el-col>
+          <el-col :span="17" :offset="0"
+          >
+            <el-checkbox-group v-model="age" style="float:left;">
+              <el-checkbox label="Middle Aged + Aged: 45+ years"/>
+              <el-checkbox label="Middle Aged: 45-64 years" />
+              <el-checkbox label="Aged: 65+ years" />
+              <el-checkbox label="80 and over: 80+ years" />
+            </el-checkbox-group>
+          </el-col>
+        </el-row>
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
@@ -113,25 +140,7 @@
             </el-checkbox-group>
           </el-col>
         </el-row>
-        <el-row :gutter="20" style="height:45px;">
-          <el-col :span="3" :offset="2"
-          >
-            <div style="float:left;font-weight :bold;"><span style="color: crimson">AGE</span></div>
-          </el-col>
-          <el-col :span="6" :offset="0"
-          >
-            <el-checkbox-group v-model="age" style="float:left;">
-              <el-row>
-                <el-col :span="3" >
-                  <el-checkbox label="Humans"/>
-                </el-col>
-                <el-col :span="3" :offset="10">
-                  <el-checkbox label="Other Animals"/>
-                </el-col>
-              </el-row>
-            </el-checkbox-group>
-          </el-col>
-        </el-row>
+
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
@@ -187,7 +196,8 @@
                           </el-col>
                           <el-col :span="19" >
                             <b  v-if="item==='Title'||item ==='Chinese_Title'">{{ row }}</b>
-                            <i  v-else-if="item==='Authors'||item==='First_Author'||item==='Corresponding_Author'">{{ row }}</i>
+                            <i  v-else-if="item==='Authors'||item==='First_Author'||item==='Corresponding_Author'"
+                                style="font-family: 'Times New Roman'">{{ row }}</i>
                             <span  v-else>{{ row }}</span>
                           </el-col>
                         </el-row>
@@ -333,7 +343,7 @@ export default {
   //
   // },
   data() {
-    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjA2Njc3NS45ODQ4NzM1LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.-h_aB-8UjNhq2Z8hrkrvpjPMFU4napi72Is-Wq-NXCA";
+    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjIyODY0MS42NzkwNjg2LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.ZG08WrLQNMliQwMx4LSRhNyjn05IOS3U7e9HzM1Ys8E";
     let timestamp = 114514;
     return {
       token,
@@ -349,7 +359,10 @@ export default {
       activeNames: ['1'],
 
       pickerOptions: {
-        shortcuts: [{
+        disabledDate(time) {
+          return time.getTime() > Date.now() - 8.64e6
+        },
+      shortcuts: [{
           text: '最近一个月',
           onClick(picker) {
             const end = new Date();
@@ -383,6 +396,7 @@ export default {
           }
         },]
       },
+      history:[],
       result:[],
       example,
       currentInfo: {
@@ -404,14 +418,16 @@ export default {
         url:"http://42.192.44.52:8000/search/history/",
         params:{
           message_type: "get_history",
-          token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMDAxIiwiZXhwIjoxNjU1NDUzMzg2LjEyODI2LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.vLmc5nNmJc4xBN83CMneKEYG2GmIDan-p_fP91n7WTE"
+          token: this.token
         }
       })
           .then(function (res){
             console.log(res)
             console.log('连接成功')
             that.result = res.data.data
+            that.token = res.data.token
             console.log(that.result)
+            console.log(that.token)
             console.log(res.data)
           })
           .catch(function(err){
@@ -451,19 +467,16 @@ export default {
           url:"http://42.192.44.52:8000/search/",
           data:qs.stringify({
             "token": this.token,
-            "message_type": 'search',
+            "message_type": "search",
             "keywords": this.keywords,
             "start_time": this.publication_date[0],
             "end_time": this.publication_date[1],
-            "filters": [
-              {
-                "article_type": this.article_type,
-                "language": this.language,
-                "species": this.species,
-                "sex": this.sex,
-                "age": this.age,
-              }
-            ]
+            "article_type": this.article_type,
+            "language": this.language,
+            "species": this.species,
+            "sex": this.sex,
+            "age": this.age
+
           })
         })
             .then(function(res){
@@ -475,7 +488,8 @@ export default {
             })
         this.keywords = '';
         this.species = [];
-        this.filters = [];
+        this.age = [];
+        this.sex = [];
         this.publication_date = [];
       }
 

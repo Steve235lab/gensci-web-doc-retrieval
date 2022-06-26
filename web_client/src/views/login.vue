@@ -71,12 +71,16 @@ export default {
         data:qs.stringify({
           message_type: "sign_in",
           email:this.loginForm.email,
-          password:md5(this.loginForm.password),
+          password:this.loginForm.password,
+          // password:md5(this.loginForm.password)
         })
       })
           .then(function(res){
-            console.log(res);
+            console.log(res)
+            console.log('连接成功')
+            console.log(res.data)
             this.$cookies.set("oatoken",res.data.data.token,"30m")
+
             this.router.push('/home')
           })
           .catch(function(err){
