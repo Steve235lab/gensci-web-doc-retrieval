@@ -2,22 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>test sign up</title>
+    <title>test email confirm</title>
 </head>
 <body>
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <script>
-        //location = 'http://42.192.44.52:8000/sign_in/';
+        //location = 'http://42.192.44.52:8000/sign_in/email_confirm/';
         $.ajax({
-            url:"http://42.192.44.52:8000/sign_up/",
+            url:"http://42.192.44.52:8000/sign_up/email_confirm/",
             type:'post',
             dataType: 'json',
             crossDomain: true,
             data: {
-                message_type: "sign_up",
-                username: "email_confirm_test",
-                password: "114514",
-                email: "email_confirm@test.com"
+                message_type: "email_confirm",
+                token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMTEiLCJleHAiOjE2NTYwOTA3MDMuODQ2NjY0NCwic2FsdCI6IlN0ZXZlMjM1TGFiIn0.QFffXC-PSuUfsMLvr1iT9GyszgonHNefDd-V9EyGrWE",
+                confirm_code: "hy311lm5"
             },
             success: function (dataDict) {
                             alert('success');

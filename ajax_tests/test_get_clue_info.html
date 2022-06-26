@@ -2,22 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>test sign up</title>
+    <title>test get clue info</title>
 </head>
 <body>
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <script>
         //location = 'http://42.192.44.52:8000/sign_in/';
         $.ajax({
-            url:"http://42.192.44.52:8000/sign_up/",
-            type:'post',
+            url:"http://127.0.0.1:8000/search/clue_info/",
+            type:'get',
             dataType: 'json',
             crossDomain: true,
             data: {
-                message_type: "sign_up",
-                username: "email_confirm_test",
-                password: "114514",
-                email: "email_confirm@test.com"
+                token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjIzMzQzOC40NDM2MTEsInNhbHQiOiJTdGV2ZTIzNUxhYiJ9.3gy1rZDGjqJbth3fYlhMkt2C94kxBrlZs5vyGRs5mKM",
+                message_type: "get_clue_info",
+                timestamp: "114514",
+                page_num: "0"
             },
             success: function (dataDict) {
                             alert('success');
