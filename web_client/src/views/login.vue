@@ -71,7 +71,8 @@ export default {
         data:qs.stringify({
           message_type: "sign_in",
           email:this.loginForm.email,
-          password:md5(this.loginForm.password)
+          password:this.loginForm.password
+          // password:md5(this.loginForm.password)
         })
       })
           .then(function(res){
