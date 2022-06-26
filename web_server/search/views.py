@@ -68,39 +68,44 @@ def search(request):
         robust_keywords = '(' + keywords + ') AND ("' + start_time + '"[Date - Publication]:' + '"' + end_time + '"[Date - Publication])'
         if article_type is not None:
             article_type = article_type.replace('[', '').replace('"', '').replace(']', '').split(',')
-            robust_keywords += ' AND ('
-            for f in article_type:
-                robust_keywords += '(' + f + '[FILT]) OR ('
-            robust_keywords = robust_keywords[:-5] + ')'
+            if len(article_type) > 0:
+                robust_keywords += ' AND ('
+                for f in article_type:
+                    robust_keywords += '(' + f + '[FILT]) OR ('
+                robust_keywords = robust_keywords[:-5] + ')'
         if language is not None:
             language = language.replace('[', '').replace('"', '').replace(']', '').split(',')
-            robust_keywords += ' AND ('
-            for f in language:
-                robust_keywords += '(' + f + '[Language]) OR ('
-            robust_keywords = robust_keywords[:-5] + ')'
+            if len(language) > 0:
+                robust_keywords += ' AND ('
+                for f in language:
+                    robust_keywords += '(' + f + '[Language]) OR ('
+                robust_keywords = robust_keywords[:-5] + ')'
         if species is not None:
             species = species.replace('[', '').replace('"', '').replace(']', '').split(',')
-            robust_keywords += ' AND ('
-            for f in species:
-                robust_keywords += '(' + f + '[FILT]) OR ('
-            robust_keywords = robust_keywords[:-5] + ')'
+            if len(species) > 0:
+                robust_keywords += ' AND ('
+                for f in species:
+                    robust_keywords += '(' + f + '[FILT]) OR ('
+                robust_keywords = robust_keywords[:-5] + ')'
         if sex is not None:
             sex = sex.replace('[', '').replace('"', '').replace(']', '').split(',')
-            robust_keywords += ' AND ('
-            for f in sex:
-                robust_keywords += '(' + f + '[FILT]) OR ('
-            robust_keywords = robust_keywords[:-5] + ')'
+            if len(sex) > 0:
+                robust_keywords += ' AND ('
+                for f in sex:
+                    robust_keywords += '(' + f + '[FILT]) OR ('
+                robust_keywords = robust_keywords[:-5] + ')'
         if age is not None:
             age = age.replace('[', '').replace('"', '').replace(']', '').split(',')
-            robust_keywords += ' AND ('
-            for f in age:
-                robust_keywords += '(' + f + '[FILT]) OR ('
-            robust_keywords = robust_keywords[:-5] + ')'
+            if len(age) > 0:
+                robust_keywords += ' AND ('
+                for f in age:
+                    robust_keywords += '(' + f + '[FILT]) OR ('
+                robust_keywords = robust_keywords[:-5] + ')'
 
         print("Search keywords: ", robust_keywords)
 
         # 保存搜索记录
-        timestamp = DATABASE.add_search_history(robust_keywords, uuid)
+        timestamp = DATABASE.add_search_history(robust_keywords, uuid, keywords)
 
         # 开启一个单独的线程运行搜索服务并在搜索完成后执行善后处理
         search_thread = Thread(target=run_search, args=(robust_keywords, timestamp))
@@ -180,7 +185,7 @@ def get_history(request):
         # 将历史记录放入 'history' 字段
         for history in history_list:
             timestamp = history[0]
-            keywords = history[2]
+            keywords = history[6]
             json_rsp['history'][timestamp] = keywords
 
     if DATABASE.emoji_status is True:
@@ -324,7 +329,7 @@ def get_paper_info(request):
         page_num = request.POST.get('page_num')
 
     if DATABASE.emoji_status is True:
-        print(emojize(':white_check_mark: 已收到 get_history 请求', language='alias'))
+        print(emojize(':white_check_mark: 已收到 get_paper_info 请求', language='alias'))
         print(emojize(':snake: token: ' + token, language='alias'))
         print(emojize(':snake: timestamp: ' + timestamp, language='alias'))
         print(emojize(':snake: page_num: ' + page_num, language='alias'))
@@ -358,19 +363,17 @@ def get_paper_info(request):
             row_max = worksheet.max_row
             page_num = int(page_num)
 
-            # 如果页号为 1 则添加结果总条数 total 字段
-            if page_num == 1:
-                json_rsp['total'] = row_max - 1
+            json_rsp['total'] = row_max - 1
 
             # 每页显示的文章数目
-            papers_on_one_page = 20
+            papers_on_one_page = 2
 
             row_start = (page_num - 1) * papers_on_one_page + 2
             row_end = row_start + papers_on_one_page
 
-            if row_start < row_max:
+            if row_start <= row_max:
                 if row_end > row_max:
-                    row_end = row_max
+                    row_end = row_max + 1
                 for i in range(row_start, row_end):
                     paper_info = {}
                     paper_info['Pmid'] = worksheet.cell(i, 1).value
@@ -427,7 +430,7 @@ def get_clue_info(request):
         page_num = request.POST.get('page_num')
 
     if DATABASE.emoji_status is True:
-        print(emojize(':white_check_mark: 已收到 get_history 请求', language='alias'))
+        print(emojize(':white_check_mark: 已收到 get_clue_info 请求', language='alias'))
         print(emojize(':snake: token: ' + token, language='alias'))
         print(emojize(':snake: timestamp: ' + timestamp, language='alias'))
         print(emojize(':snake: page_num: ' + page_num, language='alias'))
@@ -461,9 +464,7 @@ def get_clue_info(request):
             row_max = worksheet.max_row
             page_num = int(page_num)
 
-            # 如果页号为 1 则添加结果总条数 total 字段
-            if page_num == 1:
-                json_rsp['total'] = row_max - 1
+            json_rsp['total'] = row_max - 1
 
             # 如果页号为 0 则代表返回所有条目
             if page_num == 0:
@@ -476,9 +477,9 @@ def get_clue_info(request):
                 row_start = (page_num - 1) * papers_on_one_page + 2
                 row_end = row_start + papers_on_one_page
 
-            if row_start < row_max:
+            if row_start <= row_max:
                 if row_end > row_max:
-                    row_end = row_max
+                    row_end = row_max + 1
                 for i in range(row_start, row_end):
                     clue_info = {}
                     clue_info['Node1'] = worksheet.cell(i, 1).value

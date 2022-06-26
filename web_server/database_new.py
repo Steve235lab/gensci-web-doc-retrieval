@@ -281,7 +281,7 @@ class Database:
             self.cursor.execute(sql)
             self.conn.commit()
 
-    def add_search_history(self, keywords, uuid):
+    def add_search_history(self, keywords, uuid, raw_keywords):
         """向数据库中添加一条新的搜索记录
 
         生成当前时间戳，查找并更新 self.searched_keywords 确定 result_timestamp，写入数据库
@@ -299,8 +299,8 @@ class Database:
             self.searched_keywords[keywords] = [timestamp, False]
 
         self.is_connected()
-        sql = """insert into search_history values ('%d', '%d', '%s', '%s', '%d', '%s')""" % (
-            timestamp, result_timestamp, keywords, "False", uuid, "False")
+        sql = """insert into search_history values ('%d', '%d', '%s', '%s', '%d', '%s', '%s')""" % (
+            timestamp, result_timestamp, keywords, "False", uuid, "False", raw_keywords)
         self.cursor.execute(sql)
         self.conn.commit()
 
