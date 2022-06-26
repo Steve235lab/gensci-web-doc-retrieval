@@ -2,20 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>test get history</title>
+    <title>test get clue info</title>
 </head>
 <body>
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <script>
         //location = 'http://42.192.44.52:8000/sign_in/';
         $.ajax({
-            url:"http://42.192.44.52:8000/search/history/",
+            url:"http://127.0.0.1:8000/search/clue_info/",
             type:'get',
             dataType: 'json',
             crossDomain: true,
             data: {
-                token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjIyNDgyNS43NjQ1NTksInNhbHQiOiJTdGV2ZTIzNUxhYiJ9.fBixiOSJsGMDw1S_ldqOJiRjtUOnuL7L7ybnMGZx8uk",
-                message_type: "get_history",
+                token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjIzMzQzOC40NDM2MTEsInNhbHQiOiJTdGV2ZTIzNUxhYiJ9.3gy1rZDGjqJbth3fYlhMkt2C94kxBrlZs5vyGRs5mKM",
+                message_type: "get_clue_info",
+                timestamp: "114514",
+                page_num: "0"
             },
             success: function (dataDict) {
                             alert('success');
