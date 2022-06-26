@@ -67,26 +67,31 @@ def search(request):
             end_time = datetime.datetime.now().strftime('%Y-%m-%d')
         robust_keywords = '(' + keywords + ') AND ("' + start_time + '"[Date - Publication]:' + '"' + end_time + '"[Date - Publication])'
         if article_type is not None:
+            article_type = article_type.replace('[', '').replace('"', '').replace(']', '').split(',')
             robust_keywords += ' AND ('
             for f in article_type:
                 robust_keywords += '(' + f + '[FILT]) OR ('
             robust_keywords = robust_keywords[:-5] + ')'
         if language is not None:
+            language = language.replace('[', '').replace('"', '').replace(']', '').split(',')
             robust_keywords += ' AND ('
             for f in language:
                 robust_keywords += '(' + f + '[Language]) OR ('
             robust_keywords = robust_keywords[:-5] + ')'
         if species is not None:
+            species = species.replace('[', '').replace('"', '').replace(']', '').split(',')
             robust_keywords += ' AND ('
             for f in species:
                 robust_keywords += '(' + f + '[FILT]) OR ('
             robust_keywords = robust_keywords[:-5] + ')'
         if sex is not None:
+            sex = sex.replace('[', '').replace('"', '').replace(']', '').split(',')
             robust_keywords += ' AND ('
             for f in sex:
                 robust_keywords += '(' + f + '[FILT]) OR ('
             robust_keywords = robust_keywords[:-5] + ')'
         if age is not None:
+            age = age.replace('[', '').replace('"', '').replace(']', '').split(',')
             robust_keywords += ' AND ('
             for f in age:
                 robust_keywords += '(' + f + '[FILT]) OR ('
@@ -318,15 +323,18 @@ def get_paper_info(request):
         timestamp = request.POST.get('timestamp')
         page_num = request.POST.get('page_num')
 
+    if DATABASE.emoji_status is True:
+        print(emojize(':white_check_mark: 已收到 get_history 请求', language='alias'))
+        print(emojize(':snake: token: ' + token, language='alias'))
+        print(emojize(':snake: timestamp: ' + timestamp, language='alias'))
+        print(emojize(':snake: page_num: ' + page_num, language='alias'))
+
     # 请求合法性判断
     # 从token中获取uuid
     uuid_str = get_uuid_from_token(token)
     # token时效性判断
     if uuid_str == 'token expired':
         json_rsp = {"message_type": "token_expired"}
-        cache = JsonResponse(json_rsp)
-        cache["Access-Control-Allow-Origin"] = "*"
-        return cache
     else:
         print("Loading data from excel files...")
         uuid = int(uuid_str)
@@ -388,15 +396,16 @@ def get_paper_info(request):
 
                     json_rsp["paper_info"].append(paper_info)
 
-            cache = JsonResponse(json_rsp)
-            cache["Access-Control-Allow-Origin"] = "*"
-            return cache
-
         else:   # 发送请求的用户与历史记录所属用户不匹配
             json_rsp = {"message_type": "invalid_request"}
-            cache = JsonResponse(json_rsp)
-            cache["Access-Control-Allow-Origin"] = "*"
-            return cache
+
+    if DATABASE.emoji_status is True:
+        print(emojize(':rocket: 已发送 rsp_get_paper_info 应答', language='alias'))
+        print(json_rsp)
+
+    cache = JsonResponse(json_rsp)
+    cache["Access-Control-Allow-Origin"] = "*"
+    return cache
 
 
 def get_clue_info(request):
@@ -417,15 +426,18 @@ def get_clue_info(request):
         timestamp = request.POST.get('timestamp')
         page_num = request.POST.get('page_num')
 
+    if DATABASE.emoji_status is True:
+        print(emojize(':white_check_mark: 已收到 get_history 请求', language='alias'))
+        print(emojize(':snake: token: ' + token, language='alias'))
+        print(emojize(':snake: timestamp: ' + timestamp, language='alias'))
+        print(emojize(':snake: page_num: ' + page_num, language='alias'))
+
     # 请求合法性判断
     # 从token中获取uuid
     uuid_str = get_uuid_from_token(token)
     # token时效性判断
     if uuid_str == 'token expired':
         json_rsp = {"message_type": "token_expired"}
-        cache = JsonResponse(json_rsp)
-        cache["Access-Control-Allow-Origin"] = "*"
-        return cache
     else:
         print("Loading data from excel files...")
         uuid = int(uuid_str)
@@ -478,13 +490,14 @@ def get_clue_info(request):
 
                     json_rsp["clue_info"].append(clue_info)
 
-            cache = JsonResponse(json_rsp)
-            cache["Access-Control-Allow-Origin"] = "*"
-            return cache
-
         else:  # 发送请求的用户与历史记录所属用户不匹配
             json_rsp = {"message_type": "invalid_request"}
-            cache = JsonResponse(json_rsp)
-            cache["Access-Control-Allow-Origin"] = "*"
-            return cache
+
+    if DATABASE.emoji_status is True:
+        print(emojize(':rocket: 已发送 rsp_get_clue_info 应答', language='alias'))
+        print(json_rsp)
+
+    cache = JsonResponse(json_rsp)
+    cache["Access-Control-Allow-Origin"] = "*"
+    return cache
 
