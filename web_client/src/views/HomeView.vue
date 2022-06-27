@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+<!--    导航栏-->
    <el-menu
         :default-active="activeIndex"
         class="el-menu-demo"
@@ -12,6 +13,7 @@
       <el-menu-item index="1" style="float: right" @click="gotoLogin">登录</el-menu-item>
       <el-menu-item index="2" style="float: right" @click="gotoRegister">注册</el-menu-item>
     </el-menu>
+<!--    搜索框-->
     <el-row :gutter="20">
       <el-col :span="12" :offset="6">
         <div style="margin-top: 15px;">
@@ -28,8 +30,10 @@
         </div>
       </el-col>
     </el-row>
+<!--    筛选条件折叠面板-->
     <el-collapse style="display:inline;">
       <el-collapse-item>
+<!--        文章类型-->
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
@@ -50,6 +54,7 @@
           </el-col>
 
         </el-row>
+<!--        年龄-->
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
@@ -110,6 +115,7 @@
             </el-checkbox-group>
           </el-col>
         </el-row>
+<!--        语言-->
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
@@ -125,6 +131,7 @@
             </el-checkbox-group>
           </el-col>
         </el-row>
+<!--        性别-->
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
@@ -140,7 +147,7 @@
             </el-checkbox-group>
           </el-col>
         </el-row>
-
+<!--        发表时间-->
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
@@ -169,31 +176,38 @@
       </el-collapse-item>
     </el-collapse>
     <p></p>
+<!--    历史记录及结果显示-->
     <el-row :gutter="5">
+<!--      历史记录-->
       <el-col :span="2" :offset="2">
         <div style="height:30px;">历史搜索记录</div>
         <el-button @click="test">test</el-button>
         <el-link :underline="false" v-for="row in history" :key="row"  @click="paperInfo" @dblclick="gettimestamp">{{row}}</el-link>
       </el-col>
+<!--      结果显示-->
       <el-col :span="16" :offset="2">
+<!--        paper_info/clue_info/network标签页-->
         <div>
-
           <el-tabs type="border-card" @tab-click="handleClick">
+<!--            paper_info-->
             <el-tab-pane label="Paple_info" name="paper">
               <el-table
                   :data="paper_result"
                   style="width: 100%"
                   height=600>
                 <el-table-column type="expand">
+<!--                  折叠面板-文章详情-->
                   <template slot-scope="props">
                     <div v-for="(row,item) in props.row" :key="row" v-show="row">
                       <p>
                         <el-row :gutter="10">
+<!--                          左侧标题-->
                           <el-col :span="5" >
                             <span class="table-expand-label" v-if="item==='Chinese_Title'">&emsp;中文标题 : </span>
                             <span class="table-expand-label" v-else-if="item==='Chinese_Abstract'">&emsp;中文摘要 : </span>
                             <span class="table-expand-label" v-else>&emsp;{{item}} : </span>
                           </el-col>
+<!--                          右侧具体内容及格式-->
                           <el-col :span="19" >
                             <b  v-if="item==='Title'||item ==='Chinese_Title'">{{ row }}</b>
                             <i  v-else-if="item==='Authors'||item==='First_Author'||item==='Corresponding_Author'"
@@ -207,6 +221,7 @@
 
                     </div>
                   </template>
+<!--                  表格纵列-->
                 </el-table-column>
                 <el-table-column label="Title" prop="Title" sortable width="400">
                 </el-table-column>
@@ -230,11 +245,13 @@
                 </el-col>
               </el-row>
             </el-tab-pane>
+<!--            clue_info-->
             <el-tab-pane label="Clue_info" name="clue">
               <el-table
                   :data="clue_result"
                   style="width: 100%"
                   height=600>
+<!--                折叠面板-->
                 <el-table-column type="expand">
                   <template slot-scope="props">
                     <div v-for="(row,item) in props.row" :key="row" v-show="row">
@@ -254,6 +271,7 @@
                     </div>
                   </template>
                 </el-table-column>
+<!--                表格纵列-->
                 <el-table-column label="Node1" prop="Node1" sortable />
                 <el-table-column label="Edge_Type" prop="Edge_Type"   sortable/>
                 <el-table-column label="Node2" prop="Node2"   sortable/>
@@ -270,15 +288,13 @@
                 </el-col>
               </el-row>
             </el-tab-pane>
+<!--            network-->
             <el-tab-pane label="Network" name="network">network</el-tab-pane>
 
           </el-tabs>
         </div>
       </el-col>
-
     </el-row>
-
-
   </div>
 </template>
 
@@ -290,13 +306,10 @@ import axios from "axios";
 import example from "../../../docs/example_test.json"
 
 export default {
-  // name: 'HomeView',
-  // components: {
-  //
-  // },
+
   data() {
 
-    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjI2NDAzNS45MjMzNTIsInNhbHQiOiJTdGV2ZTIzNUxhYiJ9.fQJjSAGBthECeBfmg-m0NmLm1hkCeQA7xwiiRNjX_Co";
+    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjMwMzY4OC41MjAyODQ3LCJzYWx0IjoiU3RldmUyMzVMYWIifQ._mqchG5foVjvBz_S2N8uSgMXUcYJ7PEUUaqMt_aZ6sQ";
     let timestamp = 114514;
     return {
       token,
@@ -317,38 +330,30 @@ export default {
           return time.getTime() > Date.now() - 8.64e6
         },
       shortcuts: [{
-          text: '最近一个月',
-          onClick(picker) {
-            const end = new Date();
-            const start = new Date();
-            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
-            picker.$emit('pick', [start, end]);
-          }
-        }, {
-          text: '最近三个月',
-          onClick(picker) {
-            const end = new Date();
-            const start = new Date();
-            start.setTime(start.getTime() - 3600 * 1000 * 24 * 91);
-            picker.$emit('pick', [start, end]);
-          }
-        }, {
-          text: '最近六个月',
-          onClick(picker) {
-            const end = new Date();
-            const start = new Date();
-            start.setTime(start.getTime() - 3600 * 1000 * 24 * 183);
-            picker.$emit('pick', [start, end]);
-          }
-        }, {
-          text: '最近一年',
+          text: '近一年',
           onClick(picker) {
             const end = new Date();
             const start = new Date();
             start.setTime(start.getTime() - 3600 * 1000 * 24 * 365);
             picker.$emit('pick', [start, end]);
           }
-        },]
+        },{
+        text: '近五年',
+        onClick(picker) {
+          const end = new Date();
+          const start = new Date();
+          start.setTime(start.getTime() - 3600 * 1000 * 24 * (365 * 5 + 1));
+          picker.$emit('pick', [start, end]);
+        }
+      }, {
+        text: '近十年',
+        onClick(picker) {
+          const end = new Date();
+          const start = new Date();
+          start.setTime(start.getTime() - 3600 * 1000 * 24 * (365 * 10 + 2));
+          picker.$emit('pick', [start, end]);
+        }
+      }]
       },
       history:[],
       paper_result:[],
@@ -392,6 +397,7 @@ export default {
             console.log('连接失败')
           })
     },
+    //监听结果显示标签页选择事件
     handleClick(tab, event) {
       console.log('tab：',tab);
       console.log('event',event)
@@ -415,7 +421,7 @@ export default {
     gettimestamp(){
       console.log(this)
     },
-    // 监听 页码值 改变的事件
+    // 监听paper_info页码值改变的事件
     handleCurrentChange1(newPage) {
       console.log(newPage)
       //把最新的页码（newPage）赋值给 动态的 pagenum
@@ -423,6 +429,7 @@ export default {
       //获取到最新显示的页码值  重新发送axios请求 这里是封装好的请求方法
       this.paperInfo()
     },
+    // 监听clue_info页码值改变的事件
     handleCurrentChange2(newPage) {
       console.log(newPage)
       //把最新的页码（newPage）赋值给 动态的 pagenum
@@ -432,13 +439,15 @@ export default {
     },
 
 
-
+    //跳转至登录页面
     gotoLogin(){
       this.$router.push('login')
     },
+    //跳转至注册页面
     gotoRegister(){
       this.$router.push('register')
     },
+    //提交搜索请求
     handleSearch() {
       if (this.keywords === ''){
         this.$message('输入不能为空');
@@ -480,7 +489,7 @@ export default {
       }
 
     },
-
+    //获取当前页paper_info数据
     paperInfo() {
       var that=this;
       that.axios({
@@ -506,6 +515,7 @@ export default {
           })
 
     },
+    //获取当前页clue_info数据
     clueInfo() {
       var that=this;
       that.axios({
