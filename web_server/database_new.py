@@ -308,11 +308,11 @@ class Database:
 
         return timestamp
 
-    def get_search_history(self, uuid):
+    def get_search_history(self, uuid: int):
         """获取给定uuid用户的搜索记录
 
-        :param uuid: (int)
-        :return history_list: (list)
+        :param uuid: 用户的uuid
+        :return: history_list 该用户的搜索记录列表
         """
         # 返回记录的最大条数
         max_history_num = 100
@@ -326,11 +326,11 @@ class Database:
         else:
             return history_list[(-1*max_history_num):]
 
-    def get_result(self, timestamp):
+    def get_result(self, timestamp: int):
         """获取给定时间戳的历史记录
 
-        :param timestamp: (int)
-        :return history: (list) 根据给定时间戳从数据表中找到的一条历史记录
+        :param timestamp: 该次搜索的时间戳
+        :return: history 根据给定时间戳从数据表中找到的一条历史记录
         """
         self.is_connected()
         sql = """select * from search_history where timestamp = '%d' """ % timestamp
@@ -349,6 +349,37 @@ class Database:
         sql = """update search_history set search_completed_flag = 'True' where keywords = ('%s')""" % keywords
         self.cursor.execute(sql)
         self.conn.commit()
+
+    def add_paper_highlight_abstract(self, pmid: int, highlight_abstract: str):
+        """将高亮处理后的文章摘要保存至数据库 paper_abstract 表
+
+        :param pmid: 文章PMID
+        :param highlight_abstract: 高亮处理后的文章摘要
+        :return: None
+        """
+        try:
+            self.is_connected()
+            sql = """insert into paper_abstract values ('%d', '%s')""" % (pmid, highlight_abstract)
+            self.cursor.execute(sql)
+            self.conn.commit()
+        except:
+            self.is_connected()
+            sql = """update paper_abstract set html_abstract = '%s' where pmid = '%d'""" % (highlight_abstract, pmid)
+            self.cursor.execute(sql)
+            self.conn.commit()
+
+    def get_highlight_abstract_with_pmid(self, pmid: int):
+        """使用PMID到数据库 paper_abstract 表中查找该文章
+
+        :param pmid: 文章PMID
+        :return: highlight_abstract 高亮处理后的文章摘要
+        """
+        self.is_connected()
+        sql = """select * from paper_abstract where pmid = '%d' """ % pmid
+        self.cursor.execute(sql)
+        highlight_abstract = self.cursor.fetchone()[1]
+
+        return highlight_abstract
 
 
 class User:

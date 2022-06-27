@@ -150,6 +150,38 @@ def run_search(robust_keywords: str, timestamp: int):
 
     # TODO: 启动搜索，使用 robust_keywords 作为关键词进行搜索，将 paper_info.xlsx 和 clue_info.xlsx 两个文件输出到 result_dir 下
 
+    # 从json文件中提取结果文献的 abstract_highlight 字段，生成HTML标签，保存至数据库 paper_abstract 表
+    # 更改至测试用路径，部署到生产环境时须注释掉下面一行代码
+    result_dir = 'static/json_data_test/'
+
+    # 读取 file.list 获取包含结果文献信息的json文件目录
+    file_list = open(result_dir + 'file.list', 'r')
+    json_dir_list = file_list.readlines()
+    for json_dir in json_dir_list:
+        json_dir = json_dir[:-1]    # 删除换行符 \n
+        raw_paper_info = json.load(open(json_dir, 'r'))
+        pmid = int(raw_paper_info['pmid'])
+        abstract_highlight_list = raw_paper_info['abstract_highlight']
+        # 生成带有高亮的HTML字符串
+        abstract_highlight_str = ''
+        for i in range(len(abstract_highlight_list)):
+            word = abstract_highlight_list[i]
+            if word != '':
+                if word[0] == '<':
+                    color_sp = word.find('font_color=') + 11
+                    color_ep = word.find('>')
+                    color = word[color_sp:color_ep]
+                    abstract_highlight_str += '<span style="font-weight: bold; font-style: italic; color: ' + color + ';">'
+                    abstract_highlight_str += abstract_highlight_list[i + 1] + '</span>'
+                    try:
+                        abstract_highlight_list[i + 1] = ''
+                    except:
+                        pass
+                else:
+                    abstract_highlight_str += word
+        # 写入数据库
+        DATABASE.add_paper_highlight_abstract(pmid, abstract_highlight_str)
+
     # 将数据库中所有搜索该关键词的搜索记录标记为已完成搜索
     DATABASE.search_completed(robust_keywords)
 
@@ -401,7 +433,7 @@ def get_paper_info(request):
                         paper_info['Corresponding_Author'] = worksheet.cell(i, 8).value
                         paper_info['Authors'] = worksheet.cell(i, 9).value
                         paper_info['Affiliations'] = worksheet.cell(i, 10).value
-                        # paper_info['Abstract'] = worksheet.cell(i, 11).value
+                        paper_info['Abstract'] = worksheet.cell(i, 11).value
                         paper_info['Keywords'] = worksheet.cell(i, 12).value
                         paper_info['Doi'] = worksheet.cell(i, 13).value
                         paper_info['Journal_If'] = worksheet.cell(i, 14).value
@@ -443,6 +475,7 @@ def get_paper_info(request):
                         raw_paper_info = json.load(open(json_dir, 'r'))
                         paper_info = {}
                         paper_info['Pmid'] = raw_paper_info['pmid']
+                        pmid = int(raw_paper_info['pmid'])
                         paper_info['Journal'] = raw_paper_info['journal']
                         paper_info['Publication_Type'] = raw_paper_info['publication_type']
                         paper_info['Publication_Year'] = raw_paper_info['publication_year']
@@ -452,7 +485,7 @@ def get_paper_info(request):
                         paper_info['Corresponding_Author'] = raw_paper_info['corresponding_author']
                         paper_info['Authors'] = raw_paper_info['authors']
                         paper_info['Affiliations'] = raw_paper_info['affiliations']
-                        paper_info['Abstract'] = raw_paper_info['abstract']
+                        paper_info['Abstract'] = DATABASE.get_highlight_abstract_with_pmid(pmid)
                         paper_info['Keywords'] = raw_paper_info['keywords']
                         paper_info['Doi'] = raw_paper_info['doi']
                         paper_info['Journal_If'] = raw_paper_info['journal_if']
