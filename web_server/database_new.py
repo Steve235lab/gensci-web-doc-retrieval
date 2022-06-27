@@ -1,4 +1,4 @@
-# database_new.py
+﻿# database_new.py
 # 内存中数据对象与硬盘中数据库表文件交互
 # Based on database.py
 # Written by Steve D. J. on 2022/6/22.
@@ -46,7 +46,7 @@ class Database:
         self.email_list = []
         self.user_index = {}  # {email: uuid}
         self.searched_keywords = {}  # {keywords: [result_timestamp, favourite_flag]}
-        self.emoji_status = True
+        self.emoji_status = False
         # 连接到Docker上的MySQL服务容器，注意要先到Docker里手动运行MySQL
         self.conn = connect(host='42.192.44.52', port=3306, user='root', password='root',
                             database='gensci-web-doc-retrieval-db', charset='utf8')
