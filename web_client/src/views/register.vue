@@ -62,7 +62,7 @@ export default {
       const str = value.trim();
       const length = str.length;
       const reStr = /^[a-zA-Z]{1}/;
-      const reEn = /^[a-zA-Z0-9/_)]{6,16}$/;
+      const reEn = /^[a-zA-Z0-9/_)]{3,16}$/;
       if (!reStr.test(value)) {
         callback(new Error("用户名必须以字母开头"));
       } else if (length < 6 || length > 16) {
@@ -104,7 +104,6 @@ export default {
       }
     };
     return {
-      token: '',
       loginForm: {
         username: "",
         email: "",
@@ -158,18 +157,22 @@ export default {
         method:"post",
         url:"http://42.192.44.52:8000/sign_up/email_confirm/",
         data:qs.stringify({
-          message_type: "email_confirm",
-          token: this.token,
-          code:this.loginForm.code
+          code:this.loginForm.code,
         })
       })
-          .then(res=>{
-            this.$cookies.set("oatoken",res.data.data.token,"30m")
-            this.router.push('/home')
+          .then(function(res){
             console.log(res)
+            console.log(res.data);
+            var yanzhengma=res.data.confirmed;
+            console.log(yanzhengma)
+            if(yanzhengma=='True'){
+            that.router.push('home')
+            var token=res.data.token;
+            console.log(token);
+            }
           })
-          .catch(error=>{
-            console.log(error)
+          .catch(function(err){
+            console.log(err)
           })
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
@@ -193,15 +196,14 @@ export default {
         }),
       })
           .then(function(res){
-            console.log(res);
-            this.token = res.data.token;
-            console.log(res.data);
+            console.log(res)
           })
           .catch(function(err){
             console.log(err)
           })
     }
   }
+  
 }
 </script>
 
