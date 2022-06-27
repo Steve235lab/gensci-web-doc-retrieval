@@ -5,7 +5,6 @@
         :default-active="activeIndex"
         class="el-menu-demo"
         mode="horizontal"
-        @select="handleSelect"
         background-color="#20558a"
         text-color="#fff"
         active-text-color="#b4c8e0">
@@ -31,8 +30,8 @@
       </el-col>
     </el-row>
 <!--    筛选条件折叠面板-->
-    <el-collapse style="display:inline;">
-      <el-collapse-item>
+    <el-collapse style="display:inline;" v-model="activeState">
+      <el-collapse-item >
 <!--        文章类型-->
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
@@ -41,7 +40,7 @@
           </el-col>
           <el-col :span="17" :offset="0"
           >
-            <el-checkbox-group v-model="article_type" style="float:left;" @change="handleFilter">
+            <el-checkbox-group v-model="article_type" style="float:left;" >
 
               <el-checkbox label="Books and Documents"/>
               <el-checkbox label="Clinical Trial"/>
@@ -180,15 +179,19 @@
     <el-row :gutter="5">
 <!--      历史记录-->
       <el-col :span="2" :offset="2">
-        <div style="height:30px;">历史搜索记录</div>
-        <el-button @click="test">test</el-button>
-        <el-link :underline="false" v-for="row in history" :key="row"  @click="paperInfo" @dblclick="gettimestamp">{{row}}</el-link>
+        <div style="height:30px;">
+          历史搜索记录
+          <el-link :underline="false" @click="getHistory" icon="el-icon-refresh-right" style="font-size: 17px"></el-link>
+        </div>
+        <div v-for="(row,item) in history" :key="item" >
+          <el-link :underline="false" @click="gettimestamp(item)">{{row}}</el-link>
+        </div>
       </el-col>
 <!--      结果显示-->
       <el-col :span="16" :offset="2">
 <!--        paper_info/clue_info/network标签页-->
         <div>
-          <el-tabs type="border-card" @tab-click="handleClick">
+          <el-tabs type="border-card" @tab-click="handleClick" v-model="tabName">
 <!--            paper_info-->
             <el-tab-pane label="Paple_info" name="paper">
               <el-table
@@ -211,7 +214,7 @@
                           <el-col :span="19" >
                             <b  v-if="item==='Title'||item ==='Chinese_Title'">{{ row }}</b>
                             <i  v-else-if="item==='Authors'||item==='First_Author'||item==='Corresponding_Author'"
-                                style="font-family: 'Times New Roman'">{{ row }}</i>
+                                style="font-family: 'Times New Roman',serif">{{ row }}</i>
                             <span  v-else>{{ row }}</span>
                           </el-col>
                         </el-row>
@@ -309,12 +312,13 @@ export default {
 
   data() {
 
-    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjMwMzY4OC41MjAyODQ3LCJzYWx0IjoiU3RldmUyMzVMYWIifQ._mqchG5foVjvBz_S2N8uSgMXUcYJ7PEUUaqMt_aZ6sQ";
+    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjMxOTg2Ny4xMDQyNjcxLCJzYWx0IjoiU3RldmUyMzVMYWIifQ.Z27VZ-7PgB4n5zV1TU-YMVIOJZAFuWzy5U8dSfyeR64";
     let timestamp = 114514;
     return {
       token,
       timestamp,
       activeIndex: '0',
+      activeState:'',
       keywords: '',
       article_type: [],
       articleType:[],
@@ -323,7 +327,7 @@ export default {
       sex: [],
       age: [],
       publication_date: [],
-      activeNames: ['1'],
+      tabName:'',
 
       pickerOptions: {
         disabledDate(time) {
@@ -370,10 +374,11 @@ export default {
     };
   },
   mounted() {
-    // this.newpageInfo()
+    this.getHistory()
   },
   methods: {
-    test(){
+    //获取历史记录
+    getHistory(){
       var that = this;
       that.axios({
         method:"get",
@@ -418,12 +423,16 @@ export default {
         this.clueInfo()
       }
     },
-    gettimestamp(){
-      console.log(this)
+    //获取时间戳并获取该记录的paper_info
+    gettimestamp(timestamp){
+      this.timestamp = timestamp
+      console.log(this.timestamp)
+      this.tabName = 'paper'
+      this.paperInfo()
     },
     // 监听paper_info页码值改变的事件
     handleCurrentChange1(newPage) {
-      console.log(newPage)
+      console.log('当前paper_info页码为：',newPage)
       //把最新的页码（newPage）赋值给 动态的 pagenum
       this.paper_page_Info.currentNumber = newPage
       //获取到最新显示的页码值  重新发送axios请求 这里是封装好的请求方法
@@ -431,7 +440,7 @@ export default {
     },
     // 监听clue_info页码值改变的事件
     handleCurrentChange2(newPage) {
-      console.log(newPage)
+      console.log('当前clue_info页码为：',newPage)
       //把最新的页码（newPage）赋值给 动态的 pagenum
       this.clue_page_Info.currentNumber = newPage
       //获取到最新显示的页码值  重新发送axios请求 这里是封装好的请求方法
@@ -453,7 +462,7 @@ export default {
         this.$message('输入不能为空');
       }
       else {
-
+        console.log('发送搜索请求')
         var that=this;
         that.axios({
           method:"post",
@@ -474,6 +483,7 @@ export default {
         })
             .then(function(res){
               console.log(res);
+              console.log('已成功发送搜索请求');
               console.log(res.data)
             })
             .catch(function(err){
@@ -486,11 +496,13 @@ export default {
         this.age = [];
         this.sex = [];
         this.publication_date = [];
+        this.activeState = ''
       }
 
     },
     //获取当前页paper_info数据
     paperInfo() {
+      console.log('请求paper数据')
       var that=this;
       that.axios({
         method:"post",
@@ -517,6 +529,7 @@ export default {
     },
     //获取当前页clue_info数据
     clueInfo() {
+      console.log('请求clue数据')
       var that=this;
       that.axios({
         method:"post",
