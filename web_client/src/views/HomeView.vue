@@ -180,7 +180,7 @@
 <!--      历史记录-->
       <el-col :span="3" :offset="2" >
         <div style="height:30px;text-align:left;">
-          历史搜索记录
+          当前可查看
           <el-link :underline="false" @click="getHistory" icon="el-icon-refresh" style="font-size: 17px"></el-link>
         </div>
         <div style="height: 650px;overflow:auto">
@@ -328,7 +328,7 @@ export default {
 
   data() {
 
-    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjM1MTE1Mi44ODA0MTE5LCJzYWx0IjoiU3RldmUyMzVMYWIifQ._ELAyT1WRayT3-01OofN5FzYIwSPgPI0JkOjkBESAnw";
+    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjM2MDYxOC4xMjYzNjE0LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.jD6Ovwcazlh7Ozg7iVLseOELXx3wvBjluUC6dWyyZ1Q";
     let timestamp = 114514;
     return {
       token,
@@ -378,6 +378,7 @@ export default {
       history:[],
       paper_result:[],
       clue_result:[],
+      clue:{nodes:[],edges:[]},
       paper_page_Info: {
         total: 0,
         currentNumber: 1,
@@ -402,8 +403,10 @@ export default {
           // 节点默认配置
           defaultNode: {
             labelCfg: {
+              position: 'bottom',
+              offset: 3,
               style: {
-                fill: '#fff',
+                fill: '#000',
               },
             },
           },
@@ -468,6 +471,7 @@ export default {
           .then(function (res){
             console.log(res)
             console.log('连接成功')
+
             that.history = res.data.history
             that.token = res.data.token
             console.log(that.history)
@@ -635,68 +639,38 @@ export default {
 
     },
     //绘制network网络图
+    getdrawInfo(){
+      var index_n = 0;
+      var index_e = 0;
+      this.clue_result.forEach((clue_info) => {
+        console.log(clue_info);
+        if(!this.clue.nodes[index_n]){
+          this.clue.nodes[index_n]={};
+        }
+        this.clue.nodes[index_n].id = clue_info.Node1;
+        this.clue.nodes[index_n].label = clue_info.Node1;
+        index_n++;
+        if(!this.clue.nodes[index_n]){
+          this.clue.nodes[index_n]={};
+        }
+        this.clue.nodes[index_n].id = clue_info.Node2;
+        this.clue.nodes[index_n].label = clue_info.Node2;
+        index_n++;
+        if(!this.clue.edges[index_e]){
+          this.clue.edges[index_e]={};
+        }
+        this.clue.edges[index_e].source = clue_info.Node1;
+        this.clue.edges[index_e].target = clue_info.Node2;
+        this.clue.edges[index_e].weight = clue_info.Weight;
+        this.clue.edges[index_e].label = clue_info.Paper_List;
+        index_e++;
+      });
+    },
     draw_network(){
-      const remoteData = {
+      this.getdrawInfo();
 
-        "nodes": [
-          {"id": "0", "label": "n0", "class": "c0" },
-          {"id": "1", "label": "n1", "class": "c0" },
-          {"id": "2", "label": "n2", "class": "c0" },
-          {"id": "3", "label": "n3", "class": "c0" },
-          {"id": "4", "label": "n4", "class": "c0" },
-          {"id": "5", "label": "n5", "class": "c0" },
-          {"id": "6", "label": "n6", "class": "c1"},
-          {"id": "7", "label": "n7", "class": "c1"},
-          {"id": "8", "label": "n8", "class": "c1" },
-          {"id": "9", "label": "n9", "class": "c1" },
-          {"id": "10", "label": "n10", "class": "c1" },
-          {"id": "11", "label": "n11", "class": "c1" },
-          {"id": "12", "label": "n12", "class": "c1" },
-          {"id": "13", "label": "n13", "class": "c2" },
-          {"id": "14", "label": "n14", "class": "c2" },
-          {"id": "15", "label": "n15", "class": "c2" },
-          {"id": "16", "label": "n16", "class": "c2" },
-          {"id": "17", "label": "n17", "class": "c2" },
-          {"id": "18", "label": "n18", "class": "c2" },
-          {"id": "19", "label": "n19", "class": "c2" }
-        ],
-        "edges": [
-          {"source": "0", "target": "1", "label": "e0-1", "weight": 1 },
-          {"source": "0", "target": "2", "label": "e0-2", "weight": 2 },
-          {"source": "0", "target": "3", "label": "e0-3", "weight": 3 },
-          {"source": "0", "target": "4", "label": "e0-4", "weight": 1.4 },
-          {"source": "0", "target": "5", "label": "e0-5", "weight": 2 },
-          {"source": "0", "target": "7", "label": "e0-7", "weight": 2 },
-          {"source": "0", "target": "8", "label": "e0-8", "weight": 2 },
-          {"source": "0", "target": "9", "label": "e0-9", "weight": 1.3 },
-          {"source": "0", "target": "10", "label": "e0-10", "weight": 1.5 },
-          {"source": "0", "target": "11", "label": "e0-11", "weight": 1 },
-          {"source": "0", "target": "13", "label": "e0-13", "weight": 10 },
-          {"source": "0", "target": "14", "label": "e0-14", "weight": 2 },
-          {"source": "0", "target": "15", "label": "e0-15", "weight": 0.5 },
-          {"source": "0", "target": "16", "label": "e0-16", "weight": 0.8 },
-          {"source": "2", "target": "3", "label": "e2-3", "weight": 1 },
-          {"source": "4", "target": "5", "label": "e4-5", "weight": 1.4 },
-          {"source": "4", "target": "6", "label": "e4-6", "weight": 2.1 },
-          {"source": "5", "target": "6", "label": "e5-6", "weight": 1.9 },
-          {"source": "7", "target": "13", "label": "e7-13", "weight": 0.5 },
-          {"source": "8", "target": "14", "label": "e8-14", "weight": 0.8 },
-          {"source": "9", "target": "10", "label": "e9-10", "weight": 0.2 },
-          {"source": "10", "target": "14", "label": "e10-14", "weight": 1 },
-          {"source": "10", "target": "12", "label": "e10-12", "weight": 1.2 },
-          {"source": "11", "target": "14", "label": "e11-14", "weight": 1.2 },
-          {"source": "12", "target": "13", "label": "e12-13", "weight": 2.1 },
-          {"source": "16", "target": "17", "label": "e16-17", "weight": 2.5 },
-          {"source": "16", "target": "18", "label": "e16-18", "weight": 3 },
-          {"source": "17", "target": "18", "label": "e17-18", "weight": 2.6 },
-          {"source": "18", "target": "19", "label": "e18-19", "weight": 1.6 }
-        ]
-
-
-      }
-
-      const nodes = remoteData.nodes;
-      const edges = remoteData.edges;
+      const nodes = this.clue.nodes;
+      const edges = this.clue.edges;
       nodes.forEach((node) => {
         if (!node.style) {
           node.style = {};
@@ -704,23 +678,6 @@ export default {
         node.style.lineWidth = 1;
         node.style.stroke = '#666';
         node.style.fill = 'steelblue';
-        switch (node.class) {
-          case 'c0': {
-            node.type = 'circle';
-            node.size = 30;
-            break;
-          }
-          case 'c1': {
-            node.type = 'rect';
-            node.size = [35, 20];
-            break;
-          }
-          case 'c2': {
-            node.type = 'ellipse';
-            node.size = [35, 20];
-            break;
-          }
-        }
       });
       edges.forEach((edge) => {
         if (!edge.style) {
@@ -731,7 +688,7 @@ export default {
         edge.style.stroke = 'grey';
       });
 
-      graph.data(remoteData);
+      graph.data(this.clue);
       graph.render();
 
       // 监听鼠标进入节点
@@ -769,6 +726,140 @@ export default {
         graph.setItemState(edgeItem, 'click', true);
       });
     }
+    // draw_network(){
+    //   const remoteData = {
+    //
+    //     "nodes": [
+    //       {"id": "0", "label": "n0", "class": "c0" },
+    //       {"id": "1", "label": "n1", "class": "c0" },
+    //       {"id": "2", "label": "n2", "class": "c0" },
+    //       {"id": "3", "label": "n3", "class": "c0" },
+    //       {"id": "4", "label": "n4", "class": "c0" },
+    //       {"id": "5", "label": "n5", "class": "c0" },
+    //       {"id": "6", "label": "n6", "class": "c1"},
+    //       {"id": "7", "label": "n7", "class": "c1"},
+    //       {"id": "8", "label": "n8", "class": "c1" },
+    //       {"id": "9", "label": "n9", "class": "c1" },
+    //       {"id": "10", "label": "n10", "class": "c1" },
+    //       {"id": "11", "label": "n11", "class": "c1" },
+    //       {"id": "12", "label": "n12", "class": "c1" },
+    //       {"id": "13", "label": "n13", "class": "c2" },
+    //       {"id": "14", "label": "n14", "class": "c2" },
+    //       {"id": "15", "label": "n15", "class": "c2" },
+    //       {"id": "16", "label": "n16", "class": "c2" },
+    //       {"id": "17", "label": "n17", "class": "c2" },
+    //       {"id": "18", "label": "n18", "class": "c2" },
+    //       {"id": "19", "label": "n19", "class": "c2" }
+    //     ],
+    //     "edges": [
+    //       {"source": "0", "target": "1", "label": "e0-1", "weight": 1 },
+    //       {"source": "0", "target": "2", "label": "e0-2", "weight": 2 },
+    //       {"source": "0", "target": "3", "label": "e0-3", "weight": 3 },
+    //       {"source": "0", "target": "4", "label": "e0-4", "weight": 1.4 },
+    //       {"source": "0", "target": "5", "label": "e0-5", "weight": 2 },
+    //       {"source": "0", "target": "7", "label": "e0-7", "weight": 2 },
+    //       {"source": "0", "target": "8", "label": "e0-8", "weight": 2 },
+    //       {"source": "0", "target": "9", "label": "e0-9", "weight": 1.3 },
+    //       {"source": "0", "target": "10", "label": "e0-10", "weight": 1.5 },
+    //       {"source": "0", "target": "11", "label": "e0-11", "weight": 1 },
+    //       {"source": "0", "target": "13", "label": "e0-13", "weight": 10 },
+    //       {"source": "0", "target": "14", "label": "e0-14", "weight": 2 },
+    //       {"source": "0", "target": "15", "label": "e0-15", "weight": 0.5 },
+    //       {"source": "0", "target": "16", "label": "e0-16", "weight": 0.8 },
+    //       {"source": "2", "target": "3", "label": "e2-3", "weight": 1 },
+    //       {"source": "4", "target": "5", "label": "e4-5", "weight": 1.4 },
+    //       {"source": "4", "target": "6", "label": "e4-6", "weight": 2.1 },
+    //       {"source": "5", "target": "6", "label": "e5-6", "weight": 1.9 },
+    //       {"source": "7", "target": "13", "label": "e7-13", "weight": 0.5 },
+    //       {"source": "8", "target": "14", "label": "e8-14", "weight": 0.8 },
+    //       {"source": "9", "target": "10", "label": "e9-10", "weight": 0.2 },
+    //       {"source": "10", "target": "14", "label": "e10-14", "weight": 1 },
+    //       {"source": "10", "target": "12", "label": "e10-12", "weight": 1.2 },
+    //       {"source": "11", "target": "14", "label": "e11-14", "weight": 1.2 },
+    //       {"source": "12", "target": "13", "label": "e12-13", "weight": 2.1 },
+    //       {"source": "16", "target": "17", "label": "e16-17", "weight": 2.5 },
+    //       {"source": "16", "target": "18", "label": "e16-18", "weight": 3 },
+    //       {"source": "17", "target": "18", "label": "e17-18", "weight": 2.6 },
+    //       {"source": "18", "target": "19", "label": "e18-19", "weight": 1.6 }
+    //     ]
+    //
+    //
+    //   }
+    //
+    //   const nodes = remoteData.nodes;
+    //   const edges = remoteData.edges;
+    //   nodes.forEach((node) => {
+    //     if (!node.style) {
+    //       node.style = {};
+    //     }
+    //     node.style.lineWidth = 1;
+    //     node.style.stroke = '#666';
+    //     node.style.fill = 'steelblue';
+    //     switch (node.class) {
+    //       case 'c0': {
+    //         node.type = 'circle';
+    //         node.size = 30;
+    //         break;
+    //       }
+    //       case 'c1': {
+    //         node.type = 'rect';
+    //         node.size = [35, 20];
+    //         break;
+    //       }
+    //       case 'c2': {
+    //         node.type = 'ellipse';
+    //         node.size = [35, 20];
+    //         break;
+    //       }
+    //     }
+    //   });
+    //   edges.forEach((edge) => {
+    //     if (!edge.style) {
+    //       edge.style = {};
+    //     }
+    //     edge.style.lineWidth = edge.weight;
+    //     edge.style.opacity = 0.6;
+    //     edge.style.stroke = 'grey';
+    //   });
+    //
+    //   graph.data(remoteData);
+    //   graph.render();
+    //
+    //   // 监听鼠标进入节点
+    //   graph.on('node:mouseenter', (e) => {
+    //     const nodeItem = e.item;
+    //     // 设置目标节点的 hover 状态 为 true
+    //     graph.setItemState(nodeItem, 'hover', true);
+    //   });
+    //   // 监听鼠标离开节点
+    //   graph.on('node:mouseleave', (e) => {
+    //     const nodeItem = e.item;
+    //     // 设置目标节点的 hover 状态 false
+    //     graph.setItemState(nodeItem, 'hover', false);
+    //   });
+    //   // 监听鼠标点击节点
+    //   graph.on('node:click', (e) => {
+    //     // 先将所有当前有 click 状态的节点的 click 状态置为 false
+    //     const clickNodes = graph.findAllByState('node', 'click');
+    //     clickNodes.forEach((cn) => {
+    //       graph.setItemState(cn, 'click', false);
+    //     });
+    //     const nodeItem = e.item;
+    //     // 设置目标节点的 click 状态 为 true
+    //     graph.setItemState(nodeItem, 'click', true);
+    //   });
+    //   // 监听鼠标点击节点
+    //   graph.on('edge:click', (e) => {
+    //     // 先将所有当前有 click 状态的边的 click 状态置为 false
+    //     const clickEdges = graph.findAllByState('edge', 'click');
+    //     clickEdges.forEach((ce) => {
+    //       graph.setItemState(ce, 'click', false);
+    //     });
+    //     const edgeItem = e.item;
+    //     // 设置目标边的 click 状态 为 true
+    //     graph.setItemState(edgeItem, 'click', true);
+    //   });
+    // }
   }
 }
 
