@@ -23,12 +23,12 @@
       </el-form-item>
       <el-form-item prop="password" label="密码" style="letter-spacing: 10px">
         <el-col :span="18">
-          <el-input placeholder="请设定密码" v-model="loginForm.password"></el-input>
+          <el-input placeholder="请设定密码" show-password="show-password" v-model="loginForm.password"></el-input>
         </el-col>
       </el-form-item>
       <el-form-item prop="epassword" label="密码确认">
         <el-col :span="18">
-          <el-input placeholder="再输一次密码" v-model="loginForm.epassword"></el-input>
+          <el-input placeholder="再输一次密码" show-password="show-password" v-model="loginForm.epassword"></el-input>
         </el-col>
       </el-form-item>
       <el-form-item prop="code" label="验证码 " style="letter-spacing: 4px">
@@ -165,7 +165,7 @@ export default {
             console.log(res.data);
             var yanzhengma=res.data.confirmed;
             console.log(yanzhengma)
-            if(yanzhengma=='True'){
+            if(yanzhengma==='True'){
             that.router.push('home')
             var token=res.data.token;
             console.log(token);
