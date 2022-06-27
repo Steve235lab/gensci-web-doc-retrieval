@@ -73,35 +73,35 @@ def search(request):
         if end_time is None:
             end_time = datetime.datetime.now().strftime('%Y-%m-%d')
         robust_keywords = '(' + keywords + ') AND ("' + start_time + '"[Date - Publication]:' + '"' + end_time + '"[Date - Publication])'
-        if article_type is not None:
+        if article_type is not None and len(article_type) > 0 and article_type != '[]':
             article_type = article_type.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(article_type) > 0:
                 robust_keywords += ' AND ('
                 for f in article_type:
                     robust_keywords += '(' + f + '[FILT]) OR ('
                 robust_keywords = robust_keywords[:-5] + ')'
-        if language is not None:
+        if language is not None and len(language) > 0 and language != '[]':
             language = language.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(language) > 0:
                 robust_keywords += ' AND ('
                 for f in language:
                     robust_keywords += '(' + f + '[Language]) OR ('
                 robust_keywords = robust_keywords[:-5] + ')'
-        if species is not None:
+        if species is not None and len(species) > 0 and species != '[]':
             species = species.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(species) > 0:
                 robust_keywords += ' AND ('
                 for f in species:
                     robust_keywords += '(' + f + '[FILT]) OR ('
                 robust_keywords = robust_keywords[:-5] + ')'
-        if sex is not None:
+        if sex is not None and len(sex) > 0 and sex != '[]':
             sex = sex.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(sex) > 0:
                 robust_keywords += ' AND ('
                 for f in sex:
                     robust_keywords += '(' + f + '[FILT]) OR ('
                 robust_keywords = robust_keywords[:-5] + ')'
-        if age is not None:
+        if age is not None and len(age) > 0 and age != '[]':
             age = age.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(age) > 0:
                 robust_keywords += ' AND ('
@@ -187,7 +187,7 @@ def get_history(request):
         new_token = forge_token(uuid_str)
         json_rsp = {
             'message_type': 'history_list',
-            'history': {},
+            'history': [],
             'token': new_token
         }
         # 将历史记录放入 'history' 字段
@@ -195,8 +195,8 @@ def get_history(request):
             timestamp = history[0]
             raw_keywords = history[6]
             robust_keywords = history[2]
-            json_rsp['history'][timestamp]['raw_keywords'] = raw_keywords
-            json_rsp['history'][timestamp]['robust_keywords'] = robust_keywords
+            history_dic = {'timestamp': timestamp, 'raw_keywords': raw_keywords, 'robust_keywords': robust_keywords}
+            json_rsp['history'].append(history_dic)
 
     if DATABASE.emoji_status is True:
         print(emojize(':rocket: 已发送 rsp_get_history 应答', language='alias'))
@@ -368,7 +368,7 @@ def get_paper_info(request):
             file_dir = 'static/search_result/' + str(result_timestamp) + '/'
 
             # 每页显示的文章数目
-            papers_on_one_page = 2
+            papers_on_one_page = 10
 
             # 使用excel文件作为数据源加载结果数据
             if DATABASE.data_source == 'excel':
@@ -419,11 +419,12 @@ def get_paper_info(request):
                 print("Loading data from json files...")
 
                 # 更改至测试用路径，部署到生产环境时须注释掉下面一行代码
-                file_dir = '../../json_data_test/'
+                file_dir = 'static/json_data_test/'
 
                 # 读取 file.list 获取包含结果文献信息的json文件目录
                 file_list = open(file_dir + 'file.list', 'r')
                 json_dir_list = file_list.readlines()
+                # print(json_dir_list)
                 row_max = len(json_dir_list)
                 page_num = int(page_num)
 
@@ -431,45 +432,49 @@ def get_paper_info(request):
 
                 row_start = (page_num - 1) * papers_on_one_page
                 row_end = row_start + papers_on_one_page
+                # print(row_start)
+                # print(row_end)
 
                 if row_start <= row_max:
                     if row_end > row_max:
                         row_end = row_max
-                        for i in range(row_start, row_end):
-                            json_dir = json_dir_list[i][:-1]    # 删除换行符 \n
-                            raw_paper_info = json.load(open(json_dir, 'r'))
-                            paper_info['Pmid'] = raw_paper_info['pmid']
-                            paper_info['Journal'] = raw_paper_info['journal']
-                            paper_info['Publication_Type'] = raw_paper_info['publication_type']
-                            paper_info['Publication_Year'] = raw_paper_info['publication_year']
-                            paper_info['Publication_Date'] = raw_paper_info['publication_date']
-                            paper_info['Title'] = raw_paper_info['title']
-                            paper_info['First_Author'] = raw_paper_info['first_author']
-                            paper_info['Corresponding_Author'] = raw_paper_info['corresponding_author']
-                            paper_info['Authors'] = raw_paper_info['authors']
-                            paper_info['Affiliations'] = raw_paper_info['affiliations']
-                            # paper_info['Abstract'] = raw_paper_info['abstract']
-                            paper_info['Keywords'] = raw_paper_info['keywords']
-                            paper_info['Doi'] = raw_paper_info['doi']
-                            paper_info['Journal_If'] = raw_paper_info['journal_if']
-                            paper_info['Chinese_Title'] = raw_paper_info['title_zh']
-                            paper_info['Chinese_Abstract'] = raw_paper_info['abstract_zh']
-                            paper_info['Sample_Size'] = raw_paper_info['sample_size']
-                            # 以下3个字段可能在原始json文件中不存在
-                            try:
-                                paper_info['Conclusion'] = raw_paper_info['conclusion']
-                            except:
-                                paper_info['Conclusion'] = ''
-                            try:
-                                paper_info['Location'] = raw_paper_info['location']
-                            except:
-                                paper_info['Location'] = ''
-                            try:
-                                paper_info['Organization'] = raw_paper_info['organization']
-                            except:
-                                paper_info['Organization'] = ''
+                    for i in range(row_start, row_end):
+                        json_dir = json_dir_list[i][:-1]    # 删除换行符 \n
+                        raw_paper_info = json.load(open(json_dir, 'r'))
+                        paper_info = {}
+                        paper_info['Pmid'] = raw_paper_info['pmid']
+                        paper_info['Journal'] = raw_paper_info['journal']
+                        paper_info['Publication_Type'] = raw_paper_info['publication_type']
+                        paper_info['Publication_Year'] = raw_paper_info['publication_year']
+                        paper_info['Publication_Date'] = raw_paper_info['publication_date']
+                        paper_info['Title'] = raw_paper_info['title']
+                        paper_info['First_Author'] = raw_paper_info['first_author']
+                        paper_info['Corresponding_Author'] = raw_paper_info['corresponding_author']
+                        paper_info['Authors'] = raw_paper_info['authors']
+                        paper_info['Affiliations'] = raw_paper_info['affiliations']
+                        paper_info['Abstract'] = raw_paper_info['abstract']
+                        paper_info['Keywords'] = raw_paper_info['keywords']
+                        paper_info['Doi'] = raw_paper_info['doi']
+                        paper_info['Journal_If'] = raw_paper_info['journal_if']
+                        paper_info['Chinese_Title'] = raw_paper_info['title_zh']
+                        paper_info['Chinese_Abstract'] = raw_paper_info['abstract_zh']
+                        paper_info['Sample_Size'] = raw_paper_info['sample_size']
+                        # 以下3个字段可能在原始json文件中不存在
+                        try:
+                            paper_info['Conclusion'] = raw_paper_info['conclusion']
+                        except:
+                            paper_info['Conclusion'] = ''
+                        try:
+                            paper_info['Location'] = raw_paper_info['location']
+                        except:
+                            paper_info['Location'] = ''
+                        try:
+                            paper_info['Organization'] = raw_paper_info['organization']
+                        except:
+                            paper_info['Organization'] = ''
 
-                            json_rsp["paper_info"].append(paper_info)
+                        json_rsp["paper_info"].append(paper_info)
+                        # print(paper_info)
 
         else:   # 发送请求的用户与历史记录所属用户不匹配
             json_rsp = {"message_type": "invalid_request"}
