@@ -23,7 +23,11 @@
           <el-button class="btn" @click="tiaozhuan" type="primary" >注册</el-button>
         </el-col>
       </el-form-item>
-
+      <el-form-item>
+        <el-col :span="12">
+          <el-button class="btn" @click="ceshi" type="primary" >测试</el-button>
+        </el-col>
+      </el-form-item>
     </el-form>
 
   </div>
@@ -33,6 +37,7 @@
 import axios from 'axios';
 import md5 from 'js-md5';
 import qs from 'qs';
+import setStorage from './storage.js';
 export default {
   data(){
     return{
@@ -63,6 +68,9 @@ export default {
     tiaozhuan(){
       this.$router.push('register')
     },
+    ceshi(){
+       this.$router.push('home')
+    },
     commitBtn(){
       var that=this;
       that.axios({
@@ -71,24 +79,28 @@ export default {
         data:qs.stringify({
           message_type: "sign_in",
           email:this.loginForm.email,
-          password:this.loginForm.password
-          // password:md5(this.loginForm.password)
+          //password:this.loginForm.password,
+           password:this.loginForm.password
         })
       })
           .then(function(res){
             console.log(res)
-            console.log('连接成功')
-            console.log(res.data)
-            console.log(res.data.token)
-            this.router.push('home')
-            this.$cookies.set("oatoken",res.data.token,"30m")
-
-
+            console.log(res.data);
+            var token=res.data.token;
+            console.log(token);
+            var jieguo=res.data.result;
+          if(jieguo=='success'){
+            console.log('登录成功')
+            that.$router.push('home')
+          }  
+            //setStorage.getItem('token')//获取token
+            //console.log(setStorage.token)
           })
           .catch(function(err){
             console.log(err)
           })
 
+  
       this.$refs.loginForm.validate(valid=>{
         if(valid){
           console.log(valid);
