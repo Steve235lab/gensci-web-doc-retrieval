@@ -178,24 +178,24 @@
 <!--    历史记录及结果显示-->
     <el-row :gutter="5">
 <!--      历史记录-->
-      <el-col :span="3" :offset="2">
-        <div style="height:30px;">
+      <el-col :span="3" :offset="2" >
+        <div style="height:30px;text-align:left;">
           历史搜索记录
           <el-link :underline="false" @click="getHistory" icon="el-icon-refresh" style="font-size: 17px"></el-link>
         </div>
-        <div v-for="(row,item) in history" :key="item">
-          <el-tooltip effect="dark" placement="right">
-            <div slot="content" class="tips">
-              {{row.robust_keywords}}
-            </div>
-            <template>
-              <el-link :underline="false" @click="gettimestamp(item)">
+        <div style="height: 650px;overflow:auto">
+          <div v-for="(row,item) in history" :key="item" style="text-align:left">
+            <el-tooltip effect="dark" placement="right">
+              <div slot="content" class="tips" style="word-wrap:break-word;width: 400px;line-height: 20px" >
+                <b>{{row.robust_keywords}}</b>
+              </div>
+              <el-link :underline="false" @click="gettimestamp(row.timestamp)">
                 <p class="content" style="font-size: 16px;line-height: 10px">
                   &emsp;{{row.raw_keywords}}
                 </p>
               </el-link>
-            </template>
-          </el-tooltip>
+            </el-tooltip>
+          </div>
         </div>
       </el-col>
 <!--      结果显示-->
@@ -254,7 +254,7 @@
               <el-row :gutter="20">
                 <el-col :span="12" :offset="6" justify="center">
                   <el-pagination @current-change="handleCurrentChange1"
-                                 :current-page="paper_page_Info.currentNumber" :page-size="20" :hide-on-single-page="true"
+                                 :current-page="paper_page_Info.currentNumber" :page-size="10" :hide-on-single-page="true"
                                  layout="total, prev, pager, next ,jumper" :total="paper_page_Info.total">
                   </el-pagination>
                 </el-col>
@@ -328,7 +328,7 @@ export default {
 
   data() {
 
-    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjM0NzMyMi42NzE0MzU2LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.UULGYOXPPekluU1Oqb0SKnTMUSKtfV5Nc4XgIDBFljE";
+    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjM1MTE1Mi44ODA0MTE5LCJzYWx0IjoiU3RldmUyMzVMYWIifQ._ELAyT1WRayT3-01OofN5FzYIwSPgPI0JkOjkBESAnw";
     let timestamp = 114514;
     return {
       token,
