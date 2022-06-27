@@ -364,7 +364,7 @@ class Database:
             self.conn.commit()
         except:
             self.is_connected()
-            sql = """update paper_abstract set html_abstract = '%s' where pmid = '%d'""" % (highlight_abstract, pmid)
+            sql = """update paper_abstract set highlight_abstract = ('%s') where pmid = ('%d')""" % (highlight_abstract, pmid)
             self.cursor.execute(sql)
             self.conn.commit()
 
