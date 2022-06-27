@@ -1,0 +1,763 @@
+{
+    "pmid": "9126182",
+    "journal": "Journal of dental research",
+    "publication_type": "Clinical Trial\nRandomized Controlled Trial",
+    "publication_year": "1997",
+    "publication_date": "1997-05-01",
+    "title": "Evaluating the validity of probing attachment loss as a surrogate for tooth mortality in a clinical trial on the elderly.",
+    "first_author": "P P Hujoel",
+    "corresponding_author": "H A Kiyak",
+    "authors": "P P Hujoel, B G Leroux, T A DeRouen, L V Powell, H A Kiyak",
+    "affiliations": "(1) Department of Dental Public Health Sciences, School of Dentistry, University of Washington, Seattle 98195, USA. ['P P Hujoel']",
+    "abstract": "Most periodontal trials are based on the assumption that the superior treatment, as judged by short-term intangible changes in probing attachment levels (the surrogate), is also the treatment most likely to affect tooth mortality. This assumption is valid if: (1) the surrogate is informative about tooth mortality, and (2) the surrogate captures a substantial proportion of the treatment effect on tooth mortality (e.g., > 50% or 75%). The goal of this study was to evaluate whether both conditions were satisfied in a randomized controlled trial (RCT) of elders at high risk for dental diseases. The results suggested that the first condition for a valid surrogate was satisfied: Both one- and two-year changes in probing attachment level were informative about tooth mortality risk. A 1-mm loss measured over a one-year period was associated with a 56% increased tooth mortality risk (relative risk = 1.56; 95% confidence interval, 1.08 to 2.26; p = 0.017); a 1-mm loss measured over a two-year period was associated with a 102% increased risk for tooth mortality (relative risk = 2.02; 95% confidence interval, 1.26 to 3.25; p = 0.004). The second condition necessary for a valid surrogate could not be confirmed in the present trial. With 95% confidence, it was concluded that one-year changes in probing attachment level measurements did not capture a significant proportion of the treatment effect (point estimate, 6%; 95% confidence interval;-38% to 53%). No useful statements could be made regarding the proportion of treatment effect captured by two-year changes, due to the width of the confidence interval (point estimate, 18%; 95% confidence interval;-151% to 140%). It is concluded that (1) the evidence surrounding the one-year change in probing attachment level indicates that it can be ruled out as being anything more than a weak surrogate marker for tooth mortality, and (2) further research is required to study the validity of two-year change in probing attachment level as a surrogate marker. Due to characteristics of the population and the treatments investigated, the generalizability of these findings to other RCTs is questionable.",
+    "keywords": "",
+    "MeshHeadingList": [
+        {
+            "QualifierName": [],
+            "DescriptorName": "Aged"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Analysis of Variance"
+        },
+        {
+            "QualifierName": [
+                "therapeutic use"
+            ],
+            "DescriptorName": "Anti-Infective Agents, Local"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Behavior Therapy"
+        },
+        {
+            "QualifierName": [
+                "therapeutic use"
+            ],
+            "DescriptorName": "Chlorhexidine"
+        },
+        {
+            "QualifierName": [
+                "methods"
+            ],
+            "DescriptorName": "Clinical Trials as Topic"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Confidence Intervals"
+        },
+        {
+            "QualifierName": [
+                "methods"
+            ],
+            "DescriptorName": "Dental Care for Aged"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Dental Prophylaxis"
+        },
+        {
+            "QualifierName": [
+                "methods"
+            ],
+            "DescriptorName": "Dental Research"
+        },
+        {
+            "QualifierName": [
+                "therapeutic use"
+            ],
+            "DescriptorName": "Fluorides, Topical"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Humans"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Outcome Assessment, Health Care"
+        },
+        {
+            "QualifierName": [
+                "diagnosis",
+                "therapy"
+            ],
+            "DescriptorName": "Periodontal Attachment Loss"
+        },
+        {
+            "QualifierName": [
+                "diagnosis"
+            ],
+            "DescriptorName": "Periodontal Pocket"
+        },
+        {
+            "QualifierName": [
+                "instrumentation"
+            ],
+            "DescriptorName": "Periodontics"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Predictive Value of Tests"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Prognosis"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Regression Analysis"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Reproducibility of Results"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Risk Assessment"
+        },
+        {
+            "QualifierName": [
+                "diagnosis",
+                "prevention & control"
+            ],
+            "DescriptorName": "Tooth Loss"
+        }
+    ],
+    "ChemicalList": [
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Anti-Infective Agents, Local"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Fluorides, Topical"
+        },
+        {
+            "RegistryNumber": "R4KO0DY52L",
+            "NameOfSubstance": "Chlorhexidine"
+        }
+    ],
+    "doi": null,
+    "journal_sjr": 0.0,
+    "journal_h_index": 0,
+    "journal_if": 4.914,
+    "journal_metrics": [
+        4.914,
+        0,
+        0.0,
+        5.844
+    ],
+    "bacteria_entities": {},
+    "has_bacteria_ner": true,
+    "bacteria": [],
+    "has_bacteria_norm": true,
+    "nutrient_entities": {},
+    "has_nutrient_ner": true,
+    "chemical_entities": {},
+    "has_chemical_ner": true,
+    "has_genetic_ner": true,
+    "enzyme_entities": [],
+    "metabolic_entities": [],
+    "has_metabolic_ner": true,
+    "molecule": [
+        [],
+        []
+    ],
+    "has_molecular_norm": true,
+    "nutrient": [],
+    "has_nutrient_norm": true,
+    "disease_entities": {
+        "2": [
+            [
+                "dental diseases",
+                30,
+                32
+            ]
+        ]
+    },
+    "has_disease_ner": true,
+    "disease": [
+        [
+            "dental diseases",
+            "MESH:D009057",
+            "Stomatognathic Diseases"
+        ]
+    ],
+    "has_disease_norm": true,
+    "affiliation_entities": [
+        "USA",
+        "Department of Dental Public Health Sciences,\nSeattle 98195\nUniversity of Washington"
+    ],
+    "has_affiliation_ner": true,
+    "sample_size_entities": {},
+    "sample_size": null,
+    "has_sample_size_ner": true,
+    "significance_conclusion": [
+        [
+            4,
+            1
+        ],
+        [
+            6,
+            1
+        ]
+    ],
+    "has_significance_ner": true,
+    "mtime": 1646878686.1490054,
+    "htime": "2022-03-10 10:18:06.149005",
+    "title_zh": "\u5728\u8001\u5e74\u4eba\u7684\u4e00\u9879\u4e34\u5e8a\u8bd5\u9a8c\u4e2d\uff0c\u8bc4\u4f30\u63a2\u6d4b\u9644\u7740\u4e27\u5931\u4f5c\u4e3a\u7259\u9f7f\u6b7b\u4ea1\u7387\u66ff\u4ee3\u7269\u7684\u6709\u6548\u6027\u3002",
+    "abstract_zh": "\u5927\u591a\u6570\u7259\u5468\u8bd5\u9a8c\u90fd\u662f\u57fa\u4e8e\u8fd9\u6837\u7684\u5047\u8bbe\uff0c\u5373\u901a\u8fc7\u63a2\u6d4b\u9644\u7740\u6c34\u5e73(\u66ff\u4ee3\u7269)\u7684\u77ed\u671f\u65e0\u5f62\u53d8\u5316\u6765\u5224\u65ad\u8f83\u597d\u7684\u6cbb\u7597\u65b9\u6cd5\uff0c\u4e5f\u662f\u6700\u53ef\u80fd\u5f71\u54cd\u7259\u9f7f\u6b7b\u4ea1\u7387\u7684\u6cbb\u7597\u65b9\u6cd5\u3002 \u8fd9\u4e2a\u5047\u8bbe\u662f\u6709\u6548\u7684\uff0c\u5982\u679c:(1)\u4ee3\u7406\u63d0\u4f9b\u6709\u5173\u7259\u9f7f\u6b7b\u4ea1\u7387\u7684\u4fe1\u606f\uff0c(2)\u4ee3\u7406\u83b7\u53d6\u4e86\u7259\u9f7f\u6b7b\u4ea1\u7387\u6cbb\u7597\u6548\u679c\u7684\u76f8\u5f53\u5927\u4e00\u90e8\u5206(\u4f8b\u5982\uff0c> 50%\u621675%)\u3002 \u672c\u7814\u7a76\u7684\u76ee\u7684\u662f\u8bc4\u4f30\u8fd9\u4e24\u4e2a\u6761\u4ef6\u662f\u5426\u6ee1\u8db3\u968f\u673a\u5bf9\u7167\u8bd5\u9a8c(RCT)\u7684\u8001\u5e74\u4eba\u9ad8\u98ce\u9669\u7259\u79d1\u75be\u75c5\u3002 \u7ed3\u679c\u8868\u660e\uff0c\u6709\u6548\u66ff\u4ee3\u7269\u7684\u7b2c\u4e00\u4e2a\u6761\u4ef6\u662f\u6ee1\u8db3\u7684:\u63a2\u6d4b\u9644\u7740\u6c34\u5e73\u76841\u5e74\u548c2\u5e74\u7684\u53d8\u5316\u90fd\u80fd\u63d0\u4f9b\u6709\u5173\u7259\u9f7f\u6b7b\u4ea1\u98ce\u9669\u7684\u4fe1\u606f\u3002 \u4e00\u5e74\u5185\u8131\u843d1\u6beb\u7c73\u4e0e\u7259\u9f7f\u6b7b\u4ea1\u98ce\u9669\u589e\u52a056%\u76f8\u5173(\u76f8\u5bf9\u98ce\u9669= 1.56; 95%\u7f6e\u4fe1\u533a\u95f4\uff0c1.08 ~ 2.26; p = 0.017); \u4e24\u5e74\u5185\u6d4b\u91cf\u76841\u6beb\u7c73\u7259\u9f7f\u8131\u843d\u4e0e102%\u7684\u7259\u9f7f\u6b7b\u4ea1\u98ce\u9669\u589e\u52a0\u76f8\u5173(\u76f8\u5bf9\u98ce\u9669= 2.02; 95%\u7f6e\u4fe1\u533a\u95f4\u4e3a1.26 ~ 3.25; p = 0.004)\u3002 \u6709\u6548\u4ee3\u7406\u4eba\u7684\u7b2c\u4e8c\u4e2a\u5fc5\u8981\u6761\u4ef6\u5728\u76ee\u524d\u7684\u5ba1\u5224\u4e2d\u65e0\u6cd5\u5f97\u5230\u786e\u8ba4\u3002 \u572895%\u7684\u7f6e\u4fe1\u5ea6\u4e0b\uff0c\u5f97\u51fa\u7684\u7ed3\u8bba\u662f\uff0c\u63a2\u6d4b\u9644\u7740\u6c34\u5e73\u6d4b\u91cf\u4e00\u5e74\u7684\u53d8\u5316\u5e76\u6ca1\u6709\u6355\u83b7\u6cbb\u7597\u6548\u679c\u7684\u663e\u8457\u6bd4\u4f8b(\u70b9\u4f30\u8ba1\uff0c6%; 95%\u53ef\u4fe1\u533a\u95f4;-38% ~ 53%)\u3002 \u7531\u4e8e\u7f6e\u4fe1\u533a\u95f4\u7684\u5bbd\u5ea6(\u70b9\u4f30\u8ba1\uff0c18%; 95%\u53ef\u4fe1\u533a\u95f4;-151% - 140%)\u3002 \u5f97\u51fa(1)\u56f4\u7ed5\u4e00\u5e74\u671f\u63a2\u7d22\u4f9d\u604b\u6c34\u5e73\u53d8\u5316\u7684\u8bc1\u636e\u8868\u660e\u5b83\u53ef\u4ee5\u6392\u9664\u662f\u4efb\u4f55\u8d85\u8fc7\u4e00\u4e2a\u5f31\u4ee3\u7406\u7259\u6b7b\u4ea1\u7387\u7684\u6807\u5fd7,\u548c(2),\u9700\u8981\u8fdb\u4e00\u6b65\u7684\u7814\u7a76\u6765\u7814\u7a76\u4e3a\u671f\u4e24\u5e74\u7684\u63a2\u6d4b\u4f9d\u604b\u6c34\u5e73\u53d8\u5316\u7684\u6709\u6548\u6027\u4f5c\u4e3a\u4e00\u4e2a\u66ff\u4ee3\u6807\u8bb0\u3002 \u7531\u4e8e\u6240\u8c03\u67e5\u7684\u4eba\u7fa4\u548c\u6cbb\u7597\u65b9\u6cd5\u7684\u7279\u70b9\uff0c\u8fd9\u4e9b\u53d1\u73b0\u662f\u5426\u9002\u7528\u4e8e\u5176\u4ed6\u968f\u673a\u5bf9\u7167\u8bd5\u9a8c\u662f\u503c\u5f97\u6000\u7591\u7684\u3002",
+    "has_translated": true,
+    "chemical": [],
+    "gene_entities": {},
+    "gene": [],
+    "anatomy_entities": {
+        "0": [
+            [
+                "the superior",
+                9,
+                11
+            ]
+        ],
+        "1": [
+            [
+                ", and",
+                16,
+                18
+            ],
+            [
+                "of the",
+                27,
+                29
+            ]
+        ],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [
+            [
+                "of the",
+                24,
+                26
+            ]
+        ],
+        "7": [
+            [
+                "of the",
+                23,
+                25
+            ]
+        ],
+        "8": [
+            [
+                ", and",
+                38,
+                40
+            ]
+        ],
+        "9": [
+            [
+                "of the",
+                3,
+                5
+            ]
+        ]
+    },
+    "anatomy": [
+        [
+            ", and",
+            "",
+            ""
+        ],
+        [
+            "of the",
+            "",
+            ""
+        ],
+        [
+            "the superior",
+            "",
+            ""
+        ]
+    ],
+    "antibody_entities": {},
+    "antibody": [],
+    "abstract_prep": "Most periodontal trials are based on the assumption that the superior treatment, as judged by short-term intangible changes in probing attachment levels (the surrogate), is also the treatment most likely to affect tooth mortality. This assumption is valid if: (1) the surrogate is informative about tooth mortality, and (2) the surrogate captures a substantial proportion of the treatment effect on tooth mortality (e.g., > 50% or 75%). The goal of this study was to evaluate whether both conditions were satisfied in a randomized controlled trial (a randomized controlled trial) of elders at high risk for dental diseases. The results suggested that the first condition for a valid surrogate was satisfied: Both one- and two-year changes in probing attachment level were informative about tooth mortality risk. A 1-mm loss measured over a one-year period was associated with a 56% increased tooth mortality risk (relative risk = 1.56; 95% confidence interval, 1.08 to 2.26; p = 0.017); a 1-mm loss measured over a two-year period was associated with a 102% increased risk for tooth mortality (relative risk = 2.02; 95% confidence interval, 1.26 to 3.25; p = 0.004). The second condition necessary for a valid surrogate could not be confirmed in the present trial. With 95% confidence, it was concluded that one-year changes in probing attachment level measurements did not capture a significant proportion of the treatment effect (point estimate, 6%; 95% confidence interval;-38% to 53%). No useful statements could be made regarding the proportion of treatment effect captured by two-year changes, due to the width of the confidence interval (point estimate, 18%; 95% confidence interval;-151% to 140%). It is concluded that (1) the evidence surrounding the one-year change in probing attachment level indicates that it can be ruled out as being anything more than a weak surrogate marker for tooth mortality, and (2) further research is required to study the validity of two-year change in probing attachment level as a surrogate marker. Due to characteristics of the population and the treatments investigated, the generalizability of these findings to other a randomized controlled trials is questionable.",
+    "sentence_labels": [
+        [
+            0,
+            "BACKGROUND"
+        ],
+        [
+            1,
+            "OBJECTIVE"
+        ],
+        [
+            2,
+            "OBJECTIVE"
+        ],
+        [
+            3,
+            "RESULTS"
+        ],
+        [
+            4,
+            "RESULTS"
+        ],
+        [
+            5,
+            "CONCLUSIONS"
+        ],
+        [
+            6,
+            "RESULTS"
+        ],
+        [
+            7,
+            "RESULTS"
+        ],
+        [
+            8,
+            "CONCLUSIONS"
+        ],
+        [
+            9,
+            "CONCLUSIONS"
+        ]
+    ],
+    "abstract_highlight": [
+        "Most ",
+        "periodontal ",
+        "trials ",
+        "are ",
+        "based ",
+        "on ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "assumption ",
+        "that ",
+        "the ",
+        "<bold=True italic=True font_color=purpule>",
+        "superior ",
+        "treatment ",
+        ", ",
+        "as ",
+        "judged ",
+        "by ",
+        "short-term ",
+        "intangible ",
+        "changes ",
+        "in ",
+        "probing ",
+        "attachment ",
+        "levels ",
+        "( ",
+        "the ",
+        "surrogate ",
+        ") ",
+        ", ",
+        "is ",
+        "also ",
+        "the ",
+        "treatment ",
+        "most ",
+        "likely ",
+        "to ",
+        "affect ",
+        "tooth ",
+        "mortality ",
+        ". ",
+        "This ",
+        "assumption ",
+        "is ",
+        "valid ",
+        "if ",
+        ": ",
+        "( ",
+        "1 ",
+        ") ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "surrogate ",
+        "is ",
+        "informative ",
+        "about ",
+        "tooth ",
+        "mortality ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "( ",
+        "2 ",
+        ") ",
+        "the ",
+        "surrogate ",
+        "captures ",
+        "a ",
+        "substantial ",
+        "proportion ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "the ",
+        "treatment ",
+        "effect ",
+        "on ",
+        "tooth ",
+        "mortality ",
+        "( ",
+        "e.g. ",
+        ", ",
+        "> ",
+        "50 ",
+        "% ",
+        "or ",
+        "75 ",
+        "% ",
+        ") ",
+        ". ",
+        "The ",
+        "goal ",
+        "of ",
+        "this ",
+        "study ",
+        "was ",
+        "to ",
+        "evaluate ",
+        "whether ",
+        "both ",
+        "conditions ",
+        "were ",
+        "satisfied ",
+        "in ",
+        "a ",
+        "randomized ",
+        "controlled ",
+        "trial ",
+        "( ",
+        "a ",
+        "randomized ",
+        "controlled ",
+        "trial ",
+        ") ",
+        "of ",
+        "elders ",
+        "at ",
+        "high ",
+        "risk ",
+        "for ",
+        "<bold=True italic=True font_color=#000080>",
+        "dental ",
+        "<bold=True italic=True font_color=#000080>",
+        "diseases ",
+        ". ",
+        "The ",
+        "results ",
+        "suggested ",
+        "that ",
+        "the ",
+        "first ",
+        "condition ",
+        "for ",
+        "a ",
+        "valid ",
+        "surrogate ",
+        "was ",
+        "satisfied ",
+        ": ",
+        "Both ",
+        "one- ",
+        "and ",
+        "two-year ",
+        "changes ",
+        "in ",
+        "probing ",
+        "attachment ",
+        "level ",
+        "were ",
+        "informative ",
+        "about ",
+        "tooth ",
+        "mortality ",
+        "risk ",
+        ". ",
+        "A ",
+        "1-mm ",
+        "loss ",
+        "measured ",
+        "over ",
+        "a ",
+        "one-year ",
+        "period ",
+        "was ",
+        "associated ",
+        "with ",
+        "a ",
+        "56 ",
+        "% ",
+        "increased ",
+        "tooth ",
+        "mortality ",
+        "risk ",
+        "( ",
+        "relative ",
+        "risk ",
+        "= ",
+        "1.56 ",
+        "; ",
+        "95 ",
+        "% ",
+        "confidence ",
+        "interval ",
+        ", ",
+        "1.08 ",
+        "to ",
+        "2.26 ",
+        "; ",
+        "p ",
+        "= ",
+        "0.017 ",
+        ") ",
+        "; ",
+        "a ",
+        "1-mm ",
+        "loss ",
+        "measured ",
+        "over ",
+        "a ",
+        "two-year ",
+        "period ",
+        "was ",
+        "associated ",
+        "with ",
+        "a ",
+        "102 ",
+        "% ",
+        "increased ",
+        "risk ",
+        "for ",
+        "tooth ",
+        "mortality ",
+        "( ",
+        "relative ",
+        "risk ",
+        "= ",
+        "2.02 ",
+        "; ",
+        "95 ",
+        "% ",
+        "confidence ",
+        "interval ",
+        ", ",
+        "1.26 ",
+        "to ",
+        "3.25 ",
+        "; ",
+        "p ",
+        "= ",
+        "0.004 ",
+        ") ",
+        ". ",
+        "The ",
+        "second ",
+        "condition ",
+        "necessary ",
+        "for ",
+        "a ",
+        "valid ",
+        "surrogate ",
+        "could ",
+        "not ",
+        "be ",
+        "confirmed ",
+        "in ",
+        "the ",
+        "present ",
+        "trial ",
+        ". ",
+        "With ",
+        "95 ",
+        "% ",
+        "confidence ",
+        ", ",
+        "it ",
+        "was ",
+        "concluded ",
+        "that ",
+        "one-year ",
+        "changes ",
+        "in ",
+        "probing ",
+        "attachment ",
+        "level ",
+        "measurements ",
+        "did ",
+        "not ",
+        "capture ",
+        "a ",
+        "significant ",
+        "proportion ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "treatment ",
+        "effect ",
+        "( ",
+        "point ",
+        "estimate ",
+        ", ",
+        "6 ",
+        "% ",
+        "; ",
+        "95 ",
+        "% ",
+        "confidence ",
+        "interval ",
+        "; ",
+        "-38 ",
+        "% ",
+        "to ",
+        "53 ",
+        "% ",
+        ") ",
+        ". ",
+        "No ",
+        "useful ",
+        "statements ",
+        "could ",
+        "be ",
+        "made ",
+        "regarding ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "proportion ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "treatment ",
+        "effect ",
+        "captured ",
+        "by ",
+        "two-year ",
+        "changes ",
+        ", ",
+        "due ",
+        "to ",
+        "the ",
+        "width ",
+        "of ",
+        "the ",
+        "confidence ",
+        "interval ",
+        "( ",
+        "point ",
+        "estimate ",
+        ", ",
+        "18 ",
+        "% ",
+        "; ",
+        "95 ",
+        "% ",
+        "confidence ",
+        "interval ",
+        "; ",
+        "-151 ",
+        "% ",
+        "to ",
+        "140 ",
+        "% ",
+        ") ",
+        ". ",
+        "It ",
+        "is ",
+        "concluded ",
+        "that ",
+        "( ",
+        "1 ",
+        ") ",
+        "the ",
+        "evidence ",
+        "surrounding ",
+        "the ",
+        "one-year ",
+        "change ",
+        "in ",
+        "probing ",
+        "attachment ",
+        "level ",
+        "indicates ",
+        "that ",
+        "it ",
+        "can ",
+        "be ",
+        "ruled ",
+        "out ",
+        "as ",
+        "being ",
+        "anything ",
+        "more ",
+        "than ",
+        "a ",
+        "weak ",
+        "surrogate ",
+        "marker ",
+        "for ",
+        "tooth ",
+        "mortality ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "( ",
+        "2 ",
+        ") ",
+        "further ",
+        "research ",
+        "is ",
+        "required ",
+        "to ",
+        "study ",
+        "the ",
+        "validity ",
+        "of ",
+        "two-year ",
+        "change ",
+        "in ",
+        "probing ",
+        "attachment ",
+        "level ",
+        "as ",
+        "a ",
+        "surrogate ",
+        "marker ",
+        ". ",
+        "Due ",
+        "to ",
+        "characteristics ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "population ",
+        "and ",
+        "the ",
+        "treatments ",
+        "investigated ",
+        ", ",
+        "the ",
+        "generalizability ",
+        "of ",
+        "these ",
+        "findings ",
+        "to ",
+        "other ",
+        "a ",
+        "randomized ",
+        "controlled ",
+        "trials ",
+        "is ",
+        "questionable ",
+        ". "
+    ]
+}

@@ -26,6 +26,7 @@ class Database:
             其中 favourite_flag 初始为 False，当有任意用户收藏此关键词后置为True
             {keywords: [result_timestamp, favourite_flag]}
         -emoji_flag: (bool) 控制程序是否输出带有emoji的状态信息
+        -data_source: (str) 控制程序获取搜索结果的数据来源，允许的值：'excel', 'json'
 
     方法成员：
         -write_user: 将User对象拆分为基本数据元，然后写入数据库
@@ -47,6 +48,7 @@ class Database:
         self.user_index = {}  # {email: uuid}
         self.searched_keywords = {}  # {keywords: [result_timestamp, favourite_flag]}
         self.emoji_status = True
+        self.data_source = 'excel'
         # 连接到Docker上的MySQL服务容器，注意要先到Docker里手动运行MySQL
         self.conn = connect(host='42.192.44.52', port=3306, user='root', password='root',
                             database='gensci-web-doc-retrieval-db', charset='utf8')

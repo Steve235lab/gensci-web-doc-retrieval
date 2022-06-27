@@ -1,0 +1,520 @@
+{
+    "pmid": "25343317",
+    "journal": "Implant dentistry",
+    "publication_type": "Meta-Analysis\nSystematic Review",
+    "publication_year": "2016",
+    "publication_date": "2016-09-26",
+    "title": "Effect of history of periodontitis on implant success: meta-analysis and systematic review.",
+    "first_author": "Ausra Ramanauskaite",
+    "corresponding_author": "Tolga F T\u00f6z\u00fcm",
+    "authors": "Ausra Ramanauskaite, Nomeda Baseviciene, Hom-Lay Wang, Tolga F T\u00f6z\u00fcm",
+    "affiliations": "(1) *Postgraduate Student, Department of Oral Diseases, Lithuanian University of Health Sciences, Kaunas, Lithuania. \u2020Professor, Department of Oral Diseases, Lithuanian University of Health Sciences, Kaunas, Lithuania. \u2021Professor and Director of Graduate Periodontics, Department of Periodontics and Oral Medicine, School of Dentistry, University of Michigan, Ann Arbor, MI. \u00a7Associate Professor, Department of Periodontics, College of Dentistry, University of Illinois at Chicago, Chicago, IL. ['Ausra Ramanauskaite']",
+    "abstract": "To determine if there is a relationship between history of periodontitis and dental implant success (used marginal bone loss [MBL] as the assessment criteria) and survival rates. PubMed search was performed in the period between 2002 and 2012. Studies qualified for the inclusion should have \u22655 years followed-up and reported the incidence of peri-implantitis and/or implant survival and/or MBL in patients with and without a history of periodontitis. A meta-analysis was performed using the random-effects model on the selected qualified articles. All the 14 studies showed better implant survival rates for non-periodontitis patients' group. Six of 10 studies reported statistically significantly higher MBL and prevalence of peri-implantitis among periodontitis patients. Our meta-analysis did not find implant survival rates to be significantly lower among periodontitis patients (P = 0.99) but revealed a history of periodontitis to be significantly related to the higher prevalence of peri-implantitis (P < 0.001). There is no difference, in terms of implant survival rate, between periodontitis and non-periodontitis patients. However, patients with history of periodontitis had lower implant success rate (more MBL and incidence of peri-implantitis) when compared with non-periodontitis patients.",
+    "keywords": "",
+    "MeshHeadingList": [
+        {
+            "QualifierName": [
+                "etiology"
+            ],
+            "DescriptorName": "Alveolar Bone Loss"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Dental Implantation, Endosseous"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Dental Restoration Failure"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Humans"
+        },
+        {
+            "QualifierName": [
+                "complications"
+            ],
+            "DescriptorName": "Periodontitis"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Risk Factors"
+        }
+    ],
+    "ChemicalList": [],
+    "doi": "10.1097/ID.0000000000000156",
+    "journal_sjr": 0.0,
+    "journal_h_index": 0,
+    "journal_if": 1.452,
+    "journal_metrics": [
+        1.452,
+        0,
+        0.0,
+        1.606
+    ],
+    "bacteria_entities": {},
+    "has_bacteria_ner": true,
+    "bacteria": [],
+    "has_bacteria_norm": true,
+    "nutrient_entities": {},
+    "has_nutrient_ner": true,
+    "chemical_entities": {},
+    "has_chemical_ner": true,
+    "has_genetic_ner": true,
+    "enzyme_entities": [],
+    "metabolic_entities": [],
+    "has_metabolic_ner": true,
+    "molecule": [
+        [],
+        []
+    ],
+    "has_molecular_norm": true,
+    "nutrient": [],
+    "has_nutrient_norm": true,
+    "disease_entities": {
+        "0": [
+            [
+                "periodontitis",
+                10,
+                11
+            ],
+            [
+                "marginal bone loss",
+                17,
+                20
+            ],
+            [
+                "MBL",
+                21,
+                22
+            ]
+        ],
+        "2": [
+            [
+                "peri-implantitis",
+                17,
+                20
+            ],
+            [
+                "periodontitis",
+                33,
+                34
+            ]
+        ],
+        "4": [
+            [
+                "periodontitis",
+                12,
+                13
+            ]
+        ],
+        "5": [
+            [
+                "peri-implantitis",
+                12,
+                15
+            ],
+            [
+                "periodontitis",
+                16,
+                17
+            ]
+        ],
+        "6": [
+            [
+                "periodontitis",
+                15,
+                16
+            ],
+            [
+                "periodontitis",
+                27,
+                28
+            ],
+            [
+                "peri-implantitis",
+                37,
+                40
+            ]
+        ],
+        "7": [
+            [
+                "periodontitis",
+                13,
+                14
+            ],
+            [
+                "periodontitis",
+                17,
+                18
+            ]
+        ],
+        "8": [
+            [
+                "periodontitis",
+                6,
+                7
+            ],
+            [
+                "peri",
+                18,
+                19
+            ],
+            [
+                "periodontitis",
+                27,
+                28
+            ]
+        ]
+    },
+    "has_disease_ner": true,
+    "disease": [
+        [
+            "MBL",
+            "",
+            ""
+        ],
+        [
+            "marginal bone loss",
+            "",
+            ""
+        ],
+        [
+            "peri",
+            "",
+            ""
+        ],
+        [
+            "peri-implantitis",
+            "MESH:D057873",
+            "Peri-Implantitis"
+        ],
+        [
+            "periodontitis",
+            "MESH:D010518",
+            "Periodontitis"
+        ]
+    ],
+    "has_disease_norm": true,
+    "affiliation_entities": [
+        "Ann Arbor\nChicago\nKaunas\nKaunas\nLithuania\nLithuania\nMI",
+        "Department of Oral Diseases\nDepartment of Periodontics and Oral Medicine, School of Dentistry\nDepartment of Periodontics, College of Dentistry\nGraduate Periodontics\nLithuanian University of Health Sciences\nLithuanian University of Health Sciences\nPostgraduate Student, Department of Oral Diseases\nUniversity of Illinois at Chicago\nUniversity of Michigan"
+    ],
+    "has_affiliation_ner": true,
+    "sample_size_entities": {},
+    "sample_size": null,
+    "has_sample_size_ner": true,
+    "significance_conclusion": [
+        [
+            5,
+            1
+        ],
+        [
+            6,
+            1
+        ]
+    ],
+    "has_significance_ner": true,
+    "mtime": 1646878692.9262822,
+    "htime": "2022-03-10 10:18:12.926282",
+    "title_zh": "\u7259\u5468\u708e\u53f2\u5bf9\u79cd\u690d\u6210\u529f\u7684\u5f71\u54cd:\u835f\u8403\u5206\u6790\u548c\u7cfb\u7edf\u56de\u987e\u3002",
+    "abstract_zh": "\u786e\u5b9a\u7259\u5468\u708e\u75c5\u53f2\u4e0e\u79cd\u690d\u4f53\u6210\u529f(\u4ee5\u8fb9\u7f18\u9aa8\u4e22\u5931[MBL]\u4e3a\u8bc4\u4f30\u6807\u51c6)\u548c\u5b58\u6d3b\u7387\u4e4b\u95f4\u662f\u5426\u5b58\u5728\u5173\u7cfb\u3002 PubMed\u641c\u7d22\u662f\u57282002\u5e74\u81f32012\u5e74\u95f4\u8fdb\u884c\u7684\u3002 \u7b26\u5408\u7eb3\u5165\u6761\u4ef6\u7684\u7814\u7a76\u5e94\u968f\u8bbf\u22655\u5e74\uff0c\u5e76\u62a5\u544a\u6709\u6216\u65e0\u7259\u5468\u708e\u75c5\u53f2\u7684\u60a3\u8005\u79cd\u690d\u4f53\u5468\u56f4\u708e\u548c/\u6216\u79cd\u690d\u4f53\u751f\u5b58\u671f\u548c/\u6216MBL\u7684\u53d1\u751f\u7387\u3002 \u91c7\u7528\u968f\u673a\u6548\u5e94\u6a21\u578b\u5bf9\u5165\u9009\u7684\u5408\u683c\u6587\u7ae0\u8fdb\u884cmeta\u5206\u6790\u3002 \u8fd914\u9879\u7814\u7a76\u5747\u663e\u793a\u975e\u7259\u5468\u708e\u60a3\u8005\u7684\u79cd\u690d\u4f53\u5b58\u6d3b\u7387\u66f4\u9ad8\u3002 10\u9879\u7814\u7a76\u4e2d\u67096\u9879\u62a5\u544a\u4e86\u5728\u7259\u5468\u708e\u60a3\u8005\u4e2d\u5177\u6709\u7edf\u8ba1\u5b66\u610f\u4e49\u7684\u66f4\u9ad8\u7684MBL\u548c\u79cd\u690d\u4f53\u5468\u56f4\u708e\u7684\u60a3\u75c5\u7387\u3002 \u6211\u4eec\u7684meta\u5206\u6790\u6ca1\u6709\u53d1\u73b0\u7259\u5468\u708e\u60a3\u8005\u7684\u79cd\u690d\u4f53\u5b58\u6d3b\u7387\u663e\u8457\u964d\u4f4e(P = 0.99)\uff0c\u4f46\u663e\u793a\u7259\u5468\u708e\u75c5\u53f2\u4e0e\u79cd\u690d\u4f53\u5468\u56f4\u708e\u7684\u8f83\u9ad8\u60a3\u75c5\u7387\u663e\u8457\u76f8\u5173(P < 0.001)\u3002 \u7259\u5468\u708e\u60a3\u8005\u548c\u975e\u7259\u5468\u708e\u60a3\u8005\u5728\u79cd\u690d\u4f53\u5b58\u6d3b\u7387\u65b9\u9762\u6ca1\u6709\u5dee\u5f02\u3002 \u7136\u800c\uff0c\u6709\u7259\u5468\u708e\u75c5\u53f2\u7684\u60a3\u8005\u4e0e\u65e0\u7259\u5468\u708e\u60a3\u8005\u76f8\u6bd4\uff0c\u79cd\u690d\u4f53\u6210\u529f\u7387\u8f83\u4f4e(MBL\u548c\u79cd\u690d\u4f53\u5468\u56f4\u708e\u53d1\u751f\u7387\u8f83\u9ad8)\u3002",
+    "has_translated": true,
+    "chemical": [],
+    "gene_entities": {},
+    "gene": [],
+    "anatomy_entities": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [
+            [
+                "(P",
+                17,
+                19
+            ],
+            [
+                "(P",
+                40,
+                42
+            ]
+        ],
+        "7": [],
+        "8": []
+    },
+    "anatomy": [
+        [
+            "(P",
+            "",
+            ""
+        ]
+    ],
+    "antibody_entities": {},
+    "antibody": [],
+    "abstract_prep": "To determine if there is a relationship between history of periodontitis and dental implant success (used marginal bone loss [MBL] as the assessment criteria) and survival rates. PubMed search was performed in the period between 2002 and 2012. Studies qualified for the inclusion should have \u22655 years followed-up and reported the incidence of peri-implantitis and/or implant survival and/or MBL in patients with and without a history of periodontitis. A meta-analysis was performed using the random-effects model on the selected qualified articles. All the 14 studies showed better implant survival rates for non-periodontitis patients' group. Six of 10 studies reported statistically significantly higher MBL and prevalence of peri-implantitis among periodontitis patients. Our meta-analysis did not find implant survival rates to be significantly lower among periodontitis patients (P = 0.99) but revealed a history of periodontitis to be significantly related to the higher prevalence of peri-implantitis (P < 0.001). There is no difference, in terms of implant survival rate, between periodontitis and non-periodontitis patients. However, patients with history of periodontitis had lower implant success rate (more MBL and incidence of peri-implantitis) when compared with non-periodontitis patients.",
+    "sentence_labels": [
+        [
+            0,
+            "OBJECTIVE"
+        ],
+        [
+            1,
+            "METHODS"
+        ],
+        [
+            2,
+            "METHODS"
+        ],
+        [
+            3,
+            "METHODS"
+        ],
+        [
+            4,
+            "RESULTS"
+        ],
+        [
+            5,
+            "RESULTS"
+        ],
+        [
+            6,
+            "RESULTS"
+        ],
+        [
+            7,
+            "CONCLUSIONS"
+        ],
+        [
+            8,
+            "RESULTS"
+        ]
+    ],
+    "abstract_highlight": [
+        "To ",
+        "determine ",
+        "if ",
+        "there ",
+        "is ",
+        "a ",
+        "relationship ",
+        "between ",
+        "history ",
+        "of ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "and ",
+        "dental ",
+        "implant ",
+        "success ",
+        "( ",
+        "used ",
+        "<bold=True italic=True font_color=#000080>",
+        "marginal ",
+        "<bold=True italic=True font_color=#000080>",
+        "bone ",
+        "<bold=True italic=True font_color=#000080>",
+        "loss ",
+        "[ ",
+        "<bold=True italic=True font_color=#000080>",
+        "MBL ",
+        "] ",
+        "as ",
+        "the ",
+        "assessment ",
+        "criteria ",
+        ") ",
+        "and ",
+        "survival ",
+        "rates ",
+        ". ",
+        "PubMed ",
+        "search ",
+        "was ",
+        "performed ",
+        "in ",
+        "the ",
+        "period ",
+        "between ",
+        "2002 ",
+        "and ",
+        "2012 ",
+        ". ",
+        "Studies ",
+        "qualified ",
+        "for ",
+        "the ",
+        "inclusion ",
+        "should ",
+        "have ",
+        "\u22655 ",
+        "years ",
+        "followed-up ",
+        "and ",
+        "reported ",
+        "the ",
+        "incidence ",
+        "of ",
+        "<bold=True italic=True font_color=#000080>",
+        "peri-implantitis ",
+        "and/or ",
+        "implant ",
+        "survival ",
+        "and/or ",
+        "MBL ",
+        "in ",
+        "patients ",
+        "with ",
+        "and ",
+        "without ",
+        "a ",
+        "history ",
+        "of ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        ". ",
+        "A ",
+        "meta-analysis ",
+        "was ",
+        "performed ",
+        "using ",
+        "the ",
+        "random-effects ",
+        "model ",
+        "on ",
+        "the ",
+        "selected ",
+        "qualified ",
+        "articles ",
+        ". ",
+        "All ",
+        "the ",
+        "14 ",
+        "studies ",
+        "showed ",
+        "better ",
+        "implant ",
+        "survival ",
+        "rates ",
+        "for ",
+        "non-periodontitis ",
+        "patients ",
+        "' ",
+        "group ",
+        ". ",
+        "Six ",
+        "of ",
+        "10 ",
+        "studies ",
+        "reported ",
+        "statistically ",
+        "significantly ",
+        "higher ",
+        "MBL ",
+        "and ",
+        "prevalence ",
+        "of ",
+        "<bold=True italic=True font_color=#000080>",
+        "peri-implantitis ",
+        "among ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "patients ",
+        ". ",
+        "Our ",
+        "meta-analysis ",
+        "did ",
+        "not ",
+        "find ",
+        "implant ",
+        "survival ",
+        "rates ",
+        "to ",
+        "be ",
+        "significantly ",
+        "lower ",
+        "among ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "patients ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "<bold=True italic=True font_color=purpule>",
+        "P ",
+        "= ",
+        "0.99 ",
+        ") ",
+        "but ",
+        "revealed ",
+        "a ",
+        "history ",
+        "of ",
+        "periodontitis ",
+        "to ",
+        "be ",
+        "significantly ",
+        "related ",
+        "to ",
+        "the ",
+        "higher ",
+        "prevalence ",
+        "of ",
+        "<bold=True italic=True font_color=#000080>",
+        "peri-implantitis ",
+        "( ",
+        "P ",
+        "< ",
+        "0.001 ",
+        ") ",
+        ". ",
+        "There ",
+        "is ",
+        "no ",
+        "difference ",
+        ", ",
+        "in ",
+        "terms ",
+        "of ",
+        "implant ",
+        "survival ",
+        "rate ",
+        ", ",
+        "between ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "and ",
+        "non-periodontitis ",
+        "patients ",
+        ". ",
+        "However ",
+        ", ",
+        "patients ",
+        "with ",
+        "history ",
+        "of ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "had ",
+        "lower ",
+        "implant ",
+        "success ",
+        "rate ",
+        "( ",
+        "more ",
+        "MBL ",
+        "and ",
+        "incidence ",
+        "of ",
+        "peri-implantitis ",
+        ") ",
+        "when ",
+        "compared ",
+        "with ",
+        "non-periodontitis ",
+        "patients ",
+        ". "
+    ]
+}

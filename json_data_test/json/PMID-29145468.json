@@ -1,0 +1,806 @@
+{
+    "pmid": "29145468",
+    "journal": "PloS one",
+    "publication_type": "Clinical Trial\nRandomized Controlled Trial",
+    "publication_year": "2017",
+    "publication_date": "2017-11-16",
+    "title": "The effects of non-surgical periodontal treatment on glycemic control, oxidative stress balance and quality of life in patients with type 2 diabetes: A randomized clinical trial.",
+    "first_author": "Hirofumi Mizuno",
+    "corresponding_author": "Manabu Morita",
+    "authors": "Hirofumi Mizuno, Daisuke Ekuni, Takayuki Maruyama, Kota Kataoka, Toshiki Yoneda, Daiki Fukuhara, Yoshio Sugiura, Takaaki Tomofuji, Jun Wada, Manabu Morita",
+    "affiliations": "(1) Department of Preventive Dentistry, Okayama University Graduate School of Medicine, Dentistry and Pharmaceutical Sciences, Okayama, Japan. ['Hirofumi Mizuno', 'Daisuke Ekuni', 'Kota Kataoka', 'Toshiki Yoneda', 'Daiki Fukuhara', 'Yoshio Sugiura', 'Manabu Morita']; (2) Advanced Research Center for Oral and Craniofacial Sciences, Okayama University Dental School, Okayama, Japan. ['Daisuke Ekuni']; (3) Center for Innovative Clinical Medicine, Okayama University Hospital, Okayama, Japan. ['Takayuki Maruyama']; (4) Department of Community Oral Health, Asahi University School of Dentistry, Mizuho, Japan. ['Takaaki Tomofuji']; (5) Department of Nephrology, Rheumatology, Endocrinology, and Metabolism, Okayama University Graduate School of Medicine, Dentistry, and Pharmaceutical Sciences, Okayama, Japan. ['Jun Wada']",
+    "abstract": "The purpose of this study was to investigate the effects of non-surgical periodontal treatment on hemoglobinA1c (HbA1c) levels, oxidative stress balance and quality of life (QOL) in patients with type 2 diabetes mellitus (T2DM) compared to no periodontal treatment (simple oral hygiene instructions only). The design was a 6-month, single-masked, single center, randomized clinical trial. Patients had both T2DM and chronic periodontitis. Forty participants were enrolled between April 2014 and March 2016 at the Nephrology, Diabetology and Endocrinology Department of Okayama University Hospital. The periodontal treatment group (n = 20) received non-surgical periodontal therapy, including scaling and root planing plus oral hygiene instructions, and consecutive supportive periodontal therapy at 3 and 6 months. The control group (n = 17) received only oral hygiene instructions without treatment during the experimental period. The primary study outcome was the change in HbA1c levels from baseline to 3 months. Secondary outcomes included changes in oxidative stress balance (Oxidative-INDEX), the Diabetes Therapy-Related QOL and clinical periodontal parameters from baseline to 3 months and baseline to 6 months. Changes in HbA1c in the periodontal treatment group were not significantly different with those in the control group at 3 and 6 months. Systemic oxidative stress balance and QOL significantly improved in the periodontal treatment group compared to the control group at 3 months. In the subgroup analysis (moderately poor control of diabetes), the decrease in HbA1c levels in the periodontal treatment group was greater than that in the control group at 3 months but not significant. In T2DM patients, non-surgical periodontal treatment improved systemic oxidative stress balance and QOL, but did not decrease HbA1c levels at 3 months follow-up. Current Controlled Trials UMIN-ICDR UMIN 000013278 (Registered April 1, 2014).",
+    "keywords": "",
+    "MeshHeadingList": [
+        {
+            "QualifierName": [],
+            "DescriptorName": "Aged"
+        },
+        {
+            "QualifierName": [
+                "metabolism"
+            ],
+            "DescriptorName": "Blood Glucose"
+        },
+        {
+            "QualifierName": [
+                "complications",
+                "metabolism"
+            ],
+            "DescriptorName": "Diabetes Mellitus, Type 2"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Female"
+        },
+        {
+            "QualifierName": [
+                "metabolism"
+            ],
+            "DescriptorName": "Glycated Hemoglobin A"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Humans"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Male"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Middle Aged"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Oxidative Stress"
+        },
+        {
+            "QualifierName": [
+                "complications",
+                "metabolism",
+                "therapy"
+            ],
+            "DescriptorName": "Periodontitis"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Single-Blind Method"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Treatment Outcome"
+        }
+    ],
+    "ChemicalList": [
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Blood Glucose"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Glycated Hemoglobin A"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "hemoglobin A1c protein, human"
+        }
+    ],
+    "doi": "10.1371/journal.pone.0188171",
+    "journal_sjr": 0.0,
+    "journal_h_index": 0,
+    "journal_if": 2.74,
+    "journal_metrics": [
+        2.74,
+        0,
+        0.0,
+        3.226
+    ],
+    "bacteria_entities": {},
+    "has_bacteria_ner": true,
+    "bacteria": [],
+    "has_bacteria_norm": true,
+    "nutrient_entities": {},
+    "has_nutrient_ner": true,
+    "chemical_entities": {},
+    "has_chemical_ner": true,
+    "has_genetic_ner": true,
+    "enzyme_entities": [],
+    "metabolic_entities": [],
+    "has_metabolic_ner": true,
+    "molecule": [
+        [
+            [
+                "HbA1c",
+                "",
+                ""
+            ],
+            [
+                "hemoglobinA1c",
+                "MESH:C052898",
+                "azidohemoglobin"
+            ]
+        ],
+        [
+            [
+                "HbA1c",
+                "HBAE1.3",
+                "hemoglobin, alpha embryonic 1.3"
+            ],
+            [
+                "hemoglobinA1c",
+                "HGB",
+                "Hemoglobin"
+            ]
+        ]
+    ],
+    "has_molecular_norm": true,
+    "nutrient": [],
+    "has_nutrient_norm": true,
+    "disease_entities": {
+        "0": [
+            [
+                "type 2 diabetes mellitus",
+                36,
+                40
+            ],
+            [
+                "type 2 diabetes mellitus",
+                41,
+                45
+            ]
+        ],
+        "2": [
+            [
+                "type 2 diabetes mellitus",
+                3,
+                7
+            ],
+            [
+                "chronic periodontitis",
+                8,
+                10
+            ]
+        ],
+        "7": [
+            [
+                "Diabetes",
+                15,
+                16
+            ]
+        ],
+        "10": [
+            [
+                "diabetes",
+                9,
+                10
+            ]
+        ],
+        "11": [
+            [
+                "type 2 diabetes mellitus",
+                1,
+                5
+            ]
+        ]
+    },
+    "has_disease_ner": true,
+    "disease": [
+        [
+            "Diabetes",
+            "",
+            ""
+        ],
+        [
+            "chronic periodontitis",
+            "MESH:D055113",
+            "Chronic Periodontitis"
+        ],
+        [
+            "diabetes",
+            "",
+            ""
+        ],
+        [
+            "type 2 diabetes mellitus",
+            "MESH:D003924",
+            "Diabetes Mellitus, Type 2"
+        ]
+    ],
+    "has_disease_norm": true,
+    "affiliation_entities": [
+        "Japan\nJapan\nJapan\nJapan\nJapan\nMizuho\nOkayama\nOkayama\nOkayama\nOkayama",
+        "Asahi University School of Dentistry\nCraniofacial Sciences\nDaisuke Ekuni'\nDepartment of Community Oral Health\nDepartment of Nephrology, Rheumatology, Endocrinology\nDepartment of Preventive Dentistry\nMetabolism\nOkayama University Dental School\nOkayama University Graduate School of Medicine, Dentistry\nOkayama University Graduate School of Medicine, Dentistry and Pharmaceutical Sciences\nOkayama University Hospital\nPharmaceutical Sciences"
+    ],
+    "has_affiliation_ner": true,
+    "sample_size_entities": {
+        "0": [
+            [
+                2,
+                37,
+                38
+            ]
+        ],
+        "11": [
+            [
+                2,
+                2,
+                3
+            ]
+        ]
+    },
+    "sample_size": 2,
+    "has_sample_size_ner": true,
+    "significance_conclusion": [
+        [
+            8,
+            0
+        ],
+        [
+            9,
+            1
+        ],
+        [
+            10,
+            0
+        ]
+    ],
+    "has_significance_ner": true,
+    "mtime": 1646878794.493671,
+    "htime": "2022-03-10 10:19:54.493671",
+    "title_zh": "\u975e\u624b\u672f\u7259\u5468\u6cbb\u7597\u5bf92\u578b\u7cd6\u5c3f\u75c5\u60a3\u8005\u8840\u7cd6\u63a7\u5236\u3001\u6c27\u5316\u5e94\u6fc0\u5e73\u8861\u548c\u751f\u6d3b\u8d28\u91cf\u7684\u5f71\u54cd:\u4e00\u9879\u968f\u673a\u4e34\u5e8a\u8bd5\u9a8c",
+    "abstract_zh": "\u672c\u7814\u7a76\u7684\u76ee\u7684\u662f\u7814\u7a76\u975e\u624b\u672f\u7259\u5468\u6cbb\u7597\u5bf92\u578b\u7cd6\u5c3f\u75c5(T2DM)\u60a3\u8005\u7cd6\u5316\u8840\u7ea2\u86cb\u767d(HbA1c)\u6c34\u5e73\u3001\u6c27\u5316\u5e94\u6fc0\u5e73\u8861\u548c\u751f\u6d3b\u8d28\u91cf(QOL)\u7684\u5f71\u54cd\u3002 \u8be5\u8bbe\u8ba1\u662f\u4e00\u9879\u4e3a\u671f6\u4e2a\u6708\u3001\u5355\u76f2\u3001\u5355\u4e2d\u5fc3\u3001\u968f\u673a\u4e34\u5e8a\u8bd5\u9a8c\u3002 \u60a3\u8005\u540c\u65f6\u60a3\u6709T2DM\u548c\u6162\u6027\u7259\u5468\u708e\u3002 40\u540d\u53c2\u4e0e\u8005\u4e8e2014\u5e744\u6708\u81f32016\u5e743\u6708\u5728\u5188\u5c71\u5927\u5b66\u533b\u9662\u80be\u810f\u75c5\u79d1\u3001\u7cd6\u5c3f\u75c5\u79d1\u548c\u5185\u5206\u6ccc\u79d1\u767b\u8bb0\u3002 \u7259\u5468\u6cbb\u7597\u7ec4(n = 20)\u5206\u522b\u4e8e3\u4e2a\u6708\u548c6\u4e2a\u6708\u8fdb\u884c\u975e\u624b\u672f\u7259\u5468\u6cbb\u7597\uff0c\u5305\u62ec\u6d01\u6cbb\u548c\u6839\u5228\u52a0\u53e3\u8154\u536b\u751f\u6307\u5bfc\uff0c\u5e76\u8fde\u7eed\u652f\u6301\u6027\u7259\u5468\u6cbb\u7597\u3002 \u5bf9\u7167\u7ec4(n = 17)\u5728\u5b9e\u9a8c\u671f\u95f4\u53ea\u63a5\u53d7\u53e3\u8154\u536b\u751f\u6307\u5bfc\u800c\u4e0d\u8fdb\u884c\u6cbb\u7597\u3002 \u4e3b\u8981\u7814\u7a76\u7ed3\u679c\u662fHbA1c\u6c34\u5e73\u4ece\u57fa\u7ebf\u52303\u4e2a\u6708\u7684\u53d8\u5316\u3002 \u6b21\u8981\u7ed3\u679c\u5305\u62ec\u6c27\u5316\u5e94\u6fc0\u5e73\u8861(\u6c27\u5316\u6307\u6570)\u3001\u7cd6\u5c3f\u75c5\u6cbb\u7597\u76f8\u5173\u751f\u6d3b\u8d28\u91cf\u548c\u4e34\u5e8a\u7259\u5468\u53c2\u6570\u4ece\u57fa\u7ebf\u52303\u4e2a\u6708\u548c\u57fa\u7ebf\u52306\u4e2a\u6708\u7684\u53d8\u5316\u3002 \u7259\u5468\u6cbb\u7597\u7ec4\u57283\u4e2a\u6708\u30016\u4e2a\u6708\u65f6\u7cd6\u5316\u8840\u7ea2\u86cb\u767d\u53d8\u5316\u4e0e\u5bf9\u7167\u7ec4\u6bd4\u8f83\u5dee\u5f02\u65e0\u7edf\u8ba1\u5b66\u610f\u4e49\u3002 3\u4e2a\u6708\u65f6\uff0c\u7259\u5468\u6cbb\u7597\u7ec4\u8f83\u5bf9\u7167\u7ec4\u5168\u8eab\u6c27\u5316\u5e94\u6fc0\u5e73\u8861\u548c\u751f\u6d3b\u8d28\u91cf\u660e\u663e\u6539\u5584\u3002 \u5728\u4e9a\u7ec4\u5206\u6790(\u7cd6\u5c3f\u75c5\u63a7\u5236\u4e2d\u5ea6\u5dee)\u4e2d\uff0c\u7259\u5468\u6cbb\u7597\u7ec4\u57283\u4e2a\u6708\u65f6HbA1c\u4e0b\u964d\u5e45\u5ea6\u5927\u4e8e\u5bf9\u7167\u7ec4\uff0c\u4f46\u5dee\u5f02\u4e0d\u663e\u8457\u3002 \u57282\u578b\u7cd6\u5c3f\u75c5\u60a3\u8005\u4e2d\uff0c\u975e\u624b\u672f\u7259\u5468\u6cbb\u7597\u6539\u5584\u4e86\u5168\u8eab\u6c27\u5316\u5e94\u6fc0\u5e73\u8861\u548c\u751f\u6d3b\u8d28\u91cf\uff0c\u4f46\u5728\u968f\u8bbf3\u4e2a\u6708\u65f6\u5e76\u672a\u964d\u4f4e\u7cd6\u5316\u8840\u7ea2\u86cb\u767d\u6c34\u5e73\u3002 \u5f53\u524d\u5bf9\u7167\u8bd5\u9a8cUMIN- icdr UMIN 000013278(2014\u5e744\u67081\u65e5\u6ce8\u518c)\u3002",
+    "has_translated": true,
+    "chemical": [],
+    "gene_entities": {
+        "0": [
+            [
+                "hemoglobinA1c",
+                17,
+                18
+            ],
+            [
+                "HbA1c",
+                19,
+                20
+            ]
+        ]
+    },
+    "gene": [
+        [
+            "HbA1c",
+            "HBAE1.3",
+            "hemoglobin, alpha embryonic 1.3"
+        ],
+        [
+            "hemoglobinA1c",
+            "HGB",
+            "Hemoglobin"
+        ]
+    ],
+    "anatomy_entities": {
+        "0": [
+            [
+                "type 2",
+                36,
+                38
+            ],
+            [
+                "type 2",
+                41,
+                43
+            ]
+        ],
+        "1": [
+            [
+                "center",
+                13,
+                15
+            ]
+        ],
+        "2": [
+            [
+                "type 2",
+                3,
+                5
+            ]
+        ],
+        "3": [],
+        "4": [
+            [
+                "group (",
+                3,
+                5
+            ],
+            [
+                ", and",
+                25,
+                27
+            ]
+        ],
+        "5": [
+            [
+                "group (",
+                2,
+                4
+            ]
+        ],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": [
+            [
+                "type 2",
+                1,
+                3
+            ],
+            [
+                ", non",
+                6,
+                8
+            ]
+        ],
+        "12": [
+            [
+                "1",
+                11,
+                13
+            ]
+        ]
+    },
+    "anatomy": [
+        [
+            ", and",
+            "",
+            ""
+        ],
+        [
+            ", non",
+            "",
+            ""
+        ],
+        [
+            "1",
+            "",
+            ""
+        ],
+        [
+            "center",
+            "",
+            ""
+        ],
+        [
+            "group (",
+            "",
+            ""
+        ],
+        [
+            "type 2",
+            "",
+            ""
+        ]
+    ],
+    "antibody_entities": {},
+    "antibody": [],
+    "abstract_prep": "The purpose of this study was to investigate the effects of non-surgical periodontal treatment on hemoglobinA1c (HbA1c) levels, oxidative stress balance and quality of life (life) in patients with type 2 diabetes mellitus (type 2 diabetes mellitus) compared to no periodontal treatment (simple oral hygiene instructions only). The design was a 6-month, single-masked, single center, randomized clinical trial. Patients had both type 2 diabetes mellitus and chronic periodontitis. Forty participants were enrolled between April 2014 and March 2016 at the Nephrology, Diabetology and Endocrinology Department of Okayama University Hospital. The periodontal treatment group (n = 20) received non-surgical periodontal therapy, including scaling and root planing plus oral hygiene instructions, and consecutive supportive periodontal therapy at 3 and 6 months. The control group (n = 17) received only oral hygiene instructions without treatment during the experimental period. The primary study outcome was the change in HbA1c levels from baseline to 3 months. Secondary outcomes included changes in oxidative stress balance (oxidative stress balance), the Diabetes Therapy-Related life and clinical periodontal parameters from baseline to 3 months and baseline to 6 months. Changes in HbA1c in the periodontal treatment group were not significantly different with those in the control group at 3 and 6 months. Systemic oxidative stress balance and life significantly improved in the periodontal treatment group compared to the control group at 3 months. In the subgroup analysis (moderately poor control of diabetes), the decrease in HbA1c levels in the periodontal treatment group was greater than that in the control group at 3 months but not significant. In type 2 diabetes mellitus patients, non-surgical periodontal treatment improved systemic oxidative stress balance and life, but did not decrease HbA1c levels at 3 months follow-up. Current Controlled Trials UMIN-ICDR UMIN 000013278 (Registered April 1, 2014).",
+    "sentence_labels": [
+        [
+            0,
+            "OBJECTIVE"
+        ],
+        [
+            1,
+            "METHODS"
+        ],
+        [
+            2,
+            "METHODS"
+        ],
+        [
+            3,
+            "METHODS"
+        ],
+        [
+            4,
+            "METHODS"
+        ],
+        [
+            5,
+            "METHODS"
+        ],
+        [
+            6,
+            "METHODS"
+        ],
+        [
+            7,
+            "METHODS"
+        ],
+        [
+            8,
+            "RESULTS"
+        ],
+        [
+            9,
+            "RESULTS"
+        ],
+        [
+            10,
+            "RESULTS"
+        ],
+        [
+            11,
+            "CONCLUSIONS"
+        ],
+        [
+            12,
+            "BACKGROUND"
+        ]
+    ],
+    "abstract_highlight": [
+        "The ",
+        "purpose ",
+        "of ",
+        "this ",
+        "study ",
+        "was ",
+        "to ",
+        "investigate ",
+        "the ",
+        "effects ",
+        "of ",
+        "non-surgical ",
+        "periodontal ",
+        "treatment ",
+        "on ",
+        "<bold=True italic=True font_color=#008000>",
+        "hemoglobinA1c ",
+        "( ",
+        "<bold=True italic=True font_color=#008000>",
+        "HbA1c ",
+        ") ",
+        "levels ",
+        ", ",
+        "oxidative ",
+        "stress ",
+        "balance ",
+        "and ",
+        "quality ",
+        "of ",
+        "life ",
+        "( ",
+        "life ",
+        ") ",
+        "in ",
+        "patients ",
+        "with ",
+        "<bold=True italic=True font_color=#000080>",
+        "type ",
+        "<bold=True italic=True font_color=#000080>",
+        "2 ",
+        "<bold=True italic=True font_color=#000080>",
+        "diabetes ",
+        "<bold=True italic=True font_color=#000080>",
+        "mellitus ",
+        "( ",
+        "type ",
+        "2 ",
+        "diabetes ",
+        "mellitus ",
+        ") ",
+        "compared ",
+        "to ",
+        "no ",
+        "periodontal ",
+        "treatment ",
+        "( ",
+        "simple ",
+        "oral ",
+        "hygiene ",
+        "instructions ",
+        "only ",
+        ") ",
+        ". ",
+        "The ",
+        "design ",
+        "was ",
+        "a ",
+        "6-month ",
+        ", ",
+        "single-masked ",
+        ", ",
+        "single ",
+        "<bold=True italic=True font_color=purpule>",
+        "center ",
+        ", ",
+        "randomized ",
+        "clinical ",
+        "trial ",
+        ". ",
+        "Patients ",
+        "had ",
+        "both ",
+        "<bold=True italic=True font_color=#000080>",
+        "type ",
+        "<bold=True italic=True font_color=#000080>",
+        "2 ",
+        "<bold=True italic=True font_color=#000080>",
+        "diabetes ",
+        "<bold=True italic=True font_color=#000080>",
+        "mellitus ",
+        "and ",
+        "<bold=True italic=True font_color=#000080>",
+        "chronic ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        ". ",
+        "Forty ",
+        "participants ",
+        "were ",
+        "enrolled ",
+        "between ",
+        "April ",
+        "2014 ",
+        "and ",
+        "March ",
+        "2016 ",
+        "at ",
+        "the ",
+        "Nephrology ",
+        ", ",
+        "Diabetology ",
+        "and ",
+        "Endocrinology ",
+        "Department ",
+        "of ",
+        "Okayama ",
+        "University ",
+        "Hospital ",
+        ". ",
+        "The ",
+        "periodontal ",
+        "treatment ",
+        "<bold=True italic=True font_color=purpule>",
+        "group ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "n ",
+        "= ",
+        "20 ",
+        ") ",
+        "received ",
+        "non-surgical ",
+        "periodontal ",
+        "therapy ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "including ",
+        "scaling ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "root ",
+        "planing ",
+        "plus ",
+        "oral ",
+        "hygiene ",
+        "instructions ",
+        ", ",
+        "and ",
+        "consecutive ",
+        "supportive ",
+        "periodontal ",
+        "therapy ",
+        "at ",
+        "3 ",
+        "and ",
+        "6 ",
+        "months ",
+        ". ",
+        "The ",
+        "control ",
+        "<bold=True italic=True font_color=purpule>",
+        "group ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "n ",
+        "= ",
+        "17 ",
+        ") ",
+        "received ",
+        "only ",
+        "oral ",
+        "hygiene ",
+        "instructions ",
+        "without ",
+        "treatment ",
+        "during ",
+        "the ",
+        "experimental ",
+        "period ",
+        ". ",
+        "The ",
+        "primary ",
+        "study ",
+        "outcome ",
+        "was ",
+        "the ",
+        "change ",
+        "in ",
+        "HbA1c ",
+        "levels ",
+        "from ",
+        "baseline ",
+        "to ",
+        "3 ",
+        "months ",
+        ". ",
+        "Secondary ",
+        "outcomes ",
+        "included ",
+        "changes ",
+        "in ",
+        "oxidative ",
+        "stress ",
+        "balance ",
+        "( ",
+        "oxidative ",
+        "stress ",
+        "balance ",
+        ") ",
+        ", ",
+        "the ",
+        "<bold=True italic=True font_color=#000080>",
+        "Diabetes ",
+        "Therapy-Related ",
+        "life ",
+        "and ",
+        "clinical ",
+        "periodontal ",
+        "parameters ",
+        "from ",
+        "baseline ",
+        "to ",
+        "3 ",
+        "months ",
+        "and ",
+        "baseline ",
+        "to ",
+        "6 ",
+        "months ",
+        ". ",
+        "Changes ",
+        "in ",
+        "HbA1c ",
+        "in ",
+        "the ",
+        "periodontal ",
+        "treatment ",
+        "group ",
+        "were ",
+        "not ",
+        "significantly ",
+        "different ",
+        "with ",
+        "those ",
+        "in ",
+        "the ",
+        "control ",
+        "group ",
+        "at ",
+        "3 ",
+        "and ",
+        "6 ",
+        "months ",
+        ". ",
+        "Systemic ",
+        "oxidative ",
+        "stress ",
+        "balance ",
+        "and ",
+        "life ",
+        "significantly ",
+        "improved ",
+        "in ",
+        "the ",
+        "periodontal ",
+        "treatment ",
+        "group ",
+        "compared ",
+        "to ",
+        "the ",
+        "control ",
+        "group ",
+        "at ",
+        "3 ",
+        "months ",
+        ". ",
+        "In ",
+        "the ",
+        "subgroup ",
+        "analysis ",
+        "( ",
+        "moderately ",
+        "poor ",
+        "control ",
+        "of ",
+        "<bold=True italic=True font_color=#000080>",
+        "diabetes ",
+        ") ",
+        ", ",
+        "the ",
+        "decrease ",
+        "in ",
+        "HbA1c ",
+        "levels ",
+        "in ",
+        "the ",
+        "periodontal ",
+        "treatment ",
+        "group ",
+        "was ",
+        "greater ",
+        "than ",
+        "that ",
+        "in ",
+        "the ",
+        "control ",
+        "group ",
+        "at ",
+        "3 ",
+        "months ",
+        "but ",
+        "not ",
+        "significant ",
+        ". ",
+        "In ",
+        "<bold=True italic=True font_color=#000080>",
+        "type ",
+        "<bold=True italic=True font_color=#000080>",
+        "2 ",
+        "<bold=True italic=True font_color=#000080>",
+        "diabetes ",
+        "<bold=True italic=True font_color=#000080>",
+        "mellitus ",
+        "patients ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "non-surgical ",
+        "periodontal ",
+        "treatment ",
+        "improved ",
+        "systemic ",
+        "oxidative ",
+        "stress ",
+        "balance ",
+        "and ",
+        "life ",
+        ", ",
+        "but ",
+        "did ",
+        "not ",
+        "decrease ",
+        "HbA1c ",
+        "levels ",
+        "at ",
+        "3 ",
+        "months ",
+        "follow-up ",
+        ". ",
+        "Current ",
+        "Controlled ",
+        "Trials ",
+        "UMIN-ICDR ",
+        "UMIN ",
+        "000013278 ",
+        "( ",
+        "Registered ",
+        "April ",
+        "1 ",
+        ", ",
+        "2014 ",
+        ") ",
+        ". "
+    ]
+}

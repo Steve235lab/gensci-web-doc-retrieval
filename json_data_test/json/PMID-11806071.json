@@ -1,0 +1,754 @@
+{
+    "pmid": "11806071",
+    "journal": "Journal of the American Dental Association (1939)",
+    "publication_type": "Clinical Trial\nRandomized Controlled Trial",
+    "publication_year": "2002",
+    "publication_date": "2002-02-06",
+    "title": "An economic evaluation of a chlorhexidine chip for treating chronic periodontitis: the CHIP (chlorhexidine in periodontitis) study.",
+    "first_author": "C J Henke",
+    "corresponding_author": "R D Finkelman",
+    "authors": "C J Henke, K F Villa, M E Aichelmann-Reidy, G C Armitage, R M Eber, R J Genco, W J Killoy, D P Miller, R C Page, A M Polson, M I Ryder, S J Silva, M J Somerman, T E Van Dyke, L F Wolff, C J Evans, R D Finkelman",
+    "affiliations": "(1) Department of Oral Biology, State University of New York at Buffalo, USA. ['C J Henke']",
+    "abstract": "The authors previously suggested that an adjunctive, controlled-release chlorhexidine, or CHX, chip may reduce periodontal surgical needs at little additional cost. This article presents an economic analysis of the CHX chip in general dental practice. In a one-year prospective clinical trial, 484 chronic periodontitis patients in 52 general practices across the United States were treated with either scaling and root planing, or SRP, plus any therapy prescribed by treating, unblinded dentists; or SRP plus other therapy as above but including the CHX chip. Economic data were collected from bills, case report forms and 12-month treatment recommendations from blinded periodontist evaluators. Total dental charges were higher for SRP + CHX chip patients vs. SRP patients when CHX chip costs were included (P = .027) but lower when CHX chip costs were excluded (P = .012). About one-half of the CHX chip acquisition cost was offset by savings in other charges. SRP + CHX chip patients were about 50 percent less likely to undergo surgical procedures than were SRP patients (P = .021). At the end of the trial, periodontist evaluators recommended similar additional procedures for both groups: SRP, about 46 percent; maintenance, about 37 percent; surgery, 56 percent for SRP alone and 63 percent for SRP + CHX chip. Adjunctive CHX chip use for general-practice patients with periodontitis increased costs but reduced surgeries over one year. At study's end, periodontists recommended similar additional surgical treatment for both groups. In general practice, routine use of the CHX chip suggests that costs will be partially offset by reduced surgery over at least one year.",
+    "keywords": "",
+    "MeshHeadingList": [
+        {
+            "QualifierName": [],
+            "DescriptorName": "Adult"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Aged"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Analysis of Variance"
+        },
+        {
+            "QualifierName": [
+                "administration & dosage",
+                "economics"
+            ],
+            "DescriptorName": "Anti-Infective Agents, Local"
+        },
+        {
+            "QualifierName": [
+                "administration & dosage",
+                "economics"
+            ],
+            "DescriptorName": "Chlorhexidine"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Chronic Disease"
+        },
+        {
+            "QualifierName": [
+                "economics"
+            ],
+            "DescriptorName": "Delayed-Action Preparations"
+        },
+        {
+            "QualifierName": [
+                "economics"
+            ],
+            "DescriptorName": "Dental Scaling"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Female"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Humans"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Insurance Claim Reporting"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Linear Models"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Male"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Middle Aged"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Odds Ratio"
+        },
+        {
+            "QualifierName": [
+                "economics",
+                "therapy"
+            ],
+            "DescriptorName": "Periodontitis"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Prospective Studies"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Single-Blind Method"
+        }
+    ],
+    "ChemicalList": [
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Anti-Infective Agents, Local"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Delayed-Action Preparations"
+        },
+        {
+            "RegistryNumber": "R4KO0DY52L",
+            "NameOfSubstance": "Chlorhexidine"
+        }
+    ],
+    "doi": null,
+    "journal_sjr": 0,
+    "journal_h_index": 0,
+    "journal_if": 0,
+    "journal_metrics": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "bacteria_entities": {},
+    "has_bacteria_ner": true,
+    "bacteria": [],
+    "has_bacteria_norm": true,
+    "nutrient_entities": {},
+    "has_nutrient_ner": true,
+    "chemical_entities": {
+        "0": [
+            [
+                "chlorhexidine",
+                11,
+                12
+            ],
+            [
+                "CHX",
+                14,
+                15
+            ]
+        ],
+        "2": [
+            [
+                "CHX",
+                53,
+                54
+            ]
+        ],
+        "4": [
+            [
+                "CHX",
+                8,
+                9
+            ],
+            [
+                "CHX",
+                15,
+                16
+            ],
+            [
+                "CHX",
+                28,
+                29
+            ]
+        ],
+        "7": [
+            [
+                "CHX",
+                42,
+                43
+            ]
+        ]
+    },
+    "has_chemical_ner": true,
+    "has_genetic_ner": true,
+    "enzyme_entities": [],
+    "metabolic_entities": [],
+    "has_metabolic_ner": true,
+    "molecule": [
+        [
+            [
+                "CHX",
+                "",
+                ""
+            ],
+            [
+                "chlorhexidine",
+                "MESH:D002710",
+                "Chlorhexidine"
+            ]
+        ],
+        [
+            [
+                "chlorhexidine",
+                "",
+                ""
+            ],
+            [
+                "CHX",
+                "",
+                ""
+            ]
+        ]
+    ],
+    "has_molecular_norm": true,
+    "nutrient": [],
+    "has_nutrient_norm": true,
+    "disease_entities": {
+        "2": [
+            [
+                "chronic periodontitis",
+                10,
+                12
+            ]
+        ],
+        "8": [
+            [
+                "periodontitis",
+                10,
+                11
+            ]
+        ]
+    },
+    "has_disease_ner": true,
+    "disease": [
+        [
+            "chronic periodontitis",
+            "MESH:D055113",
+            "Chronic Periodontitis"
+        ],
+        [
+            "periodontitis",
+            "MESH:D010518",
+            "Periodontitis"
+        ]
+    ],
+    "has_disease_norm": true,
+    "affiliation_entities": [
+        "Buffalo\nUSA",
+        "State University of New York at"
+    ],
+    "has_affiliation_ner": true,
+    "sample_size_entities": {
+        "2": [
+            [
+                484,
+                9,
+                10
+            ]
+        ]
+    },
+    "sample_size": 484,
+    "has_sample_size_ner": true,
+    "significance_conclusion": [
+        [
+            4,
+            1
+        ],
+        [
+            6,
+            1
+        ]
+    ],
+    "has_significance_ner": true,
+    "mtime": 1646878918.5660229,
+    "htime": "2022-03-10 10:21:58.566023",
+    "title_zh": "\u6d17\u5fc5\u6cf0\u82af\u7247\u6cbb\u7597\u6162\u6027\u7259\u5468\u708e\u7684\u7ecf\u6d4e\u8bc4\u4ef7:chip(\u6d17\u5fc5\u6cf0\u6cbb\u7597\u7259\u5468\u708e)\u7814\u7a76",
+    "abstract_zh": "\u4f5c\u8005\u5148\u524d\u63d0\u51fa\uff0c\u4e00\u79cd\u8f85\u52a9\u7684\u63a7\u91ca\u6d17\u5fc5\u6cf0\u82af\u7247(CHX)\u53ef\u4ee5\u4ee5\u5f88\u5c11\u7684\u989d\u5916\u8d39\u7528\u51cf\u5c11\u7259\u5468\u624b\u672f\u7684\u9700\u8981\u3002 \u8fd9\u7bc7\u6587\u7ae0\u63d0\u51fa\u4e86\u4e00\u4e2a\u7ecf\u6d4e\u5206\u6790CHX\u82af\u7247\u5728\u4e00\u822c\u7259\u79d1\u5b9e\u8df5\u3002 \u5728\u4e00\u9879\u4e3a\u671f\u4e00\u5e74\u7684\u524d\u77bb\u6027\u4e34\u5e8a\u8bd5\u9a8c\u4e2d\uff0c\u5168\u7f8e52\u5bb6\u5168\u79d1\u8bca\u6240\u7684484\u540d\u6162\u6027\u7259\u5468\u708e\u60a3\u8005\u63a5\u53d7\u4e86\u6d01\u6cbb\u548c\u6839\u9762\u8ba1\u5212(SRP)\u6cbb\u7597\uff0c\u4ee5\u53ca\u6cbb\u7597\u65f6\u672a\u76f2\u7684\u7259\u533b\u6240\u89c4\u5b9a\u7684\u4efb\u4f55\u6cbb\u7597\u65b9\u6cd5; \u6216SRP\u52a0\u4e0a\u5176\u4ed6\u7597\u6cd5\uff0c\u4f46\u5305\u62ecCHX\u82af\u7247\u3002 \u7ecf\u6d4e\u6570\u636e\u4ece\u8d26\u5355\u3001\u75c5\u4f8b\u62a5\u544a\u8868\u548c\u7531\u76f2\u6cd5\u7259\u5468\u75c5\u533b\u751f\u8bc4\u4f30\u8005\u63d0\u4f9b\u768412\u4e2a\u6708\u6cbb\u7597\u5efa\u8bae\u4e2d\u6536\u96c6\u3002 \u5f53\u5305\u62ecCHX\u82af\u7247\u8d39\u7528\u65f6\uff0cSRP + CHX\u82af\u7247\u60a3\u8005\u7684\u7259\u79d1\u603b\u8d39\u7528\u9ad8\u4e8eSRP\u60a3\u8005(P = .027)\uff0c\u4f46\u5f53\u6392\u9664CHX\u82af\u7247\u8d39\u7528\u65f6\uff0c\u5219\u8f83\u4f4e(P = .012)\u3002 \u8d2d\u4e70CHX\u82af\u7247\u7684\u8d39\u7528\u7ea6\u6709\u4e00\u534a\u88ab\u5176\u4ed6\u8d39\u7528\u7684\u8282\u7701\u6240\u62b5\u6d88\u3002 \u4e0eSRP\u60a3\u8005\u76f8\u6bd4\uff0cSRP + CHX\u82af\u7247\u60a3\u8005\u63a5\u53d7\u624b\u672f\u7684\u53ef\u80fd\u6027\u7ea6\u4f4e50% (P = .021)\u3002 \u5728\u8bd5\u9a8c\u7ed3\u675f\u65f6\uff0c\u7259\u5468\u75c5\u533b\u751f\u8bc4\u4f30\u4eba\u5458\u5efa\u8bae\u4e24\u7ec4\u60a3\u8005\u91c7\u7528\u7c7b\u4f3c\u7684\u9644\u52a0\u7a0b\u5e8f:SRP\uff0c\u7ea6\u536046%; \u7ef4\u4fee\u4e1a\u7ea6\u536037%; \u5728\u5916\u79d1\u624b\u672f\u4e2d\uff0cSRP\u4e3a56%\uff0cSRP + CHX\u82af\u7247\u4e3a63%\u3002 \u8f85\u52a9CHX\u82af\u7247\u7528\u4e8e\u666e\u901a\u7259\u5468\u708e\u60a3\u8005\u589e\u52a0\u4e86\u6210\u672c\uff0c\u4f46\u51cf\u5c11\u4e86\u4e00\u5e74\u4ee5\u4e0a\u7684\u624b\u672f\u3002 \u5728\u7814\u7a76\u7ed3\u675f\u65f6\uff0c\u7259\u5468\u75c5\u4e13\u5bb6\u5efa\u8bae\u5bf9\u4e24\u7ec4\u60a3\u8005\u8fdb\u884c\u7c7b\u4f3c\u7684\u989d\u5916\u624b\u672f\u6cbb\u7597\u3002 \u5728\u4e00\u822c\u7684\u5b9e\u8df5\u4e2d\uff0cCHX\u82af\u7247\u7684\u5e38\u89c4\u4f7f\u7528\u8868\u660e\uff0c\u5728\u81f3\u5c11\u4e00\u5e74\u7684\u65f6\u95f4\u91cc\uff0c\u51cf\u5c11\u624b\u672f\u5c06\u90e8\u5206\u62b5\u6d88\u6210\u672c\u3002",
+    "has_translated": true,
+    "chemical": [
+        [
+            "CHX",
+            "",
+            ""
+        ],
+        [
+            "chlorhexidine",
+            "MESH:D002710",
+            "Chlorhexidine"
+        ]
+    ],
+    "gene_entities": {},
+    "gene": [],
+    "anatomy_entities": {
+        "0": [],
+        "1": [
+            [
+                "of the",
+                6,
+                8
+            ]
+        ],
+        "2": [],
+        "3": [
+            [
+                "bills",
+                5,
+                7
+            ]
+        ],
+        "4": [
+            [
+                "(P",
+                20,
+                22
+            ],
+            [
+                "(P",
+                33,
+                35
+            ]
+        ],
+        "5": [
+            [
+                "of the",
+                4,
+                6
+            ]
+        ],
+        "6": [
+            [
+                "(P",
+                19,
+                21
+            ]
+        ],
+        "7": [
+            [
+                "end of",
+                2,
+                4
+            ],
+            [
+                "of the",
+                3,
+                5
+            ]
+        ],
+        "8": [],
+        "9": [
+            [
+                "'s end",
+                2,
+                4
+            ]
+        ],
+        "10": [
+            [
+                "of the",
+                6,
+                8
+            ]
+        ]
+    },
+    "anatomy": [
+        [
+            "'s end",
+            "",
+            ""
+        ],
+        [
+            "(P",
+            "",
+            ""
+        ],
+        [
+            "bills",
+            "MESH:D001502",
+            "Beak"
+        ],
+        [
+            "end of",
+            "",
+            ""
+        ],
+        [
+            "of the",
+            "",
+            ""
+        ]
+    ],
+    "antibody_entities": {},
+    "antibody": [],
+    "abstract_prep": "The authors previously suggested that an adjunctive, controlled-release chlorhexidine, or CHX, chip may reduce periodontal surgical needs at little additional cost. This article presents an economic analysis of the CHX chip in general dental practice. In a one-year prospective clinical trial, 484 chronic periodontitis patients in 52 general practices across the United States were treated with either scaling and root planing, or SRP, plus any therapy prescribed by treating, unblinded dentists; or SRP plus other therapy as above but including the CHX chip. Economic data were collected from bills, case report forms and 12-month treatment recommendations from blinded periodontist evaluators. Total dental charges were higher for SRP + CHX chip patients vs. SRP patients when CHX chip costs were included (P = .027) but lower when CHX chip costs were excluded (P = .012). About one-half of the CHX chip acquisition cost was offset by savings in other charges. SRP + CHX chip patients were about 50 percent less likely to undergo surgical procedures than were SRP patients (P = .021). At the end of the trial, periodontist evaluators recommended similar additional procedures for both groups: SRP, about 46 percent; maintenance, about 37 percent; surgery, 56 percent for SRP alone and 63 percent for SRP + CHX chip. Adjunctive CHX chip use for general-practice patients with periodontitis increased costs but reduced surgeries over one year. At study's end, periodontists recommended similar additional surgical treatment for both groups. In general practice, routine use of the CHX chip suggests that costs will be partially offset by reduced surgery over at least one year.",
+    "sentence_labels": [
+        [
+            0,
+            "BACKGROUND"
+        ],
+        [
+            1,
+            "BACKGROUND"
+        ],
+        [
+            2,
+            "METHODS"
+        ],
+        [
+            3,
+            "METHODS"
+        ],
+        [
+            4,
+            "RESULTS"
+        ],
+        [
+            5,
+            "RESULTS"
+        ],
+        [
+            6,
+            "RESULTS"
+        ],
+        [
+            7,
+            "RESULTS"
+        ],
+        [
+            8,
+            "CONCLUSIONS"
+        ],
+        [
+            9,
+            "RESULTS"
+        ],
+        [
+            10,
+            "CONCLUSIONS"
+        ]
+    ],
+    "abstract_highlight": [
+        "The ",
+        "authors ",
+        "previously ",
+        "suggested ",
+        "that ",
+        "an ",
+        "adjunctive ",
+        ", ",
+        "controlled-release ",
+        "<bold=True italic=True font_color=#008000>",
+        "chlorhexidine ",
+        ", ",
+        "or ",
+        "<bold=True italic=True font_color=#008000>",
+        "CHX ",
+        ", ",
+        "chip ",
+        "may ",
+        "reduce ",
+        "periodontal ",
+        "surgical ",
+        "needs ",
+        "at ",
+        "little ",
+        "additional ",
+        "cost ",
+        ". ",
+        "This ",
+        "article ",
+        "presents ",
+        "an ",
+        "economic ",
+        "analysis ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "CHX ",
+        "chip ",
+        "in ",
+        "general ",
+        "dental ",
+        "practice ",
+        ". ",
+        "In ",
+        "a ",
+        "one-year ",
+        "prospective ",
+        "clinical ",
+        "trial ",
+        ", ",
+        "484 ",
+        "<bold=True italic=True font_color=#000080>",
+        "chronic ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "patients ",
+        "in ",
+        "52 ",
+        "general ",
+        "practices ",
+        "across ",
+        "the ",
+        "United ",
+        "States ",
+        "were ",
+        "treated ",
+        "with ",
+        "either ",
+        "scaling ",
+        "and ",
+        "root ",
+        "planing ",
+        ", ",
+        "or ",
+        "SRP ",
+        ", ",
+        "plus ",
+        "any ",
+        "therapy ",
+        "prescribed ",
+        "by ",
+        "treating ",
+        ", ",
+        "unblinded ",
+        "dentists ",
+        "; ",
+        "or ",
+        "SRP ",
+        "plus ",
+        "other ",
+        "therapy ",
+        "as ",
+        "above ",
+        "but ",
+        "including ",
+        "the ",
+        "<bold=True italic=True font_color=#008000>",
+        "CHX ",
+        "chip ",
+        ". ",
+        "Economic ",
+        "data ",
+        "were ",
+        "collected ",
+        "from ",
+        "<bold=True italic=True font_color=purpule>",
+        "bills ",
+        ", ",
+        "case ",
+        "report ",
+        "forms ",
+        "and ",
+        "12-month ",
+        "treatment ",
+        "recommendations ",
+        "from ",
+        "blinded ",
+        "periodontist ",
+        "evaluators ",
+        ". ",
+        "Total ",
+        "dental ",
+        "charges ",
+        "were ",
+        "higher ",
+        "for ",
+        "SRP ",
+        "+ ",
+        "<bold=True italic=True font_color=#008000>",
+        "CHX ",
+        "chip ",
+        "patients ",
+        "vs. ",
+        "SRP ",
+        "patients ",
+        "when ",
+        "CHX ",
+        "chip ",
+        "costs ",
+        "were ",
+        "included ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "<bold=True italic=True font_color=purpule>",
+        "P ",
+        "= ",
+        ".027 ",
+        ") ",
+        "but ",
+        "lower ",
+        "when ",
+        "CHX ",
+        "chip ",
+        "costs ",
+        "were ",
+        "excluded ",
+        "( ",
+        "P ",
+        "= ",
+        ".012 ",
+        ") ",
+        ". ",
+        "About ",
+        "one-half ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "CHX ",
+        "chip ",
+        "acquisition ",
+        "cost ",
+        "was ",
+        "offset ",
+        "by ",
+        "savings ",
+        "in ",
+        "other ",
+        "charges ",
+        ". ",
+        "SRP ",
+        "+ ",
+        "CHX ",
+        "chip ",
+        "patients ",
+        "were ",
+        "about ",
+        "50 ",
+        "percent ",
+        "less ",
+        "likely ",
+        "to ",
+        "undergo ",
+        "surgical ",
+        "procedures ",
+        "than ",
+        "were ",
+        "SRP ",
+        "patients ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "<bold=True italic=True font_color=purpule>",
+        "P ",
+        "= ",
+        ".021 ",
+        ") ",
+        ". ",
+        "At ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "<bold=True italic=True font_color=purpule>",
+        "end ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "the ",
+        "trial ",
+        ", ",
+        "periodontist ",
+        "evaluators ",
+        "recommended ",
+        "similar ",
+        "additional ",
+        "procedures ",
+        "for ",
+        "both ",
+        "groups ",
+        ": ",
+        "SRP ",
+        ", ",
+        "about ",
+        "46 ",
+        "percent ",
+        "; ",
+        "maintenance ",
+        ", ",
+        "about ",
+        "37 ",
+        "percent ",
+        "; ",
+        "surgery ",
+        ", ",
+        "56 ",
+        "percent ",
+        "for ",
+        "SRP ",
+        "alone ",
+        "and ",
+        "63 ",
+        "percent ",
+        "for ",
+        "SRP ",
+        "+ ",
+        "<bold=True italic=True font_color=#008000>",
+        "CHX ",
+        "chip ",
+        ". ",
+        "Adjunctive ",
+        "CHX ",
+        "chip ",
+        "use ",
+        "for ",
+        "general-practice ",
+        "patients ",
+        "with ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "increased ",
+        "costs ",
+        "but ",
+        "reduced ",
+        "surgeries ",
+        "over ",
+        "one ",
+        "year ",
+        ". ",
+        "At ",
+        "study ",
+        "'s ",
+        "end ",
+        ", ",
+        "periodontists ",
+        "recommended ",
+        "similar ",
+        "additional ",
+        "surgical ",
+        "treatment ",
+        "for ",
+        "both ",
+        "groups ",
+        ". ",
+        "In ",
+        "general ",
+        "practice ",
+        ", ",
+        "routine ",
+        "use ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "CHX ",
+        "chip ",
+        "suggests ",
+        "that ",
+        "costs ",
+        "will ",
+        "be ",
+        "partially ",
+        "offset ",
+        "by ",
+        "reduced ",
+        "surgery ",
+        "over ",
+        "at ",
+        "least ",
+        "one ",
+        "year ",
+        ". "
+    ]
+}

@@ -1,0 +1,761 @@
+{
+    "pmid": "32321490",
+    "journal": "BMC oral health",
+    "publication_type": "Clinical Trial\nRandomized Controlled Trial",
+    "publication_year": "2020",
+    "publication_date": "2020-04-22",
+    "title": "Effects of subgingival air-polishing with trehalose powder on oral biofilm during periodontal maintenance therapy: a randomized-controlled pilot study.",
+    "first_author": "Anne B Kruse",
+    "corresponding_author": "Ali Al-Ahmad",
+    "authors": "Anne B Kruse, Rabie Maamar, Dodji L Akakpo, Johan P Woelber, Annette Wittmer, Kirstin Vach, Petra Ratka-Kr\u00fcger, Ali Al-Ahmad",
+    "affiliations": "(1) Department of Operative Dentistry and Periodontology, Faculty of Medicine, University of Freiburg, Hugstetter Str. 55, 79106, Freiburg, Germany. anne.kruse@uniklinik-freiburg.de. ['Anne B Kruse']; (2) Department of Operative Dentistry and Periodontology, Faculty of Medicine, University of Freiburg, Hugstetter Str. 55, 79106, Freiburg, Germany. ['Rabie Maamar', 'Johan P Woelber', 'Petra Ratka-Kr\u00fcger', 'Ali Al-Ahmad']; (3) Private Dental Practice Tasler/Steude, Berlin, Germany. ['Dodji L Akakpo']; (4) Institute of Medical Microbiology and Hospital Hygiene, Faculty of Medicine, University of Freiburg, Freiburg, Germany. ['Annette Wittmer']; (5) Department of Medical Biometry and Medical Informatics, Faculty of Medicine, University of Freiburg, Freiburg, Germany. ['Kirstin Vach']",
+    "abstract": "This pilot study was part of a larger study which compared the effect of subgingival air-polishing using trehalose powder with sonic scaling on clinical parameters during supportive periodontal therapy. Within this microbiological part of the investigation subgingival samples were taken from 10 participants to analyze the survival of different bacterial species after the two different treatments as a proof of principle. In 10 participants two non-adjacent, single-root teeth requiring treatment (PD =5\u2009mm with bleeding on probing (BOP) or\u2009>\u20095\u2009mm) were selected following a split-mouth design and were treated either with a sonic scaler or air-polishing device and trehalose powder. For persistent pockets (PD =4\u2009mm and BOP or\u00a0>\u00a04\u2009mm), treatment was repeated after 3\u2009months. Subgingival biofilm samples were taken at baseline (BL), subsequently and three and six months after treatment. After determination of the bacterial counts (TBL), isolated bacteria were identified by MALDI-TOF-MS. If unsuccessful, PCR and 16S rDNA sequencing were performed. In both treatment groups, TBL decreased immediately after treatment remaining at a lower level. This confirms the findings of the larger study regarding clinical parameters showing a comparable effect on PD, BOP and CAL. Immediately after treatment, the diversity of detected species decreased significantly more than in the sonic group (p\u2009=\u20090.03). After 3\u2009months, the proportion of Gram-positive anaerobic rods was lower in the air-polishing group (powder/ sonic 7%/ 25.9%, p\u2009=\u20090.025). Also, there was a greater reduction of Gram-negative aerobic rods for this group at this time (air-polishing/ sonic -\u20090.91 / -0.23 Log10 cfu/ ml, p\u2009=\u20090.020). Within the limitations of this study air-polishing and sonic treatment seem to have a comparable effect on the subgingival oral biofilm during supportive periodontal treatment. The study was registered in an international trial register (German Clinical Trial Register number DRKS 00006296) on 10th of June 2015. HTML&TRIAL_ID\u2009=\u2009DRKS00006296.",
+    "keywords": "Air-polishing, Microbiological changes, Periodontal maintenance, Sonic debridement, Subgingival debridement, Trehalose",
+    "MeshHeadingList": [
+        {
+            "QualifierName": [],
+            "DescriptorName": "Adult"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Aged"
+        },
+        {
+            "QualifierName": [
+                "drug effects"
+            ],
+            "DescriptorName": "Biofilms"
+        },
+        {
+            "QualifierName": [
+                "microbiology",
+                "therapy"
+            ],
+            "DescriptorName": "Dental Plaque"
+        },
+        {
+            "QualifierName": [
+                "instrumentation"
+            ],
+            "DescriptorName": "Dental Scaling"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Female"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Humans"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Male"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Middle Aged"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Outcome and Process Assessment, Health Care"
+        },
+        {
+            "QualifierName": [
+                "drug therapy",
+                "prevention & control"
+            ],
+            "DescriptorName": "Periodontal Pocket"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Pilot Projects"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Powders"
+        },
+        {
+            "QualifierName": [
+                "pharmacology",
+                "therapeutic use"
+            ],
+            "DescriptorName": "Trehalose"
+        }
+    ],
+    "ChemicalList": [
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Powders"
+        },
+        {
+            "RegistryNumber": "B8WCK70T7I",
+            "NameOfSubstance": "Trehalose"
+        }
+    ],
+    "doi": "10.1186/s12903-020-01111-9",
+    "journal_sjr": 0.0,
+    "journal_h_index": 0,
+    "journal_if": 1.911,
+    "journal_metrics": [
+        1.911,
+        0,
+        0.0,
+        2.292
+    ],
+    "title_zh": "\u6d77\u85fb\u7cd6\u7c89\u7259\u9f88\u4e0b\u7a7a\u6c14\u629b\u5149\u5bf9\u7259\u5468\u7ef4\u6301\u6cbb\u7597\u671f\u95f4\u53e3\u8154\u751f\u7269\u819c\u7684\u5f71\u54cd:\u4e00\u9879\u968f\u673a\u5bf9\u7167\u7684\u521d\u6b65\u7814\u7a76\u3002",
+    "abstract_zh": "\u8fd9\u9879\u521d\u6b65\u7814\u7a76\u662f\u4e00\u9879\u5927\u578b\u7814\u7a76\u7684\u4e00\u90e8\u5206\uff0c\u8be5\u7814\u7a76\u6bd4\u8f83\u4e86\u5728\u652f\u6301\u6027\u7259\u5468\u6cbb\u7597\u671f\u95f4\uff0c\u4f7f\u7528\u6d77\u85fb\u7cd6\u7c89\u8fdb\u884c\u9f88\u4e0b\u7a7a\u6c14\u629b\u5149\u4e0e\u58f0\u6ce2\u522e\u6cbb\u5bf9\u4e34\u5e8a\u53c2\u6570\u7684\u5f71\u54cd\u3002 \u5728\u8c03\u67e5\u7684\u5fae\u751f\u7269\u5b66\u90e8\u5206\u4e2d\uff0c\u6211\u4eec\u4ece10\u540d\u53c2\u4e0e\u8005\u7684\u7259\u9f88\u4e0b\u91c7\u96c6\u4e86\u6837\u672c\uff0c\u4ee5\u5206\u6790\u4e24\u79cd\u4e0d\u540c\u5904\u7406\u540e\u4e0d\u540c\u7ec6\u83cc\u79cd\u7c7b\u7684\u5b58\u6d3b\u60c5\u51b5\uff0c\u4f5c\u4e3a\u539f\u5219\u8bc1\u660e\u3002 \u572810\u540d\u53c2\u4e0e\u8005\u4e2d\uff0c\u9009\u62e9\u4e24\u9897\u9700\u8981\u6cbb\u7597\u7684\u975e\u76f8\u90bb\u5355\u6839\u7259\u9f7f(PD =5 mm\uff0c\u63a2\u6d4b\u51fa\u8840(BOP)\u6216> 5 mm)\uff0c\u91c7\u7528\u88c2\u53e3\u8bbe\u8ba1\uff0c\u4f7f\u7528\u58f0\u6ce2\u522e\u9664\u5668\u6216\u7a7a\u6c14\u629b\u5149\u8bbe\u5907\u548c\u6d77\u85fb\u7cd6\u7c89\u8fdb\u884c\u6cbb\u7597\u3002 \u5bf9\u4e8e\u6301\u7eed\u6027\u56ca\u888b(PD = 4mm, BOP\u6216> 4mm)\uff0c 3\u4e2a\u6708\u540e\u91cd\u590d\u6cbb\u7597\u3002 \u5206\u522b\u4e8e\u57fa\u7ebf(BL)\u3001\u6cbb\u7597\u540e3\u4e2a\u6708\u3001\u6cbb\u7597\u540e6\u4e2a\u6708\u91c7\u96c6\u7259\u9f88\u4e0b\u751f\u7269\u819c\u6807\u672c\u3002 \u6d4b\u5b9a\u7ec6\u83cc\u8ba1\u6570(TBL)\u540e\uff0c\u7528MALDI-TOF-MS\u5bf9\u5206\u79bb\u83cc\u8fdb\u884c\u9274\u5b9a\u3002 \u5982\u679c\u4e0d\u6210\u529f\uff0c\u5219\u8fdb\u884cPCR\u548c16S rDNA\u6d4b\u5e8f\u3002 \u4e24\u7ec4\u6cbb\u7597\u540eTBL\u5747\u7acb\u5373\u4e0b\u964d\uff0c\u7ef4\u6301\u5728\u8f83\u4f4e\u6c34\u5e73\u3002 \u8fd9\u8bc1\u5b9e\u4e86\u66f4\u5927\u8303\u56f4\u7684\u4e34\u5e8a\u53c2\u6570\u7814\u7a76\u7684\u7ed3\u679c\uff0c\u8fd9\u4e9b\u4e34\u5e8a\u53c2\u6570\u663e\u793aPD\u3001BOP\u548cCAL\u5177\u6709\u7c7b\u4f3c\u7684\u6548\u679c\u3002\u6cbb\u7597\u540e\uff0c\u68c0\u6d4b\u5230\u7684\u7269\u79cd\u591a\u6837\u6027\u660e\u663e\u4f4e\u4e8e\u8d85\u58f0\u7ec4(p = 0.03)\u3002 3\u4e2a\u6708\u540e\uff0c\u7a7a\u6c14\u629b\u5149\u7ec4\u9769\u5170\u6c0f\u9633\u6027\u538c\u6c27\u68d2\u7684\u6bd4\u4f8b\u8f83\u4f4e(\u7c89\u672b/\u58f0\u6ce27%/ 25.9%\uff0cp = 0.025)\u3002 \u540c\u65f6\uff0c\u8fd9\u4e00\u7ec4\u9769\u5170\u6c0f\u9634\u6027\u9700\u6c27\u68d2\u7684\u51cf\u5c11\u5e45\u5ea6\u66f4\u5927(\u7a7a\u6c14\u629b\u5149/\u58f0\u6ce2- 0.91 / -0.23 Log10 cfu/ ml, p = 0.020)\u3002 \u5728\u672c\u7814\u7a76\u7684\u5c40\u9650\u6027\u5185\uff0c\u7a7a\u6c14\u629b\u5149\u548c\u58f0\u6ce2\u6cbb\u7597\u4f3c\u4e4e\u5728\u652f\u6301\u7259\u5468\u6cbb\u7597\u671f\u95f4\u5bf9\u7259\u9f88\u4e0b\u53e3\u8154\u751f\u7269\u819c\u6709\u7c7b\u4f3c\u7684\u6548\u679c\u3002 \u672c\u7814\u7a76\u4e8e2015\u5e746\u670810\u65e5\u5728\u56fd\u9645\u8bd5\u9a8c\u767b\u8bb0\u518c(\u5fb7\u56fd\u4e34\u5e8a\u8bd5\u9a8c\u6ce8\u518c\u53f7DRKS 00006296)\u4e2d\u6ce8\u518c\u3002 HTML&TRIAL_ID = DRKS00006296\u3002",
+    "has_translated": true,
+    "bacteria_entities": {},
+    "has_bacteria_ner": true,
+    "bacteria": [],
+    "has_bacteria_norm": true,
+    "nutrient_entities": {},
+    "has_nutrient_ner": true,
+    "chemical_entities": {
+        "0": [
+            [
+                "trehalose",
+                19,
+                20
+            ]
+        ],
+        "2": [
+            [
+                "trehalose",
+                57,
+                58
+            ]
+        ]
+    },
+    "has_chemical_ner": true,
+    "has_genetic_ner": true,
+    "enzyme_entities": [],
+    "metabolic_entities": [
+        [
+            0,
+            [
+                [
+                    "trehalose",
+                    17,
+                    18
+                ]
+            ]
+        ]
+    ],
+    "has_metabolic_ner": true,
+    "molecule": [
+        [
+            [
+                "trehalose",
+                "MESH:D014199",
+                "Trehalose"
+            ]
+        ],
+        [
+            [
+                "trehalose",
+                "TSP_06940",
+                "trehalase"
+            ]
+        ]
+    ],
+    "has_molecular_norm": true,
+    "nutrient": [],
+    "has_nutrient_norm": true,
+    "disease_entities": {
+        "2": [
+            [
+                "bleeding",
+                21,
+                22
+            ]
+        ]
+    },
+    "has_disease_ner": true,
+    "disease": [
+        [
+            "bleeding",
+            "MESH:D006470",
+            "Hemorrhage"
+        ]
+    ],
+    "has_disease_norm": true,
+    "affiliation_entities": [
+        "Berlin\nFreiburg\nFreiburg\nFreiburg\nFreiburg\nGermany\nGermany\nGermany\nGermany\nGermany",
+        "4) Institute of Medical Microbiology and Hospital Hygiene\nDepartment of Medical Biometry and Medical Informatics\nDepartment of Operative Dentistry\nDepartment of Operative Dentistry\nDodji L Akakpo'\nFaculty of Medicine, University of Freiburg\nPetra Ratka-Kr\u00fcger'\nUniversity of Freiburg\nUniversity of Freiburg\nUniversity of Freiburg"
+    ],
+    "has_affiliation_ner": true,
+    "sample_size_entities": {},
+    "sample_size": null,
+    "has_sample_size_ner": true,
+    "significance_conclusion": [
+        [
+            9,
+            1
+        ]
+    ],
+    "has_significance_ner": true,
+    "mtime": 1646878720.6343188,
+    "htime": "2022-03-10 10:18:40.634319",
+    "chemical": [
+        [
+            "trehalose",
+            "MESH:D014199",
+            "Trehalose"
+        ]
+    ],
+    "gene_entities": {},
+    "gene": [],
+    "anatomy_entities": {
+        "0": [
+            [
+                "part of",
+                4,
+                6
+            ]
+        ],
+        "1": [
+            [
+                "part of",
+                3,
+                5
+            ],
+            [
+                "part of the",
+                3,
+                6
+            ],
+            [
+                "of the",
+                4,
+                6
+            ]
+        ],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [
+            [
+                "of the",
+                2,
+                4
+            ]
+        ],
+        "6": [],
+        "7": [
+            [
+                "groups",
+                3,
+                5
+            ]
+        ],
+        "8": [
+            [
+                "of the",
+                4,
+                6
+            ]
+        ],
+        "9": [
+            [
+                "group (",
+                16,
+                18
+            ],
+            [
+                "(p",
+                17,
+                19
+            ]
+        ],
+        "10": [
+            [
+                "group (",
+                20,
+                22
+            ]
+        ],
+        "11": [],
+        "12": [],
+        "13": [],
+        "14": [],
+        "15": []
+    },
+    "anatomy": [
+        [
+            "(p",
+            "",
+            ""
+        ],
+        [
+            "group (",
+            "",
+            ""
+        ],
+        [
+            "groups",
+            "",
+            ""
+        ],
+        [
+            "of the",
+            "",
+            ""
+        ],
+        [
+            "part of",
+            "",
+            ""
+        ],
+        [
+            "part of the",
+            "",
+            ""
+        ]
+    ],
+    "antibody_entities": {},
+    "antibody": [],
+    "abstract_prep": "This pilot study was part of a larger study which compared the effect of subgingival air-polishing using trehalose powder with sonic scaling on clinical parameters during supportive periodontal therapy. Within this microbiological part of the investigation subgingival samples were taken from 10 participants to analyze the survival of different bacterial species after the two different treatments as a proof of principle. In 10 participants two non-adjacent, single-root teeth requiring treatment (PD =5\u2009mm with bleeding on probing (BOP) or\u2009>\u20095\u2009mm) were selected following a split-mouth design and were treated either with a sonic scaler or air-polishing device and trehalose powder. For persistent pockets (PD =4\u2009mm and BOP or\u00a0>\u00a04\u2009mm), treatment was repeated after 3\u2009months. Subgingival biofilm samples were taken at baseline (baseline), subsequently and three and six months after treatment. After determination of the bacterial counts (Tbaseline), isolated bacteria were identified by MALDI-TOF-MS. If unsuccessful, PCR and 16S rDNA sequencing were performed. In both treatment groups, Tbaseline decreased immediately after treatment remaining at a lower level. This confirms the findings of the larger study regarding clinical parameters showing a comparable effect on PD, BOP and CAL. Immediately after treatment, the diversity of detected species decreased significantly more than in the sonic group (p\u2009=\u20090.03). After 3\u2009months, the proportion of Gram-positive anaerobic rods was lower in the air-polishing group (powder/ sonic 7%/ 25.9%, p\u2009=\u20090.025). Also, there was a greater reduction of Gram-negative aerobic rods for this group at this time (air-polishing/ sonic -\u20090.91 / -0.23 Log10 cfu/ ml, p\u2009=\u20090.020). Within the limitations of this study air-polishing and sonic treatment seem to have a comparable effect on the subgingival oral biofilm during supportive periodontal treatment. The study was registered in an international trial register (German Clinical Trial Register number DRKS 00006296) on 10th of June 2015. HTML&TRIAL_ID\u2009=\u2009DRKS00006296.",
+    "sentence_labels": [
+        [
+            0,
+            "BACKGROUND"
+        ],
+        [
+            1,
+            "METHODS"
+        ],
+        [
+            2,
+            "METHODS"
+        ],
+        [
+            3,
+            "METHODS"
+        ],
+        [
+            4,
+            "METHODS"
+        ],
+        [
+            5,
+            "METHODS"
+        ],
+        [
+            6,
+            "METHODS"
+        ],
+        [
+            7,
+            "RESULTS"
+        ],
+        [
+            8,
+            "CONCLUSIONS"
+        ],
+        [
+            9,
+            "RESULTS"
+        ],
+        [
+            10,
+            "RESULTS"
+        ],
+        [
+            11,
+            "RESULTS"
+        ],
+        [
+            12,
+            "CONCLUSIONS"
+        ],
+        [
+            13,
+            "BACKGROUND"
+        ],
+        [
+            14,
+            "BACKGROUND"
+        ]
+    ],
+    "abstract_highlight": [
+        "This ",
+        "pilot ",
+        "study ",
+        "was ",
+        "<bold=True italic=True font_color=purpule>",
+        "part ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "a ",
+        "larger ",
+        "study ",
+        "which ",
+        "compared ",
+        "the ",
+        "effect ",
+        "of ",
+        "subgingival ",
+        "air-polishing ",
+        "using ",
+        "<bold=True italic=True font_color=#008000>",
+        "trehalose ",
+        "powder ",
+        "with ",
+        "sonic ",
+        "scaling ",
+        "on ",
+        "clinical ",
+        "parameters ",
+        "during ",
+        "supportive ",
+        "periodontal ",
+        "therapy ",
+        ". ",
+        "Within ",
+        "this ",
+        "microbiological ",
+        "<bold=True italic=True font_color=purpule>",
+        "part ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "investigation ",
+        "subgingival ",
+        "samples ",
+        "were ",
+        "taken ",
+        "from ",
+        "10 ",
+        "participants ",
+        "to ",
+        "analyze ",
+        "the ",
+        "survival ",
+        "of ",
+        "different ",
+        "bacterial ",
+        "species ",
+        "after ",
+        "the ",
+        "two ",
+        "different ",
+        "treatments ",
+        "as ",
+        "a ",
+        "proof ",
+        "of ",
+        "principle ",
+        ". ",
+        "In ",
+        "10 ",
+        "participants ",
+        "two ",
+        "non-adjacent ",
+        ", ",
+        "single-root ",
+        "teeth ",
+        "requiring ",
+        "treatment ",
+        "( ",
+        "PD ",
+        "=5 ",
+        "mm ",
+        "with ",
+        "<bold=True italic=True font_color=#000080>",
+        "bleeding ",
+        "on ",
+        "probing ",
+        "( ",
+        "BOP ",
+        ") ",
+        "or ",
+        "> ",
+        "5 ",
+        "mm ",
+        ") ",
+        "were ",
+        "selected ",
+        "following ",
+        "a ",
+        "split-mouth ",
+        "design ",
+        "and ",
+        "were ",
+        "treated ",
+        "either ",
+        "with ",
+        "a ",
+        "sonic ",
+        "scaler ",
+        "or ",
+        "air-polishing ",
+        "device ",
+        "and ",
+        "<bold=True italic=True font_color=#008000>",
+        "trehalose ",
+        "powder ",
+        ". ",
+        "For ",
+        "persistent ",
+        "pockets ",
+        "( ",
+        "PD ",
+        "=4 ",
+        "mm ",
+        "and ",
+        "BOP ",
+        "or ",
+        "> ",
+        "4 ",
+        "mm ",
+        ") ",
+        ", ",
+        "treatment ",
+        "was ",
+        "repeated ",
+        "after ",
+        "3 ",
+        "months ",
+        ". ",
+        "Subgingival ",
+        "biofilm ",
+        "samples ",
+        "were ",
+        "taken ",
+        "at ",
+        "baseline ",
+        "( ",
+        "baseline ",
+        ") ",
+        ", ",
+        "subsequently ",
+        "and ",
+        "three ",
+        "and ",
+        "six ",
+        "months ",
+        "after ",
+        "treatment ",
+        ". ",
+        "After ",
+        "determination ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "bacterial ",
+        "counts ",
+        "( ",
+        "Tbaseline ",
+        ") ",
+        ", ",
+        "isolated ",
+        "bacteria ",
+        "were ",
+        "identified ",
+        "by ",
+        "MALDI-TOF-MS ",
+        ". ",
+        "If ",
+        "unsuccessful ",
+        ", ",
+        "PCR ",
+        "and ",
+        "16S ",
+        "rDNA ",
+        "sequencing ",
+        "were ",
+        "performed ",
+        ". ",
+        "In ",
+        "both ",
+        "treatment ",
+        "<bold=True italic=True font_color=purpule>",
+        "groups ",
+        ", ",
+        "Tbaseline ",
+        "decreased ",
+        "immediately ",
+        "after ",
+        "treatment ",
+        "remaining ",
+        "at ",
+        "a ",
+        "lower ",
+        "level ",
+        ". ",
+        "This ",
+        "confirms ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "findings ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "the ",
+        "larger ",
+        "study ",
+        "regarding ",
+        "clinical ",
+        "parameters ",
+        "showing ",
+        "a ",
+        "comparable ",
+        "effect ",
+        "on ",
+        "PD ",
+        ", ",
+        "BOP ",
+        "and ",
+        "CAL ",
+        ". ",
+        "Immediately ",
+        "after ",
+        "treatment ",
+        ", ",
+        "the ",
+        "diversity ",
+        "of ",
+        "detected ",
+        "species ",
+        "decreased ",
+        "significantly ",
+        "more ",
+        "than ",
+        "in ",
+        "the ",
+        "sonic ",
+        "<bold=True italic=True font_color=purpule>",
+        "group ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "<bold=True italic=True font_color=purpule>",
+        "p ",
+        "= ",
+        "0.03 ",
+        ") ",
+        ". ",
+        "After ",
+        "3 ",
+        "months ",
+        ", ",
+        "the ",
+        "proportion ",
+        "of ",
+        "Gram-positive ",
+        "anaerobic ",
+        "rods ",
+        "was ",
+        "lower ",
+        "in ",
+        "the ",
+        "air-polishing ",
+        "<bold=True italic=True font_color=purpule>",
+        "group ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "powder/ ",
+        "sonic ",
+        "7 ",
+        "% ",
+        "/ ",
+        "25.9 ",
+        "% ",
+        ", ",
+        "p ",
+        "= ",
+        "0.025 ",
+        ") ",
+        ". ",
+        "Also ",
+        ", ",
+        "there ",
+        "was ",
+        "a ",
+        "greater ",
+        "reduction ",
+        "of ",
+        "Gram-negative ",
+        "aerobic ",
+        "rods ",
+        "for ",
+        "this ",
+        "group ",
+        "at ",
+        "this ",
+        "time ",
+        "( ",
+        "air-polishing/ ",
+        "sonic ",
+        "- ",
+        "0.91 ",
+        "/ ",
+        "-0.23 ",
+        "Log10 ",
+        "cfu/ ",
+        "ml ",
+        ", ",
+        "p ",
+        "= ",
+        "0.020 ",
+        ") ",
+        ". ",
+        "Within ",
+        "the ",
+        "limitations ",
+        "of ",
+        "this ",
+        "study ",
+        "air-polishing ",
+        "and ",
+        "sonic ",
+        "treatment ",
+        "seem ",
+        "to ",
+        "have ",
+        "a ",
+        "comparable ",
+        "effect ",
+        "on ",
+        "the ",
+        "subgingival ",
+        "oral ",
+        "biofilm ",
+        "during ",
+        "supportive ",
+        "periodontal ",
+        "treatment ",
+        ". ",
+        "The ",
+        "study ",
+        "was ",
+        "registered ",
+        "in ",
+        "an ",
+        "international ",
+        "trial ",
+        "register ",
+        "( ",
+        "German ",
+        "Clinical ",
+        "Trial ",
+        "Register ",
+        "number ",
+        "DRKS ",
+        "00006296 ",
+        ") ",
+        "on ",
+        "10th ",
+        "of ",
+        "June ",
+        "2015 ",
+        ". ",
+        "HTML ",
+        "& ",
+        "TRIAL_ID ",
+        "= ",
+        "DRKS00006296 ",
+        ". "
+    ]
+}
