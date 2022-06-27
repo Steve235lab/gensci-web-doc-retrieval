@@ -1,17 +1,46 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import VueRouter from 'vue-router'
+import HomeView from '../views/HomeView.vue'
 
-Vue.use(Vuex)
+Vue.use(VueRouter)
 
-export default new Vuex.Store({
-  state: {
+const routes = [
+  {
+    path: '/home',
+    name: 'home',
+    component: () => import(/* webpackChunkName: "about" */ '../views/HomeView.vue')
   },
-  getters: {
+  {
+    path: '/about',
+    name: 'about',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
-  mutations: {
+
+  {
+    path: '/login',
+    name: 'login',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/login.vue')
   },
-  actions: {
-  },
-  modules: {
+  {
+    path: '/register',
+    name: 'register',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/register.vue')
   }
+]
+
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
 })
+
+export default router
