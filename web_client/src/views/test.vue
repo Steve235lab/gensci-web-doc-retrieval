@@ -375,7 +375,7 @@ export default {
       paper_result:[],
       clue_result:[],
       paper_page_Info: {
-        total: 0,
+        total: 100,
         currentNumber: 1,
       },
       clue_page_Info: {
