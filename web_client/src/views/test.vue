@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-<!--    导航栏-->
-   <el-menu
+    <!--    导航栏-->
+    <el-menu
         :default-active="activeIndex"
         class="el-menu-demo"
         mode="horizontal"
@@ -12,7 +12,7 @@
       <el-menu-item index="1" style="float: right" @click="gotoLogin">登录</el-menu-item>
       <el-menu-item index="2" style="float: right" @click="gotoRegister">注册</el-menu-item>
     </el-menu>
-<!--    搜索框-->
+    <!--    搜索框-->
     <el-row :gutter="20">
       <el-col :span="12" :offset="6">
         <div style="margin-top: 15px;">
@@ -29,10 +29,10 @@
         </div>
       </el-col>
     </el-row>
-<!--    筛选条件折叠面板-->
+    <!--    筛选条件折叠面板-->
     <el-collapse style="display:inline;" v-model="activeState">
       <el-collapse-item >
-<!--        文章类型-->
+        <!--        文章类型-->
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
@@ -53,7 +53,7 @@
           </el-col>
 
         </el-row>
-<!--        年龄-->
+        <!--        年龄-->
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
@@ -114,7 +114,7 @@
             </el-checkbox-group>
           </el-col>
         </el-row>
-<!--        语言-->
+        <!--        语言-->
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
@@ -130,7 +130,7 @@
             </el-checkbox-group>
           </el-col>
         </el-row>
-<!--        性别-->
+        <!--        性别-->
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
@@ -146,7 +146,7 @@
             </el-checkbox-group>
           </el-col>
         </el-row>
-<!--        发表时间-->
+        <!--        发表时间-->
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
@@ -175,15 +175,15 @@
       </el-collapse-item>
     </el-collapse>
     <p></p>
-<!--    历史记录及结果显示-->
+    <!--    历史记录及结果显示-->
     <el-row :gutter="5">
-<!--      历史记录-->
+      <!--      历史记录-->
       <el-col :span="3" :offset="2">
-        <div style="height:30px;">
+        <div style="height:30px;text-align:left;">
           历史搜索记录
-          <el-link :underline="false" @click="getHistory" icon="el-icon-refresh" style="font-size: 17px"></el-link>
+          <el-link :underline="false" @click="getHistory" icon="el-icon-refresh-right" style="font-size: 17px"></el-link>
         </div>
-        <div v-for="(row,item) in history" :key="item">
+        <div v-for="(row,item) in history" :key="item" style="text-align:left;">
           <el-tooltip effect="dark" placement="right">
             <div slot="content" class="tips">
               {{row.robust_keywords}}
@@ -198,30 +198,30 @@
           </el-tooltip>
         </div>
       </el-col>
-<!--      结果显示-->
+      <!--      结果显示-->
       <el-col :span="16" :offset="1">
-<!--        paper_info/clue_info/network标签页-->
+        <!--        paper_info/clue_info/network标签页-->
         <div>
           <el-tabs type="border-card" @tab-click="handleClick" v-model="tabName">
-<!--            paper_info-->
+            <!--            paper_info-->
             <el-tab-pane label="Paple_info" name="paper">
               <el-table
                   :data="paper_result"
                   style="width: 100%"
                   height=600>
                 <el-table-column type="expand">
-<!--                  折叠面板-文章详情-->
+                  <!--                  折叠面板-文章详情-->
                   <template slot-scope="props">
                     <div v-for="(row,item) in props.row" :key="row" v-show="row">
                       <p>
                         <el-row :gutter="10">
-<!--                          左侧标题-->
+                          <!--                          左侧标题-->
                           <el-col :span="5" >
                             <span class="table-expand-label" v-if="item==='Chinese_Title'">&emsp;中文标题 : </span>
                             <span class="table-expand-label" v-else-if="item==='Chinese_Abstract'">&emsp;中文摘要 : </span>
                             <span class="table-expand-label" v-else>&emsp;{{item}} : </span>
                           </el-col>
-<!--                          右侧具体内容及格式-->
+                          <!--                          右侧具体内容及格式-->
                           <el-col :span="19" >
                             <b  v-if="item==='Title'||item ==='Chinese_Title'">{{ row }}</b>
                             <i  v-else-if="item==='Authors'||item==='First_Author'||item==='Corresponding_Author'"
@@ -236,7 +236,7 @@
 
                     </div>
                   </template>
-<!--                  表格纵列-->
+                  <!--                  表格纵列-->
                 </el-table-column>
                 <el-table-column label="Title" prop="Title" sortable width="400">
                 </el-table-column>
@@ -260,13 +260,13 @@
                 </el-col>
               </el-row>
             </el-tab-pane>
-<!--            clue_info-->
+            <!--            clue_info-->
             <el-tab-pane label="Clue_info" name="clue">
               <el-table
                   :data="clue_result"
                   style="width: 100%"
                   height=600>
-<!--                折叠面板-->
+                <!--                折叠面板-->
                 <el-table-column type="expand">
                   <template slot-scope="props">
                     <div v-for="(row,item) in props.row" :key="row" v-show="row">
@@ -286,7 +286,7 @@
                     </div>
                   </template>
                 </el-table-column>
-<!--                表格纵列-->
+                <!--                表格纵列-->
                 <el-table-column label="Node1" prop="Node1" sortable />
                 <el-table-column label="Edge_Type" prop="Edge_Type"   sortable/>
                 <el-table-column label="Node2" prop="Node2"   sortable/>
@@ -303,7 +303,7 @@
                 </el-col>
               </el-row>
             </el-tab-pane>
-<!--            network-->
+            <!--            network-->
             <el-tab-pane label="Network" name="network">network</el-tab-pane>
 
           </el-tabs>
@@ -324,7 +324,7 @@ export default {
 
   data() {
 
-    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjMyOTU3MC42NTU4NDgzLCJzYWx0IjoiU3RldmUyMzVMYWIifQ.PzTo1vzaZN91xpHQowtQTGsPB6laYy1orJiQmf2b1aw";
+    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjMyMzM5Mi43MzYzOTE4LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.cTYFMA6JmRso4FesDK9OdHxcRuYrUMZEIh9HOoW_VTI";
     let timestamp = 114514;
     return {
       token,
@@ -345,7 +345,7 @@ export default {
         disabledDate(time) {
           return time.getTime() > Date.now() - 8.64e6
         },
-      shortcuts: [{
+        shortcuts: [{
           text: '近一年',
           onClick(picker) {
             const end = new Date();
@@ -354,22 +354,22 @@ export default {
             picker.$emit('pick', [start, end]);
           }
         },{
-        text: '近五年',
-        onClick(picker) {
-          const end = new Date();
-          const start = new Date();
-          start.setTime(start.getTime() - 3600 * 1000 * 24 * (365 * 5 + 1));
-          picker.$emit('pick', [start, end]);
-        }
-      }, {
-        text: '近十年',
-        onClick(picker) {
-          const end = new Date();
-          const start = new Date();
-          start.setTime(start.getTime() - 3600 * 1000 * 24 * (365 * 10 + 2));
-          picker.$emit('pick', [start, end]);
-        }
-      }]
+          text: '近五年',
+          onClick(picker) {
+            const end = new Date();
+            const start = new Date();
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * (365 * 5 + 1));
+            picker.$emit('pick', [start, end]);
+          }
+        }, {
+          text: '近十年',
+          onClick(picker) {
+            const end = new Date();
+            const start = new Date();
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * (365 * 10 + 2));
+            picker.$emit('pick', [start, end]);
+          }
+        }]
       },
       history:[],
       paper_result:[],
@@ -388,40 +388,59 @@ export default {
   mounted() {
     this.getHistory()
   },
-  computed: {
-    // 计算属性的 getter
-    // reversedHistory: function () {
-    //   // `this` 指向 vm 实例
-    //   return this.history.reverse()
-    // }
-  },
   methods: {
     //获取历史记录
-    getHistory(){
-      var that = this;
-      that.axios({
-        method:"get",
-        url:"http://42.192.44.52:8000/search/history/",
-        params:{
-          message_type: "get_history",
-          token: this.token
-        }
-      })
-          .then(function (res){
-            console.log(res)
-            console.log('连接成功')
-            that.history = res.data.history
-            that.token = res.data.token
-            console.log(that.history)
-            console.log(that.token)
-            console.log(res.data)
-          })
-          .catch(function(err){
-            console.log(err)
-            console.log('连接失败')
-          })
-    },
+    // getHistory(){
+    //   var that = this;
+    //   that.axios({
+    //     method:"get",
+    //     url:"http://42.192.44.52:8000/search/history/",
+    //     params:{
+    //       message_type: "get_history",
+    //       token: this.token
+    //     }
+    //   })
+    //       .then(function (res){
+    //         console.log(res)
+    //         console.log('连接成功')
+    //         that.history = res.data.history
+    //         that.token = res.data.token
+    //         console.log(that.history)
+    //         console.log(that.token)
+    //         console.log(res.data)
+    //       })
+    //       .catch(function(err){
+    //         console.log(err)
+    //         console.log('连接失败')
+    //       })
+    // },
     //监听结果显示标签页选择事件
+    getHistory(){
+      this.history = {
+        timestamp_0: {
+          raw_keywords: 'keywords_0',
+          robust_keywords: 'robust_keywords0'
+        },
+        timestamp_1: {
+          raw_keywords: 'keywords_1',
+          robust_keywords: 'robust_keywords1'
+        },
+        timestamp_2: {
+          raw_keywords: '1',
+          robust_keywords: 'robust_keywords1'
+        },
+        timestamp_3: {
+          raw_keywords: 'a1',
+          robust_keywords: 'robust_keywords1'
+        },
+        timestamp_4: {
+          raw_keywords: 'aaaaa1',
+          robust_keywords: 'robust_keywords1'
+        }
+
+      }
+      console.log(this.history)
+    },
     handleClick(tab, event) {
       console.log('tab：',tab);
       console.log('event',event)
@@ -520,32 +539,32 @@ export default {
 
     },
     //获取当前页paper_info数据
-    paperInfo() {
-      console.log('请求paper数据')
-      var that=this;
-      that.axios({
-        method:"post",
-        url:"http://42.192.44.52:8000/search/paper_info/",
-        data:qs.stringify({
-          "token": this.token,
-          "message_type": "get_paper_info",
-          "timestamp": this.timestamp,
-          "page_num": this.paper_page_Info.currentNumber
-          // "page_num": 1
-        })
-      })
-          .then(function(res){
-            console.log(res);
-            console.log('连接成功');
-            console.log(res.data)
-            that.paper_result=res.data.paper_info
-            that.paper_page_Info.total=res.data.total
-          })
-          .catch(function(err){
-            console.log(err)
-          })
-
-    },
+    // paperInfo() {
+    //   console.log('请求paper数据')
+    //   var that=this;
+    //   that.axios({
+    //     method:"post",
+    //     url:"http://42.192.44.52:8000/search/paper_info/",
+    //     data:qs.stringify({
+    //       "token": this.token,
+    //       "message_type": "get_paper_info",
+    //       "timestamp": this.timestamp,
+    //       "page_num": this.paper_page_Info.currentNumber
+    //       // "page_num": 1
+    //     })
+    //   })
+    //       .then(function(res){
+    //         console.log(res);
+    //         console.log('连接成功');
+    //         console.log(res.data)
+    //         that.paper_result=res.data.paper_info
+    //         that.paper_page_Info.total=res.data.total
+    //       })
+    //       .catch(function(err){
+    //         console.log(err)
+    //       })
+    //
+    // },
     //获取当前页clue_info数据
     clueInfo() {
       console.log('请求clue数据')
@@ -572,21 +591,21 @@ export default {
             console.log(err)
           })
 
+    },
+    paperInfo(){
+      if(this.paper_page_Info.currentNumber===1){
+        this.paper_result = example.paper_info_1
+      }
+      if(this.paper_page_Info.currentNumber===2){
+        this.paper_result = example.paper_info_2
+      }
+      if(this.paper_page_Info.currentNumber===3){
+        this.paper_result = example.paper_info_3
+      }
+      if(this.paper_page_Info.currentNumber===4){
+        this.paper_result = example.paper_info_4
+      }
     }
-    // newpageInfo(){
-    //   if(this.currentInfo.currentNumber===1){
-    //     this.result = example.paper_info_1
-    //   }
-    //   if(this.currentInfo.currentNumber===2){
-    //     this.result = example.paper_info_2
-    //   }
-    //   if(this.currentInfo.currentNumber===3){
-    //     this.result = example.paper_info_3
-    //   }
-    //   if(this.currentInfo.currentNumber===4){
-    //     this.result = example.paper_info_4
-    //   }
-    // }
   }
 }
 
