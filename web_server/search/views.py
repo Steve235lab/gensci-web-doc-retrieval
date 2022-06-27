@@ -527,7 +527,7 @@ def get_clue_info(request):
         if uuid == int(history[4]):  # 身份验证通过
             new_token = forge_token(uuid_str)
             json_rsp = {
-                "message_type": "paper_info",
+                "message_type": "clue_info",
                 "clue_info": [],
                 "token": new_token
             }
