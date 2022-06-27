@@ -1,0 +1,574 @@
+{
+    "pmid": "33548330",
+    "journal": "Journal of endodontics",
+    "publication_type": "Systematic Review",
+    "publication_year": "2021",
+    "publication_date": "2021-02-04",
+    "title": "Proresolving Mediators in Endodontics: A Systematic Review.",
+    "first_author": "Elisabetta Cotti",
+    "corresponding_author": "Alpdogan Kantarci",
+    "authors": "Elisabetta Cotti, Francesca Ideo, Alessandro Pedrazzini, Giulia Bardini, Davide Musu, Alpdogan Kantarci",
+    "affiliations": "(1) Department of Conservative Dentistry and Endodontics, University of Cagliari, Cagliari, Italy. Electronic address: cottiendo@gmail.com. ['Elisabetta Cotti']; (2) Department of Conservative Dentistry and Endodontics, University of Cagliari, Cagliari, Italy. ['Francesca Ideo', 'Alessandro Pedrazzini', 'Giulia Bardini', 'Davide Musu']; (3) Forsyth Institute, Cambridge, Massachusetts. ['Alpdogan Kantarci']",
+    "abstract": "Proresolving lipid mediators are specialized molecules (SPMs) involved in the active resolution of the inflammatory process by regulating tissue homeostasis. The aim of this study was to investigate the scientific literature to assess the potential of SPMs as an adjunct in the treatment of endodontic infection. Three electronic databases (PubMed, Web of Science, and Scopus) were searched from their inception until February 2020 (PROSPERO CRD42020164743). Supplemental research was performed by screening the references of the relevant studies eligible for inclusion. A quality assessment of animal studies was performed using the Animal Research: Reporting of In\u00a0Vivo Experiments guidelines, whereas the Systematic Review Centre for Laboratory animal Experimentation Risk of Bias tool was used to assess the risk of bias. A total of 3295 records were screened, and 8 articles meeting the criteria were included for this qualitative review. The eligible studies showed a high to moderate overall quality and a low to moderate risk of bias. SPMs positively affected the development of pulpitis and apical periodontitis in experimental animal models. The early treatment of pulpitis with the topical application of SPMs was beneficial to control inflammation within 24 hours from contamination. In addition, SPMs delivered within the root canals after disinfection were found effective in promoting periapical healing. Our findings suggest that SPMs may play a role in the inception and treatment of pulpal-periapical diseases, and they should be considered for future research for developing new therapeutics as an adjunct to endodontic treatment.",
+    "keywords": "Apical periodontitis, specialized proresolving mediators, systematic review, vital pulp therapy",
+    "MeshHeadingList": [
+        {
+            "QualifierName": [],
+            "DescriptorName": "Animals"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Dental Care"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Endodontics"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Humans"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Inflammation"
+        },
+        {
+            "QualifierName": [
+                "therapy"
+            ],
+            "DescriptorName": "Periapical Periodontitis"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Pulpitis"
+        }
+    ],
+    "ChemicalList": [],
+    "doi": "S0099-2399(21)00071-6",
+    "journal_sjr": 0.0,
+    "journal_h_index": 0,
+    "journal_if": 3.118,
+    "journal_metrics": [
+        3.118,
+        0,
+        0.0,
+        3.38
+    ],
+    "title_zh": "\u7259\u9ad3\u5b66\u4e2d\u7684\u4fc3\u6eb6\u4ecb\u8d28:\u7cfb\u7edf\u7efc\u8ff0\u3002",
+    "abstract_zh": "\u4fc3\u5206\u89e3\u8102\u8d28\u4ecb\u8d28\u662f\u4e00\u79cd\u7279\u6b8a\u7684\u5206\u5b50(SPMs)\uff0c\u901a\u8fc7\u8c03\u8282\u7ec4\u7ec7\u7a33\u6001\u53c2\u4e0e\u708e\u75c7\u8fc7\u7a0b\u7684\u79ef\u6781\u89e3\u51b3\u3002 \u672c\u7814\u7a76\u7684\u76ee\u7684\u662f\u8c03\u67e5\u79d1\u5b66\u6587\u732e\uff0c\u4ee5\u8bc4\u4f30SPMs\u4f5c\u4e3a\u6cbb\u7597\u6839\u7ba1\u611f\u67d3\u7684\u4e00\u79cd\u8f85\u52a9\u624b\u6bb5\u7684\u6f5c\u529b\u3002 \u68c0\u7d22\u4e86\u4e09\u4e2a\u7535\u5b50\u6570\u636e\u5e93(PubMed\u3001Web of Science\u548cScopus)\uff0c\u4ece\u6700\u521d\u5f00\u59cb\u76f4\u52302020\u5e742\u6708(PROSPERO CRD42020164743)\u3002 \u901a\u8fc7\u7b5b\u9009\u7b26\u5408\u7eb3\u5165\u6761\u4ef6\u7684\u76f8\u5173\u7814\u7a76\u7684\u53c2\u8003\u6587\u732e\u8fdb\u884c\u8865\u5145\u7814\u7a76\u3002 \u52a8\u7269\u7814\u7a76\u7684\u8d28\u91cf\u8bc4\u4f30\u662f\u4f7f\u7528\u52a8\u7269\u7814\u7a76:\u4f53\u5185\u5b9e\u9a8c\u62a5\u544a\u6307\u5357\u8fdb\u884c\u7684\uff0c\u800c\u7cfb\u7edf\u8bc4\u4ef7\u4e2d\u5fc3\u7684\u5b9e\u9a8c\u52a8\u7269\u5b9e\u9a8c\u504f\u501a\u98ce\u9669\u5de5\u5177\u7528\u4e8e\u8bc4\u4f30\u504f\u501a\u98ce\u9669\u3002 \u5171\u7b5b\u90093295\u6761\u8bb0\u5f55\uff0c\u7eb3\u51658\u7bc7\u7b26\u5408\u6807\u51c6\u7684\u6587\u732e\u8fdb\u884c\u8d28\u6027\u56de\u987e\u3002 \u7b26\u5408\u6761\u4ef6\u7684\u7814\u7a76\u663e\u793a\u603b\u4f53\u8d28\u91cf\u4e3a\u9ad8\u81f3\u4e2d\u7b49\uff0c\u504f\u501a\u98ce\u9669\u4e3a\u4f4e\u81f3\u4e2d\u7b49\u3002 SPMs\u5bf9\u5b9e\u9a8c\u6027\u52a8\u7269\u6a21\u578b\u7259\u9ad3\u708e\u548c\u6839\u5c16\u5468\u708e\u7684\u53d1\u751f\u6709\u79ef\u6781\u5f71\u54cd\u3002 \u65e9\u671f\u5c40\u90e8\u5e94\u7528SPMs\u6cbb\u7597\u7259\u9ad3\u708e\uff0c\u53ef\u572824\u5c0f\u65f6\u5185\u63a7\u5236\u708e\u75c7\u3002 \u6b64\u5916\uff0c\u6d88\u6bd2\u540e\u7684\u6839\u7ba1\u5185\u6ce8\u5165SPMs\u4e5f\u80fd\u6709\u6548\u5730\u4fc3\u8fdb\u6839\u5c16\u5468\u56f4\u7684\u6108\u5408\u3002 \u6211\u4eec\u7684\u7814\u7a76\u7ed3\u679c\u8868\u660e\uff0cSPMs\u53ef\u80fd\u5728\u7259\u9ad3\u6839\u5c16\u5468\u75be\u75c5\u7684\u53d1\u75c5\u548c\u6cbb\u7597\u4e2d\u53d1\u6325\u4f5c\u7528\uff0c\u5b83\u4eec\u5e94\u8be5\u88ab\u8003\u8651\u4f5c\u4e3a\u672a\u6765\u7814\u7a76\u7684\u4e00\u79cd\u65b0\u7597\u6cd5\u4f5c\u4e3a\u6839\u7ba1\u6cbb\u7597\u7684\u8f85\u52a9\u3002",
+    "has_translated": true,
+    "bacteria_entities": {},
+    "has_bacteria_ner": true,
+    "bacteria": [],
+    "has_bacteria_norm": true,
+    "nutrient_entities": {},
+    "has_nutrient_ner": true,
+    "chemical_entities": {},
+    "has_chemical_ner": true,
+    "has_genetic_ner": true,
+    "enzyme_entities": [],
+    "metabolic_entities": [],
+    "has_metabolic_ner": true,
+    "molecule": [
+        [],
+        []
+    ],
+    "has_molecular_norm": true,
+    "nutrient": [],
+    "has_nutrient_norm": true,
+    "disease_entities": {
+        "1": [
+            [
+                "endodontic infection",
+                25,
+                27
+            ]
+        ],
+        "7": [
+            [
+                "pulpitis",
+                7,
+                8
+            ],
+            [
+                "apical periodontitis",
+                9,
+                11
+            ]
+        ],
+        "8": [
+            [
+                "pulpitis",
+                4,
+                5
+            ],
+            [
+                "inflammation",
+                16,
+                17
+            ]
+        ],
+        "10": [
+            [
+                "pulpal-periapical diseases",
+                16,
+                20
+            ]
+        ]
+    },
+    "has_disease_ner": true,
+    "disease": [
+        [
+            "apical periodontitis",
+            "MESH:D010485",
+            "Periapical Periodontitis"
+        ],
+        [
+            "endodontic infection",
+            "MESH:D011671",
+            "Pulpitis"
+        ],
+        [
+            "inflammation",
+            "MESH:D007249",
+            "Inflammation"
+        ],
+        [
+            "pulpal-periapical diseases",
+            "MESH:C",
+            "Diseases"
+        ],
+        [
+            "pulpitis",
+            "MESH:D011671",
+            "Pulpitis"
+        ]
+    ],
+    "has_disease_norm": true,
+    "affiliation_entities": [
+        "Cambridge\nItaly\nItaly\nMassachusetts",
+        "Cagliari\nCagliari\nDepartment of Conservative Dentistry\nDepartment of Conservative Dentistry\nElisabetta Cotti'\nEndodontics, University of Cagliari\nEndodontics, University of Cagliari\nForsyth Institute\nGiulia Bardini'"
+    ],
+    "has_affiliation_ner": true,
+    "sample_size_entities": {},
+    "sample_size": null,
+    "has_sample_size_ner": true,
+    "significance_conclusion": [],
+    "has_significance_ner": true,
+    "mtime": 1646878729.222082,
+    "htime": "2022-03-10 10:18:49.222082",
+    "chemical": [],
+    "gene_entities": {},
+    "gene": [],
+    "anatomy_entities": {
+        "0": [
+            [
+                "of the",
+                15,
+                17
+            ]
+        ],
+        "1": [],
+        "2": [
+            [
+                ", and",
+                9,
+                11
+            ]
+        ],
+        "3": [
+            [
+                "of the",
+                8,
+                10
+            ]
+        ],
+        "4": [],
+        "5": [
+            [
+                ", and",
+                7,
+                9
+            ]
+        ],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [
+            [
+                "root canals",
+                8,
+                10
+            ]
+        ],
+        "10": [
+            [
+                ", and",
+                20,
+                22
+            ]
+        ]
+    },
+    "anatomy": [
+        [
+            ", and",
+            "",
+            ""
+        ],
+        [
+            "of the",
+            "",
+            ""
+        ],
+        [
+            "root canals",
+            "MESH:D003786",
+            "Dental Pulp Cavity"
+        ]
+    ],
+    "antibody_entities": {},
+    "antibody": [],
+    "abstract_prep": "Proresolving lipid mediators are specialized molecules (specialized molecules) involved in the active resolution of the inflammatory process by regulating tissue homeostasis. The aim of this study was to investigate the scientific literature to assess the potential of specialized molecules as an adjunct in the treatment of endodontic infection. Three electronic databases (PubMed, Web of Science, and Scopus) were searched from their inception until February 2020 (PROSPERO CRD42020164743). Supplemental research was performed by screening the references of the relevant studies eligible for inclusion. A quality assessment of animal studies was performed using the Animal Research: Reporting of In\u00a0Vivo Experiments guidelines, whereas the Systematic Review Centre for Laboratory animal Experimentation Risk of Bias tool was used to assess the risk of bias. A total of 3295 records were screened, and 8 articles meeting the criteria were included for this qualitative review. The eligible studies showed a high to moderate overall quality and a low to moderate risk of bias. specialized molecules positively affected the development of pulpitis and apical periodontitis in experimental animal models. The early treatment of pulpitis with the topical application of specialized molecules was beneficial to control inflammation within 24 hours from contamination. In addition, specialized molecules delivered within the root canals after disinfection were found effective in promoting periapical healing. Our findings suggest that specialized molecules may play a role in the inception and treatment of pulpal-periapical diseases, and they should be considered for future research for developing new therapeutics as an adjunct to endodontic treatment.",
+    "sentence_labels": [
+        [
+            0,
+            "BACKGROUND"
+        ],
+        [
+            1,
+            "OBJECTIVE"
+        ],
+        [
+            2,
+            "METHODS"
+        ],
+        [
+            3,
+            "METHODS"
+        ],
+        [
+            4,
+            "METHODS"
+        ],
+        [
+            5,
+            "RESULTS"
+        ],
+        [
+            6,
+            "RESULTS"
+        ],
+        [
+            7,
+            "BACKGROUND"
+        ],
+        [
+            8,
+            "CONCLUSIONS"
+        ],
+        [
+            9,
+            "CONCLUSIONS"
+        ],
+        [
+            10,
+            "CONCLUSIONS"
+        ]
+    ],
+    "abstract_highlight": [
+        "Proresolving ",
+        "lipid ",
+        "mediators ",
+        "are ",
+        "specialized ",
+        "molecules ",
+        "( ",
+        "specialized ",
+        "molecules ",
+        ") ",
+        "involved ",
+        "in ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "active ",
+        "resolution ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "the ",
+        "inflammatory ",
+        "process ",
+        "by ",
+        "regulating ",
+        "tissue ",
+        "homeostasis ",
+        ". ",
+        "The ",
+        "aim ",
+        "of ",
+        "this ",
+        "study ",
+        "was ",
+        "to ",
+        "investigate ",
+        "the ",
+        "scientific ",
+        "literature ",
+        "to ",
+        "assess ",
+        "the ",
+        "potential ",
+        "of ",
+        "specialized ",
+        "molecules ",
+        "as ",
+        "an ",
+        "adjunct ",
+        "in ",
+        "the ",
+        "treatment ",
+        "of ",
+        "<bold=True italic=True font_color=#000080>",
+        "endodontic ",
+        "<bold=True italic=True font_color=#000080>",
+        "infection ",
+        ". ",
+        "Three ",
+        "electronic ",
+        "databases ",
+        "( ",
+        "PubMed ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "Web ",
+        "of ",
+        "Science ",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "Scopus ",
+        ") ",
+        "were ",
+        "searched ",
+        "from ",
+        "their ",
+        "inception ",
+        "until ",
+        "February ",
+        "2020 ",
+        "( ",
+        "PROSPERO ",
+        "CRD42020164743 ",
+        ") ",
+        ". ",
+        "Supplemental ",
+        "research ",
+        "was ",
+        "performed ",
+        "by ",
+        "screening ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "references ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "the ",
+        "relevant ",
+        "studies ",
+        "eligible ",
+        "for ",
+        "inclusion ",
+        ". ",
+        "A ",
+        "quality ",
+        "assessment ",
+        "of ",
+        "animal ",
+        "studies ",
+        "was ",
+        "performed ",
+        "using ",
+        "the ",
+        "Animal ",
+        "Research ",
+        ": ",
+        "Reporting ",
+        "of ",
+        "In ",
+        "Vivo ",
+        "Experiments ",
+        "guidelines ",
+        ", ",
+        "whereas ",
+        "the ",
+        "Systematic ",
+        "Review ",
+        "Centre ",
+        "for ",
+        "Laboratory ",
+        "animal ",
+        "Experimentation ",
+        "Risk ",
+        "of ",
+        "Bias ",
+        "tool ",
+        "was ",
+        "used ",
+        "to ",
+        "assess ",
+        "the ",
+        "risk ",
+        "of ",
+        "bias ",
+        ". ",
+        "A ",
+        "total ",
+        "of ",
+        "3295 ",
+        "records ",
+        "were ",
+        "screened ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "8 ",
+        "articles ",
+        "meeting ",
+        "the ",
+        "criteria ",
+        "were ",
+        "included ",
+        "for ",
+        "this ",
+        "qualitative ",
+        "review ",
+        ". ",
+        "The ",
+        "eligible ",
+        "studies ",
+        "showed ",
+        "a ",
+        "high ",
+        "to ",
+        "moderate ",
+        "overall ",
+        "quality ",
+        "and ",
+        "a ",
+        "low ",
+        "to ",
+        "moderate ",
+        "risk ",
+        "of ",
+        "bias ",
+        ". ",
+        "specialized ",
+        "molecules ",
+        "positively ",
+        "affected ",
+        "the ",
+        "development ",
+        "of ",
+        "<bold=True italic=True font_color=#000080>",
+        "pulpitis ",
+        "and ",
+        "<bold=True italic=True font_color=#000080>",
+        "apical ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "in ",
+        "experimental ",
+        "animal ",
+        "models ",
+        ". ",
+        "The ",
+        "early ",
+        "treatment ",
+        "of ",
+        "<bold=True italic=True font_color=#000080>",
+        "pulpitis ",
+        "with ",
+        "the ",
+        "topical ",
+        "application ",
+        "of ",
+        "specialized ",
+        "molecules ",
+        "was ",
+        "beneficial ",
+        "to ",
+        "control ",
+        "<bold=True italic=True font_color=#000080>",
+        "inflammation ",
+        "within ",
+        "24 ",
+        "hours ",
+        "from ",
+        "contamination ",
+        ". ",
+        "In ",
+        "addition ",
+        ", ",
+        "specialized ",
+        "molecules ",
+        "delivered ",
+        "within ",
+        "the ",
+        "<bold=True italic=True font_color=purpule>",
+        "root ",
+        "<bold=True italic=True font_color=purpule>",
+        "canals ",
+        "after ",
+        "disinfection ",
+        "were ",
+        "found ",
+        "effective ",
+        "in ",
+        "promoting ",
+        "periapical ",
+        "healing ",
+        ". ",
+        "Our ",
+        "findings ",
+        "suggest ",
+        "that ",
+        "specialized ",
+        "molecules ",
+        "may ",
+        "play ",
+        "a ",
+        "role ",
+        "in ",
+        "the ",
+        "inception ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "treatment ",
+        "of ",
+        "<bold=True italic=True font_color=#000080>",
+        "pulpal-periapical ",
+        "<bold=True italic=True font_color=#000080>",
+        "diseases ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "and ",
+        "they ",
+        "should ",
+        "be ",
+        "considered ",
+        "for ",
+        "future ",
+        "research ",
+        "for ",
+        "developing ",
+        "new ",
+        "therapeutics ",
+        "as ",
+        "an ",
+        "adjunct ",
+        "to ",
+        "endodontic ",
+        "treatment ",
+        ". "
+    ]
+}

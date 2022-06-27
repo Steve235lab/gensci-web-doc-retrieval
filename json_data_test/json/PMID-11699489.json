@@ -1,0 +1,1045 @@
+{
+    "pmid": "11699489",
+    "journal": "Journal of periodontology",
+    "publication_type": "Clinical Trial\nRandomized Controlled Trial",
+    "publication_year": "2002",
+    "publication_date": "2002-01-16",
+    "title": "Clinical comparison of microporous biocompatible composite of PMMA, PHEMA and calcium hydroxide grafts and expanded polytetrafluoroethylene barrier membranes in human mandibular molar Class II furcations. A case series.",
+    "first_author": "K B Calongne",
+    "corresponding_author": "E T Mayer",
+    "authors": "K B Calongne, M E Aichelmann-Reidy, R A Yukna, E T Mayer",
+    "affiliations": "(1) Periodontics Department, Baltimore College of Dental Surgery, University of Maryland, Baltimore, MD, USA. ['K B Calongne']",
+    "abstract": "Class II furcations present difficult treatment problems. Several treatment approaches to obtain furcation fill have been used with varying success. The response of mandibular Class II furcations to treatment with either a microporous biocompatible composite of PMMA (poly-methyl-methacrylate), PHEMA (poly-hydroxyl-ethyl methacrylate) and calcium hydroxide graft synthetic bone (HTR) replacement graft material; ePTFE barrier membrane; or a combination of the two was evaluated in trios of mandibular molars with Class II furcations in 8 patients with moderate to advanced periodontitis. Following initial preparation, full-thickness flaps were raised in the areas being treated, the bone and furcation defects debrided of granulomatous tissue, and the involved root surfaces mechanically prepared and chemically conditioned. By random allocation, HTR, ePTFE, or a combination of both was placed into and/or fitted over the furcations, packed and/or secured in place, and the host flap replaced or coronally positioned with sutures. Postsurgical deplaquing was performed every 10 days leading up to ePTFE removal at approximately 6 weeks. Continuing periodontal maintenance therapy was provided until surgical reentry at 6 months for documentation and any further necessary treatment. Direct clinical measurements demonstrated essentially similar clinical results with all 3 treatments for bone and soft tissue changes. There were no statistically or clinically significant differences except for better horizontal amount and percent defect fill with HTR alone. Four of 8 furcations became Class I clinically with HTR alone, 5 of 8 became Class I with ePTFE alone, and 5 of 8 with combination treatment. The only complete furcation closure occurred with HTR. The findings of this study suggest essentially equal clinical results with HTR bone replacement graft material alone, ePTFE barrier alone, and a combination of the two in mandibular molar Class II furcations. However, a real difference may not have been detected based on the small number of subjects in the study.",
+    "keywords": "",
+    "MeshHeadingList": [
+        {
+            "QualifierName": [
+                "therapeutic use"
+            ],
+            "DescriptorName": "Biocompatible Materials"
+        },
+        {
+            "QualifierName": [
+                "therapeutic use"
+            ],
+            "DescriptorName": "Bone Substitutes"
+        },
+        {
+            "QualifierName": [
+                "therapeutic use"
+            ],
+            "DescriptorName": "Calcium Hydroxide"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Debridement"
+        },
+        {
+            "QualifierName": [
+                "prevention & control"
+            ],
+            "DescriptorName": "Dental Plaque"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Female"
+        },
+        {
+            "QualifierName": [
+                "classification",
+                "surgery"
+            ],
+            "DescriptorName": "Furcation Defects"
+        },
+        {
+            "QualifierName": [
+                "surgery"
+            ],
+            "DescriptorName": "Gingival Recession"
+        },
+        {
+            "QualifierName": [
+                "surgery"
+            ],
+            "DescriptorName": "Granulation Tissue"
+        },
+        {
+            "QualifierName": [
+                "instrumentation",
+                "methods"
+            ],
+            "DescriptorName": "Guided Tissue Regeneration, Periodontal"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Humans"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Male"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Membranes, Artificial"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Middle Aged"
+        },
+        {
+            "QualifierName": [
+                "surgery"
+            ],
+            "DescriptorName": "Molar"
+        },
+        {
+            "QualifierName": [
+                "surgery"
+            ],
+            "DescriptorName": "Periodontal Attachment Loss"
+        },
+        {
+            "QualifierName": [
+                "surgery"
+            ],
+            "DescriptorName": "Periodontal Pocket"
+        },
+        {
+            "QualifierName": [
+                "surgery"
+            ],
+            "DescriptorName": "Periodontitis"
+        },
+        {
+            "QualifierName": [
+                "therapeutic use"
+            ],
+            "DescriptorName": "Polyhydroxyethyl Methacrylate"
+        },
+        {
+            "QualifierName": [
+                "therapeutic use"
+            ],
+            "DescriptorName": "Polymethyl Methacrylate"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Polytetrafluoroethylene"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Porosity"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Statistics as Topic"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Statistics, Nonparametric"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Surgical Flaps"
+        },
+        {
+            "QualifierName": [
+                "surgery"
+            ],
+            "DescriptorName": "Tooth Root"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Wound Healing"
+        }
+    ],
+    "ChemicalList": [
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Biocompatible Materials"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Bone Substitutes"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Membranes, Artificial"
+        },
+        {
+            "RegistryNumber": "25249-16-5",
+            "NameOfSubstance": "Polyhydroxyethyl Methacrylate"
+        },
+        {
+            "RegistryNumber": "9002-84-0",
+            "NameOfSubstance": "Polytetrafluoroethylene"
+        },
+        {
+            "RegistryNumber": "9011-14-7",
+            "NameOfSubstance": "Polymethyl Methacrylate"
+        },
+        {
+            "RegistryNumber": "PF5DZW74VN",
+            "NameOfSubstance": "Calcium Hydroxide"
+        }
+    ],
+    "doi": null,
+    "journal_sjr": 0.0,
+    "journal_h_index": 0,
+    "journal_if": 3.742,
+    "journal_metrics": [
+        3.742,
+        0,
+        0.0,
+        3.614
+    ],
+    "bacteria_entities": {},
+    "has_bacteria_ner": true,
+    "bacteria": [],
+    "has_bacteria_norm": true,
+    "nutrient_entities": {
+        "2": [
+            [
+                "calcium",
+                35,
+                36
+            ]
+        ]
+    },
+    "has_nutrient_ner": true,
+    "chemical_entities": {
+        "2": [
+            [
+                "PMMA",
+                16,
+                17
+            ],
+            [
+                "poly-methyl-methacrylate",
+                18,
+                23
+            ],
+            [
+                "PHEMA",
+                25,
+                26
+            ],
+            [
+                "poly-hydroxyl-ethyl methacrylate",
+                27,
+                33
+            ],
+            [
+                "calcium hydroxide",
+                35,
+                37
+            ]
+        ],
+        "4": [
+            [
+                "hydroxide",
+                0,
+                1
+            ]
+        ],
+        "6": [
+            [
+                "hydroxide",
+                4,
+                5
+            ]
+        ],
+        "10": [
+            [
+                "hydroxide",
+                18,
+                19
+            ]
+        ],
+        "11": [
+            [
+                "hydroxide",
+                9,
+                10
+            ]
+        ],
+        "12": [
+            [
+                "hydroxide",
+                7,
+                8
+            ]
+        ],
+        "13": [
+            [
+                "hydroxide",
+                11,
+                12
+            ]
+        ]
+    },
+    "has_chemical_ner": true,
+    "has_genetic_ner": true,
+    "enzyme_entities": [],
+    "metabolic_entities": [],
+    "has_metabolic_ner": true,
+    "molecule": [
+        [
+            [
+                "calcium hydroxide",
+                "MESH:D002126",
+                "Calcium Hydroxide"
+            ],
+            [
+                "poly-methyl-methacrylate",
+                "MESH:D019904",
+                "Polymethyl Methacrylate"
+            ],
+            [
+                "ePTFE",
+                "",
+                ""
+            ],
+            [
+                "PHEMA",
+                "MESH:D011102",
+                "Polyhydroxyethyl Methacrylate"
+            ],
+            [
+                "poly-hydroxyl-ethyl methacrylate",
+                "MESH:D011102",
+                "Polyhydroxyethyl Methacrylate"
+            ],
+            [
+                "PMMA",
+                "MESH:D019904",
+                "Polymethyl Methacrylate"
+            ]
+        ],
+        [
+            [
+                "ePTFE",
+                "",
+                ""
+            ],
+            [
+                "PHEMA",
+                "",
+                ""
+            ],
+            [
+                "poly-methyl-methacrylate",
+                "",
+                ""
+            ],
+            [
+                "calcium hydroxide",
+                "",
+                ""
+            ],
+            [
+                "poly-hydroxyl-ethyl methacrylate",
+                "",
+                ""
+            ],
+            [
+                "PMMA",
+                "",
+                ""
+            ]
+        ]
+    ],
+    "has_molecular_norm": true,
+    "nutrient": [
+        [
+            "calcium",
+            "calcium ",
+            "calcium "
+        ]
+    ],
+    "has_nutrient_norm": true,
+    "disease_entities": {
+        "4": [
+            [
+                "periodontitis",
+                37,
+                38
+            ]
+        ]
+    },
+    "has_disease_ner": true,
+    "disease": [
+        [
+            "periodontitis",
+            "MESH:D010518",
+            "Periodontitis"
+        ]
+    ],
+    "has_disease_norm": true,
+    "affiliation_entities": [
+        "Baltimore\nMD\nUSA",
+        "Baltimore College of Dental Surgery\nPeriodontics Department\nUniversity of Maryland"
+    ],
+    "has_affiliation_ner": true,
+    "sample_size_entities": {
+        "4": [
+            [
+                8,
+                31,
+                32
+            ]
+        ]
+    },
+    "sample_size": 8,
+    "has_sample_size_ner": true,
+    "significance_conclusion": [
+        [
+            8,
+            1
+        ]
+    ],
+    "has_significance_ner": true,
+    "mtime": 1646878760.625003,
+    "htime": "2022-03-10 10:19:20.625003",
+    "title_zh": "\u805a\u7532\u57fa\u4e19\u70ef\u9178\u7532\u916f(PMMA)\u3001\u805a\u7532\u57fa\u4e19\u70ef\u9178\u7532\u916f(PHEMA)\u548c\u6c22\u6c27\u5316\u9499\u5fae\u5b54\u751f\u7269\u76f8\u5bb9\u6027\u590d\u5408\u6750\u6599\u4e0e\u81a8\u80c0\u805a\u56db\u6c1f\u4e59\u70ef\u5c4f\u969c\u819c\u5728\u4eba\u4e0b\u988c\u2171\u7c7b\u78e8\u7259\u652f\u53c9\u4e2d\u7684\u4e34\u5e8a\u6bd4\u8f83 \u7cfb\u5217\u3002",
+    "abstract_zh": "\u7b2c\u4e8c\u7c7b\u5206\u652f\u5b58\u5728\u5904\u7406\u56f0\u96be\u7684\u95ee\u9898\u3002 \u83b7\u5f97\u5206\u53c9\u5145\u586b\u7684\u51e0\u79cd\u6cbb\u7597\u65b9\u6cd5\u5df2\u88ab\u4f7f\u7528\uff0c\u5e76\u53d6\u5f97\u4e86\u4e0d\u540c\u7684\u6210\u529f\u3002 \u7528PMMA(\u805a\u7532\u57fa\u4e19\u70ef\u9178\u7532\u916f)\u3001PHEMA(\u805a\u7532\u57fa\u4e19\u70ef\u9178\u4e59\u916f)\u548c\u6c22\u6c27\u5316\u9499\u4eba\u9020\u9aa8(HTR)\u590d\u5408\u6750\u6599\u5904\u7406\u4e0b\u988cII\u7c7b\u5206\u53c9\u5904\u7684\u53cd\u5e94; ePTFE\u5c4f\u969c\u819c; \u57288\u4f8b\u4e2d\u665a\u671f\u7259\u5468\u708e\u60a3\u8005\u7684\u4e0b\u988c\u78e8\u7259\u4e2d\u8fdb\u884cII\u7c7b\u5206\u53c9\u6216\u4e24\u8005\u7ed3\u5408\u7684\u8bc4\u4f30\u3002 \u5728\u521d\u59cb\u51c6\u5907\u540e\uff0c\u5728\u88ab\u5904\u7406\u7684\u533a\u57df\u5185\u63d0\u8d77\u5168\u5c42\u76ae\u74e3\uff0c\u6e05\u9664\u9aa8\u548c\u5206\u53c9\u7f3a\u635f\u7684\u8089\u82bd\u80bf\u7ec4\u7ec7\uff0c\u673a\u68b0\u5236\u5907\u548c\u5316\u5b66\u5904\u7406\u53d7\u7d2f\u6027\u6839\u8868\u9762\u3002 \u901a\u8fc7\u968f\u673a\u5206\u914d\uff0c\u5c06HTR\u3001ePTFE\u6216\u4e24\u8005\u7684\u7ec4\u5408\u7f6e\u5165\u548c/\u6216\u5b89\u88c5\u5728\u5206\u53c9\u5904\uff0c\u586b\u5145\u548c/\u6216\u56fa\u5b9a\u5230\u4f4d\uff0c\u7528\u7f1d\u5408\u7ebf\u66ff\u6362\u5bbf\u4e3b\u76ae\u74e3\u6216\u5c06\u5176\u7f6e\u4e8e\u51a0\u72b6\u4f4d\u3002 \u672f\u540e\u6bcf10\u5929\u8fdb\u884c\u4e00\u6b21\u5185\u8017\uff0c\u5927\u7ea6\u57286\u5468\u65f6\u53d6\u51faePTFE\u3002 \u7ee7\u7eed\u8fdb\u884c\u7259\u5468\u7ef4\u6301\u6cbb\u7597\uff0c\u76f4\u52306\u4e2a\u6708\u540e\u518d\u6b21\u624b\u672f\u4ee5\u5907\u8bb0\u5f55\u548c\u4efb\u4f55\u8fdb\u4e00\u6b65\u7684\u5fc5\u8981\u6cbb\u7597\u3002 \u76f4\u63a5\u7684\u4e34\u5e8a\u6d4b\u91cf\u7ed3\u679c\u8868\u660e\uff0c\u8fd9\u4e09\u79cd\u6cbb\u7597\u65b9\u6cd5\u5bf9\u9aa8\u548c\u8f6f\u7ec4\u7ec7\u6539\u53d8\u7684\u4e34\u5e8a\u7ed3\u679c\u57fa\u672c\u76f8\u4f3c\u3002 \u9664\u4e86\u5355\u72ec\u4f7f\u7528HTR\u7684\u6c34\u5e73\u91cf\u548c\u7f3a\u635f\u586b\u5145\u767e\u5206\u6bd4\u66f4\u597d\u5916\uff0c\u6ca1\u6709\u7edf\u8ba1\u5b66\u6216\u4e34\u5e8a\u610f\u4e49\u4e0a\u7684\u5dee\u5f02\u3002 8\u4e2a\u5206\u652f\u4e2d\u67094\u4e2a\u5728\u4e34\u5e8a\u4e0a\u5355\u72ec\u5e94\u7528HTR\u65f6\u6210\u4e3aI\u7ea7\uff0c8\u4e2a\u5206\u652f\u4e2d\u67095\u4e2a\u5728\u5355\u72ec\u5e94\u7528ePTFE\u65f6\u6210\u4e3aI\u7ea7\uff0c8\u4e2a\u5206\u652f\u4e2d\u67095\u4e2a\u5728\u8054\u5408\u6cbb\u7597\u65f6\u6210\u4e3aI\u7ea7\u3002 \u4ec5\u6709HTR\u53d1\u751f\u5b8c\u5168\u5206\u53c9\u95ed\u5408\u3002 \u672c\u7814\u7a76\u7ed3\u679c\u8868\u660e\uff0c\u5728\u4e0b\u988c\u78e8\u7259II\u7c7b\u5206\u53c9\u5904\uff0c\u5355\u7eaf\u4f7f\u7528HTR\u9aa8\u66ff\u4ee3\u6750\u6599\u3001\u5355\u7eaf\u4f7f\u7528ePTFE\u5c4f\u969c\u548c\u4e24\u8005\u8054\u5408\u4f7f\u7528\u7684\u4e34\u5e8a\u6548\u679c\u57fa\u672c\u76f8\u540c\u3002 \u7136\u800c\uff0c\u57fa\u4e8e\u7814\u7a76\u4e2d\u7684\u5c11\u6570\u53d7\u8bd5\u8005\uff0c\u53ef\u80fd\u8fd8\u6ca1\u6709\u53d1\u73b0\u771f\u6b63\u7684\u5dee\u5f02\u3002",
+    "has_translated": true,
+    "chemical": [
+        [
+            "PHEMA",
+            "MESH:D011102",
+            "Polyhydroxyethyl Methacrylate"
+        ],
+        [
+            "PMMA",
+            "MESH:D019904",
+            "Polymethyl Methacrylate"
+        ],
+        [
+            "calcium hydroxide",
+            "MESH:D002126",
+            "Calcium Hydroxide"
+        ],
+        [
+            "hydroxide",
+            "MESH:C031356",
+            "hydroxide ion"
+        ],
+        [
+            "poly-hydroxyl-ethyl methacrylate",
+            "MESH:D011102",
+            "Polyhydroxyethyl Methacrylate"
+        ],
+        [
+            "poly-methyl-methacrylate",
+            "MESH:D019904",
+            "Polymethyl Methacrylate"
+        ]
+    ],
+    "gene_entities": {},
+    "gene": [],
+    "anatomy_entities": {
+        "0": [],
+        "1": [],
+        "2": [
+            [
+                "mandibular",
+                3,
+                4
+            ]
+        ],
+        "3": [],
+        "4": [
+            [
+                "of the",
+                16,
+                18
+            ],
+            [
+                "membrane",
+                11,
+                12
+            ],
+            [
+                "mandibular",
+                24,
+                25
+            ]
+        ],
+        "5": [
+            [
+                "preparation",
+                2,
+                4
+            ],
+            [
+                "bone and",
+                17,
+                19
+            ],
+            [
+                "tissue",
+                24,
+                26
+            ],
+            [
+                ", and",
+                25,
+                27
+            ],
+            [
+                "surfaces",
+                30,
+                31
+            ]
+        ],
+        "6": [
+            [
+                "bone",
+                7,
+                9
+            ],
+            [
+                ", and",
+                30,
+                32
+            ]
+        ],
+        "7": [],
+        "8": [],
+        "9": [
+            [
+                "bone and",
+                13,
+                15
+            ],
+            [
+                "soft tissue",
+                15,
+                17
+            ]
+        ],
+        "10": [],
+        "11": [
+            [
+                ", and",
+                24,
+                26
+            ]
+        ],
+        "12": [],
+        "13": [
+            [
+                ", and",
+                24,
+                26
+            ],
+            [
+                "of the",
+                28,
+                30
+            ],
+            [
+                "mandibular",
+                32,
+                33
+            ]
+        ],
+        "14": [
+            [
+                ", a",
+                1,
+                3
+            ]
+        ]
+    },
+    "anatomy": [
+        [
+            ", a",
+            "",
+            ""
+        ],
+        [
+            ", and",
+            "",
+            ""
+        ],
+        [
+            "bone",
+            "MESH:D001842",
+            "Bone and Bones"
+        ],
+        [
+            "bone and",
+            "MESH:D001842",
+            "Bone and Bones"
+        ],
+        [
+            "mandibular",
+            "MESH:D008334",
+            "Mandible"
+        ],
+        [
+            "membrane",
+            "MESH:D008566",
+            "Membranes"
+        ],
+        [
+            "of the",
+            "",
+            ""
+        ],
+        [
+            "preparation",
+            "",
+            ""
+        ],
+        [
+            "soft tissue",
+            "MESH:D014024",
+            "Tissues"
+        ],
+        [
+            "surfaces",
+            "MESH:D034582",
+            "Integumentary System"
+        ],
+        [
+            "tissue",
+            "MESH:D014024",
+            "Tissues"
+        ]
+    ],
+    "antibody_entities": {},
+    "antibody": [],
+    "abstract_prep": "Class II furcations present difficult treatment problems. Several treatment approaches to obtain furcation fill have been used with varying success. The response of mandibular Class II furcations to treatment with either a microporous biocompatible composite of PMMA (poly-methyl-methacrylate), PHEMA (poly-hydroxyl-ethyl methacrylate) and calcium hydroxide graft synthetic bone (hydroxide graft synthetic bone) replacement graft material; ePTFE barrier membrane; or a combination of the two was evaluated in trios of mandibular molars with Class II furcations in 8 patients with moderate to advanced periodontitis. Following initial preparation, full-thickness flaps were raised in the areas being treated, the bone and furcation defects debrided of granulomatous tissue, and the involved root surfaces mechanically prepared and chemically conditioned. By random allocation, hydroxide graft synthetic bone, ePTFE, or a combination of both was placed into and/or fitted over the furcations, packed and/or secured in place, and the host flap replaced or coronally positioned with sutures. Postsurgical deplaquing was performed every 10 days leading up to ePTFE removal at approximately 6 weeks. Continuing periodontal maintenance therapy was provided until surgical reentry at 6 months for documentation and any further necessary treatment. Direct clinical measurements demonstrated essentially similar clinical results with all 3 treatments for bone and soft tissue changes. There were no statistically or clinically significant differences except for better horizontal amount and percent defect fill with hydroxide graft synthetic bone alone. Four of 8 furcations became Class I clinically with hydroxide graft synthetic bone alone, 5 of 8 became Class I with ePTFE alone, and 5 of 8 with combination treatment. The only complete furcation closure occurred with hydroxide graft synthetic bone. The findings of this study suggest essentially equal clinical results with hydroxide graft synthetic bone bone replacement graft material alone, ePTFE barrier alone, and a combination of the two in mandibular molar Class II furcations. However, a real difference may not have been detected based on the small number of subjects in the study.",
+    "sentence_labels": [
+        [
+            0,
+            "BACKGROUND"
+        ],
+        [
+            1,
+            "BACKGROUND"
+        ],
+        [
+            2,
+            "OBJECTIVE"
+        ],
+        [
+            3,
+            "METHODS"
+        ],
+        [
+            4,
+            "METHODS"
+        ],
+        [
+            5,
+            "METHODS"
+        ],
+        [
+            6,
+            "METHODS"
+        ],
+        [
+            7,
+            "RESULTS"
+        ],
+        [
+            8,
+            "RESULTS"
+        ],
+        [
+            9,
+            "RESULTS"
+        ],
+        [
+            10,
+            "RESULTS"
+        ],
+        [
+            11,
+            "CONCLUSIONS"
+        ],
+        [
+            12,
+            "CONCLUSIONS"
+        ]
+    ],
+    "abstract_highlight": [
+        "Class ",
+        "II ",
+        "furcations ",
+        "present ",
+        "difficult ",
+        "treatment ",
+        "problems ",
+        ". ",
+        "Several ",
+        "treatment ",
+        "approaches ",
+        "to ",
+        "obtain ",
+        "furcation ",
+        "fill ",
+        "have ",
+        "been ",
+        "used ",
+        "with ",
+        "varying ",
+        "success ",
+        ". ",
+        "The ",
+        "response ",
+        "of ",
+        "<bold=True italic=True font_color=purpule>",
+        "mandibular ",
+        "Class ",
+        "II ",
+        "furcations ",
+        "to ",
+        "treatment ",
+        "with ",
+        "either ",
+        "a ",
+        "microporous ",
+        "biocompatible ",
+        "composite ",
+        "of ",
+        "<bold=True italic=True font_color=#008000>",
+        "PMMA ",
+        "( ",
+        "<bold=True italic=True font_color=#008000>",
+        "poly-methyl-methacrylate ",
+        ") ",
+        ", ",
+        "<bold=True italic=True font_color=#008000>",
+        "PHEMA ",
+        "( ",
+        "<bold=True italic=True font_color=#008000>",
+        "poly-hydroxyl-ethyl ",
+        "<bold=True italic=True font_color=#008000>",
+        "methacrylate ",
+        ") ",
+        "and ",
+        "<bold=True italic=True font_color=#008000>",
+        "calcium ",
+        "<bold=True italic=True font_color=#008000>",
+        "hydroxide ",
+        "graft ",
+        "synthetic ",
+        "bone ",
+        "( ",
+        "hydroxide ",
+        "graft ",
+        "synthetic ",
+        "bone ",
+        ") ",
+        "replacement ",
+        "graft ",
+        "material ",
+        "; ",
+        "ePTFE ",
+        "barrier ",
+        "membrane ",
+        "; ",
+        "or ",
+        "a ",
+        "combination ",
+        "of ",
+        "the ",
+        "two ",
+        "was ",
+        "evaluated ",
+        "in ",
+        "trios ",
+        "of ",
+        "mandibular ",
+        "molars ",
+        "with ",
+        "Class ",
+        "II ",
+        "furcations ",
+        "in ",
+        "8 ",
+        "patients ",
+        "with ",
+        "moderate ",
+        "to ",
+        "advanced ",
+        "periodontitis ",
+        ". ",
+        "Following ",
+        "initial ",
+        "preparation ",
+        ", ",
+        "full-thickness ",
+        "flaps ",
+        "were ",
+        "raised ",
+        "in ",
+        "the ",
+        "areas ",
+        "being ",
+        "treated ",
+        ", ",
+        "the ",
+        "bone ",
+        "and ",
+        "furcation ",
+        "defects ",
+        "debrided ",
+        "of ",
+        "granulomatous ",
+        "tissue ",
+        ", ",
+        "and ",
+        "the ",
+        "involved ",
+        "root ",
+        "surfaces ",
+        "mechanically ",
+        "prepared ",
+        "and ",
+        "chemically ",
+        "conditioned ",
+        ". ",
+        "By ",
+        "random ",
+        "allocation ",
+        ", ",
+        "<bold=True italic=True font_color=#008000>",
+        "hydroxide ",
+        "graft ",
+        "synthetic ",
+        "bone ",
+        ", ",
+        "ePTFE ",
+        ", ",
+        "or ",
+        "a ",
+        "combination ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "both ",
+        "was ",
+        "placed ",
+        "into ",
+        "and/or ",
+        "fitted ",
+        "over ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "furcations ",
+        ", ",
+        "packed ",
+        "and/or ",
+        "secured ",
+        "in ",
+        "place ",
+        ", ",
+        "and ",
+        "the ",
+        "host ",
+        "flap ",
+        "replaced ",
+        "or ",
+        "coronally ",
+        "positioned ",
+        "with ",
+        "sutures ",
+        ". ",
+        "Postsurgical ",
+        "deplaquing ",
+        "was ",
+        "performed ",
+        "every ",
+        "10 ",
+        "days ",
+        "leading ",
+        "up ",
+        "to ",
+        "ePTFE ",
+        "removal ",
+        "at ",
+        "approximately ",
+        "6 ",
+        "weeks ",
+        ". ",
+        "Continuing ",
+        "periodontal ",
+        "maintenance ",
+        "therapy ",
+        "was ",
+        "provided ",
+        "until ",
+        "surgical ",
+        "reentry ",
+        "at ",
+        "6 ",
+        "months ",
+        "for ",
+        "documentation ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "any ",
+        "further ",
+        "necessary ",
+        "treatment ",
+        ". ",
+        "Direct ",
+        "clinical ",
+        "measurements ",
+        "demonstrated ",
+        "essentially ",
+        "similar ",
+        "clinical ",
+        "results ",
+        "with ",
+        "all ",
+        "3 ",
+        "treatments ",
+        "for ",
+        "bone ",
+        "and ",
+        "soft ",
+        "tissue ",
+        "changes ",
+        ". ",
+        "There ",
+        "were ",
+        "no ",
+        "statistically ",
+        "or ",
+        "clinically ",
+        "significant ",
+        "differences ",
+        "except ",
+        "for ",
+        "better ",
+        "horizontal ",
+        "amount ",
+        "and ",
+        "percent ",
+        "defect ",
+        "fill ",
+        "with ",
+        "hydroxide ",
+        "graft ",
+        "synthetic ",
+        "bone ",
+        "alone ",
+        ". ",
+        "Four ",
+        "of ",
+        "8 ",
+        "furcations ",
+        "became ",
+        "Class ",
+        "I ",
+        "clinically ",
+        "with ",
+        "hydroxide ",
+        "graft ",
+        "synthetic ",
+        "<bold=True italic=True font_color=purpule>",
+        "bone ",
+        "alone ",
+        ", ",
+        "5 ",
+        "of ",
+        "8 ",
+        "became ",
+        "Class ",
+        "I ",
+        "with ",
+        "ePTFE ",
+        "alone ",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "5 ",
+        "of ",
+        "8 ",
+        "with ",
+        "combination ",
+        "treatment ",
+        ". ",
+        "The ",
+        "only ",
+        "complete ",
+        "furcation ",
+        "closure ",
+        "occurred ",
+        "with ",
+        "<bold=True italic=True font_color=#008000>",
+        "hydroxide ",
+        "graft ",
+        "synthetic ",
+        "bone ",
+        ". ",
+        "The ",
+        "findings ",
+        "of ",
+        "this ",
+        "study ",
+        "suggest ",
+        "essentially ",
+        "equal ",
+        "clinical ",
+        "results ",
+        "with ",
+        "<bold=True italic=True font_color=#008000>",
+        "hydroxide ",
+        "graft ",
+        "synthetic ",
+        "bone ",
+        "bone ",
+        "replacement ",
+        "graft ",
+        "material ",
+        "alone ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "ePTFE ",
+        "barrier ",
+        "alone ",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "a ",
+        "combination ",
+        "of ",
+        "the ",
+        "two ",
+        "in ",
+        "mandibular ",
+        "molar ",
+        "Class ",
+        "II ",
+        "furcations ",
+        ". ",
+        "However ",
+        ", ",
+        "a ",
+        "real ",
+        "difference ",
+        "may ",
+        "not ",
+        "have ",
+        "been ",
+        "detected ",
+        "based ",
+        "on ",
+        "the ",
+        "small ",
+        "number ",
+        "of ",
+        "subjects ",
+        "in ",
+        "the ",
+        "study ",
+        ". "
+    ]
+}

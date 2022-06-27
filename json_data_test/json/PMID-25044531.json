@@ -1,0 +1,887 @@
+{
+    "pmid": "25044531",
+    "journal": "Journal of investigative and clinical dentistry",
+    "publication_type": "Clinical Trial\nRandomized Controlled Trial",
+    "publication_year": "2014",
+    "publication_date": "2014-07-17",
+    "title": "Clinical and microbiological effects of systemic azithromycin in adjunct to nonsurgical periodontal therapy in treatment of Aggregatibacter actinomycetemcomitans associated periodontitis: a randomized placebo-controlled clinical trial.",
+    "first_author": "Santosh S Martande",
+    "corresponding_author": "Priyanka Singh",
+    "authors": "Santosh S Martande, Avani R Pradeep, Sonender P Singh, Minal Kumari, Savitha B Naik, Deepak Kumar Suke, Priyanka Singh",
+    "affiliations": "(1) Department of Periodontics, Government Dental College and Research Institute, Bangalore, India. ['Santosh S Martande', 'Avani R Pradeep', 'Sonender P Singh', 'Minal Kumari', 'Deepak Kumar Suke']; (2) Department of Conservative Dentistry and Endodontics, Government Dental College and Research Institute, Bangalore, India. ['Savitha B Naik']; (3) Jawaharlal Nehru Medical College and Hospital, Bhagalpur, Bihar, India. ['Priyanka Singh']",
+    "abstract": "This study aimed to evaluate clinical and microbiological effects of systemic azithromycin (AZM) in adjunct to nonsurgical periodontal therapy (NSPT; or scaling root planing - SRP) in treatment of Aggregatibacter actinomycetemcomitans associated periodontitis (AAAP). Seventy individuals with moderate to severe periodontitis and subgingival detection of A.\u00a0actinomycetemcomitans were randomly allocated to two groups. Thirty-five individuals were allocated to full mouth SRP+AZM (500\u00a0mg oral delivery (OD)\u00a0\u00d7\u00a03\u00a0days) while 35 individuals were allocated to SRP+Placebo (OD\u00a0\u00d7\u00a03\u00a0days) group. The clinical variables evaluated were probing depth (PD), clinical attachment level (CAL), gingival index (GI), plaque index (PI), and percent bleeding on probing sites (%BOP), while microbiologic variables included percentage of subjects positive for A.\u00a0actinomycetemcomitans at baseline, 3, 6, and 12\u00a0months. The AZM group showed statistically significant reduction in mean PD (2.91\u00a0\u00b1\u00a00.88\u00a0mm) as compared to placebo (1.51\u00a0\u00b1\u00a00.98\u00a0mm) (P\u00a0<\u00a00.001), while CAL gain was significant in the AZM group (2.71\u00a0\u00b1\u00a01.15\u00a0mm) as compared to the placebo group (1.71\u00a0\u00b1\u00a01.29\u00a0mm) (P\u00a0<\u00a00.001). There was also a statistically significant reduction in the number of subjects positive for A.\u00a0actinomycetemcomitans in the AZM group (P\u00a0<\u00a00.0001). Azithromycin was found to significantly improve the clinical and microbiological parameters in AAAP individuals.",
+    "keywords": "Aggregatibacter actinomycetemcomitans, nonsurgical periodontal therapy, systemic antibiotics",
+    "MeshHeadingList": [
+        {
+            "QualifierName": [],
+            "DescriptorName": "Aggregatibacter actinomycetemcomitans"
+        },
+        {
+            "QualifierName": [
+                "therapeutic use"
+            ],
+            "DescriptorName": "Anti-Bacterial Agents"
+        },
+        {
+            "QualifierName": [
+                "therapeutic use"
+            ],
+            "DescriptorName": "Azithromycin"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Dental Scaling"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Follow-Up Studies"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Humans"
+        },
+        {
+            "QualifierName": [
+                "drug therapy"
+            ],
+            "DescriptorName": "Pasteurellaceae Infections"
+        },
+        {
+            "QualifierName": [
+                "drug therapy"
+            ],
+            "DescriptorName": "Periodontal Attachment Loss"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Periodontal Index"
+        },
+        {
+            "QualifierName": [
+                "drug therapy"
+            ],
+            "DescriptorName": "Periodontal Pocket"
+        },
+        {
+            "QualifierName": [
+                "drug therapy"
+            ],
+            "DescriptorName": "Periodontitis"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Root Planing"
+        }
+    ],
+    "ChemicalList": [
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Anti-Bacterial Agents"
+        },
+        {
+            "RegistryNumber": "83905-01-5",
+            "NameOfSubstance": "Azithromycin"
+        }
+    ],
+    "doi": "10.1111/jicd.12115",
+    "journal_sjr": 0,
+    "journal_h_index": 0,
+    "journal_if": 0,
+    "journal_metrics": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "title_zh": "\u5168\u8eab\u6027\u963f\u5947\u9709\u7d20\u4e0e\u975e\u624b\u672f\u7259\u5468\u6cbb\u7597\u8054\u5408\u6cbb\u7597\u653e\u7ebf\u83cc\u805a\u96c6\u83cc\u76f8\u5173\u6027\u7259\u5468\u708e\u7684\u4e34\u5e8a\u548c\u5fae\u751f\u7269\u5b66\u6548\u5e94:\u4e00\u9879\u968f\u673a\u5b89\u6170\u5242\u5bf9\u7167\u4e34\u5e8a\u8bd5\u9a8c",
+    "abstract_zh": "\u672c\u7814\u7a76\u65e8\u5728\u8bc4\u4ef7\u7cfb\u7edf\u6027\u963f\u5947\u9709\u7d20(AZM)\u8f85\u52a9\u975e\u624b\u672f\u7259\u5468\u6cbb\u7597(NSPT; \u6216\u6d01\u6cbb\u6839\u5228- SRP)\u6cbb\u7597\u653e\u7ebf\u83cc\u805a\u96c6\u6746\u83cc\u76f8\u5173\u6027\u7259\u5468\u708e(AAAP)\u3002 \u9009\u53d6\u4e2d\u91cd\u5ea6\u7259\u5468\u708e\u53ca\u9f88\u4e0b\u68c0\u51fa\u653e\u7ebf\u83cc\u7684\u60a3\u800570\u4f8b\uff0c\u968f\u673a\u5206\u4e3a\u4e24\u7ec4\u3002 35\u4eba\u88ab\u5206\u914d\u5230\u5168\u53e3SRP+AZM (500 mg\u53e3\u670d\u7ed9\u836f(OD) \u00d7 3\u5929)\u7ec4\uff0c35\u4eba\u88ab\u5206\u914d\u5230SRP+\u5b89\u6170\u5242(OD)\u7ec4\u3002 \u8bc4\u4f30\u7684\u4e34\u5e8a\u53d8\u91cf\u5305\u62ec\u63a2\u6d4b\u6df1\u5ea6(PD)\u3001\u4e34\u5e8a\u9644\u7740\u6c34\u5e73(CAL)\u3001\u7259\u9f88\u6307\u6570(GI)\u3001\u83cc\u6591\u6307\u6570(PI)\u548c\u63a2\u6d4b\u90e8\u4f4d\u51fa\u8840\u767e\u5206\u6bd4(%BOP)\uff0c\u800c\u5fae\u751f\u7269\u53d8\u91cf\u5305\u62ec\u53d7\u8bd5\u8005\u57fa\u7ebf\u30013\u4e2a\u6708\u30016\u4e2a\u6708\u548c12\u4e2a\u6708\u65f6\u653e\u7ebf\u83cc\u9633\u6027\u7684\u767e\u5206\u6bd4\u3002 AZM\u7ec4\u663e\u793a\u663e\u8457\u7684\u51cf\u5c11\u610f\u5473\u7740PD(2.91\u00b10.88\u6beb\u7c73)\u76f8\u6bd4\u5b89\u6170\u5242(1.51\u00b10.98\u6beb\u7c73)(P < 0.001),\u800c\u5361\u5c14\u589e\u5e45\u663e\u8457AZM\u7ec4(2.71\u00b11.15\u6beb\u7c73)\u76f8\u6bd4\u5b89\u6170\u5242\u7ec4(1.71\u00b11.29\u6beb\u7c73)(P < 0.001)\u3002 AZM\u7ec4\u4e2d\u653e\u7ebf\u83cc\u9633\u6027\u7684\u53d7\u8bd5\u8005\u6570\u91cf\u4e5f\u6709\u7edf\u8ba1\u5b66\u610f\u4e49\u4e0a\u7684\u51cf\u5c11(P < 0.0001)\u3002 \u963f\u5947\u9709\u7d20\u88ab\u53d1\u73b0\u80fd\u663e\u8457\u6539\u5584AAAP\u4e2a\u4f53\u7684\u4e34\u5e8a\u548c\u5fae\u751f\u7269\u53c2\u6570\u3002",
+    "has_translated": true,
+    "bacteria_entities": {
+        "0": [
+            [
+                "Aggregatibacter actinomycetemcomitans",
+                35,
+                37
+            ]
+        ],
+        "1": [
+            [
+                "A . actinomycetemcomitans",
+                11,
+                14
+            ]
+        ],
+        "3": [
+            [
+                "A . actinomycetemcomitans",
+                48,
+                51
+            ]
+        ],
+        "5": [
+            [
+                "A . actinomycetemcomitans",
+                14,
+                17
+            ]
+        ]
+    },
+    "has_bacteria_ner": true,
+    "bacteria": [
+        [
+            "A . actinomycetemcomitans",
+            "C0085488",
+            "Aggregatibacter Actinomycetemcomitans"
+        ],
+        [
+            "Aggregatibacter actinomycetemcomitans",
+            "C0085488",
+            "Aggregatibacter Actinomycetemcomitans"
+        ]
+    ],
+    "has_bacteria_norm": true,
+    "nutrient_entities": {},
+    "has_nutrient_ner": true,
+    "chemical_entities": {
+        "0": [
+            [
+                "azithromycin",
+                11,
+                12
+            ],
+            [
+                "azithromycin",
+                14,
+                15
+            ]
+        ],
+        "2": [
+            [
+                "azithromycin",
+                10,
+                11
+            ],
+            [
+                "SRP+AZM",
+                18,
+                19
+            ]
+        ],
+        "3": [
+            [
+                "SRP+AZM",
+                15,
+                16
+            ]
+        ],
+        "5": [
+            [
+                "azithromycin",
+                2,
+                3
+            ]
+        ],
+        "6": [
+            [
+                "azithromycin",
+                18,
+                19
+            ]
+        ],
+        "7": [
+            [
+                "a",
+                3,
+                4
+            ],
+            [
+                "azithromycin",
+                20,
+                21
+            ]
+        ],
+        "8": [
+            [
+                "Azithromycin",
+                0,
+                1
+            ]
+        ]
+    },
+    "has_chemical_ner": true,
+    "has_genetic_ner": true,
+    "enzyme_entities": [],
+    "metabolic_entities": [],
+    "has_metabolic_ner": true,
+    "molecule": [
+        [
+            [
+                "Azithromycin",
+                "MESH:D017963",
+                "Azithromycin"
+            ],
+            [
+                "SRP+AZM",
+                "",
+                ""
+            ],
+            [
+                "A.",
+                "",
+                ""
+            ],
+            [
+                "azithromycin",
+                "MESH:D017963",
+                "Azithromycin"
+            ],
+            [
+                "AZM",
+                "",
+                ""
+            ]
+        ],
+        [
+            [
+                "azithromycin",
+                "",
+                ""
+            ],
+            [
+                "SRP+AZM",
+                "",
+                ""
+            ],
+            [
+                "A.",
+                "",
+                ""
+            ],
+            [
+                "Azithromycin",
+                "",
+                ""
+            ],
+            [
+                "AZM",
+                "",
+                ""
+            ]
+        ]
+    ],
+    "has_molecular_norm": true,
+    "nutrient": [],
+    "has_nutrient_norm": true,
+    "disease_entities": {
+        "0": [
+            [
+                "periodontal",
+                20,
+                21
+            ],
+            [
+                "periodontitis",
+                38,
+                39
+            ],
+            [
+                "periodontitis",
+                40,
+                41
+            ]
+        ],
+        "1": [
+            [
+                "periodontitis",
+                6,
+                7
+            ]
+        ],
+        "4": [
+            [
+                "plaque",
+                27,
+                28
+            ],
+            [
+                "plaque",
+                30,
+                31
+            ],
+            [
+                "bleeding",
+                36,
+                37
+            ]
+        ],
+        "8": [
+            [
+                "periodontitis",
+                12,
+                13
+            ]
+        ]
+    },
+    "has_disease_ner": true,
+    "disease": [
+        [
+            "bleeding",
+            "MESH:D006470",
+            "Hemorrhage"
+        ],
+        [
+            "periodontal",
+            "MESH:D010509",
+            "Periodontal Cyst"
+        ],
+        [
+            "periodontitis",
+            "MESH:D010518",
+            "Periodontitis"
+        ],
+        [
+            "plaque",
+            "",
+            ""
+        ]
+    ],
+    "has_disease_norm": true,
+    "affiliation_entities": [
+        "Bangalore\nBangalore\nBhagalpur\nBihar\nIndia\nIndia\nIndia",
+        "Department of Conservative Dentistry\nEndodontics, Government Dental College\nJawaharlal Nehru Medical College and Hospital\nResearch Institute\nResearch Institute"
+    ],
+    "has_affiliation_ner": true,
+    "sample_size_entities": {},
+    "sample_size": null,
+    "has_sample_size_ner": true,
+    "significance_conclusion": [
+        [
+            4,
+            1
+        ],
+        [
+            5,
+            1
+        ],
+        [
+            6,
+            1
+        ]
+    ],
+    "has_significance_ner": true,
+    "mtime": 1646878562.2603526,
+    "htime": "2022-03-10 10:16:02.260353",
+    "chemical": [
+        [
+            "Azithromycin",
+            "MESH:D017963",
+            "Azithromycin"
+        ],
+        [
+            "SRP+AZM",
+            "",
+            ""
+        ],
+        [
+            "a",
+            "",
+            ""
+        ],
+        [
+            "azithromycin",
+            "MESH:D017963",
+            "Azithromycin"
+        ]
+    ],
+    "gene_entities": {},
+    "gene": [],
+    "anatomy_entities": {
+        "0": [
+            [
+                "of systemic",
+                9,
+                11
+            ]
+        ],
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [
+            [
+                "(clinical",
+                14,
+                16
+            ],
+            [
+                ", gingival",
+                19,
+                21
+            ],
+            [
+                ", and",
+                33,
+                35
+            ],
+            [
+                ", 3",
+                59,
+                61
+            ],
+            [
+                "3",
+                60,
+                62
+            ],
+            [
+                "6",
+                62,
+                64
+            ],
+            [
+                ", and",
+                63,
+                65
+            ],
+            [
+                "gingival",
+                20,
+                21
+            ],
+            [
+                "gingival",
+                23,
+                24
+            ]
+        ],
+        "5": [],
+        "6": [
+            [
+                "(P",
+                0,
+                2
+            ],
+            [
+                "group (",
+                19,
+                21
+            ],
+            [
+                "group (",
+                34,
+                36
+            ],
+            [
+                "(P",
+                44,
+                46
+            ]
+        ],
+        "7": [
+            [
+                "group (",
+                21,
+                23
+            ],
+            [
+                "(P",
+                22,
+                24
+            ]
+        ],
+        "8": []
+    },
+    "anatomy": [
+        [
+            "(P",
+            "",
+            ""
+        ],
+        [
+            "(clinical",
+            "",
+            ""
+        ],
+        [
+            ", 3",
+            "",
+            ""
+        ],
+        [
+            ", and",
+            "",
+            ""
+        ],
+        [
+            ", gingival",
+            "MESH:D005881",
+            "Gingiva"
+        ],
+        [
+            "3",
+            "",
+            ""
+        ],
+        [
+            "6",
+            "",
+            ""
+        ],
+        [
+            "gingival",
+            "MESH:D005881",
+            "Gingiva"
+        ],
+        [
+            "group (",
+            "",
+            ""
+        ],
+        [
+            "of systemic",
+            "",
+            ""
+        ]
+    ],
+    "antibody_entities": {},
+    "antibody": [],
+    "abstract_prep": "This study aimed to evaluate clinical and microbiological effects of systemic azithromycin (systemic azithromycin) in adjunct to nonsurgical periodontal therapy (NSPT; or scaling root planing - SRP) in treatment of Aggregatibacter actinomycetemcomitans associated periodontitis (periodontitis). Seventy individuals with moderate to severe periodontitis and subgingival detection of A.\u00a0actinomycetemcomitans were randomly allocated to two groups. Thirty-five individuals were allocated to full mouth SRP+systemic azithromycin (500\u00a0mg oral delivery (SRP+AZM (500\u00a0mg oral delivery)\u00a0\u00d7\u00a03\u00a0days) while 35 individuals were allocated to SRP+Placebo (SRP+AZM (500\u00a0mg oral delivery\u00a0\u00d7\u00a03\u00a0days) group. The clinical variables evaluated were probing depth (depth), clinical attachment level (clinical attachment level), gingival index (gingival index), plaque index (plaque index), and percent bleeding on probing sites (%BOP), while microbiologic variables included percentage of subjects positive for A.\u00a0actinomycetemcomitans at baseline, 3, 6, and 12\u00a0months. The systemic azithromycin group showed statistically significant reduction in mean depth (2.91\u00a0\u00b1\u00a00.88\u00a0mm) as compared to placebo (1.51\u00a0\u00b1\u00a00.98\u00a0mm) (P\u00a0<\u00a00.001), while clinical attachment level gain was significant in the systemic azithromycin group (2.71\u00a0\u00b1\u00a01.15\u00a0mm) as compared to the placebo group (1.71\u00a0\u00b1\u00a01.29\u00a0mm) (P\u00a0<\u00a00.001). There was also a statistically significant reduction in the number of subjects positive for A.\u00a0actinomycetemcomitans in the systemic azithromycin group (P\u00a0<\u00a00.0001). Azithromycin was found to significantly improve the clinical and microbiological parameters in periodontitis individuals.",
+    "sentence_labels": [
+        [
+            0,
+            "OBJECTIVE"
+        ],
+        [
+            1,
+            "METHODS"
+        ],
+        [
+            2,
+            "METHODS"
+        ],
+        [
+            3,
+            "METHODS"
+        ],
+        [
+            4,
+            "RESULTS"
+        ],
+        [
+            5,
+            "RESULTS"
+        ],
+        [
+            6,
+            "CONCLUSIONS"
+        ]
+    ],
+    "abstract_highlight": [
+        "This ",
+        "study ",
+        "aimed ",
+        "to ",
+        "evaluate ",
+        "clinical ",
+        "and ",
+        "microbiological ",
+        "effects ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "<bold=True italic=True font_color=purpule>",
+        "systemic ",
+        "<bold=True italic=True font_color=#008000>",
+        "azithromycin ",
+        "( ",
+        "systemic ",
+        "azithromycin ",
+        ") ",
+        "in ",
+        "adjunct ",
+        "to ",
+        "nonsurgical ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontal ",
+        "therapy ",
+        "( ",
+        "NSPT ",
+        "; ",
+        "or ",
+        "scaling ",
+        "root ",
+        "planing ",
+        "- ",
+        "SRP ",
+        ") ",
+        "in ",
+        "treatment ",
+        "of ",
+        "<bold=True italic=True font_color=#FF1493>",
+        "Aggregatibacter ",
+        "<bold=True italic=True font_color=#FF1493>",
+        "actinomycetemcomitans ",
+        "associated ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "( ",
+        "periodontitis ",
+        ") ",
+        ". ",
+        "Seventy ",
+        "individuals ",
+        "with ",
+        "moderate ",
+        "to ",
+        "severe ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "and ",
+        "subgingival ",
+        "detection ",
+        "of ",
+        "A. ",
+        "<bold=True italic=True font_color=#FF1493>",
+        "actinomycetemcomitans ",
+        "were ",
+        "randomly ",
+        "allocated ",
+        "to ",
+        "two ",
+        "groups ",
+        "<bold=True italic=True font_color=#FF1493>",
+        ". ",
+        "Thirty-five ",
+        "individuals ",
+        "were ",
+        "allocated ",
+        "to ",
+        "full ",
+        "mouth ",
+        "SRP+systemic ",
+        "<bold=True italic=True font_color=#008000>",
+        "azithromycin ",
+        "( ",
+        "500 ",
+        "mg ",
+        "oral ",
+        "delivery ",
+        "( ",
+        "<bold=True italic=True font_color=#008000>",
+        "SRP+AZM ",
+        "( ",
+        "500 ",
+        "mg ",
+        "oral ",
+        "delivery ",
+        ") ",
+        "\u00d7 ",
+        "3 ",
+        "days ",
+        ") ",
+        "while ",
+        "35 ",
+        "individuals ",
+        "were ",
+        "allocated ",
+        "to ",
+        "SRP+Placebo ",
+        "( ",
+        "SRP+AZM ",
+        "( ",
+        "500 ",
+        "mg ",
+        "oral ",
+        "delivery ",
+        "\u00d7 ",
+        "3 ",
+        "days ",
+        ") ",
+        "group ",
+        ". ",
+        "The ",
+        "clinical ",
+        "variables ",
+        "evaluated ",
+        "were ",
+        "probing ",
+        "depth ",
+        "( ",
+        "depth ",
+        ") ",
+        ", ",
+        "clinical ",
+        "attachment ",
+        "level ",
+        "( ",
+        "clinical ",
+        "attachment ",
+        "level ",
+        ") ",
+        ", ",
+        "gingival ",
+        "index ",
+        "( ",
+        "gingival ",
+        "index ",
+        ") ",
+        ", ",
+        "plaque ",
+        "index ",
+        "( ",
+        "plaque ",
+        "index ",
+        ") ",
+        ", ",
+        "and ",
+        "percent ",
+        "bleeding ",
+        "on ",
+        "probing ",
+        "sites ",
+        "( ",
+        "% ",
+        "BOP ",
+        ") ",
+        ", ",
+        "while ",
+        "microbiologic ",
+        "variables ",
+        "included ",
+        "percentage ",
+        "of ",
+        "subjects ",
+        "positive ",
+        "for ",
+        "A. ",
+        "<bold=True italic=True font_color=#FF1493>",
+        "actinomycetemcomitans ",
+        "at ",
+        "baseline ",
+        ", ",
+        "3 ",
+        ", ",
+        "6 ",
+        ", ",
+        "and ",
+        "12 ",
+        "months ",
+        "<bold=True italic=True font_color=#FF1493>",
+        ". ",
+        "The ",
+        "systemic ",
+        "azithromycin ",
+        "group ",
+        "showed ",
+        "statistically ",
+        "significant ",
+        "reduction ",
+        "in ",
+        "mean ",
+        "depth ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "2.91 ",
+        "\u00b1 ",
+        "0.88 ",
+        "mm ",
+        ") ",
+        "as ",
+        "compared ",
+        "to ",
+        "placebo ",
+        "( ",
+        "1.51 ",
+        "\u00b1 ",
+        "0.98 ",
+        "mm ",
+        ") ",
+        "( ",
+        "P ",
+        "< ",
+        "0.001 ",
+        ") ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "while ",
+        "<bold=True italic=True font_color=purpule>",
+        "clinical ",
+        "attachment ",
+        "level ",
+        "gain ",
+        "was ",
+        "significant ",
+        "in ",
+        "the ",
+        "systemic ",
+        "azithromycin ",
+        "group ",
+        "( ",
+        "2.71 ",
+        "\u00b1 ",
+        "1.15 ",
+        "mm ",
+        ") ",
+        "as ",
+        "compared ",
+        "to ",
+        "the ",
+        "placebo ",
+        "group ",
+        "( ",
+        "1.71 ",
+        "\u00b1 ",
+        "1.29 ",
+        "mm ",
+        ") ",
+        "( ",
+        "P ",
+        "< ",
+        "0.001 ",
+        ") ",
+        ". ",
+        "There ",
+        "was ",
+        "also ",
+        "a ",
+        "statistically ",
+        "significant ",
+        "reduction ",
+        "in ",
+        "the ",
+        "number ",
+        "of ",
+        "subjects ",
+        "positive ",
+        "for ",
+        "A. ",
+        "<bold=True italic=True font_color=#FF1493>",
+        "actinomycetemcomitans ",
+        "in ",
+        "the ",
+        "systemic ",
+        "<bold=True italic=True font_color=#008000>",
+        "azithromycin ",
+        "group ",
+        "( ",
+        "P ",
+        "< ",
+        "0.0001 ",
+        ") ",
+        "<bold=True italic=True font_color=#FF1493>",
+        ". ",
+        "Azithromycin ",
+        "was ",
+        "found ",
+        "to ",
+        "significantly ",
+        "improve ",
+        "the ",
+        "clinical ",
+        "and ",
+        "microbiological ",
+        "parameters ",
+        "in ",
+        "periodontitis ",
+        "individuals ",
+        ". "
+    ]
+}

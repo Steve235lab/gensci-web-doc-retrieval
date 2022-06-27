@@ -1,3 +1,4 @@
+import json
 import datetime
 from threading import Thread
 import sys
@@ -51,6 +52,12 @@ def search(request):
         species = request.POST.get('species')
         sex = request.POST.get('sex')
         age = request.POST.get('age')
+
+        print("article_type: ", article_type)
+        print("language: ", language)
+        print("species: ", species)
+        print("sex: ", sex)
+        print("age: ", age)
 
     # 从token中获取uuid
     uuid_str = get_uuid_from_token(token)
@@ -175,6 +182,7 @@ def get_history(request):
         uuid = int(uuid_str)
         # 使用uuid查找用户的历史记录。注意，这里查询到的不一定是全部记录，这取决于 Database.get_search_history 中设定的最大条数。
         history_list = DATABASE.get_search_history(uuid)
+        history_list = history_list[::-1]
         # print(history_list)
         new_token = forge_token(uuid_str)
         json_rsp = {
@@ -185,8 +193,10 @@ def get_history(request):
         # 将历史记录放入 'history' 字段
         for history in history_list:
             timestamp = history[0]
-            keywords = history[6]
-            json_rsp['history'][timestamp] = keywords
+            raw_keywords = history[6]
+            robust_keywords = history[2]
+            json_rsp['history'][timestamp]['raw_keywords'] = raw_keywords
+            json_rsp['history'][timestamp]['robust_keywords'] = robust_keywords
 
     if DATABASE.emoji_status is True:
         print(emojize(':rocket: 已发送 rsp_get_history 应答', language='alias'))
@@ -341,7 +351,6 @@ def get_paper_info(request):
     if uuid_str == 'token expired':
         json_rsp = {"message_type": "token_expired"}
     else:
-        print("Loading data from excel files...")
         uuid = int(uuid_str)
         timestamp = int(timestamp)
         # 使用 timestamp 到数据库中查找此条历史记录
@@ -353,51 +362,114 @@ def get_paper_info(request):
                 "paper_info": [],
                 "token": new_token
             }
+
+            # 获取结果数据的后端目录
             result_timestamp = history[1]
             file_dir = 'static/search_result/' + str(result_timestamp) + '/'
-
-            # 读取 'paper_info.xlsx'，将信息放入 "paper_info" 字段
-            file_name = file_dir + 'paper_info.xlsx'
-            workbook = openpyxl.load_workbook(file_name, read_only=True)
-            worksheet = workbook["Sheet1"]
-            row_max = worksheet.max_row
-            page_num = int(page_num)
-
-            json_rsp['total'] = row_max - 1
 
             # 每页显示的文章数目
             papers_on_one_page = 2
 
-            row_start = (page_num - 1) * papers_on_one_page + 2
-            row_end = row_start + papers_on_one_page
+            # 使用excel文件作为数据源加载结果数据
+            if DATABASE.data_source == 'excel':
+                print("Loading data from excel files...")
 
-            if row_start <= row_max:
-                if row_end > row_max:
-                    row_end = row_max + 1
-                for i in range(row_start, row_end):
-                    paper_info = {}
-                    paper_info['Pmid'] = worksheet.cell(i, 1).value
-                    paper_info['Journal'] = worksheet.cell(i, 2).value
-                    paper_info['Publication_Type'] = worksheet.cell(i, 3).value
-                    paper_info['Publication_Year'] = worksheet.cell(i, 4).value
-                    paper_info['Publication_Date'] = worksheet.cell(i, 5).value
-                    paper_info['Title'] = worksheet.cell(i, 6).value
-                    paper_info['First_Author'] = worksheet.cell(i, 7).value
-                    paper_info['Corresponding_Author'] = worksheet.cell(i, 8).value
-                    paper_info['Authors'] = worksheet.cell(i, 9).value
-                    paper_info['Affiliations'] = worksheet.cell(i, 10).value
-                    paper_info['Abstract'] = worksheet.cell(i, 11).value
-                    paper_info['Keywords'] = worksheet.cell(i, 12).value
-                    paper_info['Doi'] = worksheet.cell(i, 13).value
-                    paper_info['Journal_If'] = worksheet.cell(i, 14).value
-                    paper_info['Conclusion'] = worksheet.cell(i, 15).value
-                    paper_info['Chinese_Title'] = worksheet.cell(i, 16).value
-                    paper_info['Chinese_Abstract'] = worksheet.cell(i, 17).value
-                    paper_info['Sample_Size'] = worksheet.cell(i, 18).value
-                    paper_info['Location'] = worksheet.cell(i, 19).value
-                    paper_info['Organization'] = worksheet.cell(i, 20).value
+                # 读取 'paper_info.xlsx'，将信息放入 "paper_info" 字段
+                file_name = file_dir + 'paper_info.xlsx'
+                workbook = openpyxl.load_workbook(file_name, read_only=True)
+                worksheet = workbook["Sheet1"]
+                row_max = worksheet.max_row
+                page_num = int(page_num)
 
-                    json_rsp["paper_info"].append(paper_info)
+                json_rsp['total'] = row_max - 1
+
+                row_start = (page_num - 1) * papers_on_one_page + 2
+                row_end = row_start + papers_on_one_page
+
+                if row_start <= row_max:
+                    if row_end > row_max:
+                        row_end = row_max + 1
+                    for i in range(row_start, row_end):
+                        paper_info = {}
+                        paper_info['Pmid'] = worksheet.cell(i, 1).value
+                        paper_info['Journal'] = worksheet.cell(i, 2).value
+                        paper_info['Publication_Type'] = worksheet.cell(i, 3).value
+                        paper_info['Publication_Year'] = worksheet.cell(i, 4).value
+                        paper_info['Publication_Date'] = worksheet.cell(i, 5).value
+                        paper_info['Title'] = worksheet.cell(i, 6).value
+                        paper_info['First_Author'] = worksheet.cell(i, 7).value
+                        paper_info['Corresponding_Author'] = worksheet.cell(i, 8).value
+                        paper_info['Authors'] = worksheet.cell(i, 9).value
+                        paper_info['Affiliations'] = worksheet.cell(i, 10).value
+                        # paper_info['Abstract'] = worksheet.cell(i, 11).value
+                        paper_info['Keywords'] = worksheet.cell(i, 12).value
+                        paper_info['Doi'] = worksheet.cell(i, 13).value
+                        paper_info['Journal_If'] = worksheet.cell(i, 14).value
+                        paper_info['Conclusion'] = worksheet.cell(i, 15).value
+                        paper_info['Chinese_Title'] = worksheet.cell(i, 16).value
+                        paper_info['Chinese_Abstract'] = worksheet.cell(i, 17).value
+                        paper_info['Sample_Size'] = worksheet.cell(i, 18).value
+                        paper_info['Location'] = worksheet.cell(i, 19).value
+                        paper_info['Organization'] = worksheet.cell(i, 20).value
+
+                        json_rsp["paper_info"].append(paper_info)
+
+            # 使用json文件作为数据源加载结果数据
+            if DATABASE.data_source == 'json':
+                print("Loading data from json files...")
+
+                # 更改至测试用路径，部署到生产环境时须注释掉下面一行代码
+                file_dir = '../../json_data_test/'
+
+                # 读取 file.list 获取包含结果文献信息的json文件目录
+                file_list = open(file_dir + 'file.list', 'r')
+                json_dir_list = file_list.readlines()
+                row_max = len(json_dir_list)
+                page_num = int(page_num)
+
+                json_rsp['total'] = row_max
+
+                row_start = (page_num - 1) * papers_on_one_page
+                row_end = row_start + papers_on_one_page
+
+                if row_start <= row_max:
+                    if row_end > row_max:
+                        row_end = row_max
+                        for i in range(row_start, row_end):
+                            json_dir = json_dir_list[i][:-1]    # 删除换行符 \n
+                            raw_paper_info = json.load(open(json_dir, 'r'))
+                            paper_info['Pmid'] = raw_paper_info['pmid']
+                            paper_info['Journal'] = raw_paper_info['journal']
+                            paper_info['Publication_Type'] = raw_paper_info['publication_type']
+                            paper_info['Publication_Year'] = raw_paper_info['publication_year']
+                            paper_info['Publication_Date'] = raw_paper_info['publication_date']
+                            paper_info['Title'] = raw_paper_info['title']
+                            paper_info['First_Author'] = raw_paper_info['first_author']
+                            paper_info['Corresponding_Author'] = raw_paper_info['corresponding_author']
+                            paper_info['Authors'] = raw_paper_info['authors']
+                            paper_info['Affiliations'] = raw_paper_info['affiliations']
+                            # paper_info['Abstract'] = raw_paper_info['abstract']
+                            paper_info['Keywords'] = raw_paper_info['keywords']
+                            paper_info['Doi'] = raw_paper_info['doi']
+                            paper_info['Journal_If'] = raw_paper_info['journal_if']
+                            paper_info['Chinese_Title'] = raw_paper_info['title_zh']
+                            paper_info['Chinese_Abstract'] = raw_paper_info['abstract_zh']
+                            paper_info['Sample_Size'] = raw_paper_info['sample_size']
+                            # 以下3个字段可能在原始json文件中不存在
+                            try:
+                                paper_info['Conclusion'] = raw_paper_info['conclusion']
+                            except:
+                                paper_info['Conclusion'] = ''
+                            try:
+                                paper_info['Location'] = raw_paper_info['location']
+                            except:
+                                paper_info['Location'] = ''
+                            try:
+                                paper_info['Organization'] = raw_paper_info['organization']
+                            except:
+                                paper_info['Organization'] = ''
+
+                            json_rsp["paper_info"].append(paper_info)
 
         else:   # 发送请求的用户与历史记录所属用户不匹配
             json_rsp = {"message_type": "invalid_request"}

@@ -1,0 +1,776 @@
+{
+    "pmid": "14582591",
+    "journal": "Acta odontologica Scandinavica",
+    "publication_type": "Clinical Trial",
+    "publication_year": "2004",
+    "publication_date": "2004-02-04",
+    "title": "Plasma levels of lidocaine, o-toluidine, and prilocaine after application of 8.5 g Oraqix in patients with generalized periodontitis: effect on blood methemoglobin and tolerability.",
+    "first_author": "Britt-Marie Herdevall",
+    "corresponding_author": "Mohamed Abdel-Rehim",
+    "authors": "Britt-Marie Herdevall, Bj\u00f6rn Klinge, Lena Persson, Gunilla Huledal, Mohamed Abdel-Rehim",
+    "affiliations": "(1) Specialist Dental Clinic, S\u00f6dert\u00e4lje, Sweden. ['Britt-Marie Herdevall']",
+    "abstract": "Oraqix, a novel non-injectable anesthetic gel containing lidocaine and prilocaine and a thermosetting agent has been developed to provide localized anesthesia in periodontal pockets during scaling/root planing (SRP). The aim of this open study was to determine the plasma levels of lidocaine and prilocaine following application of 8.5 g Oraqix (5 cartridges) to 11 patients with generalized periodontitis (> or = 49% of tooth pockets > or = 5 mm and > or = 23% of pockets > or = 6 mm). Oraqix was applied to the pockets during periodontal probing and SRP over a 2.6 3.4 h period. Blood samples were collected up to 10 h after the start of application of Oraqix. Peak plasma levels of lidocaine (0.16-0.55 mg/L) and prilocaine (0.05-0.18 mg/L) occurred 2.0-3.7 h and 2.0-3.3 h, respectively, after the start of application of Oraqix. These levels are well below threshold levels for initial signs of central nervous system (CNS) toxicity. In conclusion, application of 8.5 g Oraqix (212.5 mg of lidocaine base and 212.5 mg of prilocaine base) in periodontal pockets was well tolerated and displayed a wide safety margin with respect to plasma levels normally associated with systemic toxicity.",
+    "keywords": "",
+    "MeshHeadingList": [
+        {
+            "QualifierName": [],
+            "DescriptorName": "Adult"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Aged"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Anesthesia, Dental"
+        },
+        {
+            "QualifierName": [
+                "blood",
+                "toxicity"
+            ],
+            "DescriptorName": "Anesthetics, Combined"
+        },
+        {
+            "QualifierName": [
+                "blood",
+                "toxicity"
+            ],
+            "DescriptorName": "Anesthetics, Local"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Dental Scaling"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Female"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Humans"
+        },
+        {
+            "QualifierName": [
+                "blood",
+                "pharmacokinetics",
+                "toxicity"
+            ],
+            "DescriptorName": "Lidocaine"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Lidocaine, Prilocaine Drug Combination"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Male"
+        },
+        {
+            "QualifierName": [
+                "analysis"
+            ],
+            "DescriptorName": "Methemoglobin"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Middle Aged"
+        },
+        {
+            "QualifierName": [
+                "therapy"
+            ],
+            "DescriptorName": "Periodontal Pocket"
+        },
+        {
+            "QualifierName": [
+                "blood",
+                "pharmacokinetics",
+                "toxicity"
+            ],
+            "DescriptorName": "Prilocaine"
+        },
+        {
+            "QualifierName": [
+                "blood",
+                "pharmacokinetics"
+            ],
+            "DescriptorName": "Toluidines"
+        }
+    ],
+    "ChemicalList": [
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Anesthetics, Combined"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Anesthetics, Local"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Lidocaine, Prilocaine Drug Combination"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Toluidines"
+        },
+        {
+            "RegistryNumber": "046O35D44R",
+            "NameOfSubstance": "Prilocaine"
+        },
+        {
+            "RegistryNumber": "9008-37-1",
+            "NameOfSubstance": "Methemoglobin"
+        },
+        {
+            "RegistryNumber": "98PI200987",
+            "NameOfSubstance": "Lidocaine"
+        },
+        {
+            "RegistryNumber": "B635MZ0ZLU",
+            "NameOfSubstance": "2-toluidine"
+        }
+    ],
+    "doi": null,
+    "journal_sjr": 0.0,
+    "journal_h_index": 0,
+    "journal_if": 1.573,
+    "journal_metrics": [
+        1.573,
+        0,
+        0.0,
+        1.785
+    ],
+    "bacteria_entities": {},
+    "has_bacteria_ner": true,
+    "bacteria": [],
+    "has_bacteria_norm": true,
+    "nutrient_entities": {},
+    "has_nutrient_ner": true,
+    "chemical_entities": {
+        "0": [
+            [
+                "Oraqix",
+                0,
+                1
+            ],
+            [
+                "lidocaine",
+                10,
+                11
+            ],
+            [
+                "prilocaine",
+                12,
+                13
+            ]
+        ],
+        "1": [
+            [
+                "lidocaine",
+                13,
+                14
+            ],
+            [
+                "prilocaine",
+                15,
+                16
+            ]
+        ],
+        "3": [
+            [
+                "Oraqix",
+                14,
+                15
+            ]
+        ],
+        "4": [
+            [
+                "lidocaine",
+                4,
+                5
+            ],
+            [
+                "prilocaine",
+                14,
+                15
+            ],
+            [
+                "Oraqix",
+                42,
+                43
+            ]
+        ],
+        "6": [
+            [
+                "Oraqix",
+                7,
+                8
+            ],
+            [
+                "lidocaine",
+                12,
+                13
+            ],
+            [
+                "prilocaine",
+                18,
+                19
+            ]
+        ]
+    },
+    "has_chemical_ner": true,
+    "has_genetic_ner": true,
+    "enzyme_entities": [],
+    "metabolic_entities": [
+        [
+            0,
+            [
+                [
+                    "lidocaine",
+                    8,
+                    9
+                ],
+                [
+                    "prilocaine",
+                    10,
+                    11
+                ]
+            ]
+        ],
+        [
+            1,
+            [
+                [
+                    "lidocaine",
+                    13,
+                    14
+                ],
+                [
+                    "prilocaine",
+                    15,
+                    16
+                ]
+            ]
+        ],
+        [
+            4,
+            [
+                [
+                    "lidocaine",
+                    4,
+                    5
+                ],
+                [
+                    "prilocaine",
+                    10,
+                    11
+                ]
+            ]
+        ]
+    ],
+    "has_metabolic_ner": true,
+    "molecule": [
+        [
+            [
+                "Oraqix",
+                "MESH:D000077442",
+                "Lidocaine, Prilocaine Drug Combination"
+            ],
+            [
+                "lidocaine",
+                "MESH:D008012",
+                "Lidocaine"
+            ],
+            [
+                "prilocaine",
+                "MESH:D011318",
+                "Prilocaine"
+            ]
+        ],
+        [
+            [
+                "lidocaine",
+                "",
+                ""
+            ],
+            [
+                "Oraqix",
+                "",
+                ""
+            ],
+            [
+                "prilocaine",
+                "",
+                ""
+            ]
+        ]
+    ],
+    "has_molecular_norm": true,
+    "nutrient": [],
+    "has_nutrient_norm": true,
+    "disease_entities": {
+        "1": [
+            [
+                "periodontitis",
+                31,
+                32
+            ]
+        ],
+        "6": [
+            [
+                "toxicity",
+                42,
+                43
+            ]
+        ]
+    },
+    "has_disease_ner": true,
+    "disease": [
+        [
+            "periodontitis",
+            "MESH:D010518",
+            "Periodontitis"
+        ],
+        [
+            "toxicity",
+            "",
+            ""
+        ]
+    ],
+    "has_disease_norm": true,
+    "affiliation_entities": [
+        "Sweden\nS\u00f6dert\u00e4lje",
+        "Specialist Dental Clinic"
+    ],
+    "has_affiliation_ner": true,
+    "sample_size_entities": {
+        "1": [
+            [
+                11,
+                27,
+                28
+            ]
+        ]
+    },
+    "sample_size": 11,
+    "has_sample_size_ner": true,
+    "significance_conclusion": [],
+    "has_significance_ner": true,
+    "mtime": 1646878748.5657613,
+    "htime": "2022-03-10 10:19:08.565761",
+    "title_zh": "8.5 g Oraqix\u6cbb\u7597\u5e7f\u6cdb\u6027\u7259\u5468\u708e\u60a3\u8005\u540e\u8840\u6d46\u5229\u591a\u5361\u56e0\u3001\u90bb\u7532\u82ef\u80fa\u548c\u4e19\u6d1b\u5361\u56e0\u6c34\u5e73:\u5bf9\u8840\u9ad8\u94c1\u8840\u7ea2\u86cb\u767d\u548c\u8010\u53d7\u6027\u7684\u5f71\u54cd\u3002",
+    "abstract_zh": "Oraqix\u662f\u4e00\u79cd\u65b0\u578b\u7684\u975e\u6ce8\u5c04\u6027\u9ebb\u9189\u5242\u51dd\u80f6\uff0c\u542b\u6709\u5229\u591a\u5361\u56e0\u548c\u4e19\u6d1b\u5361\u56e0\u4ee5\u53ca\u4e00\u79cd\u70ed\u56fa\u6027\u5242\uff0c\u7528\u4e8e\u7259\u5468\u888b\u7684\u5c40\u90e8\u9ebb\u9189\u3002 \u8fd9\u4e2a\u5f00\u653e\u7814\u7a76\u7684\u76ee\u7684\u662f\u786e\u5b9a\u7684\u7b49\u79bb\u5b50\u4f53\u6c34\u5e73\u7684\u5229\u591a\u5361\u56e0\u548c\u4e19\u80fa\u5361\u56e0\u5e94\u75288.5 g Oraqix(5\u58a8\u76d2)11\u5e7f\u4e49\u7259\u5468\u708e\u60a3\u8005(> = 49%\u7684\u7259\u9f7f\u53e3\u888b>\u548c> = 5\u6beb\u7c73\u6216= 23%\u7684\u53e3\u888b>\u6216= 6\u6beb\u7c73)\u3002 \u5728\u7259\u5468\u63a2\u6d4b\u548cSRP\u671f\u95f4\uff0cOraqix\u5e94\u7528\u4e8e\u888b\u4f53\uff0c\u65f6\u95f4\u4e3a2.6 ~ 3.4\u5c0f\u65f6\u3002 \u5728\u5e94\u7528Oraqix 10\u5c0f\u65f6\u540e\u91c7\u96c6\u8840\u6db2\u6837\u672c\u3002 \u5e94\u7528Oraqix\u540e\uff0c\u8840\u6d46\u5229\u591a\u5361\u56e0(0.16-0.55 mg/L)\u548c\u4e19\u6d1b\u5361\u56e0(0.05-0.18 mg/L)\u7684\u5cf0\u503c\u5206\u522b\u51fa\u73b0\u57282.0-3.7 h\u548c2.0-3.3 h\u3002 \u8fd9\u4e9b\u6c34\u5e73\u8fdc\u4f4e\u4e8e\u4e2d\u67a2\u795e\u7ecf\u7cfb\u7edf(CNS)\u4e2d\u6bd2\u7684\u521d\u59cb\u8ff9\u8c61\u7684\u9608\u503c\u6c34\u5e73\u3002 \u603b\u4e4b\uff0c8.5 g Oraqix (212.5 mg\u5229\u591a\u5361\u56e0\u57fa\u548c212.5 mg\u4e19\u6d1b\u5361\u56e0\u57fa\u548c)\u5728\u7259\u5468\u888b\u5185\u7684\u5e94\u7528\u5177\u6709\u826f\u597d\u7684\u8010\u53d7\u529b\uff0c\u76f8\u5bf9\u4e8e\u6b63\u5e38\u60c5\u51b5\u4e0b\u4e0e\u5168\u8eab\u6bd2\u6027\u76f8\u5173\u7684\u8840\u6d46\u6c34\u5e73\uff0c\u663e\u793a\u51fa\u5e7f\u6cdb\u7684\u5b89\u5168\u8fb9\u754c\u3002",
+    "has_translated": true,
+    "chemical": [
+        [
+            "Oraqix",
+            "MESH:D000077442",
+            "Lidocaine, Prilocaine Drug Combination"
+        ],
+        [
+            "lidocaine",
+            "MESH:D008012",
+            "Lidocaine"
+        ],
+        [
+            "prilocaine",
+            "MESH:D011318",
+            "Prilocaine"
+        ]
+    ],
+    "gene_entities": {},
+    "gene": [],
+    "anatomy_entities": {
+        "0": [
+            [
+                ", a",
+                1,
+                3
+            ]
+        ],
+        "1": [
+            [
+                "levels of",
+                11,
+                13
+            ],
+            [
+                "of tooth",
+                38,
+                40
+            ]
+        ],
+        "2": [],
+        "3": [],
+        "4": [
+            [
+                "levels of",
+                2,
+                4
+            ]
+        ],
+        "5": [
+            [
+                "central nervous",
+                11,
+                13
+            ],
+            [
+                "central nervous system",
+                11,
+                14
+            ],
+            [
+                "nervous system",
+                12,
+                14
+            ],
+            [
+                "system (",
+                13,
+                15
+            ],
+            [
+                "central nervous",
+                15,
+                17
+            ],
+            [
+                "central nervous system",
+                15,
+                18
+            ],
+            [
+                "nervous system",
+                16,
+                18
+            ]
+        ],
+        "6": []
+    },
+    "anatomy": [
+        [
+            ", a",
+            "",
+            ""
+        ],
+        [
+            "central nervous",
+            "MESH:D002490",
+            "Central Nervous System"
+        ],
+        [
+            "central nervous system",
+            "MESH:D002490",
+            "Central Nervous System"
+        ],
+        [
+            "levels of",
+            "",
+            ""
+        ],
+        [
+            "nervous system",
+            "MESH:D009420",
+            "Nervous System"
+        ],
+        [
+            "of tooth",
+            "MESH:D014070",
+            "Tooth"
+        ],
+        [
+            "system (",
+            "",
+            ""
+        ]
+    ],
+    "antibody_entities": {},
+    "antibody": [],
+    "abstract_prep": "Oraqix, a novel non-injectable anesthetic gel containing lidocaine and prilocaine and a thermosetting agent has been developed to provide localized anesthesia in periodontal pockets during scaling/root planing (scaling/root planing). The aim of this open study was to determine the plasma levels of lidocaine and prilocaine following application of 8.5 g Oraqix (5 cartridges) to 11 patients with generalized periodontitis (> or = 49% of tooth pockets > or = 5 mm and > or = 23% of pockets > or = 6 mm). Oraqix was applied to the pockets during periodontal probing and scaling/root planing over a 2.6 3.4 h period. Blood samples were collected up to 10 h after the start of application of Oraqix. Peak plasma levels of lidocaine (0.16-0.55 mg/L) and prilocaine (0.05-0.18 mg/L) occurred 2.0-3.7 h and 2.0-3.3 h, respectively, after the start of application of Oraqix. These levels are well below threshold levels for initial signs of central nervous system (central nervous system) toxicity. In conclusion, application of 8.5 g Oraqix (212.5 mg of lidocaine base and 212.5 mg of prilocaine base) in periodontal pockets was well tolerated and displayed a wide safety margin with respect to plasma levels normally associated with systemic toxicity.",
+    "sentence_labels": [
+        [
+            0,
+            "BACKGROUND"
+        ],
+        [
+            1,
+            "OBJECTIVE"
+        ],
+        [
+            2,
+            "METHODS"
+        ],
+        [
+            3,
+            "METHODS"
+        ],
+        [
+            4,
+            "RESULTS"
+        ],
+        [
+            5,
+            "CONCLUSIONS"
+        ],
+        [
+            6,
+            "CONCLUSIONS"
+        ]
+    ],
+    "abstract_highlight": [
+        "<bold=True italic=True font_color=#008000>",
+        "Oraqix ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "a ",
+        "novel ",
+        "non-injectable ",
+        "anesthetic ",
+        "gel ",
+        "containing ",
+        "<bold=True italic=True font_color=#008000>",
+        "lidocaine ",
+        "and ",
+        "<bold=True italic=True font_color=#008000>",
+        "prilocaine ",
+        "and ",
+        "a ",
+        "thermosetting ",
+        "agent ",
+        "has ",
+        "been ",
+        "developed ",
+        "to ",
+        "provide ",
+        "localized ",
+        "anesthesia ",
+        "in ",
+        "periodontal ",
+        "pockets ",
+        "during ",
+        "scaling/root ",
+        "planing ",
+        "( ",
+        "scaling/root ",
+        "planing ",
+        ") ",
+        ". ",
+        "The ",
+        "aim ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "this ",
+        "open ",
+        "study ",
+        "was ",
+        "to ",
+        "determine ",
+        "the ",
+        "plasma ",
+        "<bold=True italic=True font_color=purpule>",
+        "levels ",
+        "of ",
+        "<bold=True italic=True font_color=#008000>",
+        "lidocaine ",
+        "and ",
+        "<bold=True italic=True font_color=#008000>",
+        "prilocaine ",
+        "following ",
+        "application ",
+        "of ",
+        "8.5 ",
+        "g ",
+        "Oraqix ",
+        "( ",
+        "5 ",
+        "cartridges ",
+        ") ",
+        "to ",
+        "11 ",
+        "patients ",
+        "with ",
+        "generalized ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "( ",
+        "> ",
+        "or ",
+        "= ",
+        "49 ",
+        "% ",
+        "of ",
+        "<bold=True italic=True font_color=purpule>",
+        "tooth ",
+        "pockets ",
+        "> ",
+        "or ",
+        "= ",
+        "5 ",
+        "mm ",
+        "and ",
+        "> ",
+        "or ",
+        "= ",
+        "23 ",
+        "% ",
+        "of ",
+        "pockets ",
+        "> ",
+        "or ",
+        "= ",
+        "6 ",
+        "mm ",
+        ") ",
+        ". ",
+        "Oraqix ",
+        "was ",
+        "applied ",
+        "to ",
+        "the ",
+        "pockets ",
+        "during ",
+        "periodontal ",
+        "probing ",
+        "and ",
+        "scaling/root ",
+        "planing ",
+        "over ",
+        "a ",
+        "2.6 ",
+        "3.4 ",
+        "h ",
+        "period ",
+        ". ",
+        "Blood ",
+        "samples ",
+        "were ",
+        "collected ",
+        "up ",
+        "to ",
+        "10 ",
+        "h ",
+        "after ",
+        "the ",
+        "start ",
+        "of ",
+        "application ",
+        "of ",
+        "<bold=True italic=True font_color=#008000>",
+        "Oraqix ",
+        ". ",
+        "Peak ",
+        "plasma ",
+        "<bold=True italic=True font_color=purpule>",
+        "levels ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "<bold=True italic=True font_color=#008000>",
+        "lidocaine ",
+        "( ",
+        "0.16-0.55 ",
+        "mg/L ",
+        ") ",
+        "and ",
+        "<bold=True italic=True font_color=#008000>",
+        "prilocaine ",
+        "( ",
+        "0.05-0.18 ",
+        "mg/L ",
+        ") ",
+        "occurred ",
+        "2.0-3.7 ",
+        "h ",
+        "and ",
+        "2.0-3.3 ",
+        "h ",
+        ", ",
+        "respectively ",
+        ", ",
+        "after ",
+        "the ",
+        "start ",
+        "of ",
+        "application ",
+        "of ",
+        "<bold=True italic=True font_color=#008000>",
+        "Oraqix ",
+        ". ",
+        "These ",
+        "levels ",
+        "are ",
+        "well ",
+        "below ",
+        "threshold ",
+        "levels ",
+        "for ",
+        "initial ",
+        "signs ",
+        "of ",
+        "<bold=True italic=True font_color=purpule>",
+        "central ",
+        "<bold=True italic=True font_color=purpule>",
+        "nervous ",
+        "<bold=True italic=True font_color=purpule>",
+        "system ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "central ",
+        "nervous ",
+        "system ",
+        ") ",
+        "toxicity ",
+        ". ",
+        "In ",
+        "conclusion ",
+        ", ",
+        "application ",
+        "of ",
+        "8.5 ",
+        "g ",
+        "<bold=True italic=True font_color=#008000>",
+        "Oraqix ",
+        "( ",
+        "212.5 ",
+        "mg ",
+        "of ",
+        "<bold=True italic=True font_color=#008000>",
+        "lidocaine ",
+        "base ",
+        "and ",
+        "212.5 ",
+        "mg ",
+        "of ",
+        "<bold=True italic=True font_color=#008000>",
+        "prilocaine ",
+        "base ",
+        ") ",
+        "in ",
+        "periodontal ",
+        "pockets ",
+        "was ",
+        "well ",
+        "tolerated ",
+        "and ",
+        "displayed ",
+        "a ",
+        "wide ",
+        "safety ",
+        "margin ",
+        "with ",
+        "respect ",
+        "to ",
+        "plasma ",
+        "levels ",
+        "normally ",
+        "associated ",
+        "with ",
+        "systemic ",
+        "<bold=True italic=True font_color=#000080>",
+        "toxicity ",
+        ". "
+    ]
+}
