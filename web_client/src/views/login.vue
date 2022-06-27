@@ -80,7 +80,7 @@ export default {
           message_type: "sign_in",
           email:this.loginForm.email,
           //password:this.loginForm.password,
-           password:md5(this.loginForm.password)
+           password:this.loginForm.password
         })
       })
           .then(function(res){
