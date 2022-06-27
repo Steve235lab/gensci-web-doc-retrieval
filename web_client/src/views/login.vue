@@ -11,7 +11,7 @@
       </el-form-item>
       <el-form-item prop="password" label="密码">
         <el-col :span="18">
-          <el-input placeholder="请输⼊密码" v-model="loginForm.password"></el-input>
+          <el-input placeholder="请输⼊密码" show-password="show-password" v-model="loginForm.password"></el-input>
         </el-col>
       </el-form-item>
 
@@ -89,7 +89,7 @@ export default {
             var token=res.data.token;
             console.log(token);
             var jieguo=res.data.result;
-          if(jieguo=='success'){
+          if(jieguo==='success'){
             console.log('登录成功')
             that.$router.push('home')
           }  
