@@ -580,6 +580,7 @@ def get_clue_info(request):
             if page_num == 0:
                 row_start = 2
                 row_end = row_max
+                json_rsp['message_type'] = 'network'
             else:
                 # 每页显示的线索数目
                 papers_on_one_page = 20

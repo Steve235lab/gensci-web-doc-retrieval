@@ -6,6 +6,7 @@
 import time
 
 from pymysql import connect
+from pymysql.converters import escape_string
 
 # DATABASE对象中user_list成员的最大长度
 USER_LIST_MAX_LENGTH = 1024
@@ -357,14 +358,15 @@ class Database:
         :param highlight_abstract: 高亮处理后的文章摘要
         :return: None
         """
+        highlight_abstract_escaped = escape_string(highlight_abstract)
         try:
             self.is_connected()
-            sql = """insert into paper_abstract values ('%d', '%s')""" % (pmid, highlight_abstract)
+            sql = """insert into paper_abstract values ('%d', '%s')""" % (pmid, highlight_abstract_escaped)
             self.cursor.execute(sql)
             self.conn.commit()
         except:
             self.is_connected()
-            sql = """update paper_abstract set highlight_abstract = ('%s') where pmid = ('%d')""" % (highlight_abstract, pmid)
+            sql = """update paper_abstract set highlight_abstract = ('%s') where pmid = ('%d')""" % (highlight_abstract_escaped, pmid)
             self.cursor.execute(sql)
             self.conn.commit()
 
