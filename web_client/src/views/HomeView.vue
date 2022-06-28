@@ -22,7 +22,6 @@
               class="input-with-select"
               clearable
               style="height:40px;"
-              @keyup.enter.native="handleSearch"
               autocomplete="on">
             <el-button slot="append" icon="el-icon-search" @click="handleSearch"></el-button>
           </el-input>
@@ -328,7 +327,7 @@ export default {
 
   data() {
 
-    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjM2MDYxOC4xMjYzNjE0LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.jD6Ovwcazlh7Ozg7iVLseOELXx3wvBjluUC6dWyyZ1Q";
+    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjM4ODUwOS41NjA4NDk0LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.Bs3Sg47ULyMi-OgCYyQeRE44f9UbdyLn6njIVtQZ1Oo";
     let timestamp = 114514;
     return {
       token,
@@ -391,6 +390,7 @@ export default {
     };
   },
   mounted() {
+    this.keyDown()
     this.getHistory();
     graph = new G6.Graph({
           container: 'network',
@@ -413,6 +413,7 @@ export default {
           // 边默认配置
           defaultEdge: {
             labelCfg: {
+              refY: 7,
               autoRotate: true,
             },
           },
@@ -457,6 +458,14 @@ export default {
     // }
   },
   methods: {
+    // 监听键盘
+    keyDown() {
+      document.onkeydown =  (e) => {
+        if (e && e.keyCode === 13) {
+          this.handleSearch()
+        }
+      }
+    },
     //获取历史记录
     getHistory(){
       var that = this;
@@ -474,6 +483,13 @@ export default {
 
             that.history = res.data.history
             that.token = res.data.token
+            if(res.data.message_type==="token_expired"){
+              that.$message({
+                showClose: true,
+                message: '登录已过期，请重新登录！',
+                type: 'error'
+              });
+            }
             console.log(that.history)
             console.log(that.token)
             console.log(res.data)
@@ -481,6 +497,13 @@ export default {
           .catch(function(err){
             console.log(err)
             console.log('连接失败')
+            if(err.message==="Network Error"){
+              that.$message({
+                showClose: true,
+                message: '连接错误，请重试！',
+                type: 'error'
+              });
+            }
           })
     },
     //监听结果显示标签页选择事件
@@ -542,7 +565,11 @@ export default {
     //提交搜索请求
     handleSearch() {
       if (this.keywords === ''){
-        this.$message('输入不能为空');
+        this.$message({
+          showClose: true,
+          message: '输入不能为空',
+          type: 'error'
+        });
       }
       else {
         console.log('发送搜索请求')
@@ -568,9 +595,30 @@ export default {
               console.log(res);
               console.log('已成功发送搜索请求');
               console.log(res.data)
+              if(res.data.message_type==="token_expired"){
+                that.$message({
+                  showClose: true,
+                  message: '登录已过期，请重新登录！',
+                  type: 'error'
+                });
+              }
+              else if(res.data.message_type==="search_received"){
+                that.$message({
+                  showClose: true,
+                  message: '您已成功提交搜索，稍后将于邮箱通知您！',
+                  type: 'success'
+                });
+              }
             })
             .catch(function(err){
               console.log(err)
+              if(err.message==="Network Error"){
+                that.$message({
+                  showClose: true,
+                  message: '连接错误，请重试！',
+                  type: 'error'
+                });
+              }
             })
         this.keywords = '';
         this.species = [];
@@ -603,11 +651,25 @@ export default {
             console.log(res);
             console.log('连接成功');
             console.log(res.data)
+            if(res.data.message_type==="token_expired"){
+              that.$message({
+                showClose: true,
+                message: '登录已过期，请重新登录！',
+                type: 'error'
+              });
+            }
             that.paper_result=res.data.paper_info
             that.paper_page_Info.total=res.data.total
           })
           .catch(function(err){
             console.log(err)
+            if(err.message==="Network Error"){
+              that.$message({
+                showClose: true,
+                message: '连接错误，请重试！',
+                type: 'error'
+              });
+            }
           })
 
     },
@@ -629,12 +691,27 @@ export default {
           .then(function(res){
             console.log(res);
             console.log('连接成功');
+            if(res.data.message_type==="token_expired"){
+              that.$message({
+                showClose: true,
+                message: '登录已过期，请重新登录！',
+                type: 'error'
+              });
+            }
             console.log(res.data)
             that.clue_result=res.data.clue_info
             that.clue_page_Info.total=res.data.total
+            that.draw_network()
           })
           .catch(function(err){
             console.log(err)
+            if(err.message==="Network Error"){
+              that.$message({
+                showClose: true,
+                message: '连接错误，请重试！',
+                type: 'error'
+              });
+            }
           })
 
     },
