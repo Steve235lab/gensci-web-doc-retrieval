@@ -12,6 +12,55 @@ from pymysql.converters import escape_string
 USER_LIST_MAX_LENGTH = 1024
 
 
+class User:
+    """用户信息数据类
+
+    用于创建包含用户信息的用户对象，详细文档见 ../docs/用户信息数据类设计.md
+
+    class User 原位于 user_info.py 因为其中包含对 DATABASE 的操作，交叉调用存在问题，故移动至该文件下
+
+    数据成员：
+        -uuid
+        -username
+        -password
+        -email
+        -search_history
+        -confirm_code
+        -email_confirmed
+        -permissions
+    """
+
+    def __init__(self, username, password, email, uuid=None, **kwargs):
+        # 根据uuid的赋值情况执行不同的操作分支
+        if uuid is None:  # 未传入uuid，执行注册新用户操作，使用默认值初始化对象
+            new_uuid = max(DATABASE.all_uuids) + 1
+            self.uuid = new_uuid
+            self.username = username
+            self.password = password
+            self.email = email
+            self.search_history = {}
+            self.confirm_code = kwargs['confirm_code']
+            self.email_confirmed = False
+            self.permissions = 'all'  # 后续完善权限系统后再做更改
+        else:  # 传入了uuid，执行加载数据操作，使用已保存的数据初始化对象
+            self.uuid = uuid
+            self.username = username
+            self.password = password
+            self.email = email
+            self.search_history = kwargs['search_history']
+            self.confirm_code = kwargs['confirm_code']
+            self.email_confirmed = kwargs['email_confirmed']
+            self.permissions = kwargs['permissions']
+
+    def print_user_info(self):
+        """打印用户对象的各数据成员"""
+        print("uuid: ", self.uuid)
+        print("username: ", self.username)
+        print("password: ", self.password)
+        print("email: ", self.email)
+        print("search_history: ")
+
+
 class Database:
     """内存中的数据对象集合，外部数据库交互接口
 
@@ -128,7 +177,7 @@ class Database:
             self.conn = connect(host='42.192.44.52', port=3306, user='root', password='root',
                                 database='gensci-web-doc-retrieval-db', charset='utf8')
 
-    def write_user(self, user):
+    def write_user(self, user: User):
         """将User对象拆分为基本数据元，然后写入数据库
 
         :param user: (User object) 待写入的User对象
@@ -150,7 +199,7 @@ class Database:
         self.cursor.execute(sql)
         self.conn.commit()
 
-    def add_user(self, user):
+    def add_user(self, user: User):
         """将新注册的User对象放入user_list，然后write_user
 
         :param user: (User object) 新注册的用户对象
@@ -166,7 +215,7 @@ class Database:
         while len(self.user_list) > USER_LIST_MAX_LENGTH:
             self.user_list.pop(0)
 
-    def get_user(self, uuid):
+    def get_user(self, uuid: int):
         """使用uuid查找用户对象
 
         用uuid先在user_list中查找，找到后返回User对象；如果找不到再到数据库中查找，找到后使用数据库中的数据初始化User对象，返回该User对象，然
@@ -228,7 +277,7 @@ class Database:
 
                 return found_user
 
-    def rewrite_user(self, changed_user):
+    def rewrite_user(self, changed_user: User):
         """覆盖写入更改后的User对象以起到修改数据库中数据的效果
 
         先到user_list中查找替换掉具有相同uuid的对象（如有），然后覆盖写入到数据库中
@@ -257,7 +306,7 @@ class Database:
             self.cursor.execute(sql)
             self.conn.commit()
 
-    def remove_user(self, uuid):
+    def remove_user(self, uuid: int):
         """ 根据uuid删除用户
 
         先在user_list中删除，然后将指定uuid的用户在数据库中的removed标签置为True
@@ -284,14 +333,15 @@ class Database:
             self.cursor.execute(sql)
             self.conn.commit()
 
-    def add_search_history(self, keywords, uuid, raw_keywords):
+    def add_search_history(self, keywords: str, uuid: int, raw_keywords: str):
         """向数据库中添加一条新的搜索记录
 
         生成当前时间戳，查找并更新 self.searched_keywords 确定 result_timestamp，写入数据库
 
+        :param raw_keywords: (str) 用户输入的原始关键词，不包括筛选器
         :param keywords: (str) 用户搜索的关键词组合
         :param uuid: (int) 进行该次搜索的用户序号
-        :return timestamp: (int) 该条新历史记录的时间戳
+        :return: (int) timestamp 该条新历史记录的时间戳
         """
         timestamp: int = int(time.mktime(time.localtime(time.time())))
 
@@ -384,57 +434,9 @@ class Database:
         return highlight_abstract
 
 
-class User:
-    """用户信息数据类
-
-    用于创建包含用户信息的用户对象，详细文档见 ../docs/用户信息数据类设计.md
-
-    class User 原位于 user_info.py 因为其中包含对 DATABASE 的操作，交叉调用存在问题，故移动至该文件下
-
-    数据成员：
-        -uuid
-        -username
-        -password
-        -email
-        -search_history
-        -confirm_code
-        -email_confirmed
-        -permissions
-    """
-
-    def __init__(self, username, password, email, uuid=None, **kwargs):
-        # 根据uuid的赋值情况执行不同的操作分支
-        if uuid is None:  # 未传入uuid，执行注册新用户操作，使用默认值初始化对象
-            new_uuid = max(DATABASE.all_uuids) + 1
-            self.uuid = new_uuid
-            self.username = username
-            self.password = password
-            self.email = email
-            self.search_history = {}
-            self.confirm_code = kwargs['confirm_code']
-            self.email_confirmed = False
-            self.permissions = 'all'  # 后续完善权限系统后再做更改
-        else:  # 传入了uuid，执行加载数据操作，使用已保存的数据初始化对象
-            self.uuid = uuid
-            self.username = username
-            self.password = password
-            self.email = email
-            self.search_history = kwargs['search_history']
-            self.confirm_code = kwargs['confirm_code']
-            self.email_confirmed = kwargs['email_confirmed']
-            self.permissions = kwargs['permissions']
-
-    def print_user_info(self):
-        """打印用户对象的各数据成员"""
-        print("uuid: ", self.uuid)
-        print("username: ", self.username)
-        print("password: ", self.password)
-        print("email: ", self.email)
-        print("search_history: ")
-
-
 # 唯一全局对象
 DATABASE = Database()
+
 
 if __name__ == "__main__":
     # test
