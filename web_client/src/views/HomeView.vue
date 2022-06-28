@@ -22,7 +22,6 @@
               class="input-with-select"
               clearable
               style="height:40px;"
-              @keyup.enter.native="handleSearch"
               autocomplete="on">
             <el-button slot="append" icon="el-icon-search" @click="handleSearch"></el-button>
           </el-input>
@@ -180,7 +179,7 @@
 <!--      历史记录-->
       <el-col :span="3" :offset="2" >
         <div style="height:30px;text-align:left;">
-          历史搜索记录
+          当前可查看
           <el-link :underline="false" @click="getHistory" icon="el-icon-refresh" style="font-size: 17px"></el-link>
         </div>
         <div style="height: 650px;overflow:auto">
@@ -328,7 +327,7 @@ export default {
 
   data() {
 
-    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjM1MTE1Mi44ODA0MTE5LCJzYWx0IjoiU3RldmUyMzVMYWIifQ._ELAyT1WRayT3-01OofN5FzYIwSPgPI0JkOjkBESAnw";
+    let token = window.localStorage.getItem('token');
     let timestamp = 114514;
     return {
       token,
@@ -378,6 +377,7 @@ export default {
       history:[],
       paper_result:[],
       clue_result:[],
+      clue:{nodes:[],edges:[]},
       paper_page_Info: {
         total: 0,
         currentNumber: 1,
@@ -390,26 +390,30 @@ export default {
     };
   },
   mounted() {
+    this.keyDown()
     this.getHistory();
     graph = new G6.Graph({
           container: 'network',
           width: 980,
           height: 600,
           // 是否开启画布自适应。开启后图自动适配画布大小。
-          fitView: true,
+          // fitView: true,
           //v3.5.1 后支持。开启后，图将会被平移，图的中心将对齐到画布中心，但不缩放。优先级低于 fitView
           fitCenter: true,
           // 节点默认配置
           defaultNode: {
             labelCfg: {
+              position: 'bottom',
+              offset: 3,
               style: {
-                fill: '#fff',
+                fill: '#000',
               },
             },
           },
           // 边默认配置
           defaultEdge: {
             labelCfg: {
+              refY: 7,
               autoRotate: true,
             },
           },
@@ -454,6 +458,14 @@ export default {
     // }
   },
   methods: {
+    // 监听键盘
+    keyDown() {
+      document.onkeydown =  (e) => {
+        if (e && e.keyCode === 13) {
+          this.handleSearch()
+        }
+      }
+    },
     //获取历史记录
     getHistory(){
       var that = this;
@@ -468,8 +480,16 @@ export default {
           .then(function (res){
             console.log(res)
             console.log('连接成功')
+
             that.history = res.data.history
             that.token = res.data.token
+            if(res.data.message_type==="token_expired"){
+              that.$message({
+                showClose: true,
+                message: '登录已过期，请重新登录！',
+                type: 'error'
+              });
+            }
             console.log(that.history)
             console.log(that.token)
             console.log(res.data)
@@ -477,6 +497,13 @@ export default {
           .catch(function(err){
             console.log(err)
             console.log('连接失败')
+            if(err.message==="Network Error"){
+              that.$message({
+                showClose: true,
+                message: '连接错误，请重试！',
+                type: 'error'
+              });
+            }
           })
     },
     //监听结果显示标签页选择事件
@@ -538,7 +565,11 @@ export default {
     //提交搜索请求
     handleSearch() {
       if (this.keywords === ''){
-        this.$message('输入不能为空');
+        this.$message({
+          showClose: true,
+          message: '输入不能为空',
+          type: 'error'
+        });
       }
       else {
         console.log('发送搜索请求')
@@ -564,9 +595,30 @@ export default {
               console.log(res);
               console.log('已成功发送搜索请求');
               console.log(res.data)
+              if(res.data.message_type==="token_expired"){
+                that.$message({
+                  showClose: true,
+                  message: '登录已过期，请重新登录！',
+                  type: 'error'
+                });
+              }
+              else if(res.data.message_type==="search_received"){
+                that.$message({
+                  showClose: true,
+                  message: '您已成功提交搜索，稍后将于邮箱通知您！',
+                  type: 'success'
+                });
+              }
             })
             .catch(function(err){
               console.log(err)
+              if(err.message==="Network Error"){
+                that.$message({
+                  showClose: true,
+                  message: '连接错误，请重试！',
+                  type: 'error'
+                });
+              }
             })
         this.keywords = '';
         this.species = [];
@@ -599,11 +651,25 @@ export default {
             console.log(res);
             console.log('连接成功');
             console.log(res.data)
+            if(res.data.message_type==="token_expired"){
+              that.$message({
+                showClose: true,
+                message: '登录已过期，请重新登录！',
+                type: 'error'
+              });
+            }
             that.paper_result=res.data.paper_info
             that.paper_page_Info.total=res.data.total
           })
           .catch(function(err){
             console.log(err)
+            if(err.message==="Network Error"){
+              that.$message({
+                showClose: true,
+                message: '连接错误，请重试！',
+                type: 'error'
+              });
+            }
           })
 
     },
@@ -625,78 +691,63 @@ export default {
           .then(function(res){
             console.log(res);
             console.log('连接成功');
+            if(res.data.message_type==="token_expired"){
+              that.$message({
+                showClose: true,
+                message: '登录已过期，请重新登录！',
+                type: 'error'
+              });
+            }
             console.log(res.data)
             that.clue_result=res.data.clue_info
             that.clue_page_Info.total=res.data.total
+            that.draw_network()
           })
           .catch(function(err){
             console.log(err)
+            if(err.message==="Network Error"){
+              that.$message({
+                showClose: true,
+                message: '连接错误，请重试！',
+                type: 'error'
+              });
+            }
           })
 
     },
     //绘制network网络图
+    getdrawInfo(){
+      var index_n = 0;
+      var index_e = 0;
+      this.clue_result.forEach((clue_info) => {
+        console.log(clue_info);
+        if(!this.clue.nodes[index_n]){
+          this.clue.nodes[index_n]={};
+        }
+        this.clue.nodes[index_n].id = clue_info.Node1;
+        this.clue.nodes[index_n].label = clue_info.Node1;
+        index_n++;
+        if(!this.clue.nodes[index_n]){
+          this.clue.nodes[index_n]={};
+        }
+        this.clue.nodes[index_n].id = clue_info.Node2;
+        this.clue.nodes[index_n].label = clue_info.Node2;
+        index_n++;
+        if(!this.clue.edges[index_e]){
+          this.clue.edges[index_e]={};
+        }
+        this.clue.edges[index_e].source = clue_info.Node1;
+        this.clue.edges[index_e].target = clue_info.Node2;
+        this.clue.edges[index_e].weight = clue_info.Weight;
+        this.clue.edges[index_e].label = clue_info.Paper_List;
+        index_e++;
+      });
+    },
     draw_network(){
-      const remoteData = {
+      this.getdrawInfo();
 
-        "nodes": [
-          {"id": "0", "label": "n0", "class": "c0" },
-          {"id": "1", "label": "n1", "class": "c0" },
-          {"id": "2", "label": "n2", "class": "c0" },
-          {"id": "3", "label": "n3", "class": "c0" },
-          {"id": "4", "label": "n4", "class": "c0" },
-          {"id": "5", "label": "n5", "class": "c0" },
-          {"id": "6", "label": "n6", "class": "c1"},
-          {"id": "7", "label": "n7", "class": "c1"},
-          {"id": "8", "label": "n8", "class": "c1" },
-          {"id": "9", "label": "n9", "class": "c1" },
-          {"id": "10", "label": "n10", "class": "c1" },
-          {"id": "11", "label": "n11", "class": "c1" },
-          {"id": "12", "label": "n12", "class": "c1" },
-          {"id": "13", "label": "n13", "class": "c2" },
-          {"id": "14", "label": "n14", "class": "c2" },
-          {"id": "15", "label": "n15", "class": "c2" },
-          {"id": "16", "label": "n16", "class": "c2" },
-          {"id": "17", "label": "n17", "class": "c2" },
-          {"id": "18", "label": "n18", "class": "c2" },
-          {"id": "19", "label": "n19", "class": "c2" }
-        ],
-        "edges": [
-          {"source": "0", "target": "1", "label": "e0-1", "weight": 1 },
-          {"source": "0", "target": "2", "label": "e0-2", "weight": 2 },
-          {"source": "0", "target": "3", "label": "e0-3", "weight": 3 },
-          {"source": "0", "target": "4", "label": "e0-4", "weight": 1.4 },
-          {"source": "0", "target": "5", "label": "e0-5", "weight": 2 },
-          {"source": "0", "target": "7", "label": "e0-7", "weight": 2 },
-          {"source": "0", "target": "8", "label": "e0-8", "weight": 2 },
-          {"source": "0", "target": "9", "label": "e0-9", "weight": 1.3 },
-          {"source": "0", "target": "10", "label": "e0-10", "weight": 1.5 },
-          {"source": "0", "target": "11", "label": "e0-11", "weight": 1 },
-          {"source": "0", "target": "13", "label": "e0-13", "weight": 10 },
-          {"source": "0", "target": "14", "label": "e0-14", "weight": 2 },
-          {"source": "0", "target": "15", "label": "e0-15", "weight": 0.5 },
-          {"source": "0", "target": "16", "label": "e0-16", "weight": 0.8 },
-          {"source": "2", "target": "3", "label": "e2-3", "weight": 1 },
-          {"source": "4", "target": "5", "label": "e4-5", "weight": 1.4 },
-          {"source": "4", "target": "6", "label": "e4-6", "weight": 2.1 },
-          {"source": "5", "target": "6", "label": "e5-6", "weight": 1.9 },
-          {"source": "7", "target": "13", "label": "e7-13", "weight": 0.5 },
-          {"source": "8", "target": "14", "label": "e8-14", "weight": 0.8 },
-          {"source": "9", "target": "10", "label": "e9-10", "weight": 0.2 },
-          {"source": "10", "target": "14", "label": "e10-14", "weight": 1 },
-          {"source": "10", "target": "12", "label": "e10-12", "weight": 1.2 },
-          {"source": "11", "target": "14", "label": "e11-14", "weight": 1.2 },
-          {"source": "12", "target": "13", "label": "e12-13", "weight": 2.1 },
-          {"source": "16", "target": "17", "label": "e16-17", "weight": 2.5 },
-          {"source": "16", "target": "18", "label": "e16-18", "weight": 3 },
-          {"source": "17", "target": "18", "label": "e17-18", "weight": 2.6 },
-          {"source": "18", "target": "19", "label": "e18-19", "weight": 1.6 }
-        ]
-
-
-      }
-
-      const nodes = remoteData.nodes;
-      const edges = remoteData.edges;
+      const nodes = this.clue.nodes;
+      const edges = this.clue.edges;
       nodes.forEach((node) => {
         if (!node.style) {
           node.style = {};
@@ -704,23 +755,6 @@ export default {
         node.style.lineWidth = 1;
         node.style.stroke = '#666';
         node.style.fill = 'steelblue';
-        switch (node.class) {
-          case 'c0': {
-            node.type = 'circle';
-            node.size = 30;
-            break;
-          }
-          case 'c1': {
-            node.type = 'rect';
-            node.size = [35, 20];
-            break;
-          }
-          case 'c2': {
-            node.type = 'ellipse';
-            node.size = [35, 20];
-            break;
-          }
-        }
       });
       edges.forEach((edge) => {
         if (!edge.style) {
@@ -731,7 +765,7 @@ export default {
         edge.style.stroke = 'grey';
       });
 
-      graph.data(remoteData);
+      graph.data(this.clue);
       graph.render();
 
       // 监听鼠标进入节点
@@ -769,6 +803,140 @@ export default {
         graph.setItemState(edgeItem, 'click', true);
       });
     }
+    // draw_network(){
+    //   const remoteData = {
+    //
+    //     "nodes": [
+    //       {"id": "0", "label": "n0", "class": "c0" },
+    //       {"id": "1", "label": "n1", "class": "c0" },
+    //       {"id": "2", "label": "n2", "class": "c0" },
+    //       {"id": "3", "label": "n3", "class": "c0" },
+    //       {"id": "4", "label": "n4", "class": "c0" },
+    //       {"id": "5", "label": "n5", "class": "c0" },
+    //       {"id": "6", "label": "n6", "class": "c1"},
+    //       {"id": "7", "label": "n7", "class": "c1"},
+    //       {"id": "8", "label": "n8", "class": "c1" },
+    //       {"id": "9", "label": "n9", "class": "c1" },
+    //       {"id": "10", "label": "n10", "class": "c1" },
+    //       {"id": "11", "label": "n11", "class": "c1" },
+    //       {"id": "12", "label": "n12", "class": "c1" },
+    //       {"id": "13", "label": "n13", "class": "c2" },
+    //       {"id": "14", "label": "n14", "class": "c2" },
+    //       {"id": "15", "label": "n15", "class": "c2" },
+    //       {"id": "16", "label": "n16", "class": "c2" },
+    //       {"id": "17", "label": "n17", "class": "c2" },
+    //       {"id": "18", "label": "n18", "class": "c2" },
+    //       {"id": "19", "label": "n19", "class": "c2" }
+    //     ],
+    //     "edges": [
+    //       {"source": "0", "target": "1", "label": "e0-1", "weight": 1 },
+    //       {"source": "0", "target": "2", "label": "e0-2", "weight": 2 },
+    //       {"source": "0", "target": "3", "label": "e0-3", "weight": 3 },
+    //       {"source": "0", "target": "4", "label": "e0-4", "weight": 1.4 },
+    //       {"source": "0", "target": "5", "label": "e0-5", "weight": 2 },
+    //       {"source": "0", "target": "7", "label": "e0-7", "weight": 2 },
+    //       {"source": "0", "target": "8", "label": "e0-8", "weight": 2 },
+    //       {"source": "0", "target": "9", "label": "e0-9", "weight": 1.3 },
+    //       {"source": "0", "target": "10", "label": "e0-10", "weight": 1.5 },
+    //       {"source": "0", "target": "11", "label": "e0-11", "weight": 1 },
+    //       {"source": "0", "target": "13", "label": "e0-13", "weight": 10 },
+    //       {"source": "0", "target": "14", "label": "e0-14", "weight": 2 },
+    //       {"source": "0", "target": "15", "label": "e0-15", "weight": 0.5 },
+    //       {"source": "0", "target": "16", "label": "e0-16", "weight": 0.8 },
+    //       {"source": "2", "target": "3", "label": "e2-3", "weight": 1 },
+    //       {"source": "4", "target": "5", "label": "e4-5", "weight": 1.4 },
+    //       {"source": "4", "target": "6", "label": "e4-6", "weight": 2.1 },
+    //       {"source": "5", "target": "6", "label": "e5-6", "weight": 1.9 },
+    //       {"source": "7", "target": "13", "label": "e7-13", "weight": 0.5 },
+    //       {"source": "8", "target": "14", "label": "e8-14", "weight": 0.8 },
+    //       {"source": "9", "target": "10", "label": "e9-10", "weight": 0.2 },
+    //       {"source": "10", "target": "14", "label": "e10-14", "weight": 1 },
+    //       {"source": "10", "target": "12", "label": "e10-12", "weight": 1.2 },
+    //       {"source": "11", "target": "14", "label": "e11-14", "weight": 1.2 },
+    //       {"source": "12", "target": "13", "label": "e12-13", "weight": 2.1 },
+    //       {"source": "16", "target": "17", "label": "e16-17", "weight": 2.5 },
+    //       {"source": "16", "target": "18", "label": "e16-18", "weight": 3 },
+    //       {"source": "17", "target": "18", "label": "e17-18", "weight": 2.6 },
+    //       {"source": "18", "target": "19", "label": "e18-19", "weight": 1.6 }
+    //     ]
+    //
+    //
+    //   }
+    //
+    //   const nodes = remoteData.nodes;
+    //   const edges = remoteData.edges;
+    //   nodes.forEach((node) => {
+    //     if (!node.style) {
+    //       node.style = {};
+    //     }
+    //     node.style.lineWidth = 1;
+    //     node.style.stroke = '#666';
+    //     node.style.fill = 'steelblue';
+    //     switch (node.class) {
+    //       case 'c0': {
+    //         node.type = 'circle';
+    //         node.size = 30;
+    //         break;
+    //       }
+    //       case 'c1': {
+    //         node.type = 'rect';
+    //         node.size = [35, 20];
+    //         break;
+    //       }
+    //       case 'c2': {
+    //         node.type = 'ellipse';
+    //         node.size = [35, 20];
+    //         break;
+    //       }
+    //     }
+    //   });
+    //   edges.forEach((edge) => {
+    //     if (!edge.style) {
+    //       edge.style = {};
+    //     }
+    //     edge.style.lineWidth = edge.weight;
+    //     edge.style.opacity = 0.6;
+    //     edge.style.stroke = 'grey';
+    //   });
+    //
+    //   graph.data(remoteData);
+    //   graph.render();
+    //
+    //   // 监听鼠标进入节点
+    //   graph.on('node:mouseenter', (e) => {
+    //     const nodeItem = e.item;
+    //     // 设置目标节点的 hover 状态 为 true
+    //     graph.setItemState(nodeItem, 'hover', true);
+    //   });
+    //   // 监听鼠标离开节点
+    //   graph.on('node:mouseleave', (e) => {
+    //     const nodeItem = e.item;
+    //     // 设置目标节点的 hover 状态 false
+    //     graph.setItemState(nodeItem, 'hover', false);
+    //   });
+    //   // 监听鼠标点击节点
+    //   graph.on('node:click', (e) => {
+    //     // 先将所有当前有 click 状态的节点的 click 状态置为 false
+    //     const clickNodes = graph.findAllByState('node', 'click');
+    //     clickNodes.forEach((cn) => {
+    //       graph.setItemState(cn, 'click', false);
+    //     });
+    //     const nodeItem = e.item;
+    //     // 设置目标节点的 click 状态 为 true
+    //     graph.setItemState(nodeItem, 'click', true);
+    //   });
+    //   // 监听鼠标点击节点
+    //   graph.on('edge:click', (e) => {
+    //     // 先将所有当前有 click 状态的边的 click 状态置为 false
+    //     const clickEdges = graph.findAllByState('edge', 'click');
+    //     clickEdges.forEach((ce) => {
+    //       graph.setItemState(ce, 'click', false);
+    //     });
+    //     const edgeItem = e.item;
+    //     // 设置目标边的 click 状态 为 true
+    //     graph.setItemState(edgeItem, 'click', true);
+    //   });
+    // }
   }
 }
 

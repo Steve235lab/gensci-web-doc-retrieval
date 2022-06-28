@@ -23,11 +23,6 @@
           <el-button class="btn" @click="tiaozhuan" type="primary" >注册</el-button>
         </el-col>
       </el-form-item>
-      <el-form-item>
-        <el-col :span="12">
-          <el-button class="btn" @click="ceshi" type="primary" >测试</el-button>
-        </el-col>
-      </el-form-item>
     </el-form>
 
   </div>
@@ -68,9 +63,6 @@ export default {
     tiaozhuan(){
       this.$router.push('register')
     },
-    ceshi(){
-       this.$router.push('home')
-    },
     commitBtn(){
       var that=this;
       that.axios({
@@ -88,11 +80,13 @@ export default {
             console.log(res.data);
             var token=res.data.token;
             console.log(token);
-            var jieguo=res.data.result;
-          if(jieguo==='success'){
+
+          if(res.data.result==='success'){
             console.log('登录成功')
+            window.localStorage.setItem('token', res.data.token)
+
             that.$router.push('home')
-          }  
+          }
             //setStorage.getItem('token')//获取token
             //console.log(setStorage.token)
           })
