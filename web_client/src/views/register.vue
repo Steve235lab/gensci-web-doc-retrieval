@@ -104,6 +104,7 @@ export default {
       }
     };
     return {
+      token:'',
       loginForm: {
         username: "",
         email: "",
@@ -157,7 +158,9 @@ export default {
         method:"post",
         url:"http://42.192.44.52:8000/sign_up/email_confirm/",
         data:qs.stringify({
-          code:this.loginForm.code,
+          message_type: "email_confirm",
+          token: this.token,
+          confirm_code: this.loginForm.code
         })
       })
           .then(function(res){
@@ -166,9 +169,7 @@ export default {
             var yanzhengma=res.data.confirmed;
             console.log(yanzhengma)
             if(yanzhengma==='True'){
-            that.router.push('home')
-            var token=res.data.token;
-            console.log(token);
+            that.router.push('login')
             }
           })
           .catch(function(err){
@@ -197,6 +198,10 @@ export default {
       })
           .then(function(res){
             console.log(res)
+            if(res.data.result==='success'){
+              console.log('登录成功')
+              that.token=res.data.token;
+            }
           })
           .catch(function(err){
             console.log(err)

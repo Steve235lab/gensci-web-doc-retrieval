@@ -323,7 +323,7 @@ export default {
 
   data() {
 
-    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjM1MzgxOC43MDQyODY4LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.tTcxfc5-uGryyIsJCOqpsbkSl-hsc2Deko0eEK1DtTU";
+    let token = window.localStorage.getItem('token')
     let timestamp = 114514;
 
     return {

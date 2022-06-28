@@ -327,7 +327,7 @@ export default {
 
   data() {
 
-    let token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1dWlkIjoiMCIsImV4cCI6MTY1NjM4ODUwOS41NjA4NDk0LCJzYWx0IjoiU3RldmUyMzVMYWIifQ.Bs3Sg47ULyMi-OgCYyQeRE44f9UbdyLn6njIVtQZ1Oo";
+    let token = window.localStorage.getItem('token');
     let timestamp = 114514;
     return {
       token,
@@ -397,7 +397,7 @@ export default {
           width: 980,
           height: 600,
           // 是否开启画布自适应。开启后图自动适配画布大小。
-          fitView: true,
+          // fitView: true,
           //v3.5.1 后支持。开启后，图将会被平移，图的中心将对齐到画布中心，但不缩放。优先级低于 fitView
           fitCenter: true,
           // 节点默认配置
