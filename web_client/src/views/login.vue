@@ -14,6 +14,7 @@
           <el-input placeholder="请输⼊密码" show-password="show-password" v-model="loginForm.password"></el-input>
         </el-col>
       </el-form-item>
+      
 
       <el-form-item>
         <el-col :span="12">
@@ -23,9 +24,13 @@
           <el-button class="btn" @click="tiaozhuan" type="primary" >注册</el-button>
         </el-col>
       </el-form-item>
+          <div class="tips"  style="float:left;" >              
+      <el-link type="white" color="blue" @click="zhaohui">忘记密码?</el-link>
+    </div>
     </el-form>
 
   </div>
+  
 </template>
 
 <script>
@@ -60,6 +65,9 @@ export default {
     }
   },
   methods:{
+    zhaohui(){
+      this.$router.push({ path: 'retrieve' })
+    },
     tiaozhuan(){
       this.$router.push('register')
     },
@@ -72,7 +80,7 @@ export default {
           message_type: "sign_in",
           email:this.loginForm.email,
           //password:this.loginForm.password,
-           password:this.loginForm.password
+           password:md5(this.loginForm.password)
         })
       })
           .then(function(res){
@@ -106,11 +114,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .logincontiner{
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image:url('/src/assets/beijing.png');
+  background-size: 100% 100%;
   .loginForm{
     height: 300px;
     width: 350px;

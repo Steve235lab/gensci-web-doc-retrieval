@@ -218,6 +218,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image:url('/src/assets/beijing.png');
+  background-size: 100% 100%;
   .loginForm {
     height: 450px;
     width: 350px;
