@@ -24,7 +24,6 @@
         </el-col>
       </el-form-item>
     </el-form>
-
   </div>
 </template>
 
@@ -72,7 +71,7 @@ export default {
           message_type: "sign_in",
           email:this.loginForm.email,
           //password:this.loginForm.password,
-           password:this.loginForm.password
+           password:md5(this.loginForm.password)
         })
       })
           .then(function(res){
@@ -106,11 +105,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .logincontiner{
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image:url('/src/assets/beijing.png');
+  background-size: 100% 100%;
   .loginForm{
     height: 300px;
     width: 350px;
