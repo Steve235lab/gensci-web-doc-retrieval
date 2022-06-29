@@ -11,6 +11,7 @@ from django.http import JsonResponse
 
 from database_new import DATABASE
 from uuid_token import forge_token, get_uuid_from_token
+from controller import CONTROLLER
 
 
 def search(request):
@@ -24,7 +25,7 @@ def search(request):
     """
     # 解包前端请求
     if request.method == 'GET':
-        if DATABASE.emoji_status is True:
+        if CONTROLLER.emoji_status is True:
             print(emojize(':white_check_mark: 已收到 search 请求', language='alias'))
             print(request.GET)
 
@@ -39,7 +40,7 @@ def search(request):
         age = request.GET.get('age')
 
     if request.method == 'POST':
-        if DATABASE.emoji_status is True:
+        if CONTROLLER.emoji_status is True:
             print(emojize(':white_check_mark: 已收到 search 请求', language='alias'))
             print(request.POST)
 
@@ -53,11 +54,12 @@ def search(request):
         sex = request.POST.get('sex')
         age = request.POST.get('age')
 
-        print("article_type: ", article_type)
-        print("language: ", language)
-        print("species: ", species)
-        print("sex: ", sex)
-        print("age: ", age)
+        if CONTROLLER.emoji_status is True:
+            print("article_type: ", article_type)
+            print("language: ", language)
+            print("species: ", species)
+            print("sex: ", sex)
+            print("age: ", age)
 
     # 从token中获取uuid
     uuid_str = get_uuid_from_token(token)
@@ -125,7 +127,7 @@ def search(request):
             'token': new_token
         }
 
-    if DATABASE.emoji_status is True:
+    if CONTROLLER.emoji_status is True:
         print(emojize(':rocket: 已发送 search_received 应答', language='alias'))
         print(json_rsp)
 
@@ -151,8 +153,9 @@ def run_search(robust_keywords: str, timestamp: int):
     # TODO: 启动搜索，使用 robust_keywords 作为关键词进行搜索，将 paper_info.xlsx 和 clue_info.xlsx 两个文件输出到 result_dir 下
 
     # 从json文件中提取结果文献的 abstract_highlight 字段，生成HTML标签，保存至数据库 paper_abstract 表
-    # 更改至测试用路径，部署到生产环境时须注释掉下面一行代码
-    result_dir = 'static/json_data_test/'
+    if CONTROLLER.test_mode is True:
+        # 更改至测试用路径
+        result_dir = 'static/json_data_test/'
 
     # 读取 file.list 获取包含结果文献信息的json文件目录
     file_list = open(result_dir + 'file.list', 'r')
@@ -201,7 +204,7 @@ def get_history(request):
     if request.method == 'POST':
         token = request.POST.get('token')
 
-    if DATABASE.emoji_status is True:
+    if CONTROLLER.emoji_status is True:
         print(emojize(':white_check_mark: 已收到 get_history 请求', language='alias'))
         print(emojize(':snake: token: ' + token, language='alias'))
 
@@ -230,7 +233,7 @@ def get_history(request):
             history_dic = {'timestamp': timestamp, 'raw_keywords': raw_keywords, 'robust_keywords': robust_keywords}
             json_rsp['history'].append(history_dic)
 
-    if DATABASE.emoji_status is True:
+    if CONTROLLER.emoji_status is True:
         print(emojize(':rocket: 已发送 rsp_get_history 应答', language='alias'))
         print(json_rsp)
 
@@ -370,7 +373,7 @@ def get_paper_info(request):
         timestamp = request.POST.get('timestamp')
         page_num = request.POST.get('page_num')
 
-    if DATABASE.emoji_status is True:
+    if CONTROLLER.emoji_status is True:
         print(emojize(':white_check_mark: 已收到 get_paper_info 请求', language='alias'))
         print(emojize(':snake: token: ' + token, language='alias'))
         print(emojize(':snake: timestamp: ' + timestamp, language='alias'))
@@ -403,7 +406,7 @@ def get_paper_info(request):
             papers_on_one_page = 10
 
             # 使用excel文件作为数据源加载结果数据
-            if DATABASE.data_source == 'excel':
+            if CONTROLLER.paper_info_data_source == 'excel':
                 print("Loading data from excel files...")
 
                 # 读取 'paper_info.xlsx'，将信息放入 "paper_info" 字段
@@ -447,11 +450,12 @@ def get_paper_info(request):
                         json_rsp["paper_info"].append(paper_info)
 
             # 使用json文件作为数据源加载结果数据
-            if DATABASE.data_source == 'json':
+            if CONTROLLER.paper_info_data_source == 'json':
                 print("Loading data from json files...")
 
-                # 更改至测试用路径，部署到生产环境时须注释掉下面一行代码
-                file_dir = 'static/json_data_test/'
+                if CONTROLLER.test_mode is True:
+                    # 更改至测试用路径
+                    file_dir = 'static/json_data_test/'
 
                 # 读取 file.list 获取包含结果文献信息的json文件目录
                 file_list = open(file_dir + 'file.list', 'r')
@@ -512,7 +516,7 @@ def get_paper_info(request):
         else:   # 发送请求的用户与历史记录所属用户不匹配
             json_rsp = {"message_type": "invalid_request"}
 
-    if DATABASE.emoji_status is True:
+    if CONTROLLER.emoji_status is True:
         print(emojize(':rocket: 已发送 rsp_get_paper_info 应答', language='alias'))
         print(json_rsp)
 
@@ -539,7 +543,7 @@ def get_clue_info(request):
         timestamp = request.POST.get('timestamp')
         page_num = request.POST.get('page_num')
 
-    if DATABASE.emoji_status is True:
+    if CONTROLLER.emoji_status is True:
         print(emojize(':white_check_mark: 已收到 get_clue_info 请求', language='alias'))
         print(emojize(':snake: token: ' + token, language='alias'))
         print(emojize(':snake: timestamp: ' + timestamp, language='alias'))
@@ -567,45 +571,49 @@ def get_clue_info(request):
             result_timestamp = history[1]
             file_dir = 'static/search_result/' + str(result_timestamp) + '/'
 
-            # 读取 'clue_info.xlsx'，将信息放入 "clue_info" 字段
-            file_name = file_dir + 'clue_info.xlsx'
-            workbook = openpyxl.load_workbook(file_name, read_only=True)
-            worksheet = workbook.get_sheet_by_name("Sheet1")
-            row_max = worksheet.max_row
-            page_num = int(page_num)
+            if CONTROLLER.clue_info_data_source == 'excel':
+                # 读取 'clue_info.xlsx'，将信息放入 "clue_info" 字段
+                file_name = file_dir + 'clue_info.xlsx'
+                workbook = openpyxl.load_workbook(file_name, read_only=True)
+                worksheet = workbook.get_sheet_by_name("Sheet1")
+                row_max = worksheet.max_row
+                page_num = int(page_num)
 
-            json_rsp['total'] = row_max - 1
+                json_rsp['total'] = row_max - 1
 
-            # 如果页号为 0 则代表返回所有条目
-            if page_num == 0:
-                row_start = 2
-                row_end = row_max
-                json_rsp['message_type'] = 'network'
-            else:
-                # 每页显示的线索数目
-                papers_on_one_page = 20
+                # 如果页号为 0 则代表返回所有条目
+                if page_num == 0:
+                    row_start = 2
+                    row_end = row_max
+                    json_rsp['message_type'] = 'network'
+                else:
+                    # 每页显示的线索数目
+                    papers_on_one_page = 20
 
-                row_start = (page_num - 1) * papers_on_one_page + 2
-                row_end = row_start + papers_on_one_page
+                    row_start = (page_num - 1) * papers_on_one_page + 2
+                    row_end = row_start + papers_on_one_page
 
-            if row_start <= row_max:
-                if row_end > row_max:
-                    row_end = row_max + 1
-                for i in range(row_start, row_end):
-                    clue_info = {}
-                    clue_info['Node1'] = worksheet.cell(i, 1).value
-                    clue_info['Edge_Type'] = worksheet.cell(i, 2).value
-                    clue_info['Node2'] = worksheet.cell(i, 3).value
-                    clue_info['Weight'] = worksheet.cell(i, 4).value
-                    clue_info['Paper_List'] = worksheet.cell(i, 5).value
-                    clue_info['Original_Text'] = worksheet.cell(i, 6).value
+                if row_start <= row_max:
+                    if row_end > row_max:
+                        row_end = row_max + 1
+                    for i in range(row_start, row_end):
+                        clue_info = {}
+                        clue_info['Node1'] = worksheet.cell(i, 1).value
+                        clue_info['Edge_Type'] = worksheet.cell(i, 2).value
+                        clue_info['Node2'] = worksheet.cell(i, 3).value
+                        clue_info['Weight'] = worksheet.cell(i, 4).value
+                        clue_info['Paper_List'] = worksheet.cell(i, 5).value
+                        clue_info['Original_Text'] = worksheet.cell(i, 6).value
 
-                    json_rsp["clue_info"].append(clue_info)
+                        json_rsp["clue_info"].append(clue_info)
+
+            if CONTROLLER.clue_info_data_source == 'json':
+                pass
 
         else:  # 发送请求的用户与历史记录所属用户不匹配
             json_rsp = {"message_type": "invalid_request"}
 
-    if DATABASE.emoji_status is True:
+    if CONTROLLER.emoji_status is True:
         print(emojize(':rocket: 已发送 rsp_get_clue_info 应答', language='alias'))
         print(json_rsp)
 

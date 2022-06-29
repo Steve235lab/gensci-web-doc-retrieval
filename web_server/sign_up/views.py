@@ -6,7 +6,8 @@ from emoji import emojize
 
 from database_new import User, DATABASE
 from uuid_token import forge_token, get_uuid_from_token
-from .email_sender import EmailSender
+from email_sender import EmailSender
+from controller import CONTROLLER
 
 
 def sign_up(request):
@@ -26,7 +27,7 @@ def sign_up(request):
         password = request.POST.get('password')
         email = request.POST.get('email')
 
-    if DATABASE.emoji_status is True:
+    if CONTROLLER.emoji_status is True:
         print(emojize(':white_check_mark: 已收到 sign_up 请求', language='alias'))
         print(emojize(':snake: username: ' + username, language='alias'))
         print(emojize(':key: password(已加密): ' + password, language='alias'))
@@ -56,7 +57,7 @@ def sign_up(request):
             "token": new_token,
             "result": "success"
         }
-    if DATABASE.emoji_status is True:
+    if CONTROLLER.emoji_status is True:
         print(emojize(':rocket: 已发送 rsp_sign_up 应答', language='alias'))
         print(json_rsp)
 
@@ -80,7 +81,7 @@ def email_confirm(request):
         token = request.POST.get('token')
         input_confirm_code = request.POST.get('confirm_code')
 
-    if DATABASE.emoji_status is True:
+    if CONTROLLER.emoji_status is True:
         print(emojize(':white_check_mark: 已收到 email_confirm 请求', language='alias'))
         print(emojize(':snake: token: ' + token, language='alias'))
         print(emojize(':key: confirm_code: ' + input_confirm_code, language='alias'))
@@ -108,7 +109,7 @@ def email_confirm(request):
                 "confirmed": False
             }
 
-    if DATABASE.emoji_status is True:
+    if CONTROLLER.emoji_status is True:
         print(emojize(':rocket: 已发送 rsp_email_confirm 应答', language='alias'))
         print(json_rsp)
 
