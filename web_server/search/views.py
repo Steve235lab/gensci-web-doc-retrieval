@@ -570,6 +570,7 @@ def get_clue_info(request):
             }
             result_timestamp = history[1]
             file_dir = 'static/search_result/' + str(result_timestamp) + '/'
+            page_num = int(page_num)
 
             # 每页显示的线索数目
             papers_on_one_page = 20
@@ -580,7 +581,6 @@ def get_clue_info(request):
                 workbook = openpyxl.load_workbook(file_name, read_only=True)
                 worksheet = workbook.get_sheet_by_name("Sheet1")
                 row_max = worksheet.max_row
-                page_num = int(page_num)
 
                 json_rsp['total'] = row_max - 1
 
