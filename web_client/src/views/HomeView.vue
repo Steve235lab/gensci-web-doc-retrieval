@@ -620,7 +620,15 @@ export default {
     // 选择绘制的网络图
     select_network() {
       console.log(this.drawSelect)
-      this.draw_network()
+      // this.draw_network()
+      var nodeType_selector = this.drawSelect.split('_')
+      if(nodeType_selector.length===1){
+        this.draw_network(nodeType_selector[0],nodeType_selector[0])
+      }else{
+        this.draw_network(nodeType_selector[0],nodeType_selector[2])
+      }
+      console.log(nodeType_selector.length)
+      console.log(nodeType_selector[0])
     },
 
 
@@ -789,19 +797,21 @@ export default {
 
     },
     //绘图数据预处理
-    getdrawInfo() {
+
+    getdrawInfo(class1,class2) {
       this.selected_network = {nodes: [], edges: []};
       this.network_data.forEach((data) => {
+        // console.log(data.is_BFS_edge)
         if(data.Edge_Type===this.drawSelect&&data.is_BFS_edge){
           this.selected_network.nodes.push({
             id: data.Node1,
             label: data.Node1,
-            class:"bacteria"
+            class: class1
           })
           this.selected_network.nodes.push({
             id: data.Node2,
             label: data.Node2,
-            class:"disease"
+            class: class2
           })
           this.selected_network.edges.push({
             source: data.Node1,
@@ -811,6 +821,7 @@ export default {
             origin_text: data.Original_Text
           })
         }
+
         // switch (data.Edge_Type) {
         //   case "bacteria_to_disease": {
         //     this.networkData_selector.bacteria_to_disease.nodes.push({
@@ -847,11 +858,15 @@ export default {
 
 
       });
+      console.log(!this.selected_network.edges)
+      if(!this.selected_network.edges){
+        console.log('无数据，请重新选择')
+      }
     },
     //绘制network网络图
-    draw_network() {
+    draw_network(class1,class2) {
 
-      this.getdrawInfo();
+      this.getdrawInfo(class1,class2);
 
       const nodes = this.selected_network.nodes;
       const edges = this.selected_network.edges;
@@ -863,21 +878,42 @@ export default {
         node.type = 'rect';
         node.size = [30, 30];
         node.style.radius = 8;
-
+        node.style.stroke = '#fff';
         switch (node.class) {
-          case 'bacteria': {
-            node.style.fill = '#ffeda0';
-            node.style.stroke = '#ffeda0';
+          case "disease": {
+            node.style.fill = '#c63225';
             break;
           }
-          case 'disease': {
-            node.style.fill = '#d7301f';
-            node.style.stroke = '#d7301f';
+          case "bacteria": {
+            node.style.fill = '#fbeca0';
             break;
           }
-          case 'c2': {
-            node.type = 'ellipse';
-            node.size = [35, 20];
+          case "chemical": {
+            node.style.fill = '#534eff';
+            break;
+          }
+          case "mechanism": {
+            node.style.fill = '#bdbddc';
+            break;
+          }
+          case "anatomy": {
+            node.style.fill = '#8c0412';
+            break;
+          }
+          case "antibody": {
+            node.style.fill = '#737373';
+            break;
+          }
+          case "nutrient": {
+            node.style.fill = '#85c375';
+            break;
+          }
+          case class2: {
+            node.style.fill = '#9ad0f5';
+            break;
+          }
+          case class1: {
+            node.style.fill = '#f5b89a';
             break;
           }
         }
@@ -886,23 +922,19 @@ export default {
         if (!edge.style) {
           edge.style = {};
         }
-        // edge.style.lineWidth = edge.weight;
-        // edge.style.opacity = 0.8;
-        // edge.style.stroke = 'grey';
+        edge.style.lineWidth = edge.weight;
+        edge.style.stroke = 'grey';
         if (edge.weight === '1') {
-          edge.style.lineWidth = edge.weight;
           edge.style.opacity = 0.1;
-          edge.style.stroke = 'grey';
         } else {
-          edge.style.lineWidth = edge.weight;
           edge.style.opacity = 0.8;
-          edge.style.stroke = 'grey';
         }
 
       });
       // graph.clear();
       graph.data(this.selected_network);
       graph.render();
+      console.log("完成绘制")
 
       // 监听鼠标进入节点
       graph.on('node:mouseenter', (e) => {

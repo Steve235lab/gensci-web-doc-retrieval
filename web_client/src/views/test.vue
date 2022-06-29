@@ -405,32 +405,6 @@ export default {
       clue_result: [],
       network_data: [],
       selected_network:{nodes: [], edges: []},
-      // networkData_selector: {
-      //   anatomy: {nodes: [], edges: []},
-      //   antibody_to_anatomy: {nodes: [], edges: []},
-      //   bacteria: {nodes: [], edges: []},
-      //   bacteria_to_anatomy: {nodes: [], edges: []},
-      //   bacteria_to_antibody: {nodes: [], edges: []},
-      //   bacteria_to_chemical: {nodes: [], edges: []},
-      //   bacteria_to_disease: {nodes: [], edges: []},
-      //   bacteria_to_mechanism: {nodes: [], edges: []},
-      //   bacteria_to_nutrient: {nodes: [], edges: []},
-      //   chemical: {nodes: [], edges: []},
-      //   chemical_to_anatomy: {nodes: [], edges: []},
-      //   chemical_to_disease: {nodes: [], edges: []},
-      //   chemical_to_mechanism: {nodes: [], edges: []},
-      //   disease: {nodes: [], edges: []},
-      //   disease_to_anatomy: {nodes: [], edges: []},
-      //   disease_to_antibody: {nodes: [], edges: []},
-      //   disease_to_mechanism: {nodes: [], edges: []},
-      //   mechanism: {nodes: [], edges: []},
-      //   mechanism_to_anatomy: {nodes: [], edges: []},
-      //   mechanism_to_antibody: {nodes: [], edges: []},
-      //   nutrient_to_anatomy: {nodes: [], edges: []},
-      //   nutrient_to_chemical: {nodes: [], edges: []},
-      //   nutrient_to_disease: {nodes: [], edges: []},
-      //   nutrient_to_mechanism: {nodes: [], edges: []},
-      // },
       paper_page_Info: {
         total: 100,
         currentNumber: 1,
@@ -579,7 +553,15 @@ export default {
 
     select_network() {
       console.log(this.drawSelect)
-      this.draw_network()
+      // this.draw_network()
+      var nodeType_selector = this.drawSelect.split('_')
+      if(nodeType_selector.length===1){
+        this.draw_network(nodeType_selector[0],nodeType_selector[0])
+      }else{
+        this.draw_network(nodeType_selector[0],nodeType_selector[2])
+      }
+      console.log(nodeType_selector.length)
+      console.log(nodeType_selector[0])
     },
 
 
@@ -756,20 +738,20 @@ export default {
       // this.network_data = network_result
       this.network_data = asd_net
     },
-    getdrawInfo() {
+    getdrawInfo(class1,class2) {
       this.selected_network = {nodes: [], edges: []};
       this.network_data.forEach((data) => {
-        console.log(data.is_BFS_edge)
+        // console.log(data.is_BFS_edge)
         if(data.Edge_Type===this.drawSelect&&data.is_BFS_edge){
           this.selected_network.nodes.push({
             id: data.Node1,
             label: data.Node1,
-            class:"bacteria"
+            class: class1
           })
           this.selected_network.nodes.push({
             id: data.Node2,
             label: data.Node2,
-            class:"disease"
+            class: class2
           })
           this.selected_network.edges.push({
             source: data.Node1,
@@ -779,6 +761,7 @@ export default {
             origin_text: data.Original_Text
           })
         }
+
         // switch (data.Edge_Type) {
         //   case "bacteria_to_disease": {
         //     this.networkData_selector.bacteria_to_disease.nodes.push({
@@ -815,10 +798,14 @@ export default {
 
 
       });
+      console.log(!this.selected_network.edges)
+      if(!this.selected_network.edges){
+        console.log('无数据，请重新选择')
+      }
     },
-    draw_network() {
+    draw_network(class1,class2) {
 
-      this.getdrawInfo();
+      this.getdrawInfo(class1,class2);
 
       const nodes = this.selected_network.nodes;
       const edges = this.selected_network.edges;
@@ -832,17 +819,40 @@ export default {
         node.style.radius = 8;
         node.style.stroke = '#fff';
         switch (node.class) {
-          case 'bacteria': {
-            node.style.fill = '#ffeda0';
+          case "disease": {
+            node.style.fill = '#c63225';
             break;
           }
-          case 'disease': {
-            node.style.fill = '#d7301f';
+          case "bacteria": {
+            node.style.fill = '#fbeca0';
             break;
           }
-          case 'c2': {
-            node.type = 'ellipse';
-            node.size = [35, 20];
+          case "chemical": {
+            node.style.fill = '#534eff';
+            break;
+          }
+          case "mechanism": {
+            node.style.fill = '#bdbddc';
+            break;
+          }
+          case "anatomy": {
+            node.style.fill = '#8c0412';
+            break;
+          }
+          case "antibody": {
+            node.style.fill = '#737373';
+            break;
+          }
+          case "nutrient": {
+            node.style.fill = '#85c375';
+            break;
+          }
+          case class2: {
+            node.style.fill = '#9ad0f5';
+            break;
+          }
+          case class1: {
+            node.style.fill = '#f5b89a';
             break;
           }
         }
@@ -851,17 +861,12 @@ export default {
         if (!edge.style) {
           edge.style = {};
         }
-        // edge.style.lineWidth = edge.weight;
-        // edge.style.opacity = 0.8;
-        // edge.style.stroke = 'grey';
+        edge.style.lineWidth = edge.weight;
+        edge.style.stroke = 'grey';
         if (edge.weight === '1') {
-          edge.style.lineWidth = edge.weight;
           edge.style.opacity = 0.1;
-          edge.style.stroke = 'grey';
         } else {
-          edge.style.lineWidth = edge.weight;
           edge.style.opacity = 0.8;
-          edge.style.stroke = 'grey';
         }
 
       });
