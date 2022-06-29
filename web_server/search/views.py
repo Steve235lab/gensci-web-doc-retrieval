@@ -571,6 +571,9 @@ def get_clue_info(request):
             result_timestamp = history[1]
             file_dir = 'static/search_result/' + str(result_timestamp) + '/'
 
+            # 每页显示的线索数目
+            papers_on_one_page = 20
+
             if CONTROLLER.clue_info_data_source == 'excel':
                 # 读取 'clue_info.xlsx'，将信息放入 "clue_info" 字段
                 file_name = file_dir + 'clue_info.xlsx'
@@ -587,9 +590,6 @@ def get_clue_info(request):
                     row_end = row_max
                     json_rsp['message_type'] = 'network'
                 else:
-                    # 每页显示的线索数目
-                    papers_on_one_page = 20
-
                     row_start = (page_num - 1) * papers_on_one_page + 2
                     row_end = row_start + papers_on_one_page
 
@@ -608,7 +608,28 @@ def get_clue_info(request):
                         json_rsp["clue_info"].append(clue_info)
 
             if CONTROLLER.clue_info_data_source == 'json':
-                pass
+
+                # 读取json文件
+                file_name = file_dir + 'clue_info.json'
+
+                if CONTROLLER.test_mode is True:
+                    # 切换至测试用目录
+                    file_name = 'static/json_clue_info/asd.bfs.json'
+
+                clue_info = json.load(open(file_name, 'r'))
+
+                row_max = len(clue_info)
+
+                if page_num == 0:
+                    json_rsp["clue_info"] = clue_info
+
+                else:
+                    row_start = (page_num - 1) * papers_on_one_page
+                    row_end = row_start + papers_on_one_page
+                    if row_start <= row_max:
+                        if row_end > row_max:
+                            row_end = row_max
+                        json_rsp["clue_info"] = clue_info[row_start:row_end]
 
         else:  # 发送请求的用户与历史记录所属用户不匹配
             json_rsp = {"message_type": "invalid_request"}

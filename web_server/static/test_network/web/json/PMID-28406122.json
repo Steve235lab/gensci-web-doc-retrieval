@@ -1,0 +1,898 @@
+{
+    "pmid": "28406122",
+    "journal": "Nigerian journal of clinical practice",
+    "publication_type": "Clinical Trial\nRandomized Controlled Trial",
+    "publication_year": "2019",
+    "publication_date": "2019-07-01",
+    "title": "Effects of 810-nanometer diode laser as an adjunct to mechanical periodontal treatment on clinical periodontal parameters and gingival crevicular fluid volume of residual periodontal pockets.",
+    "first_author": "S E Meseli",
+    "corresponding_author": "L Kuru",
+    "authors": "S E Meseli, B Kuru, L Kuru",
+    "affiliations": "(1) Department of Periodontology, Faculty of Dentistry, Istanbul Aydin University, Istanbul, Turkey. ['S E Meseli']; (2) Department of Periodontology, Faculty of Dentistry, Marmara University, Istanbul, Turkey. ['B Kuru', 'L Kuru']",
+    "abstract": "Aim of this randomized controlled parallel-designed study was to evaluate the effects of diode laser as an adjunct to mechanical periodontal treatment on clinical parameters and gingival crevicular fluid (GCF) volume of the residual pockets diagnosed following initial periodontal treatment in chronic periodontitis (CP) patients. A total of 84 residual pockets on single-rooted teeth in 11 CP patients were included and randomly assigned into three groups. Residual pockets were treated either only by mechanical treatment (Group M) (n = 28) or only by diode laser disinfection (Group L) (n = 28) or by a combination of these techniques (Group M + L) (n = 28). Plaque index, gingival index (GI), bleeding on probing (BoP), probing depth (PD), clinical attachment level and gingival recession were assessed at baseline and 8 weeks after treatment of residual pockets. GCF samples were collected at baseline, 1 and 8 weeks after treatment. All treatment modalities resulted in significant reductions in PD and attachment gain. GI and BoP showed a greater reduction in both Group M and Group M + L than Group L (P < 0.001), but there was no difference between the Groups M and M + L (P > 0.05). No difference was also found among groups for other clinical parameters. GCF volume decreased significantly in the Groups M and M + L (P < 0.05) but there was no difference among the groups (P > 0.05). Results demonstrated clinical improvements on residual pockets in CP patients treated with all three modalities. Moreover, our findings suggest that application of diode laser as an adjunct to mechanical periodontal treatment doesn't demonstrate any additional clinical effect on the residual pockets.",
+    "keywords": "",
+    "MeshHeadingList": [
+        {
+            "QualifierName": [],
+            "DescriptorName": "Adult"
+        },
+        {
+            "QualifierName": [
+                "diagnosis",
+                "metabolism",
+                "surgery"
+            ],
+            "DescriptorName": "Chronic Periodontitis"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Dental Plaque Index"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Female"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Follow-Up Studies"
+        },
+        {
+            "QualifierName": [
+                "metabolism"
+            ],
+            "DescriptorName": "Gingival Crevicular Fluid"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Humans"
+        },
+        {
+            "QualifierName": [
+                "methods"
+            ],
+            "DescriptorName": "Laser Therapy"
+        },
+        {
+            "QualifierName": [
+                "therapeutic use"
+            ],
+            "DescriptorName": "Lasers, Semiconductor"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Male"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Middle Aged"
+        },
+        {
+            "QualifierName": [
+                "diagnosis",
+                "metabolism",
+                "surgery"
+            ],
+            "DescriptorName": "Periodontal Attachment Loss"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Periodontal Index"
+        },
+        {
+            "QualifierName": [
+                "diagnosis",
+                "metabolism",
+                "surgery"
+            ],
+            "DescriptorName": "Periodontal Pocket"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Prospective Studies"
+        },
+        {
+            "QualifierName": [
+                "methods"
+            ],
+            "DescriptorName": "Root Planing"
+        }
+    ],
+    "ChemicalList": [],
+    "doi": "10.4103/1119-3077.181382",
+    "journal_sjr": 0.0,
+    "journal_h_index": 0,
+    "journal_if": 0.634,
+    "journal_metrics": [
+        0.634,
+        0,
+        0.0,
+        0.769
+    ],
+    "bacteria_entities": {},
+    "has_bacteria_ner": true,
+    "bacteria": [],
+    "has_bacteria_norm": true,
+    "nutrient_entities": {},
+    "has_nutrient_ner": true,
+    "chemical_entities": {},
+    "has_chemical_ner": true,
+    "has_genetic_ner": true,
+    "enzyme_entities": [],
+    "metabolic_entities": [],
+    "has_metabolic_ner": true,
+    "molecule": [
+        [],
+        []
+    ],
+    "has_molecular_norm": true,
+    "nutrient": [],
+    "has_nutrient_norm": true,
+    "disease_entities": {
+        "0": [
+            [
+                "chronic periodontitis",
+                47,
+                49
+            ],
+            [
+                "chronic periodontitis",
+                50,
+                52
+            ]
+        ],
+        "1": [
+            [
+                "chronic periodontitis",
+                13,
+                15
+            ]
+        ],
+        "3": [
+            [
+                "gingival",
+                3,
+                4
+            ],
+            [
+                "gingival",
+                6,
+                7
+            ],
+            [
+                "bleeding",
+                10,
+                11
+            ],
+            [
+                "gingival recession",
+                27,
+                29
+            ]
+        ],
+        "5": [
+            [
+                "PD",
+                8,
+                9
+            ]
+        ],
+        "9": [
+            [
+                "chronic periodontitis",
+                8,
+                10
+            ]
+        ]
+    },
+    "has_disease_ner": true,
+    "disease": [
+        [
+            "PD",
+            "OMIM:168600",
+            "PARKINSON DISEASE, LATE-ONSET"
+        ],
+        [
+            "bleeding",
+            "MESH:D006470",
+            "Hemorrhage"
+        ],
+        [
+            "chronic periodontitis",
+            "MESH:D055113",
+            "Chronic Periodontitis"
+        ],
+        [
+            "gingival",
+            "",
+            ""
+        ],
+        [
+            "gingival recession",
+            "MESH:D005889",
+            "Gingival Recession"
+        ]
+    ],
+    "has_disease_norm": true,
+    "affiliation_entities": [
+        "Istanbul\nIstanbul\nTurkey\nTurkey",
+        "Department of Periodontology\nDepartment of Periodontology\nIstanbul Aydin University\nMarmara University"
+    ],
+    "has_affiliation_ner": true,
+    "sample_size_entities": {
+        "1": [
+            [
+                11,
+                12,
+                13
+            ]
+        ]
+    },
+    "sample_size": 11,
+    "has_sample_size_ner": true,
+    "significance_conclusion": [
+        [
+            5,
+            1
+        ],
+        [
+            6,
+            1
+        ],
+        [
+            8,
+            1
+        ]
+    ],
+    "has_significance_ner": true,
+    "mtime": 1646878821.7862756,
+    "htime": "2022-03-10 10:20:21.786276",
+    "title_zh": "810\u7eb3\u7c73\u4e8c\u6781\u7ba1\u6fc0\u5149\u8f85\u52a9\u673a\u68b0\u7259\u5468\u6cbb\u7597\u5bf9\u4e34\u5e8a\u7259\u5468\u53c2\u6570\u53ca\u6b8b\u7559\u7259\u5468\u888b\u9f88\u6c9f\u6db2\u91cf\u7684\u5f71\u54cd\u3002",
+    "abstract_zh": "\u8fd9\u9879\u968f\u673a\u5bf9\u7167\u5e73\u884c\u8bbe\u8ba1\u7814\u7a76\u7684\u76ee\u7684\u662f\u8bc4\u4f30\u4e8c\u6781\u7ba1\u6fc0\u5149\u8f85\u52a9\u673a\u68b0\u7259\u5468\u6cbb\u7597\u5bf9\u6162\u6027\u7259\u5468\u708e(CP)\u60a3\u8005\u5728\u521d\u59cb\u7259\u5468\u6cbb\u7597\u540e\u8bca\u65ad\u51fa\u7684\u4e34\u5e8a\u53c2\u6570\u548c\u9f88\u6c9f\u6db2(GCF)\u5bb9\u91cf\u7684\u5f71\u54cd\u3002 \u9009\u53d611\u4f8bCP\u60a3\u8005\u5355\u6839\u725984\u4e2a\u6b8b\u7559\u7259\u56ca\uff0c\u968f\u673a\u5206\u4e3a3\u7ec4\u3002 \u6b8b\u4f59\u56ca\u888b\u91c7\u7528\u673a\u68b0\u5904\u7406(M\u7ec4)(n = 28)\u3001\u6fc0\u5149\u4e8c\u6781\u7ba1\u6d88\u6bd2(L\u7ec4)(n = 28)\u6216\u8054\u5408\u5904\u7406(M + L\u7ec4)(n = 28)\u3002 \u5728\u6cbb\u7597\u524d\u548c\u6cbb\u7597\u540e8\u5468\u8bc4\u4f30\u7259\u83cc\u6591\u6307\u6570\u3001\u7259\u9f88\u6307\u6570(GI)\u3001\u63a2\u8bca\u51fa\u8840(BoP)\u3001\u63a2\u8bca\u6df1\u5ea6(PD)\u3001\u4e34\u5e8a\u9644\u7740\u6c34\u5e73\u548c\u7259\u9f88\u9000\u7f29\u3002 \u5206\u522b\u4e8e\u57fa\u7ebf\u3001\u6cbb\u7597\u540e1\u5468\u548c8\u5468\u91c7\u96c6GCF\u6837\u672c\u3002 \u6240\u6709\u7684\u6cbb\u7597\u65b9\u5f0f\u90fd\u5bfc\u81f4PD\u548c\u9644\u7740\u589e\u52a0\u663e\u8457\u51cf\u5c11\u3002 M\u7ec4\u548cM + L\u7ec4GI\u3001BoP\u5747\u660e\u663e\u4f4e\u4e8eL\u7ec4(P < 0.001)\uff0c M\u7ec4\u4e0eM + L\u7ec4\u6bd4\u8f83\u5dee\u5f02\u65e0\u7edf\u8ba1\u5b66\u610f\u4e49(P > .05)\u3002 \u5176\u4ed6\u4e34\u5e8a\u53c2\u6570\u7ec4\u95f4\u4e5f\u6ca1\u6709\u53d1\u73b0\u5dee\u5f02\u3002 M\u7ec4\u548cM + L\u7ec4GCF\u4f53\u79ef\u663e\u8457\u964d\u4f4e(P < 0.05)\uff0c\u4f46\u5404\u7ec4\u95f4\u5dee\u5f02\u65e0\u7edf\u8ba1\u5b66\u610f\u4e49(P > 0.05)\u3002 \u7ed3\u679c\u8868\u660e\uff0c\u4e09\u79cd\u6cbb\u7597\u65b9\u6cd5\u5747\u53ef\u6539\u5584CP\u60a3\u8005\u7684\u6b8b\u4f59\u56ca\u888b\u3002 \u6b64\u5916\uff0c\u6211\u4eec\u7684\u7814\u7a76\u7ed3\u679c\u8868\u660e\uff0c\u5e94\u7528\u4e8c\u6781\u7ba1\u6fc0\u5149\u4f5c\u4e3a\u673a\u68b0\u7259\u5468\u6cbb\u7597\u7684\u8f85\u52a9\u624b\u6bb5\uff0c\u5bf9\u6b8b\u4f59\u7259\u5468\u888b\u6ca1\u6709\u4efb\u4f55\u989d\u5916\u7684\u4e34\u5e8a\u6548\u679c\u3002",
+    "has_translated": true,
+    "chemical": [],
+    "gene_entities": {},
+    "gene": [],
+    "anatomy_entities": {
+        "0": [
+            [
+                "gingival crevicular",
+                28,
+                30
+            ],
+            [
+                "gingival crevicular fluid",
+                28,
+                31
+            ],
+            [
+                "crevicular fluid",
+                29,
+                31
+            ],
+            [
+                "gingival crevicular",
+                32,
+                34
+            ],
+            [
+                "gingival crevicular fluid",
+                32,
+                35
+            ],
+            [
+                "crevicular fluid",
+                33,
+                35
+            ],
+            [
+                "of the",
+                37,
+                39
+            ],
+            [
+                "gingival",
+                28,
+                29
+            ],
+            [
+                "gingival",
+                32,
+                33
+            ]
+        ],
+        "1": [],
+        "2": [],
+        "3": [
+            [
+                "index",
+                1,
+                3
+            ],
+            [
+                ", gingival",
+                2,
+                4
+            ],
+            [
+                "gingival",
+                3,
+                4
+            ],
+            [
+                "gingival",
+                6,
+                7
+            ],
+            [
+                "gingival",
+                27,
+                28
+            ]
+        ],
+        "4": [
+            [
+                "gingival crevicular",
+                0,
+                2
+            ],
+            [
+                "gingival crevicular fluid",
+                0,
+                3
+            ],
+            [
+                "crevicular fluid",
+                1,
+                3
+            ],
+            [
+                ", 1",
+                8,
+                10
+            ],
+            [
+                "gingival",
+                0,
+                1
+            ]
+        ],
+        "5": [],
+        "6": [
+            [
+                "L (",
+                19,
+                21
+            ],
+            [
+                "(P",
+                20,
+                22
+            ],
+            [
+                "L (",
+                38,
+                40
+            ],
+            [
+                "(P",
+                39,
+                41
+            ],
+            [
+                "gingival",
+                0,
+                1
+            ]
+        ],
+        "7": [],
+        "8": [
+            [
+                "gingival crevicular",
+                0,
+                2
+            ],
+            [
+                "gingival crevicular fluid",
+                0,
+                3
+            ],
+            [
+                "crevicular fluid",
+                1,
+                3
+            ],
+            [
+                "L (",
+                13,
+                15
+            ],
+            [
+                "(P",
+                14,
+                16
+            ],
+            [
+                "(P",
+                27,
+                29
+            ],
+            [
+                "gingival",
+                0,
+                1
+            ]
+        ],
+        "9": [],
+        "10": []
+    },
+    "anatomy": [
+        [
+            "(P",
+            "",
+            ""
+        ],
+        [
+            ", 1",
+            "",
+            ""
+        ],
+        [
+            ", gingival",
+            "MESH:D005881",
+            "Gingiva"
+        ],
+        [
+            "L (",
+            "",
+            ""
+        ],
+        [
+            "crevicular fluid",
+            "MESH:D005883",
+            "Gingival Crevicular Fluid"
+        ],
+        [
+            "gingival",
+            "MESH:D005881",
+            "Gingiva"
+        ],
+        [
+            "gingival crevicular",
+            "MESH:D005883",
+            "Gingival Crevicular Fluid"
+        ],
+        [
+            "gingival crevicular fluid",
+            "MESH:D005883",
+            "Gingival Crevicular Fluid"
+        ],
+        [
+            "index",
+            "",
+            ""
+        ],
+        [
+            "of the",
+            "",
+            ""
+        ]
+    ],
+    "antibody_entities": {},
+    "antibody": [],
+    "abstract_prep": "Aim of this randomized controlled parallel-designed study was to evaluate the effects of diode laser as an adjunct to mechanical periodontal treatment on clinical parameters and gingival crevicular fluid (gingival crevicular fluid) volume of the residual pockets diagnosed following initial periodontal treatment in chronic periodontitis (chronic periodontitis) patients. A total of 84 residual pockets on single-rooted teeth in 11 chronic periodontitis patients were included and randomly assigned into three groups. Residual pockets were treated either only by mechanical treatment (Group M) (n = 28) or only by diode laser disinfection (Group L) (n = 28) or by a combination of these techniques (Group M + L) (n = 28). Plaque index, gingival index (gingival index), bleeding on probing (BoP), probing depth (PD), clinical attachment level and gingival recession were assessed at baseline and 8 weeks after treatment of residual pockets. gingival crevicular fluid samples were collected at baseline, 1 and 8 weeks after treatment. All treatment modalities resulted in significant reductions in PD and attachment gain. gingival index and BoP showed a greater reduction in both Group M and Group M + L than Group L (P < 0.001), but there was no difference between the Groups M and M + L (P > 0.05). No difference was also found among groups for other clinical parameters. gingival crevicular fluid volume decreased significantly in the Groups M and M + L (P < 0.05) but there was no difference among the groups (P > 0.05). Results demonstrated clinical improvements on residual pockets in chronic periodontitis patients treated with all three modalities. Moreover, our findings suggest that application of diode laser as an adjunct to mechanical periodontal treatment doesn't demonstrate any additional clinical effect on the residual pockets.",
+    "sentence_labels": [
+        [
+            0,
+            "OBJECTIVE"
+        ],
+        [
+            1,
+            "METHODS"
+        ],
+        [
+            2,
+            "METHODS"
+        ],
+        [
+            3,
+            "METHODS"
+        ],
+        [
+            4,
+            "METHODS"
+        ],
+        [
+            5,
+            "RESULTS"
+        ],
+        [
+            6,
+            "RESULTS"
+        ],
+        [
+            7,
+            "RESULTS"
+        ],
+        [
+            8,
+            "RESULTS"
+        ],
+        [
+            9,
+            "CONCLUSIONS"
+        ],
+        [
+            10,
+            "CONCLUSIONS"
+        ]
+    ],
+    "abstract_highlight": [
+        "Aim ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "this ",
+        "randomized ",
+        "controlled ",
+        "parallel-designed ",
+        "study ",
+        "was ",
+        "to ",
+        "evaluate ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "effects ",
+        "of ",
+        "diode ",
+        "laser ",
+        "as ",
+        "an ",
+        "adjunct ",
+        "to ",
+        "mechanical ",
+        "periodontal ",
+        "treatment ",
+        "on ",
+        "clinical ",
+        "parameters ",
+        "and ",
+        "<bold=True italic=True font_color=purpule>",
+        "gingival ",
+        "<bold=True italic=True font_color=purpule>",
+        "crevicular ",
+        "<bold=True italic=True font_color=purpule>",
+        "fluid ",
+        "( ",
+        "gingival ",
+        "crevicular ",
+        "fluid ",
+        ") ",
+        "volume ",
+        "of ",
+        "the ",
+        "residual ",
+        "pockets ",
+        "diagnosed ",
+        "following ",
+        "initial ",
+        "periodontal ",
+        "treatment ",
+        "in ",
+        "<bold=True italic=True font_color=#000080>",
+        "chronic ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "( ",
+        "chronic ",
+        "periodontitis ",
+        ") ",
+        "patients ",
+        ". ",
+        "A ",
+        "total ",
+        "of ",
+        "84 ",
+        "residual ",
+        "pockets ",
+        "on ",
+        "single-rooted ",
+        "teeth ",
+        "in ",
+        "11 ",
+        "<bold=True italic=True font_color=#000080>",
+        "chronic ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "patients ",
+        "were ",
+        "included ",
+        "and ",
+        "randomly ",
+        "assigned ",
+        "into ",
+        "three ",
+        "groups ",
+        ". ",
+        "Residual ",
+        "pockets ",
+        "were ",
+        "treated ",
+        "either ",
+        "only ",
+        "by ",
+        "mechanical ",
+        "treatment ",
+        "( ",
+        "Group ",
+        "M ",
+        ") ",
+        "( ",
+        "n ",
+        "= ",
+        "28 ",
+        ") ",
+        "or ",
+        "only ",
+        "by ",
+        "diode ",
+        "laser ",
+        "disinfection ",
+        "( ",
+        "Group ",
+        "L ",
+        ") ",
+        "( ",
+        "n ",
+        "= ",
+        "28 ",
+        ") ",
+        "or ",
+        "by ",
+        "a ",
+        "combination ",
+        "of ",
+        "these ",
+        "techniques ",
+        "( ",
+        "Group ",
+        "M ",
+        "+ ",
+        "L ",
+        ") ",
+        "( ",
+        "n ",
+        "= ",
+        "28 ",
+        ") ",
+        ". ",
+        "Plaque ",
+        "<bold=True italic=True font_color=purpule>",
+        "index ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "<bold=True italic=True font_color=#000080>",
+        "gingival ",
+        "index ",
+        "( ",
+        "gingival ",
+        "index ",
+        ") ",
+        ", ",
+        "<bold=True italic=True font_color=#000080>",
+        "bleeding ",
+        "on ",
+        "probing ",
+        "( ",
+        "BoP ",
+        ") ",
+        ", ",
+        "probing ",
+        "depth ",
+        "( ",
+        "PD ",
+        ") ",
+        ", ",
+        "clinical ",
+        "attachment ",
+        "level ",
+        "and ",
+        "gingival ",
+        "<bold=True italic=True font_color=#000080>",
+        "recession ",
+        "were ",
+        "assessed ",
+        "at ",
+        "baseline ",
+        "and ",
+        "8 ",
+        "weeks ",
+        "after ",
+        "treatment ",
+        "of ",
+        "residual ",
+        "pockets ",
+        ". ",
+        "<bold=True italic=True font_color=purpule>",
+        "gingival ",
+        "<bold=True italic=True font_color=purpule>",
+        "crevicular ",
+        "<bold=True italic=True font_color=purpule>",
+        "fluid ",
+        "samples ",
+        "were ",
+        "collected ",
+        "at ",
+        "baseline ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "1 ",
+        "and ",
+        "8 ",
+        "weeks ",
+        "after ",
+        "treatment ",
+        ". ",
+        "All ",
+        "treatment ",
+        "modalities ",
+        "resulted ",
+        "in ",
+        "significant ",
+        "reductions ",
+        "in ",
+        "<bold=True italic=True font_color=#000080>",
+        "PD ",
+        "and ",
+        "attachment ",
+        "gain ",
+        ". ",
+        "<bold=True italic=True font_color=purpule>",
+        "gingival ",
+        "index ",
+        "and ",
+        "BoP ",
+        "showed ",
+        "a ",
+        "greater ",
+        "reduction ",
+        "in ",
+        "both ",
+        "Group ",
+        "M ",
+        "and ",
+        "Group ",
+        "M ",
+        "+ ",
+        "<bold=True italic=True font_color=purpule>",
+        "L ",
+        "than ",
+        "Group ",
+        "L ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "<bold=True italic=True font_color=purpule>",
+        "P ",
+        "< ",
+        "0.001 ",
+        ") ",
+        ", ",
+        "but ",
+        "there ",
+        "was ",
+        "no ",
+        "difference ",
+        "between ",
+        "the ",
+        "Groups ",
+        "M ",
+        "and ",
+        "M ",
+        "+ ",
+        "L ",
+        "( ",
+        "P ",
+        "> ",
+        "0.05 ",
+        ") ",
+        ". ",
+        "No ",
+        "difference ",
+        "was ",
+        "also ",
+        "found ",
+        "among ",
+        "groups ",
+        "for ",
+        "other ",
+        "clinical ",
+        "parameters ",
+        ". ",
+        "<bold=True italic=True font_color=purpule>",
+        "gingival ",
+        "<bold=True italic=True font_color=purpule>",
+        "crevicular ",
+        "<bold=True italic=True font_color=purpule>",
+        "fluid ",
+        "volume ",
+        "decreased ",
+        "significantly ",
+        "in ",
+        "the ",
+        "Groups ",
+        "M ",
+        "and ",
+        "M ",
+        "+ ",
+        "<bold=True italic=True font_color=purpule>",
+        "L ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "<bold=True italic=True font_color=purpule>",
+        "P ",
+        "< ",
+        "0.05 ",
+        ") ",
+        "but ",
+        "there ",
+        "was ",
+        "no ",
+        "difference ",
+        "among ",
+        "the ",
+        "groups ",
+        "( ",
+        "P ",
+        "> ",
+        "0.05 ",
+        ") ",
+        ". ",
+        "Results ",
+        "demonstrated ",
+        "clinical ",
+        "improvements ",
+        "on ",
+        "residual ",
+        "pockets ",
+        "in ",
+        "<bold=True italic=True font_color=#000080>",
+        "chronic ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "patients ",
+        "treated ",
+        "with ",
+        "all ",
+        "three ",
+        "modalities ",
+        ". ",
+        "Moreover ",
+        ", ",
+        "our ",
+        "findings ",
+        "suggest ",
+        "that ",
+        "application ",
+        "of ",
+        "diode ",
+        "laser ",
+        "as ",
+        "an ",
+        "adjunct ",
+        "to ",
+        "mechanical ",
+        "periodontal ",
+        "treatment ",
+        "does ",
+        "n't ",
+        "demonstrate ",
+        "any ",
+        "additional ",
+        "clinical ",
+        "effect ",
+        "on ",
+        "the ",
+        "residual ",
+        "pockets ",
+        ". "
+    ]
+}

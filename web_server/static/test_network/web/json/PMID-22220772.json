@@ -1,0 +1,800 @@
+{
+    "pmid": "22220772",
+    "journal": "Journal of periodontology",
+    "publication_type": "Clinical Trial\nRandomized Controlled Trial",
+    "publication_year": "2012",
+    "publication_date": "2012-01-05",
+    "title": "Systemic ornidazole as an adjunct to non-surgical periodontal therapy in the treatment of chronic periodontitis: a randomized, double-masked, placebo-controlled clinical trial.",
+    "first_author": "A R Pradeep",
+    "corresponding_author": "Sonender P Singh",
+    "authors": "A R Pradeep, Nitish Kalra, N Priyanka, Ella Khaneja, Savitha B Naik, Sonender P Singh",
+    "affiliations": "(1) Department of Periodontics, Government Dental College and Research Institute, Fort, Bangalore, Karnataka, India. periodonticsgdcri@gmail.com ['A R Pradeep']",
+    "abstract": "The purpose of this clinical trial is to evaluate the adjunctive clinical effects of the systemic administration of ornidazole (ORN) in the full-mouth scaling and root planing (SRP) of individuals with moderate-to-advanced chronic periodontitis. Fifty-eight individuals presenting \u226512 teeth with probing depth (PD) \u22654 mm were selected. All participants were instructed on strict oral hygiene measures and were advised to use 0.2% chlorhexidine mouthwash for 1 week before being allocated to two groups. Thirty participants were randomly assigned to full-mouth SRP + placebo (control group), and 28 participants were assigned to full-mouth SRP + ORN (test group). The clinical outcomes evaluated were plaque index, gingival index, clinical attachment level (CAL), and PD. Fifty participants could be evaluated by \u22646 months. At 6 months, the test group had greater mean reduction (2.84 mm) in PD compared to the control group (0.84 mm) (P <0.05), and there was also a greater mean CAL reduction (2.92 mm) in the test group compared to the control group (0.92 mm) (P <0.05). The systemic use of ORN, when used in conjunction with initial periodontal treatment consisting of SRP in adults with periodontitis, achieves significantly better clinical results than initial periodontal treatment alone.",
+    "keywords": "",
+    "MeshHeadingList": [
+        {
+            "QualifierName": [],
+            "DescriptorName": "Adult"
+        },
+        {
+            "QualifierName": [
+                "therapy"
+            ],
+            "DescriptorName": "Alveolar Bone Loss"
+        },
+        {
+            "QualifierName": [
+                "adverse effects",
+                "therapeutic use"
+            ],
+            "DescriptorName": "Anti-Infective Agents"
+        },
+        {
+            "QualifierName": [
+                "administration & dosage",
+                "therapeutic use"
+            ],
+            "DescriptorName": "Anti-Infective Agents, Local"
+        },
+        {
+            "QualifierName": [
+                "administration & dosage",
+                "therapeutic use"
+            ],
+            "DescriptorName": "Chlorhexidine"
+        },
+        {
+            "QualifierName": [
+                "therapy"
+            ],
+            "DescriptorName": "Chronic Periodontitis"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Dental Plaque Index"
+        },
+        {
+            "QualifierName": [
+                "methods"
+            ],
+            "DescriptorName": "Dental Scaling"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Double-Blind Method"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Female"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Follow-Up Studies"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Humans"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Male"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Middle Aged"
+        },
+        {
+            "QualifierName": [
+                "therapeutic use"
+            ],
+            "DescriptorName": "Mouthwashes"
+        },
+        {
+            "QualifierName": [
+                "chemically induced"
+            ],
+            "DescriptorName": "Nausea"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Oral Hygiene"
+        },
+        {
+            "QualifierName": [
+                "adverse effects",
+                "therapeutic use"
+            ],
+            "DescriptorName": "Ornidazole"
+        },
+        {
+            "QualifierName": [
+                "therapy"
+            ],
+            "DescriptorName": "Periodontal Attachment Loss"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Periodontal Index"
+        },
+        {
+            "QualifierName": [
+                "therapy"
+            ],
+            "DescriptorName": "Periodontal Pocket"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Placebos"
+        },
+        {
+            "QualifierName": [
+                "methods"
+            ],
+            "DescriptorName": "Root Planing"
+        },
+        {
+            "QualifierName": [
+                "chemically induced"
+            ],
+            "DescriptorName": "Taste Disorders"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Treatment Outcome"
+        }
+    ],
+    "ChemicalList": [
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Anti-Infective Agents"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Anti-Infective Agents, Local"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Mouthwashes"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Placebos"
+        },
+        {
+            "RegistryNumber": "62XCK0G93T",
+            "NameOfSubstance": "Ornidazole"
+        },
+        {
+            "RegistryNumber": "R4KO0DY52L",
+            "NameOfSubstance": "Chlorhexidine"
+        }
+    ],
+    "doi": "10.1902/jop.2012.110560",
+    "journal_sjr": 0.0,
+    "journal_h_index": 0,
+    "journal_if": 3.742,
+    "journal_metrics": [
+        3.742,
+        0,
+        0.0,
+        3.614
+    ],
+    "title_zh": "\u7cfb\u7edf\u6027\u5965\u785d\u5511\u8f85\u52a9\u975e\u624b\u672f\u7259\u5468\u708e\u6cbb\u7597\u6162\u6027\u7259\u5468\u708e:\u4e00\u9879\u968f\u673a\u3001\u53cc\u63a9\u853d\u3001\u5b89\u6170\u5242\u5bf9\u7167\u4e34\u5e8a\u8bd5\u9a8c",
+    "abstract_zh": "\u672c\u4e34\u5e8a\u8bd5\u9a8c\u7684\u76ee\u7684\u662f\u8bc4\u4f30\u5965\u785d\u5511(ORN)\u7cfb\u7edf\u5e94\u7528\u4e8e\u4e2d\u665a\u671f\u6162\u6027\u7259\u5468\u708e\u60a3\u8005\u5168\u53e3\u6d01\u6cbb\u548c\u6839\u5e73\u9762(SRP)\u7684\u8f85\u52a9\u4e34\u5e8a\u6548\u679c\u3002 \u9009\u62e9\u226512\u9897\u7259\u4e14\u63a2\u8bca\u6df1\u5ea6(probing depth, PD)\u22654mm\u7684\u60a3\u800558\u4f8b\u3002 \u6240\u6709\u53c2\u4e0e\u8005\u90fd\u88ab\u8981\u6c42\u91c7\u53d6\u4e25\u683c\u7684\u53e3\u8154\u536b\u751f\u63aa\u65bd\uff0c\u5e76\u88ab\u5efa\u8bae\u4f7f\u75280.2%\u6d17\u5fc5\u6cf0\u6f31\u53e3\u6c341\u5468\u540e\u518d\u5206\u914d\u7ed9\u4e24\u7ec4\u3002 30\u4f8b\u60a3\u8005\u968f\u673a\u5206\u4e3a\u5168\u53e3SRP +\u5b89\u6170\u5242\u7ec4(\u5bf9\u7167\u7ec4)\uff0c28\u4f8b\u60a3\u8005\u5206\u4e3a\u5168\u53e3SRP + ORN\u7ec4(\u8bd5\u9a8c\u7ec4)\u3002 \u4ee5\u6591\u5757\u6307\u6570\u3001\u7259\u9f88\u6307\u6570\u3001\u4e34\u5e8a\u9644\u7740\u6c34\u5e73(CAL)\u548cPD\u4e3a\u8bc4\u4ef7\u6307\u6807\u3002 50\u540d\u53d7\u8bd5\u8005\u5728\u22646\u4e2a\u6708\u7684\u65f6\u95f4\u5185\u53ef\u8fdb\u884c\u8bc4\u4f30\u3002 6\u4e2a\u6708\u65f6\uff0c\u8bd5\u9a8c\u7ec4PD\u5e73\u5747\u51cf\u5c11\u91cf(2.84 mm)\u9ad8\u4e8e\u5bf9\u7167\u7ec4(0.84 mm) (P <0.05)\uff0c CAL\u5e73\u5747\u51cf\u5c11\u91cf(2.92 mm)\u9ad8\u4e8e\u5bf9\u7167\u7ec4(0.92 mm) (P <0.05)\u3002 \u5728\u6210\u4eba\u7259\u5468\u708e\u60a3\u8005\u4e2d\uff0c\u7cfb\u7edf\u4f7f\u7528ORN\u4e0e\u5305\u62ecSRP\u5728\u5185\u7684\u521d\u59cb\u7259\u5468\u6cbb\u7597\u8054\u5408\u4f7f\u7528\uff0c\u83b7\u5f97\u4e86\u6bd4\u5355\u72ec\u521d\u59cb\u7259\u5468\u6cbb\u7597\u66f4\u597d\u7684\u4e34\u5e8a\u6548\u679c\u3002",
+    "has_translated": true,
+    "bacteria_entities": {
+        "8": [
+            [
+                "L . rhamnosus SP1",
+                8,
+                12
+            ]
+        ]
+    },
+    "has_bacteria_ner": true,
+    "bacteria": [
+        [
+            "L . rhamnosus SP1",
+            "",
+            ""
+        ]
+    ],
+    "has_bacteria_norm": true,
+    "nutrient_entities": {},
+    "has_nutrient_ner": true,
+    "chemical_entities": {
+        "0": [
+            [
+                "ornidazole",
+                18,
+                19
+            ],
+            [
+                "ornidazole",
+                20,
+                21
+            ]
+        ],
+        "3": [
+            [
+                "chlorhexidine",
+                16,
+                17
+            ]
+        ],
+        "4": [
+            [
+                "ornidazole",
+                30,
+                31
+            ]
+        ],
+        "9": [
+            [
+                "ornidazole",
+                4,
+                5
+            ]
+        ]
+    },
+    "has_chemical_ner": true,
+    "has_genetic_ner": true,
+    "enzyme_entities": [],
+    "metabolic_entities": [
+        [
+            0,
+            [
+                [
+                    "ornidazole",
+                    18,
+                    19
+                ]
+            ]
+        ]
+    ],
+    "has_metabolic_ner": true,
+    "molecule": [
+        [
+            [
+                "ORN",
+                "",
+                ""
+            ],
+            [
+                "ornidazole",
+                "MESH:D009950",
+                "Ornidazole"
+            ],
+            [
+                "chlorhexidine",
+                "MESH:D002710",
+                "Chlorhexidine"
+            ]
+        ],
+        [
+            [
+                "chlorhexidine",
+                "",
+                ""
+            ],
+            [
+                "ornidazole",
+                "",
+                ""
+            ],
+            [
+                "ORN",
+                "SMFN",
+                "small fragment nuclease"
+            ]
+        ]
+    ],
+    "has_molecular_norm": true,
+    "nutrient": [],
+    "has_nutrient_norm": true,
+    "disease_entities": {
+        "0": [
+            [
+                "chronic",
+                43,
+                44
+            ],
+            [
+                "periodontitis",
+                44,
+                45
+            ]
+        ],
+        "7": [
+            [
+                "PD",
+                16,
+                17
+            ]
+        ]
+    },
+    "has_disease_ner": true,
+    "disease": [
+        [
+            "PD",
+            "OMIM:168600",
+            "PARKINSON DISEASE, LATE-ONSET"
+        ],
+        [
+            "chronic",
+            "",
+            ""
+        ],
+        [
+            "periodontitis",
+            "MESH:D010518",
+            "Periodontitis"
+        ]
+    ],
+    "has_disease_norm": true,
+    "affiliation_entities": [
+        "Bangalore\nFort\nIndia\nKarnataka",
+        "Research Institute"
+    ],
+    "has_affiliation_ner": true,
+    "sample_size_entities": {},
+    "sample_size": null,
+    "has_sample_size_ner": true,
+    "significance_conclusion": [
+        [
+            6,
+            1
+        ],
+        [
+            7,
+            1
+        ]
+    ],
+    "has_significance_ner": true,
+    "mtime": 1646878699.6488972,
+    "htime": "2022-03-10 10:18:19.648897",
+    "chemical": [
+        [
+            "chlorhexidine",
+            "MESH:D002710",
+            "Chlorhexidine"
+        ],
+        [
+            "ornidazole",
+            "MESH:D009950",
+            "Ornidazole"
+        ]
+    ],
+    "gene_entities": {},
+    "gene": [],
+    "anatomy_entities": {
+        "0": [
+            [
+                "of the",
+                13,
+                15
+            ]
+        ],
+        "1": [],
+        "2": [],
+        "3": [
+            [
+                "mouthwash",
+                17,
+                18
+            ]
+        ],
+        "4": [
+            [
+                ", and",
+                17,
+                19
+            ]
+        ],
+        "5": [
+            [
+                "index",
+                6,
+                8
+            ],
+            [
+                ", gingival",
+                7,
+                9
+            ],
+            [
+                "index",
+                9,
+                11
+            ],
+            [
+                "(clinical",
+                14,
+                16
+            ],
+            [
+                ", and",
+                19,
+                21
+            ],
+            [
+                "gingival",
+                8,
+                9
+            ]
+        ],
+        "6": [],
+        "7": [
+            [
+                "group (",
+                21,
+                23
+            ],
+            [
+                "(P",
+                26,
+                28
+            ],
+            [
+                ", and",
+                31,
+                33
+            ],
+            [
+                "group (",
+                55,
+                57
+            ]
+        ],
+        "8": [
+            [
+                "(P",
+                0,
+                2
+            ]
+        ],
+        "9": []
+    },
+    "anatomy": [
+        [
+            "(P",
+            "",
+            ""
+        ],
+        [
+            "(clinical",
+            "",
+            ""
+        ],
+        [
+            ", and",
+            "",
+            ""
+        ],
+        [
+            ", gingival",
+            "MESH:D005881",
+            "Gingiva"
+        ],
+        [
+            "gingival",
+            "MESH:D005881",
+            "Gingiva"
+        ],
+        [
+            "group (",
+            "",
+            ""
+        ],
+        [
+            "index",
+            "",
+            ""
+        ],
+        [
+            "mouthwash",
+            "",
+            ""
+        ],
+        [
+            "of the",
+            "",
+            ""
+        ]
+    ],
+    "antibody_entities": {},
+    "antibody": [],
+    "abstract_prep": "The purpose of this clinical trial is to evaluate the adjunctive clinical effects of the systemic administration of ornidazole (ornidazole) in the full-mouth scaling and root planing (root planing) of individuals with moderate-to-advanced chronic periodontitis. Fifty-eight individuals presenting \u226512 teeth with probing depth (PD) \u22654 mm were selected. All participants were instructed on strict oral hygiene measures and were advised to use 0.2% chlorhexidine mouthwash for 1 week before being allocated to two groups. Thirty participants were randomly assigned to full-mouth root planing + placebo (control group), and 28 participants were assigned to full-mouth root planing + ornidazole (test group). The clinical outcomes evaluated were plaque index, gingival index, clinical attachment level (clinical attachment level), and PD. Fifty participants could be evaluated by \u22646 months. At 6 months, the test group had greater mean reduction (2.84 mm) in PD compared to the control group (0.84 mm) (P <0.05), and there was also a greater mean clinical attachment level reduction (2.92 mm) in the test group compared to the control group (0.92 mm) (P <0.05). The systemic use of ornidazole, when used in conjunction with initial periodontal treatment consisting of root planing in adults with periodontitis, achieves significantly better clinical results than initial periodontal treatment alone.",
+    "sentence_labels": [
+        [
+            0,
+            "BACKGROUND"
+        ],
+        [
+            1,
+            "METHODS"
+        ],
+        [
+            2,
+            "METHODS"
+        ],
+        [
+            3,
+            "METHODS"
+        ],
+        [
+            4,
+            "METHODS"
+        ],
+        [
+            5,
+            "RESULTS"
+        ],
+        [
+            6,
+            "RESULTS"
+        ],
+        [
+            7,
+            "CONCLUSIONS"
+        ]
+    ],
+    "abstract_highlight": [
+        "The ",
+        "purpose ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "this ",
+        "clinical ",
+        "trial ",
+        "is ",
+        "to ",
+        "evaluate ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "adjunctive ",
+        "clinical ",
+        "effects ",
+        "of ",
+        "the ",
+        "systemic ",
+        "administration ",
+        "of ",
+        "<bold=True italic=True font_color=#008000>",
+        "ornidazole ",
+        "( ",
+        "ornidazole ",
+        ") ",
+        "in ",
+        "the ",
+        "full-mouth ",
+        "scaling ",
+        "and ",
+        "root ",
+        "planing ",
+        "( ",
+        "root ",
+        "planing ",
+        ") ",
+        "of ",
+        "individuals ",
+        "with ",
+        "moderate-to-advanced ",
+        "<bold=True italic=True font_color=#000080>",
+        "chronic ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        ". ",
+        "Fifty-eight ",
+        "individuals ",
+        "presenting ",
+        "\u226512 ",
+        "teeth ",
+        "with ",
+        "probing ",
+        "depth ",
+        "( ",
+        "PD ",
+        ") ",
+        "\u22654 ",
+        "mm ",
+        "were ",
+        "selected ",
+        ". ",
+        "All ",
+        "participants ",
+        "were ",
+        "instructed ",
+        "on ",
+        "strict ",
+        "oral ",
+        "hygiene ",
+        "measures ",
+        "and ",
+        "were ",
+        "advised ",
+        "to ",
+        "use ",
+        "0.2 ",
+        "% ",
+        "chlorhexidine ",
+        "mouthwash ",
+        "for ",
+        "1 ",
+        "week ",
+        "before ",
+        "being ",
+        "allocated ",
+        "to ",
+        "two ",
+        "groups ",
+        ". ",
+        "Thirty ",
+        "participants ",
+        "were ",
+        "randomly ",
+        "assigned ",
+        "to ",
+        "full-mouth ",
+        "root ",
+        "planing ",
+        "+ ",
+        "placebo ",
+        "( ",
+        "control ",
+        "group ",
+        ") ",
+        ", ",
+        "and ",
+        "28 ",
+        "participants ",
+        "were ",
+        "assigned ",
+        "to ",
+        "full-mouth ",
+        "root ",
+        "planing ",
+        "+ ",
+        "ornidazole ",
+        "( ",
+        "test ",
+        "group ",
+        ") ",
+        ". ",
+        "The ",
+        "clinical ",
+        "outcomes ",
+        "evaluated ",
+        "were ",
+        "plaque ",
+        "index ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "gingival ",
+        "index ",
+        ", ",
+        "clinical ",
+        "attachment ",
+        "level ",
+        "( ",
+        "clinical ",
+        "attachment ",
+        "level ",
+        ") ",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "PD ",
+        ". ",
+        "Fifty ",
+        "participants ",
+        "could ",
+        "be ",
+        "evaluated ",
+        "by ",
+        "\u22646 ",
+        "months ",
+        ". ",
+        "At ",
+        "6 ",
+        "months ",
+        ", ",
+        "the ",
+        "test ",
+        "group ",
+        "had ",
+        "greater ",
+        "mean ",
+        "reduction ",
+        "( ",
+        "2.84 ",
+        "mm ",
+        ") ",
+        "in ",
+        "PD ",
+        "compared ",
+        "to ",
+        "the ",
+        "control ",
+        "group ",
+        "( ",
+        "0.84 ",
+        "mm ",
+        ") ",
+        "( ",
+        "P ",
+        "< ",
+        "0.05 ",
+        ") ",
+        ", ",
+        "and ",
+        "there ",
+        "was ",
+        "also ",
+        "a ",
+        "greater ",
+        "mean ",
+        "clinical ",
+        "attachment ",
+        "level ",
+        "reduction ",
+        "( ",
+        "2.92 ",
+        "mm ",
+        ") ",
+        "in ",
+        "the ",
+        "test ",
+        "group ",
+        "compared ",
+        "to ",
+        "the ",
+        "control ",
+        "group ",
+        "( ",
+        "0.92 ",
+        "mm ",
+        ") ",
+        "( ",
+        "P ",
+        "< ",
+        "0.05 ",
+        ") ",
+        ". ",
+        "The ",
+        "systemic ",
+        "use ",
+        "of ",
+        "ornidazole ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "when ",
+        "used ",
+        "in ",
+        "conjunction ",
+        "with ",
+        "initial ",
+        "periodontal ",
+        "treatment ",
+        "consisting ",
+        "of ",
+        "root ",
+        "planing ",
+        "in ",
+        "adults ",
+        "with ",
+        "periodontitis ",
+        ", ",
+        "achieves ",
+        "significantly ",
+        "better ",
+        "clinical ",
+        "results ",
+        "than ",
+        "initial ",
+        "periodontal ",
+        "treatment ",
+        "alone ",
+        ". "
+    ]
+}

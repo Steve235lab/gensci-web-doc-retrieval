@@ -1,0 +1,851 @@
+{
+    "pmid": "30554383",
+    "journal": "Biological trace element research",
+    "publication_type": "Clinical Trial",
+    "publication_year": "2018",
+    "publication_date": "2018-12-15",
+    "title": "Salivary Nickel and Chromium Levels in Orthodontic Patients with and Without Periodontitis: a Preliminary Historical Cohort Study.",
+    "first_author": "Fariborz Amini",
+    "corresponding_author": "Aghdas Rakhshan",
+    "authors": "Fariborz Amini, Elmira Asadi, Diana Hakimpour, Aghdas Rakhshan",
+    "affiliations": "(1) Department of Orthodontics, Dental Branch, Islamic Azad University, 9th Neyestan, Pasdaran, Tehran, 19585175, Iran. ['Fariborz Amini']; (2) Department of Orthodontics, Dental Branch, Islamic Azad University, 9th Neyestan, Pasdaran, Tehran, 19585175, Iran. e_asadi@dentaliau.ac.ir. ['Elmira Asadi']; (3) , Tehran, Iran. ['Diana Hakimpour']; (4) Pharmaceutical Chemistry, North Branch, Islamic Azad University, Tehran, Iran. ['Aghdas Rakhshan']",
+    "abstract": "Many periodontal patients may need orthodontic treatment. Alterations in oral environment particularly the reduction of pH in periodontal patients could affect metal ion release from orthodontic appliances. However, there is no study on metal ion release in periodontal patients. The aim of this preliminary study was to comparatively evaluate, for the first time, salivary levels of nickel and chromium in periodontal patients (versus healthy controls) under orthodontic treatment for 2\u00a0months. In this in vivo study, 40 subjects were evaluated. Patient selection and standardization of orthodontic treatment protocols were prospectively designed and performed. Two groups of n\u2009=\u200920 each (control: healthy orthodontic patients, cohort: orthodontic patients with periodontitis) underwent similar protocols of fixed orthodontic treatment for 2\u00a0months. After 2\u00a0months, salivary nickel and chromium concentrations of the case and cohort groups were measured using inductively coupled plasma mass spectrometry (ICP-MS). The values were compared between the two groups using t test. There were 10 men and 10 women in each group. The mean age of patients was 34.6\u2009\u00b1\u20093.6\u00a0years old. The salivary level of nickel was 338.2\u2009\u00b1\u2009235.5\u00a0ng/ml and 182.8\u2009\u00b1\u2009116.5\u00a0ng/ml in the cohort and control groups, respectively (P\u2009=\u20090.0118). The salivary level of chromium was 7.4\u2009\u00b1\u20093.15\u00a0ng/ml in the cohort and 6.35\u2009\u00b1\u20092.39\u00a0ng/ml in the control group (P\u2009=\u20090.2214). Salivary level of nickel might be considerably higher in periodontal patients undergoing 2\u00a0months of orthodontic treatment compared to orthodontic patients with healthy gingivae.",
+    "keywords": "Chromium, Metal ion release, Nickel, Orthodontic treatment, Periodontitis, Saliva",
+    "MeshHeadingList": [
+        {
+            "QualifierName": [],
+            "DescriptorName": "Adult"
+        },
+        {
+            "QualifierName": [
+                "metabolism"
+            ],
+            "DescriptorName": "Chromium"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Female"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Humans"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Male"
+        },
+        {
+            "QualifierName": [
+                "metabolism"
+            ],
+            "DescriptorName": "Nickel"
+        },
+        {
+            "QualifierName": [
+                "metabolism",
+                "therapy"
+            ],
+            "DescriptorName": "Periodontitis"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Prospective Studies"
+        },
+        {
+            "QualifierName": [
+                "metabolism"
+            ],
+            "DescriptorName": "Saliva"
+        }
+    ],
+    "ChemicalList": [
+        {
+            "RegistryNumber": "0R0008Q3JB",
+            "NameOfSubstance": "Chromium"
+        },
+        {
+            "RegistryNumber": "7OV03QG267",
+            "NameOfSubstance": "Nickel"
+        }
+    ],
+    "doi": "10.1007/s12011-018-1582-9",
+    "journal_sjr": 0.0,
+    "journal_h_index": 0,
+    "journal_if": 2.639,
+    "journal_metrics": [
+        2.639,
+        0,
+        0.0,
+        2.57
+    ],
+    "bacteria_entities": {},
+    "has_bacteria_ner": true,
+    "bacteria": [],
+    "has_bacteria_norm": true,
+    "nutrient_entities": {
+        "3": [
+            [
+                "chromium",
+                21,
+                22
+            ]
+        ],
+        "12": [
+            [
+                "chromium",
+                4,
+                5
+            ]
+        ]
+    },
+    "has_nutrient_ner": true,
+    "chemical_entities": {
+        "3": [
+            [
+                "nickel",
+                19,
+                20
+            ],
+            [
+                "chromium",
+                21,
+                22
+            ]
+        ],
+        "7": [
+            [
+                "nickel",
+                6,
+                7
+            ],
+            [
+                "chromium",
+                8,
+                9
+            ]
+        ],
+        "11": [
+            [
+                "nickel",
+                4,
+                5
+            ]
+        ],
+        "12": [
+            [
+                "chromium",
+                4,
+                5
+            ]
+        ],
+        "14": [
+            [
+                "nickel",
+                3,
+                4
+            ]
+        ]
+    },
+    "has_chemical_ner": true,
+    "has_genetic_ner": true,
+    "enzyme_entities": [],
+    "metabolic_entities": [
+        [
+            3,
+            [
+                [
+                    "chromium in",
+                    21,
+                    23
+                ]
+            ]
+        ],
+        [
+            7,
+            [
+                [
+                    "chromium concentrations",
+                    7,
+                    9
+                ]
+            ]
+        ],
+        [
+            12,
+            [
+                [
+                    "chromium was",
+                    4,
+                    6
+                ]
+            ]
+        ]
+    ],
+    "has_metabolic_ner": true,
+    "molecule": [
+        [
+            [
+                "chromium in",
+                "MESH:D002857",
+                "Chromium"
+            ],
+            [
+                "chromium",
+                "MESH:D002857",
+                "Chromium"
+            ],
+            [
+                "nickel",
+                "MESH:D009532",
+                "Nickel"
+            ],
+            [
+                "chromium concentrations",
+                "MESH:C041167",
+                "chromium nitrate"
+            ],
+            [
+                "chromium was",
+                "MESH:D002857",
+                "Chromium"
+            ]
+        ],
+        [
+            [
+                "chromium",
+                "",
+                ""
+            ],
+            [
+                "chromium concentrations",
+                "",
+                ""
+            ],
+            [
+                "chromium in",
+                "",
+                ""
+            ],
+            [
+                "nickel",
+                "",
+                ""
+            ],
+            [
+                "chromium was",
+                "CHROMA",
+                "Meat color chroma"
+            ]
+        ]
+    ],
+    "has_molecular_norm": true,
+    "nutrient": [
+        [
+            "chromium",
+            "chromium ",
+            "chromium "
+        ]
+    ],
+    "has_nutrient_norm": true,
+    "disease_entities": {
+        "6": [
+            [
+                "periodontitis",
+                21,
+                22
+            ]
+        ]
+    },
+    "has_disease_ner": true,
+    "disease": [
+        [
+            "periodontitis",
+            "MESH:D010518",
+            "Periodontitis"
+        ]
+    ],
+    "has_disease_norm": true,
+    "affiliation_entities": [
+        "Iran\nIran\nIran\nIran\nPasdaran\nPasdaran\nTehran\nTehran\nTehran\nTehran",
+        "Department of Orthodontics\nDepartment of Orthodontics\nIslamic Azad University\nIslamic Azad University\nIslamic Azad University"
+    ],
+    "has_affiliation_ner": true,
+    "sample_size_entities": {
+        "4": [
+            [
+                40,
+                6,
+                7
+            ]
+        ],
+        "9": [
+            [
+                10,
+                5,
+                6
+            ]
+        ],
+        "10": [
+            [
+                34.6,
+                6,
+                7
+            ]
+        ]
+    },
+    "sample_size": 40,
+    "has_sample_size_ner": true,
+    "significance_conclusion": [],
+    "has_significance_ner": true,
+    "mtime": 1646878767.6141796,
+    "htime": "2022-03-10 10:19:27.614180",
+    "title_zh": "\u7259\u5468\u708e\u60a3\u8005\u548c\u975e\u7259\u5468\u708e\u60a3\u8005\u553e\u6db2\u4e2d\u954d\u548c\u94ec\u7684\u6c34\u5e73:\u4e00\u9879\u521d\u6b65\u7684\u5386\u53f2\u961f\u5217\u7814\u7a76\u3002",
+    "abstract_zh": "\u8bb8\u591a\u7259\u5468\u75c5\u60a3\u8005\u53ef\u80fd\u9700\u8981\u6b63\u7578\u6cbb\u7597\u3002 \u53e3\u8154\u73af\u5883\u7684\u6539\u53d8\uff0c\u7279\u522b\u662f\u7259\u5468\u75c5\u60a3\u8005pH\u503c\u7684\u964d\u4f4e\uff0c\u53ef\u80fd\u4f1a\u5f71\u54cd\u6b63\u7578\u5668\u5177\u4e2d\u91d1\u5c5e\u79bb\u5b50\u7684\u91ca\u653e\u3002 \u7136\u800c\uff0c\u76ee\u524d\u8fd8\u6ca1\u6709\u5173\u4e8e\u7259\u5468\u75c5\u60a3\u8005\u91d1\u5c5e\u79bb\u5b50\u91ca\u653e\u7684\u7814\u7a76\u3002 \u672c\u521d\u6b65\u7814\u7a76\u7684\u76ee\u7684\u662f\u9996\u6b21\u6bd4\u8f83\u8bc4\u4f30\u6b63\u7578\u6cbb\u75972\u4e2a\u6708\u540e\u7259\u5468\u75c5\u60a3\u8005(\u4e0e\u5065\u5eb7\u5bf9\u7167\u7ec4)\u553e\u6db2\u4e2d\u954d\u548c\u94ec\u7684\u6c34\u5e73\u3002 \u5728\u8fd9\u4e2a\u4f53\u5185\u7814\u7a76\u4e2d\uff0c40\u540d\u53d7\u8bd5\u8005\u88ab\u8bc4\u4f30\u3002 \u60a3\u8005\u9009\u62e9\u548c\u6807\u51c6\u5316\u6b63\u7578\u6cbb\u7597\u65b9\u6848\u7684\u524d\u77bb\u6027\u8bbe\u8ba1\u548c\u6267\u884c\u3002 \u4e24\u7ec4\u540420\u4eba(\u5bf9\u7167\u7ec4:\u5065\u5eb7\u6b63\u7578\u60a3\u8005\uff0c\u961f\u5217:\u7259\u5468\u708e\u6b63\u7578\u60a3\u8005)\u8fdb\u884c\u4e86\u76f8\u4f3c\u76842\u4e2a\u6708\u56fa\u5b9a\u6b63\u7578\u6cbb\u7597\u65b9\u6848\u3002 2\u4e2a\u6708\u540e\uff0c\u91c7\u7528\u7535\u611f\u8026\u5408\u7b49\u79bb\u5b50\u4f53\u8d28\u8c31(ICP-MS)\u6d4b\u5b9a\u75c5\u4f8b\u7ec4\u548c\u961f\u5217\u7ec4\u553e\u6db2\u4e2d\u954d\u548c\u94ec\u7684\u6d53\u5ea6\u3002 \u91c7\u7528t\u68c0\u9a8c\u6bd4\u8f83\u4e24\u7ec4\u6570\u503c\u3002 \u6bcf\u7ec410\u540d\u7537\u6027\u548c10\u540d\u5973\u6027\u3002 \u60a3\u8005\u5e73\u5747\u5e74\u9f84\u4e3a34.6\u00b13.6\u5c81\u3002 \u7814\u7a76\u7ec4\u548c\u5bf9\u7167\u7ec4\u553e\u6db2\u4e2d\u954d\u542b\u91cf\u5206\u522b\u4e3a338.2\u00b1235.5 ng/ml\u548c182.8\u00b1116.5 ng/ml (P = 0.0118)\u3002 \u7814\u7a76\u7ec4\u553e\u6db2\u4e2d\u94ec\u542b\u91cf\u4e3a7.4\u00b13.15 ng/ml\uff0c\u5bf9\u7167\u7ec4\u4e3a6.35\u00b12.39 ng/ml (P = 0.2214)\u3002 \u63a5\u53d72\u4e2a\u6708\u6b63\u7578\u6cbb\u7597\u7684\u7259\u5468\u75c5\u4eba\u553e\u6db2\u4e2d\u954d\u542b\u91cf\u53ef\u80fd\u6bd4\u7259\u9f88\u5065\u5eb7\u7684\u6b63\u7578\u75c5\u4eba\u9ad8\u5f97\u591a\u3002",
+    "has_translated": true,
+    "chemical": [
+        [
+            "chromium",
+            "MESH:D002857",
+            "Chromium"
+        ],
+        [
+            "nickel",
+            "MESH:D009532",
+            "Nickel"
+        ]
+    ],
+    "gene_entities": {},
+    "gene": [],
+    "anatomy_entities": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": [
+            [
+                ", salivary",
+                15,
+                17
+            ],
+            [
+                "levels of",
+                17,
+                19
+            ],
+            [
+                "salivary",
+                16,
+                17
+            ]
+        ],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [
+            [
+                ", salivary",
+                4,
+                6
+            ],
+            [
+                "of the",
+                10,
+                12
+            ],
+            [
+                "salivary",
+                5,
+                6
+            ]
+        ],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": [
+            [
+                "level of",
+                2,
+                4
+            ],
+            [
+                "groups",
+                30,
+                32
+            ],
+            [
+                "(P",
+                33,
+                35
+            ],
+            [
+                "salivary",
+                1,
+                2
+            ]
+        ],
+        "12": [
+            [
+                "level of",
+                2,
+                4
+            ],
+            [
+                "salivary",
+                1,
+                2
+            ]
+        ],
+        "13": [
+            [
+                "group (",
+                20,
+                22
+            ],
+            [
+                "(P",
+                21,
+                23
+            ]
+        ],
+        "14": [
+            [
+                "level of",
+                1,
+                3
+            ],
+            [
+                "Salivary",
+                0,
+                1
+            ],
+            [
+                "gingivae",
+                24,
+                25
+            ]
+        ]
+    },
+    "anatomy": [
+        [
+            "(P",
+            "",
+            ""
+        ],
+        [
+            ", salivary",
+            "MESH:D012469",
+            "Salivary Glands"
+        ],
+        [
+            "Salivary",
+            "MESH:D012469",
+            "Salivary Glands"
+        ],
+        [
+            "gingivae",
+            "MESH:D005881",
+            "Gingiva"
+        ],
+        [
+            "group (",
+            "",
+            ""
+        ],
+        [
+            "groups",
+            "",
+            ""
+        ],
+        [
+            "level of",
+            "",
+            ""
+        ],
+        [
+            "levels of",
+            "",
+            ""
+        ],
+        [
+            "of the",
+            "",
+            ""
+        ],
+        [
+            "salivary",
+            "MESH:D012469",
+            "Salivary Glands"
+        ]
+    ],
+    "antibody_entities": {},
+    "antibody": [],
+    "abstract_prep": "Many periodontal patients may need orthodontic treatment. Alterations in oral environment particularly the reduction of pH in periodontal patients could affect metal ion release from orthodontic appliances. However, there is no study on metal ion release in periodontal patients. The aim of this preliminary study was to comparatively evaluate, for the first time, salivary levels of nickel and chromium in periodontal patients (versus healthy controls) under orthodontic treatment for 2\u00a0months. In this in vivo study, 40 subjects were evaluated. Patient selection and standardization of orthodontic treatment protocols were prospectively designed and performed. Two groups of n\u2009=\u200920 each (control: healthy orthodontic patients, cohort: orthodontic patients with periodontitis) underwent similar protocols of fixed orthodontic treatment for 2\u00a0months. After 2\u00a0months, salivary nickel and chromium concentrations of the case and cohort groups were measured using inductively coupled plasma mass spectrometry (inductively coupled plasma mass spectrometry). The values were compared between the two groups using t test. There were 10 men and 10 women in each group. The mean age of patients was 34.6\u2009\u00b1\u20093.6\u00a0years old. The salivary level of nickel was 338.2\u2009\u00b1\u2009235.5\u00a0ng/ml and 182.8\u2009\u00b1\u2009116.5\u00a0ng/ml in the cohort and control groups, respectively (P\u2009=\u20090.0118). The salivary level of chromium was 7.4\u2009\u00b1\u20093.15\u00a0ng/ml in the cohort and 6.35\u2009\u00b1\u20092.39\u00a0ng/ml in the control group (P\u2009=\u20090.2214). Salivary level of nickel might be considerably higher in periodontal patients undergoing 2\u00a0months of orthodontic treatment compared to orthodontic patients with healthy gingivae.",
+    "sentence_labels": [
+        [
+            0,
+            "BACKGROUND"
+        ],
+        [
+            1,
+            "BACKGROUND"
+        ],
+        [
+            2,
+            "BACKGROUND"
+        ],
+        [
+            3,
+            "OBJECTIVE"
+        ],
+        [
+            4,
+            "METHODS"
+        ],
+        [
+            5,
+            "METHODS"
+        ],
+        [
+            6,
+            "METHODS"
+        ],
+        [
+            7,
+            "METHODS"
+        ],
+        [
+            8,
+            "METHODS"
+        ],
+        [
+            9,
+            "RESULTS"
+        ],
+        [
+            10,
+            "RESULTS"
+        ],
+        [
+            11,
+            "RESULTS"
+        ],
+        [
+            12,
+            "RESULTS"
+        ],
+        [
+            13,
+            "CONCLUSIONS"
+        ]
+    ],
+    "abstract_highlight": [
+        "Many ",
+        "periodontal ",
+        "patients ",
+        "may ",
+        "need ",
+        "orthodontic ",
+        "treatment ",
+        ". ",
+        "Alterations ",
+        "in ",
+        "oral ",
+        "environment ",
+        "particularly ",
+        "the ",
+        "reduction ",
+        "of ",
+        "pH ",
+        "in ",
+        "periodontal ",
+        "patients ",
+        "could ",
+        "affect ",
+        "metal ",
+        "ion ",
+        "release ",
+        "from ",
+        "orthodontic ",
+        "appliances ",
+        ". ",
+        "However ",
+        ", ",
+        "there ",
+        "is ",
+        "no ",
+        "study ",
+        "on ",
+        "metal ",
+        "ion ",
+        "release ",
+        "in ",
+        "periodontal ",
+        "patients ",
+        ". ",
+        "The ",
+        "aim ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "this ",
+        "preliminary ",
+        "study ",
+        "was ",
+        "to ",
+        "comparatively ",
+        "evaluate ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "for ",
+        "the ",
+        "first ",
+        "time ",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "salivary ",
+        "<bold=True italic=True font_color=purpule>",
+        "levels ",
+        "of ",
+        "<bold=True italic=True font_color=#008000>",
+        "nickel ",
+        "and ",
+        "<bold=True italic=True font_color=#008000>",
+        "chromium ",
+        "in ",
+        "periodontal ",
+        "patients ",
+        "( ",
+        "versus ",
+        "healthy ",
+        "controls ",
+        ") ",
+        "under ",
+        "orthodontic ",
+        "treatment ",
+        "for ",
+        "2 ",
+        "months ",
+        ". ",
+        "In ",
+        "this ",
+        "in ",
+        "vivo ",
+        "study ",
+        ", ",
+        "40 ",
+        "subjects ",
+        "were ",
+        "evaluated ",
+        ". ",
+        "Patient ",
+        "selection ",
+        "and ",
+        "standardization ",
+        "of ",
+        "orthodontic ",
+        "treatment ",
+        "protocols ",
+        "were ",
+        "prospectively ",
+        "designed ",
+        "and ",
+        "performed ",
+        ". ",
+        "Two ",
+        "groups ",
+        "of ",
+        "n ",
+        "= ",
+        "20 ",
+        "each ",
+        "( ",
+        "control ",
+        ": ",
+        "healthy ",
+        "orthodontic ",
+        "patients ",
+        ", ",
+        "cohort ",
+        ": ",
+        "orthodontic ",
+        "patients ",
+        "with ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        ") ",
+        "underwent ",
+        "similar ",
+        "protocols ",
+        "of ",
+        "fixed ",
+        "orthodontic ",
+        "treatment ",
+        "for ",
+        "2 ",
+        "months ",
+        ". ",
+        "After ",
+        "2 ",
+        "months ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "salivary ",
+        "<bold=True italic=True font_color=#008000>",
+        "nickel ",
+        "and ",
+        "<bold=True italic=True font_color=#008000>",
+        "chromium ",
+        "concentrations ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "case ",
+        "and ",
+        "cohort ",
+        "groups ",
+        "were ",
+        "measured ",
+        "using ",
+        "inductively ",
+        "coupled ",
+        "plasma ",
+        "mass ",
+        "spectrometry ",
+        "( ",
+        "inductively ",
+        "coupled ",
+        "plasma ",
+        "mass ",
+        "spectrometry ",
+        ") ",
+        ". ",
+        "The ",
+        "values ",
+        "were ",
+        "compared ",
+        "between ",
+        "the ",
+        "two ",
+        "groups ",
+        "using ",
+        "t ",
+        "test ",
+        ". ",
+        "There ",
+        "were ",
+        "10 ",
+        "men ",
+        "and ",
+        "10 ",
+        "women ",
+        "in ",
+        "each ",
+        "group ",
+        ". ",
+        "The ",
+        "mean ",
+        "age ",
+        "of ",
+        "patients ",
+        "was ",
+        "34.6 ",
+        "\u00b1 ",
+        "3.6 ",
+        "years ",
+        "old ",
+        ". ",
+        "The ",
+        "<bold=True italic=True font_color=purpule>",
+        "salivary ",
+        "<bold=True italic=True font_color=purpule>",
+        "level ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "<bold=True italic=True font_color=#008000>",
+        "nickel ",
+        "was ",
+        "338.2 ",
+        "\u00b1 ",
+        "235.5 ",
+        "ng/ml ",
+        "and ",
+        "182.8 ",
+        "\u00b1 ",
+        "116.5 ",
+        "ng/ml ",
+        "in ",
+        "the ",
+        "cohort ",
+        "and ",
+        "control ",
+        "<bold=True italic=True font_color=purpule>",
+        "groups ",
+        ", ",
+        "respectively ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "<bold=True italic=True font_color=purpule>",
+        "P ",
+        "= ",
+        "0.0118 ",
+        ") ",
+        ". ",
+        "The ",
+        "<bold=True italic=True font_color=purpule>",
+        "salivary ",
+        "<bold=True italic=True font_color=purpule>",
+        "level ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "<bold=True italic=True font_color=#008000>",
+        "chromium ",
+        "was ",
+        "7.4 ",
+        "\u00b1 ",
+        "3.15 ",
+        "ng/ml ",
+        "in ",
+        "the ",
+        "cohort ",
+        "and ",
+        "6.35 ",
+        "\u00b1 ",
+        "2.39 ",
+        "ng/ml ",
+        "in ",
+        "the ",
+        "control ",
+        "group ",
+        "( ",
+        "P ",
+        "= ",
+        "0.2214 ",
+        ") ",
+        ". ",
+        "Salivary ",
+        "level ",
+        "of ",
+        "nickel ",
+        "might ",
+        "be ",
+        "considerably ",
+        "higher ",
+        "in ",
+        "periodontal ",
+        "patients ",
+        "undergoing ",
+        "2 ",
+        "months ",
+        "of ",
+        "orthodontic ",
+        "treatment ",
+        "compared ",
+        "to ",
+        "orthodontic ",
+        "patients ",
+        "with ",
+        "healthy ",
+        "gingivae ",
+        ". "
+    ]
+}

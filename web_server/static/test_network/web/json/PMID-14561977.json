@@ -1,0 +1,922 @@
+{
+    "pmid": "14561977",
+    "journal": "Oral surgery, oral medicine, oral pathology, oral radiology, and endodontics",
+    "publication_type": "Clinical Trial\nRandomized Controlled Trial",
+    "publication_year": "2003",
+    "publication_date": "2003-12-01",
+    "title": "Cytokines in periradicular lesions: the effect of linezolid treatment.",
+    "first_author": "John Danin",
+    "corresponding_author": "Bengt Wretlind",
+    "authors": "John Danin, Lars Linder, G\u00f6sta Lundqvist, Bengt Wretlind",
+    "affiliations": "(1) Department of Cariology and Endodontics, Karolinska Institutet, Huddinge University Hospital, Sweden. john.danin@ofa.ki.se ['John Danin']",
+    "abstract": "The purpose of this study was to quantify the cytokines interleukin (IL)-1 receptor antagonist (RA), IL-6, and transforming growth factor beta(1) found in extracts of inflammatory periapical tissues and to study the effect of a new antibiotic (linezolid) on the levels of these cytokines. Twenty-two patients with root-filled teeth with persisting periapical pathoses were randomly divided into a control group or an antibiotic group. One tooth from each of the patients was resected at the root-end, and the periapical tissue was collected. IL-1RA, IL-6, and TGF-beta(1) were quantified in tissue extracts through the use of enzyme-linked immunosorbent assays. Measurable amounts of all 3 cytokines were found in all extracts. A statistically significant reduction in IL-1RA per milliliter was observed in the linezolid group in comparison with the control group (P <.05). The difference in variation of IL-1RA in the treatment and control groups was also highly statistically significant (P <.001). Although drawn from a limited sample size, the results indicate that IL-1RA is a sensitive indicator of the effect of antibacterial treatment on the immune response in periapical inflammatory tissues.",
+    "keywords": "",
+    "MeshHeadingList": [
+        {
+            "QualifierName": [
+                "therapeutic use"
+            ],
+            "DescriptorName": "Acetamides"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Adult"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Aged"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Analysis of Variance"
+        },
+        {
+            "QualifierName": [
+                "therapeutic use"
+            ],
+            "DescriptorName": "Anti-Infective Agents"
+        },
+        {
+            "QualifierName": [
+                "isolation & purification"
+            ],
+            "DescriptorName": "Bacteria, Anaerobic"
+        },
+        {
+            "QualifierName": [
+                "metabolism"
+            ],
+            "DescriptorName": "Cytokines"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Dental Restoration Failure"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Enzyme-Linked Immunosorbent Assay"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Female"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Humans"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Interleukin 1 Receptor Antagonist Protein"
+        },
+        {
+            "QualifierName": [
+                "metabolism"
+            ],
+            "DescriptorName": "Interleukin-6"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Linezolid"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Male"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Middle Aged"
+        },
+        {
+            "QualifierName": [
+                "therapeutic use"
+            ],
+            "DescriptorName": "Oxazolidinones"
+        },
+        {
+            "QualifierName": [
+                "drug therapy",
+                "etiology",
+                "metabolism"
+            ],
+            "DescriptorName": "Periapical Periodontitis"
+        },
+        {
+            "QualifierName": [
+                "antagonists & inhibitors"
+            ],
+            "DescriptorName": "Receptors, Interleukin-1"
+        },
+        {
+            "QualifierName": [
+                "adverse effects"
+            ],
+            "DescriptorName": "Root Canal Therapy"
+        },
+        {
+            "QualifierName": [
+                "metabolism"
+            ],
+            "DescriptorName": "Sialoglycoproteins"
+        },
+        {
+            "QualifierName": [
+                "metabolism"
+            ],
+            "DescriptorName": "Transforming Growth Factor beta"
+        }
+    ],
+    "ChemicalList": [
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Acetamides"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Anti-Infective Agents"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Cytokines"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "IL1RN protein, human"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Interleukin 1 Receptor Antagonist Protein"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Interleukin-6"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Oxazolidinones"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Receptors, Interleukin-1"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Sialoglycoproteins"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Transforming Growth Factor beta"
+        },
+        {
+            "RegistryNumber": "ISQ9I6J12J",
+            "NameOfSubstance": "Linezolid"
+        }
+    ],
+    "doi": null,
+    "journal_sjr": 0,
+    "journal_h_index": 0,
+    "journal_if": 0,
+    "journal_metrics": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "bacteria_entities": {},
+    "has_bacteria_ner": true,
+    "bacteria": [],
+    "has_bacteria_norm": true,
+    "nutrient_entities": {},
+    "has_nutrient_ner": true,
+    "chemical_entities": {
+        "0": [
+            [
+                "linezolid",
+                45,
+                46
+            ]
+        ],
+        "5": [
+            [
+                "linezolid",
+                13,
+                14
+            ]
+        ]
+    },
+    "has_chemical_ner": true,
+    "has_genetic_ner": true,
+    "enzyme_entities": [],
+    "metabolic_entities": [],
+    "has_metabolic_ner": true,
+    "molecule": [
+        [
+            [
+                "TGF-beta ( 1 )",
+                "MESH:D053773",
+                "Transforming Growth Factor beta1"
+            ],
+            [
+                "IL-1RA",
+                "MESH:D053590",
+                "Interleukin 1 Receptor Antagonist Protein"
+            ],
+            [
+                "RA",
+                "",
+                ""
+            ],
+            [
+                "IL",
+                "",
+                ""
+            ],
+            [
+                "-1 receptor antagonist",
+                "",
+                ""
+            ],
+            [
+                "1",
+                "",
+                ""
+            ],
+            [
+                "IL-6",
+                "MESH:D015850",
+                "Interleukin-6"
+            ],
+            [
+                "transforming growth factor beta",
+                "MESH:D016212",
+                "Transforming Growth Factor beta"
+            ],
+            [
+                "linezolid",
+                "MESH:D000069349",
+                "Linezolid"
+            ],
+            [
+                "interleukin",
+                "MESH:D007378",
+                "Interleukins"
+            ]
+        ],
+        [
+            [
+                "IL-6",
+                "IL6ST",
+                "interleukin 6 cytokine family signal transducer"
+            ],
+            [
+                "IL",
+                "",
+                ""
+            ],
+            [
+                "TGF-beta ( 1 )",
+                "TGFB1",
+                "transforming growth factor beta 1"
+            ],
+            [
+                "RA",
+                "SOX18",
+                "SRY-box transcription factor 18"
+            ],
+            [
+                "-1 receptor antagonist",
+                "IL1RN",
+                "interleukin 1 receptor antagonist"
+            ],
+            [
+                "1",
+                "TUBA1B",
+                "tubulin alpha 1b"
+            ],
+            [
+                "transforming growth factor beta",
+                "TGFB3",
+                "transforming growth factor beta 3"
+            ],
+            [
+                "IL-1RA",
+                "IL6R",
+                "interleukin 6 receptor"
+            ],
+            [
+                "interleukin",
+                "IL2",
+                "interleukin 2"
+            ],
+            [
+                "linezolid",
+                "",
+                ""
+            ]
+        ]
+    ],
+    "has_molecular_norm": true,
+    "nutrient": [],
+    "has_nutrient_norm": true,
+    "disease_entities": {
+        "1": [
+            [
+                "persisting",
+                10,
+                11
+            ],
+            [
+                "periapical pathoses",
+                11,
+                13
+            ]
+        ]
+    },
+    "has_disease_ner": true,
+    "disease": [
+        [
+            "periapical pathoses",
+            "MESH:D010482",
+            "Periapical Abscess"
+        ],
+        [
+            "persisting",
+            "",
+            ""
+        ]
+    ],
+    "has_disease_norm": true,
+    "affiliation_entities": [
+        "Sweden",
+        "Department of Cariology and Endodontics\nHuddinge University Hospital"
+    ],
+    "has_affiliation_ner": true,
+    "sample_size_entities": {
+        "1": [
+            [
+                22,
+                0,
+                3
+            ]
+        ]
+    },
+    "sample_size": 22,
+    "has_sample_size_ner": true,
+    "significance_conclusion": [
+        [
+            5,
+            1
+        ],
+        [
+            6,
+            1
+        ]
+    ],
+    "has_significance_ner": true,
+    "mtime": 1646878674.632348,
+    "htime": "2022-03-10 10:17:54.632348",
+    "title_zh": "\u795e\u7ecf\u6839\u5468\u56f4\u75c5\u53d8\u4e2d\u7684\u7ec6\u80de\u56e0\u5b50:\u5229\u5948\u5511\u80fa\u6cbb\u7597\u7684\u6548\u679c\u3002",
+    "abstract_zh": "\u672c\u7814\u7a76\u7684\u76ee\u7684\u662f\u91cf\u5316\u708e\u75c7\u6839\u5c16\u5468\u7ec4\u7ec7\u63d0\u53d6\u7269\u4e2d\u53d1\u73b0\u7684\u7ec6\u80de\u56e0\u5b50\u767d\u4ecb\u7d20(IL)-1\u53d7\u4f53\u62ee\u6297\u5242(RA)\u3001IL-6\u548c\u8f6c\u5316\u751f\u957f\u56e0\u5b50\u03b2(1)\uff0c\u5e76\u7814\u7a76\u4e00\u79cd\u65b0\u7684\u6297\u751f\u7d20(\u5229\u5948\u5511\u80fa)\u5bf9\u8fd9\u4e9b\u7ec6\u80de\u56e0\u5b50\u6c34\u5e73\u7684\u5f71\u54cd\u3002 22\u4f8b\u6839\u5c16\u5468\u708e\u60a3\u8005\u968f\u673a\u5206\u4e3a\u5bf9\u7167\u7ec4\u548c\u6297\u751f\u7d20\u7ec4\u3002 \u6bcf\u4e2a\u60a3\u8005\u6839\u7aef\u5207\u96641\u9897\u7259\uff0c\u6536\u96c6\u6839\u5c16\u5468\u7ec4\u7ec7\u3002 \u901a\u8fc7\u9176\u8054\u514d\u75ab\u5438\u9644\u6cd5\u5b9a\u91cf\u7ec4\u7ec7\u63d0\u53d6\u7269\u4e2d\u7684IL-1RA\u3001IL-6\u548ctgf - \u03b2(1)\u3002 \u5728\u6240\u6709\u63d0\u53d6\u6db2\u4e2d\u5747\u68c0\u6d4b\u52303\u79cd\u7ec6\u80de\u56e0\u5b50\u7684\u542b\u91cf\u3002 \u4e0e\u5bf9\u7167\u7ec4\u76f8\u6bd4\uff0c\u5229\u5948\u5511\u80fa\u7ec4IL-1RA\u6bcf\u6beb\u5347\u4e0b\u964d\u6709\u7edf\u8ba1\u5b66\u610f\u4e49(P < 0.05)\u3002 IL-1RA\u5728\u6cbb\u7597\u7ec4\u548c\u5bf9\u7167\u7ec4\u7684\u5dee\u5f02\u4e5f\u5177\u6709\u9ad8\u5ea6\u7edf\u8ba1\u5b66\u610f\u4e49(P <.001)\u3002 \u867d\u7136\u6837\u672c\u91cf\u6709\u9650\uff0c\u4f46\u7ed3\u679c\u8868\u660eIL-1RA\u662f\u6297\u83cc\u6cbb\u7597\u5bf9\u6839\u5c16\u5468\u708e\u75c7\u7ec4\u7ec7\u514d\u75ab\u5e94\u7b54\u5f71\u54cd\u7684\u654f\u611f\u6307\u6807\u3002",
+    "has_translated": true,
+    "chemical": [
+        [
+            "linezolid",
+            "MESH:D000069349",
+            "Linezolid"
+        ]
+    ],
+    "gene_entities": {
+        "0": [
+            [
+                "interleukin",
+                10,
+                11
+            ],
+            [
+                "interleukin)-1",
+                12,
+                13
+            ],
+            [
+                "receptor antagonist",
+                13,
+                15
+            ],
+            [
+                "receptor antagonist",
+                16,
+                18
+            ],
+            [
+                "interleukin-6",
+                20,
+                21
+            ],
+            [
+                "transforming growth factor beta(1",
+                23,
+                27
+            ]
+        ],
+        "3": [
+            [
+                "interleukin-1receptor antagonist",
+                0,
+                2
+            ],
+            [
+                "interleukin-6",
+                3,
+                4
+            ],
+            [
+                "TGF",
+                6,
+                7
+            ]
+        ],
+        "5": [
+            [
+                "interleukin-1receptor",
+                5,
+                6
+            ]
+        ],
+        "6": [
+            [
+                "interleukin-1receptor",
+                5,
+                6
+            ]
+        ],
+        "7": [
+            [
+                "interleukin-1receptor",
+                12,
+                13
+            ]
+        ]
+    },
+    "gene": [
+        [
+            "TGF",
+            "",
+            ""
+        ],
+        [
+            "interleukin",
+            "SLC25A48",
+            "solute carrier family 25 member 48"
+        ],
+        [
+            "interleukin)-1",
+            "IL1B",
+            "interleukin 1 beta"
+        ],
+        [
+            "interleukin-1receptor",
+            "ZMP:0000000936",
+            ""
+        ],
+        [
+            "interleukin-1receptor antagonist",
+            "IL1RN",
+            "interleukin 1 receptor antagonist"
+        ],
+        [
+            "interleukin-6",
+            "IL6.L",
+            "interleukin 6 L homeolog"
+        ],
+        [
+            "receptor antagonist",
+            "IL1RN",
+            "interleukin 1 receptor antagonist"
+        ],
+        [
+            "transforming growth factor beta(1",
+            "TGFB1B",
+            "transforming growth factor, beta 1b"
+        ]
+    ],
+    "anatomy_entities": {
+        "0": [
+            [
+                ", and",
+                21,
+                23
+            ],
+            [
+                "periapical tissues",
+                33,
+                35
+            ],
+            [
+                "levels of",
+                49,
+                51
+            ]
+        ],
+        "1": [],
+        "2": [
+            [
+                "of the",
+                4,
+                6
+            ],
+            [
+                ", and",
+                14,
+                16
+            ],
+            [
+                "periapical tissue",
+                17,
+                19
+            ]
+        ],
+        "3": [
+            [
+                ", and",
+                4,
+                6
+            ]
+        ],
+        "4": [
+            [
+                "of all",
+                2,
+                4
+            ]
+        ],
+        "5": [
+            [
+                "group (",
+                20,
+                22
+            ],
+            [
+                "(P",
+                21,
+                23
+            ]
+        ],
+        "6": [
+            [
+                "(P",
+                18,
+                20
+            ]
+        ],
+        "7": [
+            [
+                "of the",
+                18,
+                20
+            ]
+        ]
+    },
+    "anatomy": [
+        [
+            "(P",
+            "",
+            ""
+        ],
+        [
+            ", and",
+            "",
+            ""
+        ],
+        [
+            "group (",
+            "",
+            ""
+        ],
+        [
+            "levels of",
+            "",
+            ""
+        ],
+        [
+            "of all",
+            "",
+            ""
+        ],
+        [
+            "of the",
+            "",
+            ""
+        ],
+        [
+            "periapical tissue",
+            "MESH:D010486",
+            "Periapical Tissue"
+        ],
+        [
+            "periapical tissues",
+            "MESH:D010486",
+            "Periapical Tissue"
+        ]
+    ],
+    "antibody_entities": {},
+    "antibody": [],
+    "abstract_prep": "The purpose of this study was to quantify the cytokines interleukin (interleukin)-1 receptor antagonist (receptor antagonist), interleukin-6, and transforming growth factor beta(1) found in extracts of inflammatory periapical tissues and to study the effect of a new antibiotic (linezolid) on the levels of these cytokines. Twenty-two patients with root-filled teeth with persisting periapical pathoses were randomly divided into a control group or an antibiotic group. One tooth from each of the patients was resected at the root-end, and the periapical tissue was collected. interleukin-1receptor antagonist, interleukin-6, and TGF-beta(1) were quantified in tissue extracts through the use of enzyme-linked immunosorbent assays. Measurable amounts of all 3 cytokines were found in all extracts. A statistically significant reduction in interleukin-1receptor antagonist per milliliter was observed in the linezolid group in comparison with the control group (P <.05). The difference in variation of interleukin-1receptor antagonist in the treatment and control groups was also highly statistically significant (P <.001). Although drawn from a limited sample size, the results indicate that interleukin-1receptor antagonist is a sensitive indicator of the effect of antibacterial treatment on the immune response in periapical inflammatory tissues.",
+    "sentence_labels": [
+        [
+            0,
+            "OBJECTIVE"
+        ],
+        [
+            1,
+            "METHODS"
+        ],
+        [
+            2,
+            "METHODS"
+        ],
+        [
+            3,
+            "METHODS"
+        ],
+        [
+            4,
+            "RESULTS"
+        ],
+        [
+            5,
+            "RESULTS"
+        ],
+        [
+            6,
+            "RESULTS"
+        ],
+        [
+            7,
+            "CONCLUSIONS"
+        ]
+    ],
+    "abstract_highlight": [
+        "The ",
+        "purpose ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "this ",
+        "study ",
+        "was ",
+        "to ",
+        "quantify ",
+        "the ",
+        "cytokines ",
+        "<bold=True italic=True font_color=#008000>",
+        "interleukin ",
+        "<bold=True italic=True font_color=#008000>",
+        "( ",
+        "interleukin ",
+        "<bold=True italic=True font_color=#008000>",
+        ") ",
+        "<bold=True italic=True font_color=#008000>",
+        "-1 ",
+        "<bold=True italic=True font_color=#008000>",
+        "receptor ",
+        "<bold=True italic=True font_color=#008000>",
+        "antagonist ",
+        "( ",
+        "receptor ",
+        "antagonist ",
+        ") ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "<bold=True italic=True font_color=#008000>",
+        "interleukin-6 ",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "<bold=True italic=True font_color=#008000>",
+        "transforming ",
+        "<bold=True italic=True font_color=#008000>",
+        "growth ",
+        "<bold=True italic=True font_color=#008000>",
+        "factor ",
+        "<bold=True italic=True font_color=#008000>",
+        "beta ",
+        "( ",
+        "<bold=True italic=True font_color=#008000>",
+        "1 ",
+        ") ",
+        "found ",
+        "in ",
+        "extracts ",
+        "of ",
+        "inflammatory ",
+        "<bold=True italic=True font_color=purpule>",
+        "periapical ",
+        "<bold=True italic=True font_color=purpule>",
+        "tissues ",
+        "and ",
+        "to ",
+        "study ",
+        "the ",
+        "effect ",
+        "of ",
+        "a ",
+        "new ",
+        "antibiotic ",
+        "( ",
+        "<bold=True italic=True font_color=#008000>",
+        "linezolid ",
+        ") ",
+        "on ",
+        "the ",
+        "<bold=True italic=True font_color=purpule>",
+        "levels ",
+        "of ",
+        "these ",
+        "cytokines ",
+        ". ",
+        "Twenty-two ",
+        "patients ",
+        "with ",
+        "root-filled ",
+        "teeth ",
+        "with ",
+        "persisting ",
+        "<bold=True italic=True font_color=#000080>",
+        "periapical ",
+        "<bold=True italic=True font_color=#000080>",
+        "pathoses ",
+        "were ",
+        "randomly ",
+        "divided ",
+        "into ",
+        "a ",
+        "control ",
+        "group ",
+        "or ",
+        "an ",
+        "antibiotic ",
+        "group ",
+        ". ",
+        "One ",
+        "tooth ",
+        "from ",
+        "each ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "patients ",
+        "was ",
+        "resected ",
+        "at ",
+        "the ",
+        "root-end ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "the ",
+        "<bold=True italic=True font_color=purpule>",
+        "periapical ",
+        "<bold=True italic=True font_color=purpule>",
+        "tissue ",
+        "was ",
+        "collected ",
+        ". ",
+        "<bold=True italic=True font_color=#008000>",
+        "interleukin-1receptor ",
+        "<bold=True italic=True font_color=#008000>",
+        "antagonist ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "<bold=True italic=True font_color=#008000>",
+        "interleukin-6 ",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "TGF-beta ",
+        "( ",
+        "1 ",
+        ") ",
+        "were ",
+        "quantified ",
+        "in ",
+        "tissue ",
+        "extracts ",
+        "through ",
+        "the ",
+        "use ",
+        "of ",
+        "enzyme-linked ",
+        "immunosorbent ",
+        "assays ",
+        ". ",
+        "Measurable ",
+        "amounts ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "<bold=True italic=True font_color=purpule>",
+        "all ",
+        "3 ",
+        "cytokines ",
+        "were ",
+        "found ",
+        "in ",
+        "all ",
+        "extracts ",
+        ". ",
+        "A ",
+        "statistically ",
+        "significant ",
+        "reduction ",
+        "in ",
+        "<bold=True italic=True font_color=#008000>",
+        "interleukin-1receptor ",
+        "antagonist ",
+        "per ",
+        "milliliter ",
+        "was ",
+        "observed ",
+        "in ",
+        "the ",
+        "<bold=True italic=True font_color=#008000>",
+        "linezolid ",
+        "<bold=True italic=True font_color=purpule>",
+        "group ",
+        "in ",
+        "comparison ",
+        "with ",
+        "the ",
+        "control ",
+        "group ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "<bold=True italic=True font_color=purpule>",
+        "P ",
+        "< ",
+        ".05 ",
+        ") ",
+        ". ",
+        "The ",
+        "difference ",
+        "in ",
+        "variation ",
+        "of ",
+        "<bold=True italic=True font_color=#008000>",
+        "interleukin-1receptor ",
+        "antagonist ",
+        "in ",
+        "the ",
+        "treatment ",
+        "and ",
+        "control ",
+        "groups ",
+        "was ",
+        "also ",
+        "highly ",
+        "statistically ",
+        "significant ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "<bold=True italic=True font_color=purpule>",
+        "P ",
+        "< ",
+        ".001 ",
+        ") ",
+        ". ",
+        "Although ",
+        "drawn ",
+        "from ",
+        "a ",
+        "limited ",
+        "sample ",
+        "size ",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "results ",
+        "indicate ",
+        "that ",
+        "<bold=True italic=True font_color=#008000>",
+        "interleukin-1receptor ",
+        "antagonist ",
+        "is ",
+        "a ",
+        "sensitive ",
+        "indicator ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "the ",
+        "effect ",
+        "of ",
+        "antibacterial ",
+        "treatment ",
+        "on ",
+        "the ",
+        "immune ",
+        "response ",
+        "in ",
+        "periapical ",
+        "inflammatory ",
+        "tissues ",
+        ". "
+    ]
+}

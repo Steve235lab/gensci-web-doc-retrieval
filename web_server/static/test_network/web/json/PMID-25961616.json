@@ -1,0 +1,748 @@
+{
+    "pmid": "25961616",
+    "journal": "Indian journal of dental research : official publication of Indian Society for Dental Research",
+    "publication_type": "Clinical Trial\nRandomized Controlled Trial",
+    "publication_year": "2017",
+    "publication_date": "2017-01-23",
+    "title": "Comparative evaluation of natural curcumin and synthetic chlorhexidine in the management of chronic periodontitis as a local drug delivery: a clinical and microbiological study.",
+    "first_author": "V Anitha",
+    "corresponding_author": "V Shivakumar",
+    "authors": "V Anitha, P Rajesh, M Shanmugam, B Meena Priya, S Prabhu, V Shivakumar",
+    "affiliations": "(1) Department of Periodontics, Chettinad Dental College and Research Institute, Rajiv Gandhi Salai, Kelambakkam, Kanchipuram, Tamil Nadu, India. ['V Anitha']",
+    "abstract": "The aim of this study is to evaluate the efficacy of natural curcumin in the management of chronic periodontitis as local drug delivery in comparison to synthetic chlorhexidine, which is the gold standard. Thirty chronic periodontitis patients with an age range of 20-50 years with probing pocket depth (PPD) of 4-6 mm were included. Curcumin and chlorhexidine gel was applied in the contralateral disease sites at baseline and day 15. The clinical parameters like PPD, clinical attachment level (CAL), gingival index (Loe and Silness) and plaque index (Turesky Gillmore modification of Quigley Hein) were recorded and colony forming units (CFU) were assessed microbiologically at baseline, 15 and 30 days. There was a significant reduction of the clinical parameters (PPD, CAL) and microbiological parameters CFU at 15 and 30 days for both the groups. Curcumin group showed a greater reduction in the clinical parameters when compared with chlorhexidine group. Both groups had a significant reduction in parameters when compared with baseline. Although curcumin has equivalent benefit to chlorhexidine, curcumin being an ayurvedic herb is an excellent alternative to chlorhexidine due to minimal side-effects.",
+    "keywords": "",
+    "MeshHeadingList": [
+        {
+            "QualifierName": [],
+            "DescriptorName": "Administration, Topical"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Adult"
+        },
+        {
+            "QualifierName": [
+                "administration & dosage",
+                "therapeutic use"
+            ],
+            "DescriptorName": "Anti-Infective Agents, Local"
+        },
+        {
+            "QualifierName": [
+                "administration & dosage",
+                "therapeutic use"
+            ],
+            "DescriptorName": "Chlorhexidine"
+        },
+        {
+            "QualifierName": [
+                "drug therapy",
+                "microbiology"
+            ],
+            "DescriptorName": "Chronic Periodontitis"
+        },
+        {
+            "QualifierName": [
+                "administration & dosage",
+                "therapeutic use"
+            ],
+            "DescriptorName": "Curcumin"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Dental Plaque Index"
+        },
+        {
+            "QualifierName": [
+                "administration & dosage",
+                "therapeutic use"
+            ],
+            "DescriptorName": "Enzyme Inhibitors"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Female"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Gels"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Humans"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Male"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Middle Aged"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Periodontal Index"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Periodontal Pocket"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Treatment Outcome"
+        }
+    ],
+    "ChemicalList": [
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Anti-Infective Agents, Local"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Enzyme Inhibitors"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Gels"
+        },
+        {
+            "RegistryNumber": "IT942ZTH98",
+            "NameOfSubstance": "Curcumin"
+        },
+        {
+            "RegistryNumber": "R4KO0DY52L",
+            "NameOfSubstance": "Chlorhexidine"
+        }
+    ],
+    "doi": "10.4103/0970-9290.156806",
+    "journal_sjr": 0,
+    "journal_h_index": 0,
+    "journal_if": 0,
+    "journal_metrics": [
+        0,
+        0,
+        0,
+        0
+    ],
+    "bacteria_entities": {},
+    "has_bacteria_ner": true,
+    "bacteria": [],
+    "has_bacteria_norm": true,
+    "nutrient_entities": {
+        "7": [
+            [
+                "curcumin",
+                1,
+                2
+            ],
+            [
+                "curcumin",
+                8,
+                9
+            ]
+        ]
+    },
+    "has_nutrient_ner": true,
+    "chemical_entities": {
+        "0": [
+            [
+                "curcumin",
+                12,
+                13
+            ],
+            [
+                "chlorhexidine",
+                27,
+                28
+            ]
+        ],
+        "2": [
+            [
+                "Curcumin",
+                0,
+                1
+            ],
+            [
+                "chlorhexidine",
+                2,
+                3
+            ]
+        ],
+        "5": [
+            [
+                "Curcumin",
+                0,
+                1
+            ],
+            [
+                "chlorhexidine",
+                13,
+                14
+            ]
+        ],
+        "7": [
+            [
+                "curcumin",
+                1,
+                2
+            ],
+            [
+                "chlorhexidine",
+                6,
+                7
+            ],
+            [
+                "curcumin",
+                8,
+                9
+            ],
+            [
+                "chlorhexidine",
+                18,
+                19
+            ]
+        ]
+    },
+    "has_chemical_ner": true,
+    "has_genetic_ner": true,
+    "enzyme_entities": [],
+    "metabolic_entities": [
+        [
+            7,
+            [
+                [
+                    "chlorhexidine",
+                    6,
+                    7
+                ],
+                [
+                    "chlorhexidine",
+                    18,
+                    19
+                ]
+            ]
+        ]
+    ],
+    "has_metabolic_ner": true,
+    "molecule": [
+        [
+            [
+                "curcumin",
+                "MESH:D003474",
+                "Curcumin"
+            ],
+            [
+                "chlorhexidine",
+                "MESH:D002710",
+                "Chlorhexidine"
+            ],
+            [
+                "Curcumin",
+                "MESH:D003474",
+                "Curcumin"
+            ]
+        ],
+        [
+            [
+                "chlorhexidine",
+                "",
+                ""
+            ],
+            [
+                "curcumin",
+                "",
+                ""
+            ],
+            [
+                "Curcumin",
+                "",
+                ""
+            ]
+        ]
+    ],
+    "has_molecular_norm": true,
+    "nutrient": [
+        [
+            "curcumin",
+            "curcumin ",
+            "curcumin "
+        ]
+    ],
+    "has_nutrient_norm": true,
+    "disease_entities": {
+        "0": [
+            [
+                "periodontitis",
+                18,
+                19
+            ]
+        ],
+        "1": [
+            [
+                "chronic periodontitis",
+                1,
+                3
+            ]
+        ]
+    },
+    "has_disease_ner": true,
+    "disease": [
+        [
+            "chronic periodontitis",
+            "MESH:D055113",
+            "Chronic Periodontitis"
+        ],
+        [
+            "periodontitis",
+            "MESH:D010518",
+            "Periodontitis"
+        ]
+    ],
+    "has_disease_norm": true,
+    "affiliation_entities": [
+        "India\nKanchipuram\nKelambakkam",
+        "Chettinad Dental College\nResearch Institute"
+    ],
+    "has_affiliation_ner": true,
+    "sample_size_entities": {
+        "1": [
+            [
+                30,
+                0,
+                1
+            ]
+        ]
+    },
+    "sample_size": 30,
+    "has_sample_size_ner": true,
+    "significance_conclusion": [
+        [
+            4,
+            1
+        ],
+        [
+            6,
+            1
+        ]
+    ],
+    "has_significance_ner": true,
+    "mtime": 1646878734.8567054,
+    "htime": "2022-03-10 10:18:54.856705",
+    "title_zh": "\u5929\u7136\u59dc\u9ec4\u7d20\u548c\u5408\u6210\u6d17\u5fc5\u6cf0\u5728\u6162\u6027\u7259\u5468\u708e\u5c40\u90e8\u7ed9\u836f\u6cbb\u7597\u4e2d\u7684\u6bd4\u8f83\u8bc4\u4ef7:\u4e34\u5e8a\u548c\u5fae\u751f\u7269\u5b66\u7814\u7a76\u3002",
+    "abstract_zh": "\u672c\u7814\u7a76\u7684\u76ee\u7684\u662f\u8bc4\u4ef7\u5929\u7136\u59dc\u9ec4\u7d20\u5728\u6162\u6027\u7259\u5468\u708e\u5c40\u90e8\u7ed9\u836f\u4e2d\u7684\u7597\u6548\uff0c\u5e76\u4e0e\u91d1\u6807\u51c6\u5408\u6210\u6d17\u5fc5\u6cf0\u8fdb\u884c\u6bd4\u8f83\u3002 30\u4f8b\u6162\u6027\u7259\u5468\u708e\u60a3\u8005\uff0c\u5e74\u9f8420-50\u5c81\uff0c\u63a2\u9488\u888b\u6df1\u5ea6(PPD)\u4e3a4- 6mm\u3002 \u59dc\u9ec4\u7d20\u548c\u6d17\u5fc5\u6cf0\u51dd\u80f6\u5728\u57fa\u7ebf\u548c\u7b2c15\u5929\u5e94\u7528\u4e8e\u5bf9\u4fa7\u75be\u75c5\u90e8\u4f4d\u3002 \u8bb0\u5f55\u4e34\u5e8a\u53c2\u6570\u5982PPD\u3001\u4e34\u5e8a\u9644\u7740\u6c34\u5e73(CAL)\u3001\u7259\u9f88\u6307\u6570(Loe\u548cSilness)\u548c\u83cc\u6591\u6307\u6570(Quigley Hein\u7684Turesky Gillmore\u4fee\u9970)\uff0c\u5e76\u5728\u57fa\u7ebf\u300115\u548c30\u5929\u5bf9\u83cc\u843d\u5f62\u6210\u5355\u4f4d(CFU)\u8fdb\u884c\u5fae\u751f\u7269\u5b66\u8bc4\u4f30\u3002 \u572815\u548c30\u5929\uff0c\u4e24\u7ec4\u7684\u4e34\u5e8a\u53c2\u6570(PPD, CAL)\u548c\u5fae\u751f\u7269\u53c2\u6570CFU\u5747\u663e\u8457\u964d\u4f4e\u3002 \u4e0e\u6d17\u5fc5\u6cf0\u7ec4\u76f8\u6bd4\uff0c\u59dc\u9ec4\u7d20\u7ec4\u4e34\u5e8a\u6307\u6807\u964d\u4f4e\u8f83\u5927\u3002 \u4e0e\u57fa\u7ebf\u76f8\u6bd4\uff0c\u4e24\u7ec4\u53c2\u6570\u5747\u6709\u663e\u8457\u964d\u4f4e\u3002 \u867d\u7136\u59dc\u9ec4\u7d20\u4e0e\u6d17\u5fc5\u6cf0\u6709\u540c\u7b49\u7684\u597d\u5904\uff0c\u4f46\u59dc\u9ec4\u7d20\u4f5c\u4e3a\u4e00\u79cd\u963f\u80b2\u5420\u5fb7\u8349\u836f\uff0c\u7531\u4e8e\u526f\u4f5c\u7528\u6781\u5c0f\uff0c\u662f\u6d17\u5fc5\u6cf0\u7684\u6781\u597d\u66ff\u4ee3\u54c1\u3002",
+    "has_translated": true,
+    "chemical": [
+        [
+            "Curcumin",
+            "MESH:D003474",
+            "Curcumin"
+        ],
+        [
+            "chlorhexidine",
+            "MESH:D002710",
+            "Chlorhexidine"
+        ],
+        [
+            "curcumin",
+            "MESH:D003474",
+            "Curcumin"
+        ]
+    ],
+    "gene_entities": {},
+    "gene": [],
+    "anatomy_entities": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": [
+            [
+                "(clinical",
+                10,
+                12
+            ],
+            [
+                ", gingival",
+                15,
+                17
+            ],
+            [
+                "colony forming",
+                37,
+                39
+            ],
+            [
+                "colony forming units",
+                37,
+                40
+            ],
+            [
+                "forming units",
+                38,
+                40
+            ],
+            [
+                "colony forming",
+                41,
+                43
+            ],
+            [
+                "colony forming units",
+                41,
+                44
+            ],
+            [
+                "forming units",
+                42,
+                44
+            ],
+            [
+                "gingival",
+                16,
+                17
+            ]
+        ],
+        "4": [
+            [
+                "of the",
+                5,
+                7
+            ],
+            [
+                "colony forming",
+                20,
+                22
+            ],
+            [
+                "colony forming units",
+                20,
+                23
+            ],
+            [
+                "forming units",
+                21,
+                23
+            ]
+        ],
+        "5": [],
+        "6": [],
+        "7": []
+    },
+    "anatomy": [
+        [
+            "(clinical",
+            "",
+            ""
+        ],
+        [
+            ", gingival",
+            "MESH:D005881",
+            "Gingiva"
+        ],
+        [
+            "colony forming",
+            "MESH:D013234",
+            "Stem Cells"
+        ],
+        [
+            "colony forming units",
+            "MESH:D013234",
+            "Stem Cells"
+        ],
+        [
+            "forming units",
+            "",
+            ""
+        ],
+        [
+            "gingival",
+            "MESH:D005881",
+            "Gingiva"
+        ],
+        [
+            "of the",
+            "",
+            ""
+        ]
+    ],
+    "antibody_entities": {},
+    "antibody": [],
+    "abstract_prep": "The aim of this study is to evaluate the efficacy of natural curcumin in the management of chronic periodontitis as local drug delivery in comparison to synthetic chlorhexidine, which is the gold standard. Thirty chronic periodontitis patients with an age range of 20-50 years with probing pocket depth (pocket depth) of 4-6 mm were included. Curcumin and chlorhexidine gel was applied in the contralateral disease sites at baseline and day 15. The clinical parameters like pocket depth, clinical attachment level (clinical attachment level), gingival index (Loe and Silness) and plaque index (Turesky Gillmore modification of Quigley Hein) were recorded and colony forming units (colony forming units) were assessed microbiologically at baseline, 15 and 30 days. There was a significant reduction of the clinical parameters (pocket depth, clinical attachment level) and microbiological parameters colony forming units at 15 and 30 days for both the groups. Curcumin group showed a greater reduction in the clinical parameters when compared with chlorhexidine group. Both groups had a significant reduction in parameters when compared with baseline. Although curcumin has equivalent benefit to chlorhexidine, curcumin being an ayurvedic herb is an excellent alternative to chlorhexidine due to minimal side-effects.",
+    "sentence_labels": [
+        [
+            0,
+            "BACKGROUND"
+        ],
+        [
+            1,
+            "METHODS"
+        ],
+        [
+            2,
+            "METHODS"
+        ],
+        [
+            3,
+            "METHODS"
+        ],
+        [
+            4,
+            "RESULTS"
+        ],
+        [
+            5,
+            "RESULTS"
+        ],
+        [
+            6,
+            "RESULTS"
+        ],
+        [
+            7,
+            "CONCLUSIONS"
+        ]
+    ],
+    "abstract_highlight": [
+        "The ",
+        "aim ",
+        "of ",
+        "this ",
+        "study ",
+        "is ",
+        "to ",
+        "evaluate ",
+        "the ",
+        "efficacy ",
+        "of ",
+        "natural ",
+        "<bold=True italic=True font_color=#008000>",
+        "curcumin ",
+        "in ",
+        "the ",
+        "management ",
+        "of ",
+        "chronic ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "as ",
+        "local ",
+        "drug ",
+        "delivery ",
+        "in ",
+        "comparison ",
+        "to ",
+        "synthetic ",
+        "<bold=True italic=True font_color=#008000>",
+        "chlorhexidine ",
+        ", ",
+        "which ",
+        "is ",
+        "the ",
+        "gold ",
+        "standard ",
+        ". ",
+        "Thirty ",
+        "<bold=True italic=True font_color=#000080>",
+        "chronic ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "patients ",
+        "with ",
+        "an ",
+        "age ",
+        "range ",
+        "of ",
+        "20-50 ",
+        "years ",
+        "with ",
+        "probing ",
+        "pocket ",
+        "depth ",
+        "( ",
+        "pocket ",
+        "depth ",
+        ") ",
+        "of ",
+        "4-6 ",
+        "mm ",
+        "were ",
+        "included ",
+        ". ",
+        "<bold=True italic=True font_color=#008000>",
+        "Curcumin ",
+        "and ",
+        "<bold=True italic=True font_color=#008000>",
+        "chlorhexidine ",
+        "gel ",
+        "was ",
+        "applied ",
+        "in ",
+        "the ",
+        "contralateral ",
+        "disease ",
+        "sites ",
+        "at ",
+        "baseline ",
+        "and ",
+        "day ",
+        "15 ",
+        ". ",
+        "The ",
+        "<bold=True italic=True font_color=purpule>",
+        "clinical ",
+        "parameters ",
+        "like ",
+        "pocket ",
+        "depth ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "clinical ",
+        "attachment ",
+        "level ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "clinical ",
+        "attachment ",
+        "level ",
+        ") ",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "gingival ",
+        "index ",
+        "( ",
+        "Loe ",
+        "and ",
+        "Silness ",
+        ") ",
+        "and ",
+        "plaque ",
+        "index ",
+        "( ",
+        "Turesky ",
+        "Gillmore ",
+        "modification ",
+        "of ",
+        "Quigley ",
+        "Hein ",
+        ") ",
+        "were ",
+        "recorded ",
+        "and ",
+        "<bold=True italic=True font_color=purpule>",
+        "colony ",
+        "<bold=True italic=True font_color=purpule>",
+        "forming ",
+        "<bold=True italic=True font_color=purpule>",
+        "units ",
+        "( ",
+        "colony ",
+        "forming ",
+        "units ",
+        ") ",
+        "were ",
+        "assessed ",
+        "microbiologically ",
+        "at ",
+        "baseline ",
+        ", ",
+        "15 ",
+        "and ",
+        "30 ",
+        "days ",
+        ". ",
+        "There ",
+        "was ",
+        "a ",
+        "significant ",
+        "reduction ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "clinical ",
+        "parameters ",
+        "( ",
+        "pocket ",
+        "depth ",
+        ", ",
+        "clinical ",
+        "attachment ",
+        "level ",
+        ") ",
+        "and ",
+        "microbiological ",
+        "parameters ",
+        "<bold=True italic=True font_color=purpule>",
+        "colony ",
+        "<bold=True italic=True font_color=purpule>",
+        "forming ",
+        "<bold=True italic=True font_color=purpule>",
+        "units ",
+        "at ",
+        "15 ",
+        "and ",
+        "30 ",
+        "days ",
+        "for ",
+        "both ",
+        "the ",
+        "groups ",
+        ". ",
+        "<bold=True italic=True font_color=#008000>",
+        "Curcumin ",
+        "group ",
+        "showed ",
+        "a ",
+        "greater ",
+        "reduction ",
+        "in ",
+        "the ",
+        "clinical ",
+        "parameters ",
+        "when ",
+        "compared ",
+        "with ",
+        "<bold=True italic=True font_color=#008000>",
+        "chlorhexidine ",
+        "group ",
+        ". ",
+        "Both ",
+        "groups ",
+        "had ",
+        "a ",
+        "significant ",
+        "reduction ",
+        "in ",
+        "parameters ",
+        "when ",
+        "compared ",
+        "with ",
+        "baseline ",
+        ". ",
+        "Although ",
+        "<bold=True italic=True font_color=#008000>",
+        "curcumin ",
+        "has ",
+        "equivalent ",
+        "benefit ",
+        "to ",
+        "<bold=True italic=True font_color=#008000>",
+        "chlorhexidine ",
+        ", ",
+        "curcumin ",
+        "being ",
+        "an ",
+        "ayurvedic ",
+        "herb ",
+        "is ",
+        "an ",
+        "excellent ",
+        "alternative ",
+        "to ",
+        "chlorhexidine ",
+        "due ",
+        "to ",
+        "minimal ",
+        "side-effects ",
+        ". "
+    ]
+}

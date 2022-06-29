@@ -1,0 +1,829 @@
+{
+    "pmid": "18672986",
+    "journal": "Journal of periodontology",
+    "publication_type": "Clinical Trial\nRandomized Controlled Trial",
+    "publication_year": "2008",
+    "publication_date": "2008-11-12",
+    "title": "Effect of eucalyptus extract chewing gum on periodontal health: a double-masked, randomized trial.",
+    "first_author": "Hideki Nagata",
+    "corresponding_author": "Satoshi Shizukuishi",
+    "authors": "Hideki Nagata, Yoshika Inagaki, Muneo Tanaka, Miki Ojima, Kosuke Kataoka, Masae Kuboniwa, Nobuko Nishida, Katsumasa Shimizu, Kenji Osawa, Satoshi Shizukuishi",
+    "affiliations": "(1) Department of Preventive Dentistry, Osaka University Graduate School of Dentistry, Suita, Osaka, Japan. nagatah@dent.osaka-u.ac.jp ['Hideki Nagata']",
+    "abstract": "Studies in vitro showed that eucalyptus extracts possess antibacterial activity against cariogenic and periodontopathic bacteria; however, the clinical effects with respect to periodontal health in humans remain unproven. The objective of this study was to evaluate the effect of chewing gum containing eucalyptus extract on periodontal health in a double-masked, randomized, controlled trial. Healthy humans with gingivitis but not deep periodontal pockets were randomly assigned to the following groups: high-concentration group (n=32): use of 0.6% eucalyptus extract chewing gum for 12 weeks (90 mg/day); low-concentration group (n=32): use of 0.4% eucalyptus extract chewing gum for 12 weeks (60 mg/day); and placebo group (n=33): use of chewing gum without eucalyptus extract for 12 weeks. Plaque accumulation (PLA), gingival index (GI), bleeding on probing (BOP), periodontal probing depth (PD), and clinical attachment level (CAL) were measured at weeks 0, 4, 8, 12, and 14. Significance was analyzed with repeated-measures two-way analysis of variance followed by the Games-Howell pairwise comparison test. The interaction between the effects of eucalyptus extract chewing gum and the intake period was statistically significant for PLA, GI, BOP, and PD but not for CAL. The low- and high-concentration groups exhibited statistically significant (P <0.05) improvements compared to the placebo group for PLA, GI, BOP, and PD. Eucalyptus extract chewing gum had a significant effect on PLA, GI, BOP, and PD. The use of eucalyptus extract chewing gum may promote periodontal health.",
+    "keywords": "",
+    "MeshHeadingList": [
+        {
+            "QualifierName": [],
+            "DescriptorName": "Adult"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Chewing Gum"
+        },
+        {
+            "QualifierName": [
+                "prevention & control"
+            ],
+            "DescriptorName": "Dental Plaque"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Dental Plaque Index"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Dental Scaling"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Double-Blind Method"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Eucalyptus"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Female"
+        },
+        {
+            "QualifierName": [
+                "prevention & control"
+            ],
+            "DescriptorName": "Gingival Hemorrhage"
+        },
+        {
+            "QualifierName": [
+                "drug therapy"
+            ],
+            "DescriptorName": "Gingivitis"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Humans"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Male"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Middle Aged"
+        },
+        {
+            "QualifierName": [
+                "prevention & control"
+            ],
+            "DescriptorName": "Periodontal Attachment Loss"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Periodontal Index"
+        },
+        {
+            "QualifierName": [
+                "prevention & control"
+            ],
+            "DescriptorName": "Periodontal Pocket"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Phytotherapy"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Placebos"
+        },
+        {
+            "QualifierName": [
+                "administration & dosage",
+                "therapeutic use"
+            ],
+            "DescriptorName": "Plant Extracts"
+        }
+    ],
+    "ChemicalList": [
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Chewing Gum"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Placebos"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Plant Extracts"
+        }
+    ],
+    "doi": "10.1902/jop.2008.070622 ",
+    "journal_sjr": 0.0,
+    "journal_h_index": 0,
+    "journal_if": 3.742,
+    "journal_metrics": [
+        3.742,
+        0,
+        0.0,
+        3.614
+    ],
+    "bacteria_entities": {},
+    "has_bacteria_ner": true,
+    "bacteria": [],
+    "has_bacteria_norm": true,
+    "nutrient_entities": {},
+    "has_nutrient_ner": true,
+    "chemical_entities": {},
+    "has_chemical_ner": true,
+    "has_genetic_ner": true,
+    "enzyme_entities": [],
+    "metabolic_entities": [
+        [
+            2,
+            [
+                [
+                    "eucalyptus",
+                    27,
+                    28
+                ],
+                [
+                    "eucalyptus",
+                    49,
+                    50
+                ],
+                [
+                    "eucalyptus",
+                    73,
+                    74
+                ]
+            ]
+        ]
+    ],
+    "has_metabolic_ner": true,
+    "molecule": [
+        [
+            [
+                "eucalyptus",
+                "",
+                ""
+            ]
+        ],
+        [
+            [
+                "eucalyptus",
+                "EUC",
+                "eucalyptus"
+            ]
+        ]
+    ],
+    "has_molecular_norm": true,
+    "nutrient": [],
+    "has_nutrient_norm": true,
+    "disease_entities": {
+        "2": [
+            [
+                "gingivitis",
+                3,
+                4
+            ]
+        ],
+        "3": [
+            [
+                "bleeding",
+                14,
+                15
+            ]
+        ]
+    },
+    "has_disease_ner": true,
+    "disease": [
+        [
+            "bleeding",
+            "MESH:D006470",
+            "Hemorrhage"
+        ],
+        [
+            "gingivitis",
+            "MESH:D005891",
+            "Gingivitis"
+        ]
+    ],
+    "has_disease_norm": true,
+    "affiliation_entities": [
+        "Japan\nOsaka\nSuita",
+        "Department of Preventive Dentistry\nOsaka University Graduate School of Dentistry"
+    ],
+    "has_affiliation_ner": true,
+    "sample_size_entities": {},
+    "sample_size": null,
+    "has_sample_size_ner": true,
+    "significance_conclusion": [
+        [
+            4,
+            1
+        ],
+        [
+            5,
+            1
+        ],
+        [
+            6,
+            1
+        ],
+        [
+            7,
+            1
+        ]
+    ],
+    "has_significance_ner": true,
+    "mtime": 1646878802.307508,
+    "htime": "2022-03-10 10:20:02.307508",
+    "title_zh": "\u6849\u6811\u63d0\u53d6\u7269\u53e3\u9999\u7cd6\u5bf9\u7259\u5468\u5065\u5eb7\u7684\u5f71\u54cd:\u4e00\u9879\u53cc\u76f2\u968f\u673a\u8bd5\u9a8c\u3002",
+    "abstract_zh": "\u4f53\u5916\u7814\u7a76\u8868\u660e\u6849\u6811\u63d0\u53d6\u7269\u5bf9\u81f4\u9f8b\u83cc\u548c\u7259\u5468\u75c5\u83cc\u5177\u6709\u4e00\u5b9a\u7684\u6291\u83cc\u6d3b\u6027; \u7136\u800c\uff0c\u5728\u4eba\u7c7b\u7259\u5468\u5065\u5eb7\u65b9\u9762\u7684\u4e34\u5e8a\u6548\u679c\u4ecd\u672a\u5f97\u5230\u8bc1\u5b9e\u3002 \u672c\u7814\u7a76\u7684\u76ee\u7684\u662f\u8bc4\u4ef7\u542b\u6849\u6811\u63d0\u53d6\u7269\u7684\u53e3\u9999\u7cd6\u5bf9\u7259\u5468\u5065\u5eb7\u7684\u5f71\u54cd\uff0c\u91c7\u7528\u53cc\u76f2\u3001\u968f\u673a\u3001\u5bf9\u7167\u8bd5\u9a8c\u3002 \u9ad8\u6d53\u5ea6\u7ec4(n=32):\u4f7f\u75280.6%\u6849\u6811\u63d0\u53d6\u7269\u53e3\u9999\u7cd612\u5468(90 mg/\u5929); \u4f4e\u6d53\u5ea6\u7ec4(n=32):\u4f7f\u75280.4%\u6849\u53f6\u63d0\u53d6\u7269\u53e3\u9999\u7cd612\u5468(60 mg/d); \u5b89\u6170\u5242\u7ec4(n=33):\u4f7f\u7528\u4e0d\u542b\u6849\u6811\u63d0\u53d6\u7269\u7684\u53e3\u9999\u7cd612\u5468\u3002 \u5206\u522b\u4e8e\u7b2c0\u30014\u30018\u300112\u300114\u5468\u6d4b\u5b9a\u83cc\u6591\u79ef\u7d2f(PLA)\u3001\u7259\u9f88\u6307\u6570(GI)\u3001\u63a2\u8bca\u51fa\u8840(BOP)\u3001\u7259\u5468\u63a2\u8bca\u6df1\u5ea6(PD)\u3001\u4e34\u5e8a\u9644\u7740\u6c34\u5e73(CAL)\u3002 \u663e\u8457\u6027\u5206\u6790\u91c7\u7528\u91cd\u590d\u6d4b\u91cf\u7684\u53cc\u5411\u65b9\u5dee\u5206\u6790\uff0c\u7136\u540e\u91c7\u7528Games-Howell\u4e24\u4e24\u6bd4\u8f83\u68c0\u9a8c\u3002 \u4e4b\u95f4\u7684\u4ea4\u4e92\u5f71\u54cd\u6849\u6811\u63d0\u53d6\u53e3\u9999\u7cd6\u548c\u8fdb\u6c14\u671f\u95f4\u662f\u89e3\u653e\u519b\u7684\u7edf\u8ba1\u5b66\u610f\u4e49,\u80c3\u80a0\u9053,\u9632\u55b7\u5668,PD\u4f46\u4e0d\u662f\u5361\u5c14\u3002\u4f4e\u6536\u5165\u548c\u9ad8\u6d53\u5ea6\u7ec4\u8868\u73b0\u51fa\u663e\u8457(P < 0.05)\u63d0\u9ad8PLA\u76f8\u6bd4\u5b89\u6170\u5242\u7ec4,\u80c3\u80a0\u9053,\u9632\u55b7\u5668,\u548cPD\u3002 \u6849\u6811\u63d0\u53d6\u7269\u53e3\u9999\u7cd6\u5bf9PLA\u3001GI\u3001BOP\u548cPD\u6709\u663e\u8457\u5f71\u54cd\u3002 \u6849\u6811\u63d0\u53d6\u7269\u53e3\u9999\u7cd6\u7684\u4f7f\u7528\u53ef\u4ee5\u4fc3\u8fdb\u7259\u5468\u5065\u5eb7\u3002",
+    "has_translated": true,
+    "chemical": [],
+    "gene_entities": {},
+    "gene": [],
+    "anatomy_entities": {
+        "0": [],
+        "1": [],
+        "2": [
+            [
+                "group (",
+                20,
+                22
+            ],
+            [
+                "group (",
+                45,
+                47
+            ],
+            [
+                "group (",
+                69,
+                71
+            ]
+        ],
+        "3": [
+            [
+                ", gingival",
+                6,
+                8
+            ],
+            [
+                ", periodontal",
+                20,
+                22
+            ],
+            [
+                ", and",
+                29,
+                31
+            ],
+            [
+                "(clinical",
+                34,
+                36
+            ],
+            [
+                "4",
+                45,
+                47
+            ],
+            [
+                "8",
+                47,
+                49
+            ],
+            [
+                "12",
+                49,
+                51
+            ],
+            [
+                ", and",
+                50,
+                52
+            ],
+            [
+                "gingival",
+                7,
+                8
+            ],
+            [
+                "gingival",
+                10,
+                11
+            ]
+        ],
+        "4": [],
+        "5": [
+            [
+                ", gingival",
+                20,
+                22
+            ],
+            [
+                "index",
+                22,
+                24
+            ],
+            [
+                ", and",
+                25,
+                27
+            ],
+            [
+                "gingival",
+                21,
+                22
+            ]
+        ],
+        "6": [
+            [
+                "(P",
+                10,
+                12
+            ],
+            [
+                ", gingival",
+                24,
+                26
+            ],
+            [
+                "index",
+                26,
+                28
+            ],
+            [
+                ", and",
+                29,
+                31
+            ],
+            [
+                "gingival",
+                25,
+                26
+            ]
+        ],
+        "7": [
+            [
+                ", gingival",
+                11,
+                13
+            ],
+            [
+                "index",
+                13,
+                15
+            ],
+            [
+                ", and",
+                16,
+                18
+            ],
+            [
+                "gingival",
+                12,
+                13
+            ]
+        ],
+        "8": []
+    },
+    "anatomy": [
+        [
+            "(P",
+            "",
+            ""
+        ],
+        [
+            "(clinical",
+            "",
+            ""
+        ],
+        [
+            ", and",
+            "",
+            ""
+        ],
+        [
+            ", gingival",
+            "MESH:D005881",
+            "Gingiva"
+        ],
+        [
+            ", periodontal",
+            "MESH:D010513",
+            "Periodontal Ligament"
+        ],
+        [
+            "12",
+            "",
+            ""
+        ],
+        [
+            "4",
+            "",
+            ""
+        ],
+        [
+            "8",
+            "",
+            ""
+        ],
+        [
+            "gingival",
+            "MESH:D005881",
+            "Gingiva"
+        ],
+        [
+            "group (",
+            "",
+            ""
+        ],
+        [
+            "index",
+            "",
+            ""
+        ]
+    ],
+    "antibody_entities": {},
+    "antibody": [],
+    "abstract_prep": "Studies in vitro showed that eucalyptus extracts possess antibacterial activity against cariogenic and periodontopathic bacteria; however, the clinical effects with respect to periodontal health in humans remain unproven. The objective of this study was to evaluate the effect of chewing gum containing eucalyptus extract on periodontal health in a double-masked, randomized, controlled trial. Healthy humans with gingivitis but not deep periodontal pockets were randomly assigned to the following groups: high-concentration group (n=32): use of 0.6% eucalyptus extract chewing gum for 12 weeks (90 mg/day); low-concentration group (n=32): use of 0.4% eucalyptus extract chewing gum for 12 weeks (60 mg/day); and placebo group (n=33): use of chewing gum without eucalyptus extract for 12 weeks. Plaque accumulation (Plaque accumulation), gingival index (gingival index), bleeding on probing (BOP), periodontal probing depth (periodontal probing depth), and clinical attachment level (clinical attachment level) were measured at weeks 0, 4, 8, 12, and 14. Significance was analyzed with repeated-measures two-way analysis of variance followed by the Games-Howell pairwise comparison test. The interaction between the effects of eucalyptus extract chewing gum and the intake period was statistically significant for Plaque accumulation, gingival index, BOP, and periodontal probing depth but not for clinical attachment level. The low- and high-concentration groups exhibited statistically significant (P <0.05) improvements compared to the placebo group for Plaque accumulation, gingival index, BOP, and periodontal probing depth. Eucalyptus extract chewing gum had a significant effect on Plaque accumulation, gingival index, BOP, and periodontal probing depth. The use of eucalyptus extract chewing gum may promote periodontal health.",
+    "sentence_labels": [
+        [
+            0,
+            "BACKGROUND"
+        ],
+        [
+            1,
+            "OBJECTIVE"
+        ],
+        [
+            2,
+            "METHODS"
+        ],
+        [
+            3,
+            "METHODS"
+        ],
+        [
+            4,
+            "METHODS"
+        ],
+        [
+            5,
+            "RESULTS"
+        ],
+        [
+            6,
+            "RESULTS"
+        ],
+        [
+            7,
+            "CONCLUSIONS"
+        ],
+        [
+            8,
+            "CONCLUSIONS"
+        ]
+    ],
+    "abstract_highlight": [
+        "Studies ",
+        "in ",
+        "vitro ",
+        "showed ",
+        "that ",
+        "eucalyptus ",
+        "extracts ",
+        "possess ",
+        "antibacterial ",
+        "activity ",
+        "against ",
+        "cariogenic ",
+        "and ",
+        "periodontopathic ",
+        "bacteria ",
+        "; ",
+        "however ",
+        ", ",
+        "the ",
+        "clinical ",
+        "effects ",
+        "with ",
+        "respect ",
+        "to ",
+        "periodontal ",
+        "health ",
+        "in ",
+        "humans ",
+        "remain ",
+        "unproven ",
+        ". ",
+        "The ",
+        "objective ",
+        "of ",
+        "this ",
+        "study ",
+        "was ",
+        "to ",
+        "evaluate ",
+        "the ",
+        "effect ",
+        "of ",
+        "chewing ",
+        "gum ",
+        "containing ",
+        "eucalyptus ",
+        "extract ",
+        "on ",
+        "periodontal ",
+        "health ",
+        "in ",
+        "a ",
+        "double-masked ",
+        ", ",
+        "randomized ",
+        ", ",
+        "controlled ",
+        "trial ",
+        ". ",
+        "Healthy ",
+        "humans ",
+        "with ",
+        "<bold=True italic=True font_color=#000080>",
+        "gingivitis ",
+        "but ",
+        "not ",
+        "deep ",
+        "periodontal ",
+        "pockets ",
+        "were ",
+        "randomly ",
+        "assigned ",
+        "to ",
+        "the ",
+        "following ",
+        "groups ",
+        ": ",
+        "high-concentration ",
+        "<bold=True italic=True font_color=purpule>",
+        "group ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "n=32 ",
+        ") ",
+        ": ",
+        "use ",
+        "of ",
+        "0.6 ",
+        "% ",
+        "eucalyptus ",
+        "extract ",
+        "chewing ",
+        "gum ",
+        "for ",
+        "12 ",
+        "weeks ",
+        "( ",
+        "90 ",
+        "mg/day ",
+        ") ",
+        "; ",
+        "low-concentration ",
+        "group ",
+        "( ",
+        "n=32 ",
+        ") ",
+        ": ",
+        "use ",
+        "of ",
+        "0.4 ",
+        "% ",
+        "eucalyptus ",
+        "extract ",
+        "chewing ",
+        "gum ",
+        "for ",
+        "12 ",
+        "weeks ",
+        "( ",
+        "60 ",
+        "mg/day ",
+        ") ",
+        "; ",
+        "and ",
+        "placebo ",
+        "group ",
+        "( ",
+        "n=33 ",
+        ") ",
+        ": ",
+        "use ",
+        "of ",
+        "chewing ",
+        "gum ",
+        "without ",
+        "eucalyptus ",
+        "extract ",
+        "for ",
+        "12 ",
+        "weeks ",
+        ". ",
+        "Plaque ",
+        "accumulation ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "Plaque ",
+        "accumulation ",
+        ") ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "gingival ",
+        "index ",
+        "( ",
+        "gingival ",
+        "index ",
+        ") ",
+        ", ",
+        "<bold=True italic=True font_color=#000080>",
+        "bleeding ",
+        "on ",
+        "probing ",
+        "( ",
+        "BOP ",
+        ") ",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "periodontal ",
+        "probing ",
+        "depth ",
+        "( ",
+        "periodontal ",
+        "probing ",
+        "depth ",
+        ") ",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "<bold=True italic=True font_color=purpule>",
+        "clinical ",
+        "attachment ",
+        "level ",
+        "( ",
+        "clinical ",
+        "attachment ",
+        "level ",
+        ") ",
+        "were ",
+        "measured ",
+        "at ",
+        "weeks ",
+        "0 ",
+        ", ",
+        "4 ",
+        ", ",
+        "8 ",
+        ", ",
+        "12 ",
+        ", ",
+        "and ",
+        "14 ",
+        ". ",
+        "Significance ",
+        "was ",
+        "analyzed ",
+        "with ",
+        "repeated-measures ",
+        "two-way ",
+        "analysis ",
+        "of ",
+        "variance ",
+        "followed ",
+        "by ",
+        "the ",
+        "Games-Howell ",
+        "pairwise ",
+        "comparison ",
+        "test ",
+        ". ",
+        "The ",
+        "interaction ",
+        "between ",
+        "the ",
+        "effects ",
+        "of ",
+        "eucalyptus ",
+        "extract ",
+        "chewing ",
+        "gum ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "the ",
+        "intake ",
+        "period ",
+        "was ",
+        "statistically ",
+        "significant ",
+        "for ",
+        "Plaque ",
+        "accumulation ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "gingival ",
+        "<bold=True italic=True font_color=purpule>",
+        "index ",
+        ", ",
+        "BOP ",
+        ", ",
+        "and ",
+        "periodontal ",
+        "probing ",
+        "depth ",
+        "but ",
+        "not ",
+        "for ",
+        "clinical ",
+        "attachment ",
+        "level ",
+        ". ",
+        "The ",
+        "low- ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "high-concentration ",
+        "groups ",
+        "exhibited ",
+        "statistically ",
+        "significant ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "<bold=True italic=True font_color=purpule>",
+        "P ",
+        "< ",
+        "0.05 ",
+        ") ",
+        "improvements ",
+        "compared ",
+        "to ",
+        "the ",
+        "placebo ",
+        "group ",
+        "for ",
+        "Plaque ",
+        "accumulation ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "gingival ",
+        "<bold=True italic=True font_color=purpule>",
+        "index ",
+        ", ",
+        "BOP ",
+        ", ",
+        "and ",
+        "periodontal ",
+        "probing ",
+        "depth ",
+        ". ",
+        "Eucalyptus ",
+        "extract ",
+        "chewing ",
+        "gum ",
+        "had ",
+        "a ",
+        "significant ",
+        "effect ",
+        "on ",
+        "Plaque ",
+        "accumulation ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "gingival ",
+        "<bold=True italic=True font_color=purpule>",
+        "index ",
+        ", ",
+        "BOP ",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "periodontal ",
+        "probing ",
+        "depth ",
+        ". ",
+        "The ",
+        "use ",
+        "of ",
+        "eucalyptus ",
+        "extract ",
+        "chewing ",
+        "gum ",
+        "may ",
+        "promote ",
+        "periodontal ",
+        "health ",
+        ". "
+    ]
+}

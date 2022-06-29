@@ -1,0 +1,686 @@
+{
+    "pmid": "33595770",
+    "journal": "Acta parasitologica",
+    "publication_type": "Meta-Analysis\nSystematic Review",
+    "publication_year": "2021",
+    "publication_date": "2021-02-17",
+    "title": "The Neglected Role of Trichomonas tenax in Oral Diseases: A Systematic Review and Meta-analysis.",
+    "first_author": "Aida Vafae Eslahi",
+    "corresponding_author": "Milad Badri",
+    "authors": "Aida Vafae Eslahi, Meysam Olfatifar, Amir Abdoli, Elham Houshmand, Morteza Ghanbari Johkool, Mahdieh Zarabadipour, Pegah Afsaneh Abadi, Azam Ghorbani, Monirsadat Mirzadeh, Milad Badri",
+    "affiliations": "(1) Metabolic Diseases Research Center, Research Institute for Prevention of Non-Communicable Diseases, Qazvin University of Medical Sciences, Qazvin, Iran. ['Aida Vafae Eslahi', 'Morteza Ghanbari Johkool', 'Pegah Afsaneh Abadi', 'Azam Ghorbani']; (2) Gastroenterology and Liver Diseases Research Center, Research Institute for Gastroenterology and Liver Diseases, Shahid Beheshti University of Medical Sciences, Tehran, Iran. ['Meysam Olfatifar']; (3) Department of Parasitology and Mycology, School of Medicine, Jahrom University of Medical Sciences, Jahrom, Iran. ['Amir Abdoli']; (4) Department of Parasitology, Faculty of Veterinary Medicine, Rasht branch, Islamic Azad University, Gilan, Iran. ['Elham Houshmand']; (5) Oral Medicine Department, School of Dentistry, Qazvin University of Medical Science, Qazvin, Iran. ['Mahdieh Zarabadipour']; (6) Assistant Professor Community Medicine, Metabolic Diseases Research Center, Research Institute For Prevention Of Non-Communicable Diseases, Qazvin University Of Medical Sciences, Qazvin, Iran. ['Monirsadat Mirzadeh']; (7) Metabolic Diseases Research Center, Research Institute for Prevention of Non-Communicable Diseases, Qazvin University of Medical Sciences, Qazvin, Iran. Badri22.milad@gmail.com. ['Milad Badri']",
+    "abstract": "Trichomonas tenax (T. tenax) is a commensal flagellated protozoan found in periodontal microenvironment of the oral cavity, with a possible role in periodontal diseases. The purpose of the present systematic review and meta-analysis was to determine the worldwide prevalence of T. tenax infection and to show the neglected association of this parasitic infection with oral diseases. To find literatures published until August 2020, five English databases (PubMed, Scopus, Science Direct, Web of Science and Google Scholar) were explored. Finally, 65 papers were qualified to be included in the current study. Our results revealed a global pooled prevalence of 17% (95% CI 14-22%) for T. tenax infection. The highest prevalence was estimated at 56% (42-69%) in Chile, while the lowest prevalence was related to Kenya with 3% (1-6%). The age-based analysis found that the infection was most common in 46-55 mean age group with 15% (0-100%). The overall prevalence regarding culture method, molecular method and direct method was 21% (12-32%), 19% (8-35%) and 17% (12-23%), respectively. Moreover, the subgroup analysis showed the pooled prevalence in patient with candidiasis [22% (3-52%)], gingivitis [21% (9-36%)] and periodontitis [27% (10-48%)]. Our study specified a connection between T. tenax protozoa and periodontitis disease. However, more epidemiological studies as well as clinical trials are needed to precisely identify this relation.",
+    "keywords": "Oral health, Prevalence, Trichomonas tenax, Worldwide",
+    "MeshHeadingList": [
+        {
+            "QualifierName": [],
+            "DescriptorName": "Gingivitis"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Humans"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Periodontitis"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Trichomonas"
+        },
+        {
+            "QualifierName": [
+                "epidemiology"
+            ],
+            "DescriptorName": "Trichomonas Infections"
+        }
+    ],
+    "ChemicalList": [],
+    "doi": "10.1007/s11686-021-00340-4",
+    "journal_sjr": 0.0,
+    "journal_h_index": 0,
+    "journal_if": 1.019,
+    "journal_metrics": [
+        1.019,
+        0,
+        0.0,
+        1.026
+    ],
+    "bacteria_entities": {
+        "0": [
+            [
+                "Trichomonas tenax",
+                0,
+                2
+            ],
+            [
+                "T . tenax",
+                3,
+                6
+            ]
+        ],
+        "1": [
+            [
+                "T . tenax",
+                18,
+                21
+            ]
+        ],
+        "4": [
+            [
+                "T . tenax",
+                19,
+                22
+            ]
+        ],
+        "9": [
+            [
+                "T . tenax",
+                6,
+                9
+            ]
+        ]
+    },
+    "has_bacteria_ner": true,
+    "bacteria": [
+        [
+            "T . tenax",
+            "",
+            ""
+        ],
+        [
+            "Trichomonas tenax",
+            "C1003865",
+            "Thiomonas"
+        ]
+    ],
+    "has_bacteria_norm": true,
+    "nutrient_entities": {},
+    "has_nutrient_ner": true,
+    "chemical_entities": {},
+    "has_chemical_ner": true,
+    "has_genetic_ner": true,
+    "enzyme_entities": [],
+    "metabolic_entities": [],
+    "has_metabolic_ner": true,
+    "molecule": [
+        [],
+        []
+    ],
+    "has_molecular_norm": true,
+    "nutrient": [],
+    "has_nutrient_norm": true,
+    "disease_entities": {
+        "0": [
+            [
+                "periodontal",
+                13,
+                14
+            ],
+            [
+                "periodontal diseases",
+                25,
+                27
+            ]
+        ],
+        "1": [
+            [
+                "T. tenax infection",
+                18,
+                21
+            ],
+            [
+                "parasitic infection",
+                29,
+                31
+            ],
+            [
+                "oral diseases",
+                32,
+                34
+            ]
+        ],
+        "4": [
+            [
+                "T. tenax infection",
+                20,
+                23
+            ]
+        ],
+        "6": [
+            [
+                "infection",
+                8,
+                9
+            ]
+        ],
+        "8": [
+            [
+                "candidiasis",
+                12,
+                13
+            ],
+            [
+                "gingivitis",
+                24,
+                25
+            ],
+            [
+                "periodontitis",
+                36,
+                37
+            ]
+        ],
+        "9": [
+            [
+                "periodontitis disease",
+                10,
+                12
+            ]
+        ]
+    },
+    "has_disease_ner": true,
+    "disease": [
+        [
+            "T. tenax infection",
+            "MESH:D000085343",
+            "Latent Infection"
+        ],
+        [
+            "candidiasis",
+            "MESH:D002177",
+            "Candidiasis"
+        ],
+        [
+            "gingivitis",
+            "MESH:D005891",
+            "Gingivitis"
+        ],
+        [
+            "infection",
+            "MESH:D007239",
+            "Infections"
+        ],
+        [
+            "oral diseases",
+            "MESH:D035583",
+            "Rare Diseases"
+        ],
+        [
+            "parasitic infection",
+            "MESH:D010272",
+            "Parasitic Diseases"
+        ],
+        [
+            "periodontal",
+            "MESH:D010509",
+            "Periodontal Cyst"
+        ],
+        [
+            "periodontal diseases",
+            "MESH:D010510",
+            "Periodontal Diseases"
+        ],
+        [
+            "periodontitis",
+            "MESH:D010518",
+            "Periodontitis"
+        ],
+        [
+            "periodontitis disease",
+            "MESH:D010518",
+            "Periodontitis"
+        ]
+    ],
+    "has_disease_norm": true,
+    "affiliation_entities": [
+        "Iran\nIran\nIran\nIran\nIran\nIran\nIran\nJahrom\nQazvin\nQazvin\nQazvin\nTehran",
+        "Gastroenterology\nIslamic Azad University\nJahrom University of Medical Sciences\nLiver Diseases Research Center\nOral Medicine Department\nPegah Afsaneh Abadi'\nQazvin University Of Medical Sciences\nQazvin University of Medical Science\nQazvin University of Medical Sciences\nQazvin University of Medical Sciences\nResearch Institute\nResearch Institute For Prevention Of Non-Communicable Diseases\nResearch Institute for Prevention of Non-Communicable Diseases\nResearch Institute for Prevention of Non-Communicable Diseases\nSchool of Dentistry\nShahid Beheshti University of Medical Sciences"
+    ],
+    "has_affiliation_ner": true,
+    "sample_size_entities": {},
+    "sample_size": null,
+    "has_sample_size_ner": true,
+    "significance_conclusion": [],
+    "has_significance_ner": true,
+    "mtime": 1646878814.557272,
+    "htime": "2022-03-10 10:20:14.557272",
+    "title_zh": "\u8171\u6bdb\u6ef4\u866b\u5728\u53e3\u8154\u75be\u75c5\u4e2d\u88ab\u5ffd\u89c6\u7684\u4f5c\u7528:\u7cfb\u7edf\u56de\u987e\u548c\u835f\u8403\u5206\u6790\u3002",
+    "abstract_zh": "tenax Trichomonas tenax (T. tenax)\u662f\u4e00\u79cd\u5171\u751f\u97ad\u6bdb\u539f\u751f\u52a8\u7269\uff0c\u5b58\u5728\u4e8e\u53e3\u8154\u7259\u5468\u5fae\u73af\u5883\u4e2d\uff0c\u53ef\u80fd\u5728\u7259\u5468\u75be\u75c5\u4e2d\u53d1\u6325\u4f5c\u7528\u3002 \u672c\u7cfb\u7edf\u7efc\u8ff0\u548c\u835f\u8403\u5206\u6790\u7684\u76ee\u7684\u662f\u786e\u5b9a\u5168\u7403\u8303\u56f4\u5185tenax\u611f\u67d3\u7684\u6d41\u884c\u7387\uff0c\u5e76\u663e\u793a\u8fd9\u79cd\u5bc4\u751f\u866b\u611f\u67d3\u4e0e\u53e3\u8154\u75be\u75c5\u4e4b\u95f4\u88ab\u5ffd\u89c6\u7684\u76f8\u5173\u6027\u3002 \u4e3a\u4e86\u67e5\u627e\u622a\u6b62\u52302020\u5e748\u6708\u53d1\u8868\u7684\u6587\u732e\uff0c\u6211\u4eec\u68c0\u7d22\u4e865\u4e2a\u82f1\u6587\u6570\u636e\u5e93(PubMed\u3001Scopus\u3001Science Direct\u3001Web of Science\u548c\u8c37\u6b4cScholar)\u3002 \u6700\u7ec8\uff0c\u670965\u7bc7\u8bba\u6587\u7b26\u5408\u7eb3\u5165\u672c\u7814\u7a76\u7684\u6761\u4ef6\u3002 \u6211\u4eec\u7684\u7ed3\u679c\u663e\u793a\uff0c\u8171\u866b\u611f\u67d3\u7684\u5168\u7403\u603b\u60a3\u75c5\u7387\u4e3a17% (95% CI 14-22%)\u3002 \u636e\u4f30\u8ba1\uff0c\u667a\u5229\u7684\u60a3\u75c5\u7387\u6700\u9ad8\uff0c\u4e3a56%(42-69%)\uff0c\u800c\u80af\u5c3c\u4e9a\u7684\u60a3\u75c5\u7387\u6700\u4f4e\uff0c\u4e3a3%(1-6%)\u3002 \u57fa\u4e8e\u5e74\u9f84\u7684\u5206\u6790\u53d1\u73b0\uff0c\u611f\u67d3\u572846-55\u5c81\u7684\u5e73\u5747\u5e74\u9f84\u7ec4\u4e2d\u6700\u5e38\u89c1\uff0c\u536015%(0-100%)\u3002 \u57f9\u517b\u6cd5\u3001\u5206\u5b50\u6cd5\u548c\u76f4\u63a5\u6cd5\u7684\u603b\u4f53\u6d41\u884c\u7387\u5206\u522b\u4e3a21%(12-32%)\u300119%(8-35%)\u548c17%(12-23%)\u3002 \u6b64\u5916\uff0c\u4e9a\u7ec4\u5206\u6790\u663e\u793a\uff0c\u5ff5\u73e0\u83cc\u75c5[22%(3-52%)]\u3001\u7259\u9f88\u708e[21%(9-36%)]\u548c\u7259\u5468\u708e[27%(10-48%)]\u60a3\u8005\u7684\u7efc\u5408\u60a3\u75c5\u7387\u3002 \u672c\u7814\u7a76\u660e\u786e\u4e86tenax\u539f\u866b\u4e0e\u7259\u5468\u708e\u7684\u5173\u7cfb\u3002 \u7136\u800c\uff0c\u9700\u8981\u66f4\u591a\u7684\u6d41\u884c\u75c5\u5b66\u7814\u7a76\u548c\u4e34\u5e8a\u8bd5\u9a8c\u6765\u51c6\u786e\u5730\u786e\u5b9a\u8fd9\u4e00\u5173\u7cfb\u3002",
+    "has_translated": true,
+    "chemical": [],
+    "gene_entities": {},
+    "gene": [],
+    "anatomy_entities": {
+        "0": [
+            [
+                "of the",
+                15,
+                17
+            ],
+            [
+                "oral cavity",
+                17,
+                19
+            ],
+            [
+                "cavity",
+                18,
+                20
+            ],
+            [
+                "flagellated",
+                9,
+                10
+            ]
+        ],
+        "1": [
+            [
+                "of the",
+                2,
+                4
+            ]
+        ],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": []
+    },
+    "anatomy": [
+        [
+            "cavity",
+            "",
+            ""
+        ],
+        [
+            "flagellated",
+            "MESH:D005407",
+            "Flagella"
+        ],
+        [
+            "of the",
+            "",
+            ""
+        ],
+        [
+            "oral cavity",
+            "MESH:D009055",
+            "Mouth"
+        ]
+    ],
+    "antibody_entities": {},
+    "antibody": [],
+    "abstract_prep": "Trichomonas tenax (T. tenax) is a commensal flagellated protozoan found in periodontal microenvironment of the oral cavity, with a possible role in periodontal diseases. The purpose of the present systematic review and meta-analysis was to determine the worldwide prevalence of T. tenax infection and to show the neglected association of this parasitic infection with oral diseases. To find literatures published until August 2020, five English databases (PubMed, Scopus, Science Direct, Web of Science and Google Scholar) were explored. Finally, 65 papers were qualified to be included in the current study. Our results revealed a global pooled prevalence of 17% (95% CI 14-22%) for T. tenax infection. The highest prevalence was estimated at 56% (42-69%) in Chile, while the lowest prevalence was related to Kenya with 3% (1-6%). The age-based analysis found that the infection was most common in 46-55 mean age group with 15% (0-100%). The overall prevalence regarding culture method, molecular method and direct method was 21% (12-32%), 19% (8-35%) and 17% (12-23%), respectively. Moreover, the subgroup analysis showed the pooled prevalence in patient with candidiasis [22% (3-52%)], gingivitis [21% (9-36%)] and periodontitis [27% (10-48%)]. Our study specified a connection between T. tenax protozoa and periodontitis disease. However, more epidemiological studies as well as clinical trials are needed to precisely identify this relation.",
+    "sentence_labels": [
+        [
+            0,
+            "BACKGROUND"
+        ],
+        [
+            1,
+            "BACKGROUND"
+        ],
+        [
+            2,
+            "METHODS"
+        ],
+        [
+            3,
+            "METHODS"
+        ],
+        [
+            4,
+            "RESULTS"
+        ],
+        [
+            5,
+            "RESULTS"
+        ],
+        [
+            6,
+            "RESULTS"
+        ],
+        [
+            7,
+            "RESULTS"
+        ],
+        [
+            8,
+            "RESULTS"
+        ],
+        [
+            9,
+            "CONCLUSIONS"
+        ],
+        [
+            10,
+            "CONCLUSIONS"
+        ]
+    ],
+    "abstract_highlight": [
+        "<bold=True italic=True font_color=#FF1493>",
+        "Trichomonas ",
+        "<bold=True italic=True font_color=#FF1493>",
+        "tenax ",
+        "( ",
+        "T. ",
+        "tenax ",
+        ") ",
+        "is ",
+        "a ",
+        "commensal ",
+        "flagellated ",
+        "protozoan ",
+        "found ",
+        "in ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontal ",
+        "microenvironment ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "<bold=True italic=True font_color=purpule>",
+        "oral ",
+        "<bold=True italic=True font_color=purpule>",
+        "cavity ",
+        ", ",
+        "with ",
+        "a ",
+        "possible ",
+        "role ",
+        "in ",
+        "periodontal ",
+        "<bold=True italic=True font_color=#000080>",
+        "diseases ",
+        "<bold=True italic=True font_color=#FF1493>",
+        ". ",
+        "The ",
+        "purpose ",
+        "<bold=True italic=True font_color=purpule>",
+        "of ",
+        "<bold=True italic=True font_color=purpule>",
+        "the ",
+        "present ",
+        "systematic ",
+        "review ",
+        "and ",
+        "meta-analysis ",
+        "was ",
+        "to ",
+        "determine ",
+        "the ",
+        "worldwide ",
+        "prevalence ",
+        "of ",
+        "<bold=True italic=True font_color=#000080>",
+        "T. ",
+        "<bold=True italic=True font_color=#000080>",
+        "tenax ",
+        "<bold=True italic=True font_color=#000080>",
+        "infection ",
+        "and ",
+        "to ",
+        "show ",
+        "the ",
+        "neglected ",
+        "association ",
+        "of ",
+        "this ",
+        "<bold=True italic=True font_color=#000080>",
+        "parasitic ",
+        "infection ",
+        "with ",
+        "<bold=True italic=True font_color=#000080>",
+        "oral ",
+        "<bold=True italic=True font_color=#000080>",
+        "diseases ",
+        "<bold=True italic=True font_color=#FF1493>",
+        ". ",
+        "To ",
+        "find ",
+        "literatures ",
+        "published ",
+        "until ",
+        "August ",
+        "2020 ",
+        ", ",
+        "five ",
+        "English ",
+        "databases ",
+        "( ",
+        "PubMed ",
+        ", ",
+        "Scopus ",
+        ", ",
+        "Science ",
+        "Direct ",
+        ", ",
+        "Web ",
+        "of ",
+        "Science ",
+        "and ",
+        "Google ",
+        "Scholar ",
+        ") ",
+        "were ",
+        "explored ",
+        ". ",
+        "Finally ",
+        ", ",
+        "65 ",
+        "papers ",
+        "were ",
+        "qualified ",
+        "to ",
+        "be ",
+        "included ",
+        "in ",
+        "the ",
+        "current ",
+        "study ",
+        ". ",
+        "Our ",
+        "results ",
+        "revealed ",
+        "a ",
+        "global ",
+        "pooled ",
+        "prevalence ",
+        "of ",
+        "17 ",
+        "% ",
+        "( ",
+        "95 ",
+        "% ",
+        "CI ",
+        "14-22 ",
+        "% ",
+        ") ",
+        "for ",
+        "<bold=True italic=True font_color=#000080>",
+        "T. ",
+        "<bold=True italic=True font_color=#000080>",
+        "tenax ",
+        "<bold=True italic=True font_color=#000080>",
+        "infection ",
+        "<bold=True italic=True font_color=#FF1493>",
+        ". ",
+        "The ",
+        "highest ",
+        "prevalence ",
+        "was ",
+        "estimated ",
+        "at ",
+        "56 ",
+        "% ",
+        "( ",
+        "42-69 ",
+        "% ",
+        ") ",
+        "in ",
+        "Chile ",
+        ", ",
+        "while ",
+        "the ",
+        "lowest ",
+        "prevalence ",
+        "was ",
+        "related ",
+        "to ",
+        "Kenya ",
+        "with ",
+        "3 ",
+        "% ",
+        "( ",
+        "1-6 ",
+        "% ",
+        ") ",
+        ". ",
+        "The ",
+        "age-based ",
+        "analysis ",
+        "found ",
+        "that ",
+        "the ",
+        "<bold=True italic=True font_color=#000080>",
+        "infection ",
+        "was ",
+        "most ",
+        "common ",
+        "in ",
+        "46-55 ",
+        "mean ",
+        "age ",
+        "group ",
+        "with ",
+        "15 ",
+        "% ",
+        "( ",
+        "0-100 ",
+        "% ",
+        ") ",
+        ". ",
+        "The ",
+        "overall ",
+        "prevalence ",
+        "regarding ",
+        "culture ",
+        "method ",
+        ", ",
+        "molecular ",
+        "method ",
+        "and ",
+        "direct ",
+        "method ",
+        "was ",
+        "21 ",
+        "% ",
+        "( ",
+        "12-32 ",
+        "% ",
+        ") ",
+        ", ",
+        "19 ",
+        "% ",
+        "( ",
+        "8-35 ",
+        "% ",
+        ") ",
+        "and ",
+        "17 ",
+        "% ",
+        "( ",
+        "12-23 ",
+        "% ",
+        ") ",
+        ", ",
+        "respectively ",
+        ". ",
+        "Moreover ",
+        ", ",
+        "the ",
+        "subgroup ",
+        "analysis ",
+        "showed ",
+        "the ",
+        "pooled ",
+        "prevalence ",
+        "in ",
+        "patient ",
+        "with ",
+        "<bold=True italic=True font_color=#000080>",
+        "candidiasis ",
+        "[ ",
+        "22 ",
+        "% ",
+        "( ",
+        "3-52 ",
+        "% ",
+        ") ",
+        "] ",
+        ", ",
+        "<bold=True italic=True font_color=#000080>",
+        "gingivitis ",
+        "[ ",
+        "21 ",
+        "% ",
+        "( ",
+        "9-36 ",
+        "% ",
+        ") ",
+        "] ",
+        "and ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "[ ",
+        "27 ",
+        "% ",
+        "( ",
+        "10-48 ",
+        "% ",
+        ") ",
+        "] ",
+        ". ",
+        "Our ",
+        "study ",
+        "specified ",
+        "a ",
+        "connection ",
+        "between ",
+        "T. ",
+        "<bold=True italic=True font_color=#FF1493>",
+        "tenax ",
+        "protozoa ",
+        "and ",
+        "<bold=True italic=True font_color=#000080>",
+        "periodontitis ",
+        "<bold=True italic=True font_color=#000080>",
+        "disease ",
+        "<bold=True italic=True font_color=#FF1493>",
+        ". ",
+        "However ",
+        ", ",
+        "more ",
+        "epidemiological ",
+        "studies ",
+        "as ",
+        "well ",
+        "as ",
+        "clinical ",
+        "trials ",
+        "are ",
+        "needed ",
+        "to ",
+        "precisely ",
+        "identify ",
+        "this ",
+        "relation ",
+        ". "
+    ]
+}

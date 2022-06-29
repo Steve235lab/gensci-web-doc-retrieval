@@ -1,0 +1,824 @@
+{
+    "pmid": "17101259",
+    "journal": "International journal of oral and maxillofacial surgery",
+    "publication_type": "Clinical Trial\nRandomized Controlled Trial",
+    "publication_year": "2006",
+    "publication_date": "2006-11-13",
+    "title": "Assessment of the effectiveness of peripheral administration of fentanyl with lidocaine in inflamed dentoalveolar tissues.",
+    "first_author": "V Rattan",
+    "corresponding_author": "V K Grover",
+    "authors": "V Rattan, S Arora, V K Grover",
+    "affiliations": "(1) Unit of Oral and Maxillofacial Surgery, Oral Health Sciences Centre, Postgraduate Institute of Medical Education and Research, Chandigarh, India. drvidyarattan@sancharnet.it ['V Rattan']",
+    "abstract": "Peripheral action of opioids for pain control, for which local inflammation has been shown to be crucial, is being increasingly used in clinical practice. The aim of this study was to evaluate the hypothesis that addition of fentanyl to lidocaine, when injected into inflamed dentoalveolar tissues, can improve the quality of analgesia during surgery. Seventy-one patients reporting with pain and tenderness in the maxillary tooth were assigned into the experimental (LAF) or control (LA) group in a prospective, randomized double-blind trial. The LAF group (n = 36) was injected submucosally with a mixture of 40 microg of fentanyl (0.8 ml) and 2% lidocaine hydrochloride with 1:200000 adrenaline (2 ml). In the LA group (n = 35) 0.9% of saline (0.8 ml) was added instead of fentanyl. The pain scores were recorded before injecting, 5 min after injection, and immediately after surgery using a visual analogue scale. The mean pain scores were not significantly different at all time intervals. Twelve patients in the LAF group (2.75+/-0.72 ml) and ten patients in the LA (2.90+/-0.70 ml) group required additional local anaesthetic to achieve pain control. In conclusion, there was no improvement in quality of intraoperative analgesia on addition of fentanyl to lidocaine in inflamed dentoalveolar tissues.",
+    "keywords": "",
+    "MeshHeadingList": [
+        {
+            "QualifierName": [],
+            "DescriptorName": "Administration, Oral"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Adolescent"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Adult"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Aged"
+        },
+        {
+            "QualifierName": [
+                "administration & dosage"
+            ],
+            "DescriptorName": "Analgesics, Opioid"
+        },
+        {
+            "QualifierName": [
+                "administration & dosage"
+            ],
+            "DescriptorName": "Anesthetics, Local"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Double-Blind Method"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Drug Combinations"
+        },
+        {
+            "QualifierName": [
+                "administration & dosage"
+            ],
+            "DescriptorName": "Epinephrine"
+        },
+        {
+            "QualifierName": [
+                "drug therapy",
+                "etiology"
+            ],
+            "DescriptorName": "Facial Pain"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Female"
+        },
+        {
+            "QualifierName": [
+                "administration & dosage"
+            ],
+            "DescriptorName": "Fentanyl"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Humans"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Injections"
+        },
+        {
+            "QualifierName": [
+                "administration & dosage"
+            ],
+            "DescriptorName": "Lidocaine"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Male"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Middle Aged"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Pain Measurement"
+        },
+        {
+            "QualifierName": [
+                "complications",
+                "surgery"
+            ],
+            "DescriptorName": "Periodontitis"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Preoperative Care"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Prospective Studies"
+        },
+        {
+            "QualifierName": [],
+            "DescriptorName": "Tooth Extraction"
+        },
+        {
+            "QualifierName": [
+                "administration & dosage"
+            ],
+            "DescriptorName": "Vasoconstrictor Agents"
+        }
+    ],
+    "ChemicalList": [
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Analgesics, Opioid"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Anesthetics, Local"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Drug Combinations"
+        },
+        {
+            "RegistryNumber": "0",
+            "NameOfSubstance": "Vasoconstrictor Agents"
+        },
+        {
+            "RegistryNumber": "98PI200987",
+            "NameOfSubstance": "Lidocaine"
+        },
+        {
+            "RegistryNumber": "UF599785JZ",
+            "NameOfSubstance": "Fentanyl"
+        },
+        {
+            "RegistryNumber": "YKH834O4BH",
+            "NameOfSubstance": "Epinephrine"
+        }
+    ],
+    "doi": null,
+    "journal_sjr": 0.0,
+    "journal_h_index": 0,
+    "journal_if": 2.068,
+    "journal_metrics": [
+        2.068,
+        0,
+        0.0,
+        2.392
+    ],
+    "bacteria_entities": {},
+    "has_bacteria_ner": true,
+    "bacteria": [],
+    "has_bacteria_norm": true,
+    "nutrient_entities": {},
+    "has_nutrient_ner": true,
+    "chemical_entities": {
+        "1": [
+            [
+                "fentanyl",
+                13,
+                14
+            ],
+            [
+                "lidocaine",
+                15,
+                16
+            ]
+        ],
+        "3": [
+            [
+                "fentanyl",
+                18,
+                19
+            ],
+            [
+                "lidocaine hydrochloride",
+                26,
+                28
+            ],
+            [
+                "adrenaline",
+                30,
+                31
+            ]
+        ],
+        "4": [
+            [
+                "fentanyl",
+                21,
+                22
+            ]
+        ],
+        "8": [
+            [
+                "fentanyl",
+                15,
+                16
+            ],
+            [
+                "lidocaine",
+                17,
+                18
+            ]
+        ]
+    },
+    "has_chemical_ner": true,
+    "has_genetic_ner": true,
+    "enzyme_entities": [],
+    "metabolic_entities": [],
+    "has_metabolic_ner": true,
+    "molecule": [
+        [
+            [
+                "fentanyl",
+                "MESH:D005283",
+                "Fentanyl"
+            ],
+            [
+                "lidocaine hydrochloride",
+                "MESH:D008012",
+                "Lidocaine"
+            ],
+            [
+                "lidocaine",
+                "MESH:D008012",
+                "Lidocaine"
+            ],
+            [
+                "ml",
+                "",
+                ""
+            ],
+            [
+                "adrenaline",
+                "MESH:D004837",
+                "Epinephrine"
+            ]
+        ],
+        [
+            [
+                "fentanyl",
+                "",
+                ""
+            ],
+            [
+                "lidocaine",
+                "",
+                ""
+            ],
+            [
+                "lidocaine hydrochloride",
+                "",
+                ""
+            ],
+            [
+                "adrenaline",
+                "",
+                ""
+            ],
+            [
+                "ml",
+                "THPO",
+                "thrombopoietin"
+            ]
+        ]
+    ],
+    "has_molecular_norm": true,
+    "nutrient": [],
+    "has_nutrient_norm": true,
+    "disease_entities": {
+        "0": [
+            [
+                "pain",
+                5,
+                6
+            ],
+            [
+                "inflammation",
+                11,
+                12
+            ]
+        ],
+        "2": [
+            [
+                "pain",
+                6,
+                7
+            ],
+            [
+                "tenderness",
+                8,
+                9
+            ]
+        ],
+        "5": [
+            [
+                "pain",
+                1,
+                2
+            ]
+        ],
+        "6": [
+            [
+                "pain",
+                2,
+                3
+            ]
+        ],
+        "7": [
+            [
+                "pain",
+                27,
+                28
+            ]
+        ]
+    },
+    "has_disease_ner": true,
+    "disease": [
+        [
+            "inflammation",
+            "MESH:D007249",
+            "Inflammation"
+        ],
+        [
+            "pain",
+            "MESH:D010146",
+            "Pain"
+        ],
+        [
+            "tenderness",
+            "",
+            ""
+        ]
+    ],
+    "has_disease_norm": true,
+    "affiliation_entities": [
+        "India",
+        "Oral Health Sciences Centre\nPostgraduate Institute of Medical Education and\nResearch, Chandigarh"
+    ],
+    "has_affiliation_ner": true,
+    "sample_size_entities": {
+        "2": [
+            [
+                71,
+                0,
+                3
+            ]
+        ],
+        "7": [
+            [
+                12,
+                0,
+                1
+            ]
+        ]
+    },
+    "sample_size": 71,
+    "has_sample_size_ner": true,
+    "significance_conclusion": [
+        [
+            6,
+            0
+        ]
+    ],
+    "has_significance_ner": true,
+    "mtime": 1646878568.30536,
+    "htime": "2022-03-10 10:16:08.305360",
+    "title_zh": "\u5916\u5468\u5e94\u7528\u82ac\u592a\u5c3c\u8054\u5408\u5229\u591a\u5361\u56e0\u6cbb\u7597\u7259\u69fd\u7ec4\u7ec7\u708e\u75c7\u7684\u7597\u6548\u8bc4\u4ef7\u3002",
+    "abstract_zh": "\u5916\u5468\u4f5c\u7528\u963f\u7247\u7c7b\u836f\u7269\u7684\u75bc\u75db\u63a7\u5236\uff0c\u5176\u4e2d\u5c40\u90e8\u708e\u75c7\u5df2\u88ab\u8bc1\u660e\u662f\u81f3\u5173\u91cd\u8981\u7684\uff0c\u6b63\u88ab\u8d8a\u6765\u8d8a\u591a\u5730\u7528\u4e8e\u4e34\u5e8a\u5b9e\u8df5\u3002 \u672c\u7814\u7a76\u7684\u76ee\u7684\u662f\u8bc4\u4f30\u5728\u708e\u75c7\u7259\u69fd\u7ec4\u7ec7\u6ce8\u5c04\u5229\u591a\u5361\u56e0\u4e2d\u52a0\u5165\u82ac\u592a\u5c3c\u53ef\u4ee5\u63d0\u9ad8\u624b\u672f\u9547\u75db\u8d28\u91cf\u7684\u5047\u8bbe\u3002 71\u540d\u62a5\u544a\u6709\u4e0a\u988c\u7259\u9f7f\u75bc\u75db\u548c\u538b\u75db\u7684\u60a3\u8005\u5728\u4e00\u9879\u524d\u77bb\u6027\u968f\u673a\u53cc\u76f2\u8bd5\u9a8c\u4e2d\u88ab\u5206\u914d\u5230\u5b9e\u9a8c\u7ec4(LAF)\u6216\u5bf9\u7167\u7ec4(LA)\u3002 LAF\u7ec4(n = 36)\u7c98\u819c\u4e0b\u6ce8\u5c0440 \u03bc g\u82ac\u592a\u5c3c(0.8 ml)\u548c2%\u76d0\u9178\u5229\u591a\u5361\u56e0(lidocaine hydrochloride)\u4e0e1:20\u4e07\u80be\u4e0a\u817a\u7d20(2 ml)\u7684\u6df7\u5408\u7269\u3002 LA\u7ec4(n = 35)\u52a0\u51650.9%\u7684\u751f\u7406\u76d0\u6c34(0.8 ml)\u4ee3\u66ff\u82ac\u592a\u5c3c\u3002 \u5206\u522b\u4e8e\u6ce8\u5c04\u524d\u3001\u6ce8\u5c04\u540e5 min\u548c\u624b\u672f\u540e\u7acb\u5373\u91c7\u7528\u89c6\u89c9\u6a21\u62df\u8bc4\u5206\u6cd5\u8bb0\u5f55\u75bc\u75db\u8bc4\u5206\u3002 \u5e73\u5747\u75bc\u75db\u8bc4\u5206\u5728\u6240\u6709\u65f6\u95f4\u95f4\u9694\u5185\u5747\u65e0\u663e\u8457\u5dee\u5f02\u3002 LAF\u7ec412\u4f8b(2.75+/-0.72 ml)\u548cLA\u7ec410\u4f8b(2.90+/-0.70 ml)\u9700\u8ffd\u52a0\u5c40\u9ebb\u836f\u4ee5\u63a7\u5236\u75bc\u75db\u3002 \u7efc\u4e0a\u6240\u8ff0\uff0c\u5229\u591a\u5361\u56e0\u4e2d\u52a0\u5165\u82ac\u592a\u5c3c\u5bf9\u7259\u69fd\u90e8\u708e\u75c7\u7ec4\u7ec7\u7684\u672f\u4e2d\u9547\u75db\u8d28\u91cf\u65e0\u660e\u663e\u6539\u5584\u3002",
+    "has_translated": true,
+    "chemical": [
+        [
+            "adrenaline",
+            "MESH:D004837",
+            "Epinephrine"
+        ],
+        [
+            "fentanyl",
+            "MESH:D005283",
+            "Fentanyl"
+        ],
+        [
+            "lidocaine",
+            "MESH:D008012",
+            "Lidocaine"
+        ],
+        [
+            "lidocaine hydrochloride",
+            "MESH:D008012",
+            "Lidocaine"
+        ]
+    ],
+    "gene_entities": {},
+    "gene": [],
+    "anatomy_entities": {
+        "0": [],
+        "1": [
+            [
+                "tissues",
+                22,
+                24
+            ],
+            [
+                ", can",
+                23,
+                25
+            ]
+        ],
+        "2": [
+            [
+                "maxillary",
+                11,
+                12
+            ]
+        ],
+        "3": [
+            [
+                "group (",
+                2,
+                4
+            ],
+            [
+                "and 2",
+                23,
+                25
+            ],
+            [
+                "adrenaline",
+                30,
+                31
+            ]
+        ],
+        "4": [
+            [
+                "group (",
+                3,
+                5
+            ]
+        ],
+        "5": [
+            [
+                ", and",
+                12,
+                14
+            ]
+        ],
+        "6": [],
+        "7": [
+            [
+                "group (",
+                5,
+                7
+            ]
+        ],
+        "8": []
+    },
+    "anatomy": [
+        [
+            ", and",
+            "",
+            ""
+        ],
+        [
+            ", can",
+            "",
+            ""
+        ],
+        [
+            "adrenaline",
+            "",
+            ""
+        ],
+        [
+            "and 2",
+            "",
+            ""
+        ],
+        [
+            "group (",
+            "",
+            ""
+        ],
+        [
+            "maxillary",
+            "MESH:D008437",
+            "Maxilla"
+        ],
+        [
+            "tissues",
+            "MESH:D014024",
+            "Tissues"
+        ]
+    ],
+    "antibody_entities": {},
+    "antibody": [],
+    "abstract_prep": "Peripheral action of opioids for pain control, for which local inflammation has been shown to be crucial, is being increasingly used in clinical practice. The aim of this study was to evaluate the hypothesis that addition of fentanyl to lidocaine, when injected into inflamed dentoalveolar tissues, can improve the quality of analgesia during surgery. Seventy-one patients reporting with pain and tenderness in the maxillary tooth were assigned into the experimental (controlF) or control (control) group in a prospective, randomized double-blind trial. The controlF group (n = 36) was injected submucosally with a mixture of 40 microg of fentanyl (0.8 ml) and 2% lidocaine hydrochloride with 1:200000 adrenaline (2 ml). In the control group (n = 35) 0.9% of saline (0.8 ml) was added instead of fentanyl. The pain scores were recorded before injecting, 5 min after injection, and immediately after surgery using a visual analogue scale. The mean pain scores were not significantly different at all time intervals. Twelve patients in the controlF group (2.75+/-0.72 ml) and ten patients in the control (2.90+/-0.70 ml) group required additional local anaesthetic to achieve pain control. In conclusion, there was no improvement in quality of intraoperative analgesia on addition of fentanyl to lidocaine in inflamed dentoalveolar tissues.",
+    "sentence_labels": [
+        [
+            0,
+            "BACKGROUND"
+        ],
+        [
+            1,
+            "OBJECTIVE"
+        ],
+        [
+            2,
+            "METHODS"
+        ],
+        [
+            3,
+            "METHODS"
+        ],
+        [
+            4,
+            "METHODS"
+        ],
+        [
+            5,
+            "METHODS"
+        ],
+        [
+            6,
+            "RESULTS"
+        ],
+        [
+            7,
+            "RESULTS"
+        ],
+        [
+            8,
+            "CONCLUSIONS"
+        ]
+    ],
+    "abstract_highlight": [
+        "Peripheral ",
+        "action ",
+        "of ",
+        "opioids ",
+        "for ",
+        "<bold=True italic=True font_color=#000080>",
+        "pain ",
+        "control ",
+        ", ",
+        "for ",
+        "which ",
+        "local ",
+        "<bold=True italic=True font_color=#000080>",
+        "inflammation ",
+        "has ",
+        "been ",
+        "shown ",
+        "to ",
+        "be ",
+        "crucial ",
+        ", ",
+        "is ",
+        "being ",
+        "increasingly ",
+        "used ",
+        "in ",
+        "clinical ",
+        "practice ",
+        ". ",
+        "The ",
+        "aim ",
+        "of ",
+        "this ",
+        "study ",
+        "was ",
+        "to ",
+        "evaluate ",
+        "the ",
+        "hypothesis ",
+        "that ",
+        "addition ",
+        "of ",
+        "<bold=True italic=True font_color=#008000>",
+        "fentanyl ",
+        "to ",
+        "<bold=True italic=True font_color=#008000>",
+        "lidocaine ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "when ",
+        "injected ",
+        "into ",
+        "inflamed ",
+        "dentoalveolar ",
+        "<bold=True italic=True font_color=purpule>",
+        "tissues ",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "can ",
+        "improve ",
+        "the ",
+        "quality ",
+        "of ",
+        "analgesia ",
+        "during ",
+        "surgery ",
+        ". ",
+        "Seventy-one ",
+        "patients ",
+        "reporting ",
+        "with ",
+        "<bold=True italic=True font_color=#000080>",
+        "pain ",
+        "and ",
+        "<bold=True italic=True font_color=#000080>",
+        "tenderness ",
+        "in ",
+        "the ",
+        "<bold=True italic=True font_color=purpule>",
+        "maxillary ",
+        "tooth ",
+        "were ",
+        "assigned ",
+        "into ",
+        "the ",
+        "experimental ",
+        "( ",
+        "controlF ",
+        ") ",
+        "or ",
+        "control ",
+        "( ",
+        "control ",
+        ") ",
+        "group ",
+        "in ",
+        "a ",
+        "prospective ",
+        ", ",
+        "randomized ",
+        "double-blind ",
+        "trial ",
+        ". ",
+        "The ",
+        "controlF ",
+        "<bold=True italic=True font_color=purpule>",
+        "group ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "n ",
+        "= ",
+        "36 ",
+        ") ",
+        "was ",
+        "injected ",
+        "submucosally ",
+        "with ",
+        "a ",
+        "mixture ",
+        "of ",
+        "40 ",
+        "microg ",
+        "of ",
+        "<bold=True italic=True font_color=#008000>",
+        "fentanyl ",
+        "( ",
+        "0.8 ",
+        "ml ",
+        ") ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "<bold=True italic=True font_color=purpule>",
+        "2 ",
+        "% ",
+        "<bold=True italic=True font_color=#008000>",
+        "lidocaine ",
+        "<bold=True italic=True font_color=#008000>",
+        "hydrochloride ",
+        "with ",
+        "1:200000 ",
+        "<bold=True italic=True font_color=#008000>",
+        "adrenaline ",
+        "( ",
+        "2 ",
+        "ml ",
+        ") ",
+        ". ",
+        "In ",
+        "the ",
+        "control ",
+        "<bold=True italic=True font_color=purpule>",
+        "group ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "n ",
+        "= ",
+        "35 ",
+        ") ",
+        "0.9 ",
+        "% ",
+        "of ",
+        "saline ",
+        "( ",
+        "0.8 ",
+        "ml ",
+        ") ",
+        "was ",
+        "added ",
+        "instead ",
+        "of ",
+        "<bold=True italic=True font_color=#008000>",
+        "fentanyl ",
+        ". ",
+        "The ",
+        "<bold=True italic=True font_color=#000080>",
+        "pain ",
+        "scores ",
+        "were ",
+        "recorded ",
+        "before ",
+        "injecting ",
+        "<bold=True italic=True font_color=purpule>",
+        ", ",
+        "5 ",
+        "min ",
+        "after ",
+        "injection ",
+        ", ",
+        "<bold=True italic=True font_color=purpule>",
+        "and ",
+        "immediately ",
+        "after ",
+        "surgery ",
+        "using ",
+        "a ",
+        "visual ",
+        "analogue ",
+        "scale ",
+        ". ",
+        "The ",
+        "mean ",
+        "<bold=True italic=True font_color=#000080>",
+        "pain ",
+        "scores ",
+        "were ",
+        "not ",
+        "significantly ",
+        "different ",
+        "at ",
+        "all ",
+        "time ",
+        "intervals ",
+        ". ",
+        "Twelve ",
+        "patients ",
+        "in ",
+        "the ",
+        "controlF ",
+        "<bold=True italic=True font_color=purpule>",
+        "group ",
+        "<bold=True italic=True font_color=purpule>",
+        "( ",
+        "2.75+/-0.72 ",
+        "ml ",
+        ") ",
+        "and ",
+        "ten ",
+        "patients ",
+        "in ",
+        "the ",
+        "control ",
+        "( ",
+        "2.90+/-0.70 ",
+        "ml ",
+        ") ",
+        "group ",
+        "required ",
+        "additional ",
+        "local ",
+        "anaesthetic ",
+        "to ",
+        "achieve ",
+        "<bold=True italic=True font_color=#000080>",
+        "pain ",
+        "control ",
+        ". ",
+        "In ",
+        "conclusion ",
+        ", ",
+        "there ",
+        "was ",
+        "no ",
+        "improvement ",
+        "in ",
+        "quality ",
+        "of ",
+        "intraoperative ",
+        "analgesia ",
+        "on ",
+        "addition ",
+        "of ",
+        "<bold=True italic=True font_color=#008000>",
+        "fentanyl ",
+        "to ",
+        "<bold=True italic=True font_color=#008000>",
+        "lidocaine ",
+        "in ",
+        "inflamed ",
+        "dentoalveolar ",
+        "tissues ",
+        ". "
+    ]
+}

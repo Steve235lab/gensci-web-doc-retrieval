@@ -66,3 +66,12 @@ def sign_in(request):
     return cache
 
 
+def reset_password(request):
+    """修改密码请求处理函数
+
+    url: 42.192.44.52:8000/sign_in/reset_keywords/
+
+    :param request:
+    :return:
+    """
+    pass
