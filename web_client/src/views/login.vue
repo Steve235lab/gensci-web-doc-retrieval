@@ -80,7 +80,7 @@ export default {
           message_type: "sign_in",
           email:this.loginForm.email,
           // password:md5(this.loginForm.password)
-           password:this.loginForm.password
+          password:this.loginForm.password
         })
       })
           .then(function(res){
@@ -120,7 +120,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image:url('/src/assets/beijing.png');
+  background-image:url('../src/assets/beijing.png');
   background-size: 100% 100%;
   .loginForm{
     height: 300px;
