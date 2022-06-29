@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" style="overflow-x: hidden">
 <!--    导航栏-->
    <el-menu
         :default-active="activeIndex"
@@ -28,32 +28,62 @@
         </div>
       </el-col>
     </el-row>
+    <p></p>
 <!--    筛选条件折叠面板-->
-    <el-collapse style="display:inline;" v-model="activeState">
+
+    <!--        文章类型-->
+    <el-row :gutter="20" style="height:45px;">
+      <el-col :span="3" :offset="2"
+      >
+        <div style="float:left;font-weight :bold;">ARTICLE TYPE</div>
+      </el-col>
+      <el-col :span="19" :offset="0"
+      >
+        <el-checkbox-group v-model="article_type" style="float:left;" >
+
+          <el-checkbox label="Books and Documents"/>
+          <el-checkbox label="Clinical Trial"/>
+          <el-checkbox label="Meta-Analysis"/>
+          <el-checkbox label="Randomized Controlled Trial"/>
+          <el-checkbox label="Review"/>
+          <el-checkbox label="Systematic Review"/>
+
+        </el-checkbox-group>
+      </el-col>
+    </el-row>
+    <!--        发表时间-->
+    <el-row :gutter="20" style="height:40px;">
+      <el-col :span="3" :offset="2"
+      >
+        <div style="float:left;font-weight :bold;">PUBLICATION DATE</div>
+      </el-col>
+      <el-col :span="6" :offset="0">
+        <div class="block">
+          <el-date-picker
+              v-model="publication_date"
+              type="daterange"
+              unlink-panels
+              range-separator="至"
+              start-placeholder="开始日期"
+              end-placeholder="结束日期"
+              value-format="yyyy-MM-dd"
+              size="small"
+              :picker-options="pickerOptions">
+          </el-date-picker>
+        </div>
+      </el-col>
+      <!--          <el-col :span="2" :offset="9">-->
+      <!--            <el-button type="primary" round @click="handleSearch">高级检索</el-button>-->
+      <!--          </el-col>-->
+
+    </el-row>
+    <el-collapse style="display:inline;width: 1500px" v-model="activeState" >
       <el-collapse-item >
-<!--        文章类型-->
-        <el-row :gutter="20" style="height:45px;">
-          <el-col :span="3" :offset="2"
-          >
-            <div style="float:left;font-weight :bold;">ARTICLE TYPE</div>
-          </el-col>
-          <el-col :span="17" :offset="0"
-          >
-            <el-checkbox-group v-model="article_type" style="float:left;" >
-
-              <el-checkbox label="Books and Documents"/>
-              <el-checkbox label="Clinical Trial"/>
-              <el-checkbox label="Meta-Analysis"/>
-              <el-checkbox label="Randomized Controlled Trial"/>
-              <el-checkbox label="Review"/>
-              <el-checkbox label="Systematic Review"/>
-
-            </el-checkbox-group>
-          </el-col>
-
-        </el-row>
-<!--        年龄-->
-        <el-row :gutter="20" style="height:45px;">
+        <template slot="title">
+          <div style="font-weight :bold;font-size: 16px;float: left">More Filters</div>
+        </template>
+        <!--        年龄-->
+        <el-row :gutter="20" type="flex" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
             <div style="float:left;font-weight :bold;">AGE</div>
@@ -113,7 +143,7 @@
             </el-checkbox-group>
           </el-col>
         </el-row>
-<!--        语言-->
+        <!--        语言-->
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
@@ -129,7 +159,7 @@
             </el-checkbox-group>
           </el-col>
         </el-row>
-<!--        性别-->
+        <!--        性别-->
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
@@ -144,32 +174,6 @@
 
             </el-checkbox-group>
           </el-col>
-        </el-row>
-<!--        发表时间-->
-        <el-row :gutter="20" style="height:45px;">
-          <el-col :span="3" :offset="2"
-          >
-            <div style="float:left;font-weight :bold;">PUBLICATION DATE</div>
-          </el-col>
-          <el-col :span="6" :offset="0">
-            <div class="block">
-              <el-date-picker
-                  v-model="publication_date"
-                  type="daterange"
-                  unlink-panels
-                  range-separator="至"
-                  start-placeholder="开始日期"
-                  end-placeholder="结束日期"
-                  value-format="yyyy-MM-dd"
-                  size="small"
-                  :picker-options="pickerOptions">
-              </el-date-picker>
-            </div>
-          </el-col>
-          <!--          <el-col :span="2" :offset="9">-->
-          <!--            <el-button type="primary" round @click="handleSearch">高级检索</el-button>-->
-          <!--          </el-col>-->
-
         </el-row>
       </el-collapse-item>
     </el-collapse>
@@ -237,16 +241,13 @@
                   </template>
 <!--                  表格纵列-->
                 </el-table-column>
-                <el-table-column label="Title" prop="Title" sortable width="400">
-                </el-table-column>
-                <el-table-column label="Date" prop="Publication_Date" sortable>
-                </el-table-column>
-                <el-table-column label="Pmid" prop="Pmid" sortable>
-                </el-table-column>
-                <el-table-column label="Journal" prop="Journal" sortable>
-                </el-table-column>
-                <el-table-column label="Journal_If" prop="Journal_If" sortable>
-                </el-table-column>
+                <el-table-column label="Title" prop="Title" sortable width="400"></el-table-column>
+                <el-table-column label="Date" prop="Publication_Date" sortable></el-table-column>
+                <el-table-column label="Pmid" prop="Pmid" sortable></el-table-column>
+                <el-table-column label="Journal" prop="Journal" sortable width="150"></el-table-column>
+                <el-table-column label="Journal_If" prop="Journal_If" sortable width="100"></el-table-column>
+                <el-table-column label="Sample_Size" prop="Sample_Size" sortable width="100"></el-table-column>
+                <el-table-column label="Publication_Type" prop="Publication_Type" sortable width="200"></el-table-column>
 
               </el-table>
 
@@ -321,6 +322,7 @@ import md5 from "js-md5";
 import axios from "axios";
 import example from "../../../docs/example_test.json"
 import G6 from '@antv/g6';
+import { GraphLayoutPredict } from '@antv/vis-predict-engine'
 let graph ;
 
 export default {
@@ -377,7 +379,8 @@ export default {
       history:[],
       paper_result:[],
       clue_result:[],
-      clue:{nodes:[],edges:[]},
+      network_data:[],
+      selected_network:{nodes: [], edges: []},
       paper_page_Info: {
         total: 0,
         currentNumber: 1,
@@ -393,62 +396,64 @@ export default {
     this.keyDown()
     this.getHistory();
     graph = new G6.Graph({
-          container: 'network',
-          width: 980,
-          height: 600,
-          // 是否开启画布自适应。开启后图自动适配画布大小。
-          // fitView: true,
-          //v3.5.1 后支持。开启后，图将会被平移，图的中心将对齐到画布中心，但不缩放。优先级低于 fitView
-          fitCenter: true,
-          // 节点默认配置
-          defaultNode: {
-            labelCfg: {
-              position: 'bottom',
-              offset: 3,
-              style: {
-                fill: '#000',
-              },
-            },
+      container: 'network',
+      width: 980,
+      height: 600,
+      // 是否开启画布自适应。开启后图自动适配画布大小。
+      fitView: true,
+      //v3.5.1 后支持。开启后，图将会被平移，图的中心将对齐到画布中心，但不缩放。优先级低于 fitView
+      fitCenter: true,
+      // 节点默认配置
+      defaultNode: {
+        labelCfg: {
+          position: 'bottom',
+          offset: 3,
+          style: {
+            fill: '#000',
           },
-          // 边默认配置
-          defaultEdge: {
-            labelCfg: {
-              refY: 7,
-              autoRotate: true,
-            },
-          },
-          // 节点在各状态下的样式
-          nodeStateStyles: {
-            // hover 状态为 true 时的样式
-            hover: {
-              fill: 'lightsteelblue',
-            },
-            // click 状态为 true 时的样式
-            click: {
-              stroke: '#000',
-              lineWidth: 3,
-            },
-          },
-          // 边在各状态下的样式
-          edgeStateStyles: {
-            // click 状态为 true 时的样式
-            click: {
-              stroke: 'steelblue',
-            },
-          },
-          // 布局
-          layout: {
-            type: 'force',
-            linkDistance: 100,
-            preventOverlap: true,
-            nodeStrength: -30,
-            edgeStrength: 0.1,
-          },
-          // 内置交互
-          modes: {
-            default: ['drag-canvas', 'zoom-canvas', 'drag-node'],
-          },
-        });
+        },
+      },
+      // 边默认配置
+      defaultEdge: {
+        labelCfg: {
+          // opacity:'100%',
+          autoRotate: true,
+        },
+      },
+      // 节点在各状态下的样式
+      nodeStateStyles: {
+        // hover 状态为 true 时的样式
+        hover: {
+          fill: 'lightsteelblue',
+        },
+        // click 状态为 true 时的样式
+        click: {
+          fill: 'lightsteelblue',
+          stroke: 'red',
+          lineWidth: 2,
+        },
+      },
+      // 边在各状态下的样式
+      edgeStateStyles: {
+        // click 状态为 true 时的样式
+        click: {
+          stroke: 'red',
+        },
+      },
+      // 布局
+      layout: {
+        type: 'force',
+        workerEnabled: true, // 开启 Web-Worker
+        // linkDistance: 1000,
+        preventOverlap: true,
+        nodeStrength: -30,
+        edgeStrength: 0.1,
+      },
+      // 内置交互
+      modes: {
+        default: ['drag-canvas', 'zoom-canvas', 'drag-node'],
+      },
+    });
   },
   computed: {
     // 计算属性的 getter
@@ -525,8 +530,8 @@ export default {
         console.log('请求network数据')
         this.clue_page_Info.currentNumber=0
         this.clueInfo()
-        console.log('开始绘图')
-        this.draw_network()
+        // console.log('开始绘图')
+        // this.draw_network()
       }
     },
     //获取时间戳并获取该记录的paper_info
@@ -698,10 +703,13 @@ export default {
                 type: 'error'
               });
             }
-            console.log(res.data)
+            // console.log(res.data)
             that.clue_result=res.data.clue_info
             that.clue_page_Info.total=res.data.total
-            that.draw_network()
+            if(res.data.message_type==="network"){
+              that.network_data = that.clue_result
+              that.draw_network()
+            }
           })
           .catch(function(err){
             console.log(err)
@@ -716,33 +724,86 @@ export default {
 
     },
     //绘制network网络图
-    getdrawInfo(){
-      var index_n = 0;
-      var index_e = 0;
-      this.clue_result.forEach((clue_info) => {
-        console.log(clue_info);
-        if(!this.clue.nodes[index_n]){
-          this.clue.nodes[index_n]={};
+    getdrawInfo() {
+      this.selected_network = {nodes: [], edges: []};
+      this.network_data.forEach((data) => {
+        if(data.Edge_Type===this.drawSelect){
+          this.selected_network.nodes.push({
+            id: data.Node1,
+            label: data.Node1,
+            class:"bacteria"
+          })
+          this.selected_network.nodes.push({
+            id: data.Node2,
+            label: data.Node2,
+            class:"disease"
+          })
+          this.selected_network.edges.push({
+            source: data.Node1,
+            target: data.Node2,
+            weight: data.Weight,
+            // label: clue_info.Paper_List
+          })
         }
-        this.clue.nodes[index_n].id = clue_info.Node1;
-        this.clue.nodes[index_n].label = clue_info.Node1;
-        index_n++;
-        if(!this.clue.nodes[index_n]){
-          this.clue.nodes[index_n]={};
-        }
-        this.clue.nodes[index_n].id = clue_info.Node2;
-        this.clue.nodes[index_n].label = clue_info.Node2;
-        index_n++;
-        if(!this.clue.edges[index_e]){
-          this.clue.edges[index_e]={};
-        }
-        this.clue.edges[index_e].source = clue_info.Node1;
-        this.clue.edges[index_e].target = clue_info.Node2;
-        this.clue.edges[index_e].weight = clue_info.Weight;
-        this.clue.edges[index_e].label = clue_info.Paper_List;
-        index_e++;
+        // switch (data.Edge_Type) {
+        //   case "bacteria_to_disease": {
+        //     this.networkData_selector.bacteria_to_disease.nodes.push({
+        //       id: data.Node1,
+        //       label: data.Node1,
+        //       // class:"bacteria",
+        //       type: 'circle',
+        //       size: 30,
+        //       style: {
+        //         fill: '#ffeda0',
+        //         stroke: '#fff'
+        //       },
+        //     });
+        //     this.networkData_selector.bacteria_to_disease.nodes.push({
+        //       id: data.Node2,
+        //       label: data.Node2,
+        //       // class:"disease",
+        //       type: 'rect',
+        //       size: [25, 25],
+        //       style: {
+        //         fill: '#d7301f',
+        //         stroke: '#fff'
+        //       },
+        //     });
+        //     this.networkData_selector.bacteria_to_disease.edges.push({
+        //       source: data.Node1,
+        //       target: data.Node2,
+        //       weight: data.Weight,
+        //       // label: clue_info.Paper_List,
+        //     });
+        //     break;
+        //   }
+        // }
+
+
       });
     },
+    // getdrawInfo(){
+    //   this.network_data.forEach((clue_info) => {
+    //     console.log(clue_info);
+    //     this.clue.nodes.push({
+    //       id: clue_info.Node1,
+    //       label: clue_info.Node1
+    //     })
+    //     this.clue.nodes.push({
+    //       id: clue_info.Node2,
+    //       label: clue_info.Node2
+    //     })
+    //     this.clue.edges.push({
+    //       source: clue_info.Node1,
+    //       target: clue_info.Node2,
+    //       weight: clue_info.Weight,
+    //       label: clue_info.Paper_List
+    //     })
+    //     console.log(this.clue)
+    //
+    //
+    //   });
+    // },
     draw_network(){
       this.getdrawInfo();
 
@@ -755,6 +816,7 @@ export default {
         node.style.lineWidth = 1;
         node.style.stroke = '#666';
         node.style.fill = 'steelblue';
+
       });
       edges.forEach((edge) => {
         if (!edge.style) {
@@ -791,7 +853,7 @@ export default {
         // 设置目标节点的 click 状态 为 true
         graph.setItemState(nodeItem, 'click', true);
       });
-      // 监听鼠标点击节点
+      // 监听鼠标点击边
       graph.on('edge:click', (e) => {
         // 先将所有当前有 click 状态的边的 click 状态置为 false
         const clickEdges = graph.findAllByState('edge', 'click');
@@ -962,4 +1024,15 @@ export default {
   display:inline-block;
   color: #A9A9A9;
 }
+
+.el-collapse-item__arrow{
+  float : left;
+  margin-left:5px;
+  margin-right:15px;
+}
+.el-collapse-item__header{
+  margin-left:130px;
+}
+
+
 </style>
