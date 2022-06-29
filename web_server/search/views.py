@@ -556,7 +556,6 @@ def get_clue_info(request):
     if uuid_str == 'token expired':
         json_rsp = {"message_type": "token_expired"}
     else:
-        print("Loading data from excel files...")
         uuid = int(uuid_str)
         timestamp = int(timestamp)
         # 使用 timestamp 到数据库中查找此条历史记录
@@ -576,6 +575,8 @@ def get_clue_info(request):
             papers_on_one_page = 20
 
             if CONTROLLER.clue_info_data_source == 'excel':
+                print("Loading data from excel files...")
+
                 # 读取 'clue_info.xlsx'，将信息放入 "clue_info" 字段
                 file_name = file_dir + 'clue_info.xlsx'
                 workbook = openpyxl.load_workbook(file_name, read_only=True)
@@ -608,6 +609,7 @@ def get_clue_info(request):
                         json_rsp["clue_info"].append(clue_info)
 
             if CONTROLLER.clue_info_data_source == 'json':
+                print("Loading data from json file...")
 
                 # 读取json文件
                 file_name = file_dir + 'clue_info.json'
@@ -621,6 +623,7 @@ def get_clue_info(request):
                 row_max = len(clue_info)
 
                 if page_num == 0:
+                    json_rsp['message_type'] = 'network'
                     json_rsp["clue_info"] = clue_info
 
                 else:
