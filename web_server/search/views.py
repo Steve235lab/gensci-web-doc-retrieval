@@ -368,10 +368,14 @@ def get_paper_info(request):
         token = request.GET.get('token')
         timestamp = request.GET.get('timestamp')
         page_num = request.GET.get('page_num')
+        column = request.GET.get('column')
+        order = request.GET.get('order')
     if request.method == 'POST':
         token = request.POST.get('token')
         timestamp = request.POST.get('timestamp')
         page_num = request.POST.get('page_num')
+        column = request.POST.get('column')
+        order = request.POST.get('order')
 
     if CONTROLLER.emoji_status is True:
         print(emojize(':white_check_mark: 已收到 get_paper_info 请求', language='alias'))
@@ -460,6 +464,27 @@ def get_paper_info(request):
                 # 读取 file.list 获取包含结果文献信息的json文件目录
                 file_list = open(file_dir + 'file.list', 'r')
                 json_dir_list = file_list.readlines()
+                paper_info_list = []
+
+                for json_dir in json_dir_list:
+                    json_dir = json_dir[:-1]
+                    raw_paper_info = json.load(open(json_dir, 'r'))
+                    paper_info_list.append(raw_paper_info)
+
+                # 根据请求中的 column 和 order 字段对列表 json_dir_list 进行排序
+                if column == 'Publication_Date':
+                    if order == 'positive':
+                        sorted_paper_info = sorted(paper_info_list, key=lambda x: x['publication_date'])
+                    else:
+                        sorted_paper_info = sorted(paper_info_list, key=lambda x: x['publication_date'], reverse=True)
+                elif column == 'Journal_If':
+                    if order == 'positive':
+                        sorted_paper_info = sorted(paper_info_list, key=lambda x: x['journal_if'])
+                    else:
+                        sorted_paper_info = sorted(paper_info_list, key=lambda x: x['journal_if'], reverse=True)
+                else:
+                    pass
+
                 # print(json_dir_list)
                 row_max = len(json_dir_list)
                 page_num = int(page_num)
@@ -475,8 +500,7 @@ def get_paper_info(request):
                     if row_end > row_max:
                         row_end = row_max
                     for i in range(row_start, row_end):
-                        json_dir = json_dir_list[i][:-1]    # 删除换行符 \n
-                        raw_paper_info = json.load(open(json_dir, 'r'))
+                        raw_paper_info = sorted_paper_info[i]
                         paper_info = {}
                         paper_info['Pmid'] = raw_paper_info['pmid']
                         pmid = int(raw_paper_info['pmid'])
@@ -538,10 +562,14 @@ def get_clue_info(request):
         token = request.GET.get('token')
         timestamp = request.GET.get('timestamp')
         page_num = request.GET.get('page_num')
+        column = request.GET.get('column')
+        order = request.GET.get('order')
     if request.method == 'POST':
         token = request.POST.get('token')
         timestamp = request.POST.get('timestamp')
         page_num = request.POST.get('page_num')
+        column = request.POST.get('column')
+        order = request.POST.get('order')
 
     if CONTROLLER.emoji_status is True:
         print(emojize(':white_check_mark: 已收到 get_clue_info 请求', language='alias'))
@@ -619,6 +647,15 @@ def get_clue_info(request):
                     file_name = 'static/json_clue_info/asd.bfs.json'
 
                 clue_info = json.load(open(file_name, 'r'))
+
+                # 对 clue_info 排序
+                if column == 'Weight':
+                    if order == 'positive':
+                        clue_info = sorted(clue_info, key=lambda x: x['Weight'])
+                    else:
+                        clue_info = sorted(clue_info, key=lambda x: x['Weight'], reverse=True)
+                else:
+                    pass
 
                 row_max = len(clue_info)
 
