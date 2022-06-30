@@ -104,6 +104,7 @@ export default {
         url:"http://42.192.44.52:8000/sign_in/reset_password/",
         data:qs.stringify({
           code:this.loginForm.code,
+          email:this.loginForm.email,
           password:md5(this.loginForm.password),
         })
       })
