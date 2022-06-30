@@ -414,7 +414,7 @@ export default {
         currentNumber: 1,
       },
       drawSelect: '',
-      drawOptions: [{"Edge_Type": "anatomy"}, {"Edge_Type": "antibody_to_anatomy"}, {"Edge_Type": "bacteria"}, {"Edge_Type": "bacteria_to_anatomy"}, {"Edge_Type": "bacteria_to_antibody"}, {"Edge_Type": "bacteria_to_chemical"}, {"Edge_Type": "bacteria_to_disease"}, {"Edge_Type": "bacteria_to_mechanism"}, {"Edge_Type": "bacteria_to_nutrient"}, {"Edge_Type": "chemical"}, {"Edge_Type": "chemical_to_anatomy"}, {"Edge_Type": "chemical_to_disease"}, {"Edge_Type": "chemical_to_mechanism"}, {"Edge_Type": "disease"}, {"Edge_Type": "disease_to_anatomy"}, {"Edge_Type": "disease_to_antibody"}, {"Edge_Type": "disease_to_mechanism"}, {"Edge_Type": "mechanism"}, {"Edge_Type": "mechanism_to_anatomy"}, {"Edge_Type": "mechanism_to_antibody"}, {"Edge_Type": "nutrient_to_anatomy"}, {"Edge_Type": "nutrient_to_chemical"}, {"Edge_Type": "nutrient_to_disease"}, {"Edge_Type": "nutrient_to_mechanism"}],
+      drawOptions: [{"Edge_Type": "BFS"},{"Edge_Type": "anatomy"}, {"Edge_Type": "antibody_to_anatomy"}, {"Edge_Type": "bacteria"}, {"Edge_Type": "bacteria_to_anatomy"}, {"Edge_Type": "bacteria_to_antibody"}, {"Edge_Type": "bacteria_to_chemical"}, {"Edge_Type": "bacteria_to_disease"}, {"Edge_Type": "bacteria_to_mechanism"}, {"Edge_Type": "bacteria_to_nutrient"}, {"Edge_Type": "chemical"}, {"Edge_Type": "chemical_to_anatomy"}, {"Edge_Type": "chemical_to_disease"}, {"Edge_Type": "chemical_to_mechanism"}, {"Edge_Type": "disease"}, {"Edge_Type": "disease_to_anatomy"}, {"Edge_Type": "disease_to_antibody"}, {"Edge_Type": "disease_to_mechanism"}, {"Edge_Type": "mechanism"}, {"Edge_Type": "mechanism_to_anatomy"}, {"Edge_Type": "mechanism_to_antibody"}, {"Edge_Type": "nutrient_to_anatomy"}, {"Edge_Type": "nutrient_to_chemical"}, {"Edge_Type": "nutrient_to_disease"}, {"Edge_Type": "nutrient_to_mechanism"}],
 
     };
   },
@@ -735,69 +735,126 @@ export default {
     clueInfo() {
       console.log('请求clue数据')
       this.clue_result = example.clue_info;
-      // this.network_data = network_result
-      this.network_data = asd_net
+      this.network_data = network_result
+      // this.network_data = asd_net
     },
     getdrawInfo(class1,class2) {
       this.selected_network = {nodes: [], edges: []};
-      this.network_data.forEach((data) => {
-        // console.log(data.is_BFS_edge)
-        if(data.Edge_Type===this.drawSelect&&data.is_BFS_edge){
-          this.selected_network.nodes.push({
-            id: data.Node1,
-            label: data.Node1,
-            class: class1
-          })
-          this.selected_network.nodes.push({
-            id: data.Node2,
-            label: data.Node2,
-            class: class2
-          })
-          this.selected_network.edges.push({
-            source: data.Node1,
-            target: data.Node2,
-            weight: data.Weight,
-            paper: data.Paper_List,
-            origin_text: data.Original_Text
-          })
-        }
+      // this.network_data.forEach((data) => {
+      //   // console.log(data.is_BFS_edge)
+      //   if(data.Edge_Type===this.drawSelect&&data.is_BFS_edge){
+      //     this.selected_network.nodes.push({
+      //       id: data.Node1,
+      //       label: data.Node1,
+      //       class: class1
+      //     })
+      //     this.selected_network.nodes.push({
+      //       id: data.Node2,
+      //       label: data.Node2,
+      //       class: class2
+      //     })
+      //     this.selected_network.edges.push({
+      //       source: data.Node1,
+      //       target: data.Node2,
+      //       weight: data.Weight,
+      //       paper: data.Paper_List,
+      //       origin_text: data.Original_Text
+      //     })
+      //   }
+      //
+      //   // switch (data.Edge_Type) {
+      //   //   case "bacteria_to_disease": {
+      //   //     this.networkData_selector.bacteria_to_disease.nodes.push({
+      //   //       id: data.Node1,
+      //   //       label: data.Node1,
+      //   //       // class:"bacteria",
+      //   //       type: 'circle',
+      //   //       size: 30,
+      //   //       style: {
+      //   //         fill: '#ffeda0',
+      //   //         stroke: '#fff'
+      //   //       },
+      //   //     });
+      //   //     this.networkData_selector.bacteria_to_disease.nodes.push({
+      //   //       id: data.Node2,
+      //   //       label: data.Node2,
+      //   //       // class:"disease",
+      //   //       type: 'rect',
+      //   //       size: [25, 25],
+      //   //       style: {
+      //   //         fill: '#d7301f',
+      //   //         stroke: '#fff'
+      //   //       },
+      //   //     });
+      //   //     this.networkData_selector.bacteria_to_disease.edges.push({
+      //   //       source: data.Node1,
+      //   //       target: data.Node2,
+      //   //       weight: data.Weight,
+      //   //       // label: clue_info.Paper_List,
+      //   //     });
+      //   //     break;
+      //   //   }
+      //   // }
+      //
+      //
+      // });
+      if(this.drawSelect==="BFS"){
+        this.network_data.forEach((data) => {
+          // console.log(data.is_BFS_edge)
+          // if(data.is_BFS_edge){
+            var nodeType_selector = data.Edge_Type.split('_')
+            if(nodeType_selector.length===1){
+              var node1_type = nodeType_selector[0];
+              var node2_type = nodeType_selector[0];
+            }else{
+              node1_type = nodeType_selector[0];
+              node2_type = nodeType_selector[2];
+            }
+            this.selected_network.nodes.push({
+              id: data.Node1,
+              label: data.Node1,
+              class: node1_type
+            })
+            this.selected_network.nodes.push({
+              id: data.Node2,
+              label: data.Node2,
+              class: node2_type
+            })
+            this.selected_network.edges.push({
+              source: data.Node1,
+              target: data.Node2,
+              weight: data.Weight,
+              paper: data.Paper_List,
+              origin_text: data.Original_Text
+            })
+          // }
+        });
+      }else{
+        this.network_data.forEach((data) => {
+          // console.log(data.is_BFS_edge)
+          if(data.Edge_Type===this.drawSelect){
+            this.selected_network.nodes.push({
+              id: data.Node1,
+              label: data.Node1,
+              class: class1
+            })
+            this.selected_network.nodes.push({
+              id: data.Node2,
+              label: data.Node2,
+              class: class2
+            })
+            this.selected_network.edges.push({
+              source: data.Node1,
+              target: data.Node2,
+              weight: data.Weight,
+              paper: data.Paper_List,
+              origin_text: data.Original_Text
+            })
+          }
 
-        // switch (data.Edge_Type) {
-        //   case "bacteria_to_disease": {
-        //     this.networkData_selector.bacteria_to_disease.nodes.push({
-        //       id: data.Node1,
-        //       label: data.Node1,
-        //       // class:"bacteria",
-        //       type: 'circle',
-        //       size: 30,
-        //       style: {
-        //         fill: '#ffeda0',
-        //         stroke: '#fff'
-        //       },
-        //     });
-        //     this.networkData_selector.bacteria_to_disease.nodes.push({
-        //       id: data.Node2,
-        //       label: data.Node2,
-        //       // class:"disease",
-        //       type: 'rect',
-        //       size: [25, 25],
-        //       style: {
-        //         fill: '#d7301f',
-        //         stroke: '#fff'
-        //       },
-        //     });
-        //     this.networkData_selector.bacteria_to_disease.edges.push({
-        //       source: data.Node1,
-        //       target: data.Node2,
-        //       weight: data.Weight,
-        //       // label: clue_info.Paper_List,
-        //     });
-        //     break;
-        //   }
-        // }
 
-
-      });
+        });
+      }
       console.log(!this.selected_network.edges)
       if(!this.selected_network.edges){
         console.log('无数据，请重新选择')
