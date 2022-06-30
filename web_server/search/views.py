@@ -634,6 +634,14 @@ def get_clue_info(request):
                             row_end = row_max
                         json_rsp["clue_info"] = clue_info[row_start:row_end]
 
+            # 统计 edge_type 类型集合
+            edge_type_set = set()
+            for clue_meta in clue_info:
+                edge_type = clue_meta['Edge_Type']
+                edge_type_set.add(edge_type)
+
+            json_rsp["edge_type_list"] = edge_type_set
+
         else:  # 发送请求的用户与历史记录所属用户不匹配
             json_rsp = {"message_type": "invalid_request"}
 
