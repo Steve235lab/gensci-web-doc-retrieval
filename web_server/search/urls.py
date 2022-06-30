@@ -6,4 +6,5 @@ urlpatterns = [
     path('history/', views.get_history),
     path('paper_info/', views.get_paper_info),
     path('clue_info/', views.get_clue_info),
+    path('paper_details/'),
 ]

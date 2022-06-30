@@ -656,3 +656,90 @@ def get_clue_info(request):
     cache["Access-Control-Allow-Origin"] = "*"
     return cache
 
+
+def get_paper_details(request):
+    """处理通过PMID获取单篇文章详细信息的请求
+
+    url: 42.192.44.52:8000/search/paper_details/
+    """
+    # 解包前端请求
+    if request.method == 'GET':
+        token = request.GET.get('token')
+        timestamp = request.GET.get('timestamp')
+        pmid = request.GET.get('pmid')
+    if request.method == 'POST':
+        token = request.POST.get('token')
+        timestamp = request.POST.get('timestamp')
+        pmid = request.POST.get('pmid')
+
+    # 从token中获取uuid
+    uuid_str = get_uuid_from_token(token)
+    # token时效性判断
+    if uuid_str == 'token expired':
+        json_rsp = {"message_type": "token_expired"}
+    else:
+        uuid = int(uuid_str)
+        timestamp = int(timestamp)
+        pmid_str = pmid
+        pmid = int(pmid)
+        # 使用 timestamp 到数据库中查找此条历史记录
+        history = DATABASE.get_result(timestamp)[0]
+        if uuid == int(history[4]):  # 身份验证通过
+            new_token = forge_token(uuid_str)
+            json_rsp = {
+                "message_type": "paper_details",
+                "Pmid": pmid,
+                "token": new_token
+            }
+            result_timestamp = history[1]
+            file_dir = 'static/search_result/' + str(result_timestamp) + '/'
+
+            if CONTROLLER.test_mode is True:
+                # 更改至测试用路径
+                file_dir = 'static/json_data_test/'
+
+            # 读取 file.list 获取包含结果文献信息的json文件目录
+            file_list = open(file_dir + 'file.list', 'r')
+            json_dir_list = file_list.readlines()
+            for i in range(len(json_dir_list)):
+                json_dir = json_dir_list[i][:-1]  # 删除换行符 \n
+                raw_paper_info = json.load(open(json_dir, 'r'))
+                if raw_paper_info['pmid'] == pmid_str:
+                    paper_info = {}
+                    paper_info['Pmid'] = raw_paper_info['pmid']
+                    paper_info['Journal'] = raw_paper_info['journal']
+                    paper_info['Publication_Type'] = raw_paper_info['publication_type']
+                    paper_info['Publication_Year'] = raw_paper_info['publication_year']
+                    paper_info['Publication_Date'] = raw_paper_info['publication_date']
+                    paper_info['Title'] = raw_paper_info['title']
+                    paper_info['First_Author'] = raw_paper_info['first_author']
+                    paper_info['Corresponding_Author'] = raw_paper_info['corresponding_author']
+                    paper_info['Authors'] = raw_paper_info['authors']
+                    paper_info['Affiliations'] = raw_paper_info['affiliations']
+                    paper_info['Abstract'] = DATABASE.get_highlight_abstract_with_pmid(pmid)
+                    paper_info['Keywords'] = raw_paper_info['keywords']
+                    paper_info['Doi'] = raw_paper_info['doi']
+                    paper_info['Journal_If'] = raw_paper_info['journal_if']
+                    paper_info['Chinese_Title'] = raw_paper_info['title_zh']
+                    paper_info['Chinese_Abstract'] = raw_paper_info['abstract_zh']
+                    paper_info['Sample_Size'] = raw_paper_info['sample_size']
+                    # 以下3个字段可能在原始json文件中不存在
+                    try:
+                        paper_info['Conclusion'] = raw_paper_info['conclusion']
+                    except:
+                        paper_info['Conclusion'] = ''
+                    try:
+                        paper_info['Location'] = raw_paper_info['location']
+                    except:
+                        paper_info['Location'] = ''
+                    try:
+                        paper_info['Organization'] = raw_paper_info['organization']
+                    except:
+                        paper_info['Organization'] = ''
+
+                    json_rsp['paper_info'] = paper_info
+                    break
+
+            cache = JsonResponse(json_rsp)
+            cache["Access-Control-Allow-Origin"] = "*"
+            return cache
