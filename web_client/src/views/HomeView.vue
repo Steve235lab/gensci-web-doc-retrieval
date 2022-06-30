@@ -305,6 +305,14 @@
             </el-tab-pane>
 <!--            network-->
             <el-tab-pane label="Network" name="network">
+              <el-select v-model="drawSelect" placeholder="请选择" @change="select_network" style="float: left">
+                <el-option
+                    v-for="item in drawOptions"
+                    :key="item.Edge_Type"
+                    :label="item.Edge_Type"
+                    :value="item.Edge_Type">
+                </el-option>
+              </el-select>
               <div id="network" style="width: 100%;height: 600px"></div>
             </el-tab-pane>
 
@@ -320,9 +328,22 @@
 import qs from "qs";
 import md5 from "js-md5";
 import axios from "axios";
-import example from "../../../docs/example_test.json"
+import example from "../../../test_data/example_test.json"
+import network_result from "../../../test_data/network_test.json"
 import G6 from '@antv/g6';
-import { GraphLayoutPredict } from '@antv/vis-predict-engine'
+import insertCss from 'insert-css';
+insertCss(`
+  .g6-component-tooltip {
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 8px;
+    box-shadow: rgb(174, 174, 174) 0px 0px 10px;
+  }
+`);
+
 let graph ;
 
 export default {
@@ -388,13 +409,42 @@ export default {
       clue_page_Info: {
         total: 0,
         currentNumber: 1,
-      }
+      },
+      drawSelect: '',
+      drawOptions: [{"Edge_Type": "anatomy"}, {"Edge_Type": "antibody_to_anatomy"}, {"Edge_Type": "bacteria"}, {"Edge_Type": "bacteria_to_anatomy"}, {"Edge_Type": "bacteria_to_antibody"}, {"Edge_Type": "bacteria_to_chemical"}, {"Edge_Type": "bacteria_to_disease"}, {"Edge_Type": "bacteria_to_mechanism"}, {"Edge_Type": "bacteria_to_nutrient"}, {"Edge_Type": "chemical"}, {"Edge_Type": "chemical_to_anatomy"}, {"Edge_Type": "chemical_to_disease"}, {"Edge_Type": "chemical_to_mechanism"}, {"Edge_Type": "disease"}, {"Edge_Type": "disease_to_anatomy"}, {"Edge_Type": "disease_to_antibody"}, {"Edge_Type": "disease_to_mechanism"}, {"Edge_Type": "mechanism"}, {"Edge_Type": "mechanism_to_anatomy"}, {"Edge_Type": "mechanism_to_antibody"}, {"Edge_Type": "nutrient_to_anatomy"}, {"Edge_Type": "nutrient_to_chemical"}, {"Edge_Type": "nutrient_to_disease"}, {"Edge_Type": "nutrient_to_mechanism"}],
 
     };
   },
   mounted() {
     this.keyDown()
     this.getHistory();
+    const tooltip = new G6.Tooltip({
+      offsetX: 10,
+      offsetY: 10,
+      // v4.2.1 起支持配置 trigger，click 代表点击后出现 tooltip。默认为 mouseenter
+      trigger: 'click',
+      fixToNode: [1, 0.5],
+      // the types of items that allow the tooltip show up
+      // 允许出现 tooltip 的 item 类型
+      itemTypes: ['node', 'edge'],
+      // custom the tooltip's content
+      // 自定义 tooltip 内容
+      getContent: (e) => {
+        const outDiv = document.createElement('div');
+        outDiv.style.width = 'fit-content';
+        outDiv.style.height = 'fit-content';
+        const model = e.item.getModel();
+        if (e.item.getType() === 'node') {
+          outDiv.innerHTML = `${model.id}`;
+        } else {
+          // const source = e.item.getSource();
+          // const target = e.item.getTarget();
+          // outDiv.innerHTML = `来源：${source.getModel().name}<br/>去向：${target.getModel().name}`;
+          outDiv.innerHTML = `Paper_List：${model.paper}<br/>Original_Text：${model.origin_text}`;
+        }
+        return outDiv;
+      },
+    });
     graph = new G6.Graph({
       container: 'network',
       width: 980,
@@ -438,12 +488,20 @@ export default {
         // click 状态为 true 时的样式
         click: {
           stroke: 'red',
+          lineAppendWidth: 5,
         },
       },
       // 布局
       layout: {
-        type: 'force',
-        workerEnabled: true, // 开启 Web-Worker
+        type: 'fruchterman',
+        center: [200, 200], // 可选，默认为图的中心
+        gravity: 0, // 可选
+        speed: 2, // 可选
+        clustering: true, // 可选
+        clusterGravity: 5, // 可选
+        maxIteration: 3000, // 可选，迭代次数
+        workerEnabled: true, // 可选，开启 web-worker
+        gpuEnabled: true, // 可选，开启 GPU 并行计算，G6 4.0 支持
         // linkDistance: 1000,
         preventOverlap: true,
         nodeStrength: -30,
@@ -453,6 +511,8 @@ export default {
       modes: {
         default: ['drag-canvas', 'zoom-canvas', 'drag-node'],
       },
+      // plugins: [minimap,legend],
+      plugins: [tooltip],
     });
   },
   computed: {
@@ -529,9 +589,9 @@ export default {
       if(tab.name==='network'){
         console.log('请求network数据')
         this.clue_page_Info.currentNumber=0
-        this.clueInfo()
-        // console.log('开始绘图')
-        // this.draw_network()
+        this.clueInfo()  //向后台请求数据并开始绘图
+        // this.network_data = network_result //本地数据
+        // this.draw_network()  //测试用
       }
     },
     //获取时间戳并获取该记录的paper_info
@@ -556,6 +616,19 @@ export default {
       this.clue_page_Info.currentNumber = newPage
       //获取到最新显示的页码值  重新发送axios请求 这里是封装好的请求方法
       this.clueInfo()
+    },
+    // 选择绘制的网络图
+    select_network() {
+      console.log(this.drawSelect)
+      // this.draw_network()
+      var nodeType_selector = this.drawSelect.split('_')
+      if(nodeType_selector.length===1){
+        this.draw_network(nodeType_selector[0],nodeType_selector[0])
+      }else{
+        this.draw_network(nodeType_selector[0],nodeType_selector[2])
+      }
+      console.log(nodeType_selector.length)
+      console.log(nodeType_selector[0])
     },
 
 
@@ -723,28 +796,32 @@ export default {
           })
 
     },
-    //绘制network网络图
-    getdrawInfo() {
+    //绘图数据预处理
+
+    getdrawInfo(class1,class2) {
       this.selected_network = {nodes: [], edges: []};
       this.network_data.forEach((data) => {
-        if(data.Edge_Type===this.drawSelect){
+        // console.log(data.is_BFS_edge)
+        if(data.Edge_Type===this.drawSelect&&data.is_BFS_edge){
           this.selected_network.nodes.push({
             id: data.Node1,
             label: data.Node1,
-            class:"bacteria"
+            class: class1
           })
           this.selected_network.nodes.push({
             id: data.Node2,
             label: data.Node2,
-            class:"disease"
+            class: class2
           })
           this.selected_network.edges.push({
             source: data.Node1,
             target: data.Node2,
             weight: data.Weight,
-            // label: clue_info.Paper_List
+            paper: data.Paper_List,
+            origin_text: data.Original_Text
           })
         }
+
         // switch (data.Edge_Type) {
         //   case "bacteria_to_disease": {
         //     this.networkData_selector.bacteria_to_disease.nodes.push({
@@ -781,60 +858,90 @@ export default {
 
 
       });
+      console.log(!this.selected_network.edges)
+      if(!this.selected_network.edges){
+        console.log('无数据，请重新选择')
+      }
     },
-    // getdrawInfo(){
-    //   this.network_data.forEach((clue_info) => {
-    //     console.log(clue_info);
-    //     this.clue.nodes.push({
-    //       id: clue_info.Node1,
-    //       label: clue_info.Node1
-    //     })
-    //     this.clue.nodes.push({
-    //       id: clue_info.Node2,
-    //       label: clue_info.Node2
-    //     })
-    //     this.clue.edges.push({
-    //       source: clue_info.Node1,
-    //       target: clue_info.Node2,
-    //       weight: clue_info.Weight,
-    //       label: clue_info.Paper_List
-    //     })
-    //     console.log(this.clue)
-    //
-    //
-    //   });
-    // },
-    draw_network(){
-      this.getdrawInfo();
+    //绘制network网络图
+    draw_network(class1,class2) {
 
-      const nodes = this.clue.nodes;
-      const edges = this.clue.edges;
+      this.getdrawInfo(class1,class2);
+
+      const nodes = this.selected_network.nodes;
+      const edges = this.selected_network.edges;
       nodes.forEach((node) => {
         if (!node.style) {
           node.style = {};
         }
-        node.style.lineWidth = 1;
-        node.style.stroke = '#666';
-        node.style.fill = 'steelblue';
-
+        // node.style.lineWidth = 1;
+        node.type = 'rect';
+        node.size = [30, 30];
+        node.style.radius = 8;
+        node.style.stroke = '#fff';
+        switch (node.class) {
+          case "disease": {
+            node.style.fill = '#c63225';
+            break;
+          }
+          case "bacteria": {
+            node.style.fill = '#fbeca0';
+            break;
+          }
+          case "chemical": {
+            node.style.fill = '#534eff';
+            break;
+          }
+          case "mechanism": {
+            node.style.fill = '#bdbddc';
+            break;
+          }
+          case "anatomy": {
+            node.style.fill = '#8c0412';
+            break;
+          }
+          case "antibody": {
+            node.style.fill = '#737373';
+            break;
+          }
+          case "nutrient": {
+            node.style.fill = '#85c375';
+            break;
+          }
+          case class2: {
+            node.style.fill = '#9ad0f5';
+            break;
+          }
+          case class1: {
+            node.style.fill = '#f5b89a';
+            break;
+          }
+        }
       });
       edges.forEach((edge) => {
         if (!edge.style) {
           edge.style = {};
         }
         edge.style.lineWidth = edge.weight;
-        edge.style.opacity = 0.6;
         edge.style.stroke = 'grey';
-      });
+        if (edge.weight === '1') {
+          edge.style.opacity = 0.1;
+        } else {
+          edge.style.opacity = 0.8;
+        }
 
-      graph.data(this.clue);
+      });
+      // graph.clear();
+      graph.data(this.selected_network);
       graph.render();
+      console.log("完成绘制")
 
       // 监听鼠标进入节点
       graph.on('node:mouseenter', (e) => {
         const nodeItem = e.item;
         // 设置目标节点的 hover 状态 为 true
         graph.setItemState(nodeItem, 'hover', true);
+
       });
       // 监听鼠标离开节点
       graph.on('node:mouseleave', (e) => {
@@ -852,8 +959,9 @@ export default {
         const nodeItem = e.item;
         // 设置目标节点的 click 状态 为 true
         graph.setItemState(nodeItem, 'click', true);
+        console.log(e.item);
       });
-      // 监听鼠标点击边
+      // 监听鼠标点击节点
       graph.on('edge:click', (e) => {
         // 先将所有当前有 click 状态的边的 click 状态置为 false
         const clickEdges = graph.findAllByState('edge', 'click');
@@ -863,142 +971,9 @@ export default {
         const edgeItem = e.item;
         // 设置目标边的 click 状态 为 true
         graph.setItemState(edgeItem, 'click', true);
+        console.log(e.item._cfg);
       });
     }
-    // draw_network(){
-    //   const remoteData = {
-    //
-    //     "nodes": [
-    //       {"id": "0", "label": "n0", "class": "c0" },
-    //       {"id": "1", "label": "n1", "class": "c0" },
-    //       {"id": "2", "label": "n2", "class": "c0" },
-    //       {"id": "3", "label": "n3", "class": "c0" },
-    //       {"id": "4", "label": "n4", "class": "c0" },
-    //       {"id": "5", "label": "n5", "class": "c0" },
-    //       {"id": "6", "label": "n6", "class": "c1"},
-    //       {"id": "7", "label": "n7", "class": "c1"},
-    //       {"id": "8", "label": "n8", "class": "c1" },
-    //       {"id": "9", "label": "n9", "class": "c1" },
-    //       {"id": "10", "label": "n10", "class": "c1" },
-    //       {"id": "11", "label": "n11", "class": "c1" },
-    //       {"id": "12", "label": "n12", "class": "c1" },
-    //       {"id": "13", "label": "n13", "class": "c2" },
-    //       {"id": "14", "label": "n14", "class": "c2" },
-    //       {"id": "15", "label": "n15", "class": "c2" },
-    //       {"id": "16", "label": "n16", "class": "c2" },
-    //       {"id": "17", "label": "n17", "class": "c2" },
-    //       {"id": "18", "label": "n18", "class": "c2" },
-    //       {"id": "19", "label": "n19", "class": "c2" }
-    //     ],
-    //     "edges": [
-    //       {"source": "0", "target": "1", "label": "e0-1", "weight": 1 },
-    //       {"source": "0", "target": "2", "label": "e0-2", "weight": 2 },
-    //       {"source": "0", "target": "3", "label": "e0-3", "weight": 3 },
-    //       {"source": "0", "target": "4", "label": "e0-4", "weight": 1.4 },
-    //       {"source": "0", "target": "5", "label": "e0-5", "weight": 2 },
-    //       {"source": "0", "target": "7", "label": "e0-7", "weight": 2 },
-    //       {"source": "0", "target": "8", "label": "e0-8", "weight": 2 },
-    //       {"source": "0", "target": "9", "label": "e0-9", "weight": 1.3 },
-    //       {"source": "0", "target": "10", "label": "e0-10", "weight": 1.5 },
-    //       {"source": "0", "target": "11", "label": "e0-11", "weight": 1 },
-    //       {"source": "0", "target": "13", "label": "e0-13", "weight": 10 },
-    //       {"source": "0", "target": "14", "label": "e0-14", "weight": 2 },
-    //       {"source": "0", "target": "15", "label": "e0-15", "weight": 0.5 },
-    //       {"source": "0", "target": "16", "label": "e0-16", "weight": 0.8 },
-    //       {"source": "2", "target": "3", "label": "e2-3", "weight": 1 },
-    //       {"source": "4", "target": "5", "label": "e4-5", "weight": 1.4 },
-    //       {"source": "4", "target": "6", "label": "e4-6", "weight": 2.1 },
-    //       {"source": "5", "target": "6", "label": "e5-6", "weight": 1.9 },
-    //       {"source": "7", "target": "13", "label": "e7-13", "weight": 0.5 },
-    //       {"source": "8", "target": "14", "label": "e8-14", "weight": 0.8 },
-    //       {"source": "9", "target": "10", "label": "e9-10", "weight": 0.2 },
-    //       {"source": "10", "target": "14", "label": "e10-14", "weight": 1 },
-    //       {"source": "10", "target": "12", "label": "e10-12", "weight": 1.2 },
-    //       {"source": "11", "target": "14", "label": "e11-14", "weight": 1.2 },
-    //       {"source": "12", "target": "13", "label": "e12-13", "weight": 2.1 },
-    //       {"source": "16", "target": "17", "label": "e16-17", "weight": 2.5 },
-    //       {"source": "16", "target": "18", "label": "e16-18", "weight": 3 },
-    //       {"source": "17", "target": "18", "label": "e17-18", "weight": 2.6 },
-    //       {"source": "18", "target": "19", "label": "e18-19", "weight": 1.6 }
-    //     ]
-    //
-    //
-    //   }
-    //
-    //   const nodes = remoteData.nodes;
-    //   const edges = remoteData.edges;
-    //   nodes.forEach((node) => {
-    //     if (!node.style) {
-    //       node.style = {};
-    //     }
-    //     node.style.lineWidth = 1;
-    //     node.style.stroke = '#666';
-    //     node.style.fill = 'steelblue';
-    //     switch (node.class) {
-    //       case 'c0': {
-    //         node.type = 'circle';
-    //         node.size = 30;
-    //         break;
-    //       }
-    //       case 'c1': {
-    //         node.type = 'rect';
-    //         node.size = [35, 20];
-    //         break;
-    //       }
-    //       case 'c2': {
-    //         node.type = 'ellipse';
-    //         node.size = [35, 20];
-    //         break;
-    //       }
-    //     }
-    //   });
-    //   edges.forEach((edge) => {
-    //     if (!edge.style) {
-    //       edge.style = {};
-    //     }
-    //     edge.style.lineWidth = edge.weight;
-    //     edge.style.opacity = 0.6;
-    //     edge.style.stroke = 'grey';
-    //   });
-    //
-    //   graph.data(remoteData);
-    //   graph.render();
-    //
-    //   // 监听鼠标进入节点
-    //   graph.on('node:mouseenter', (e) => {
-    //     const nodeItem = e.item;
-    //     // 设置目标节点的 hover 状态 为 true
-    //     graph.setItemState(nodeItem, 'hover', true);
-    //   });
-    //   // 监听鼠标离开节点
-    //   graph.on('node:mouseleave', (e) => {
-    //     const nodeItem = e.item;
-    //     // 设置目标节点的 hover 状态 false
-    //     graph.setItemState(nodeItem, 'hover', false);
-    //   });
-    //   // 监听鼠标点击节点
-    //   graph.on('node:click', (e) => {
-    //     // 先将所有当前有 click 状态的节点的 click 状态置为 false
-    //     const clickNodes = graph.findAllByState('node', 'click');
-    //     clickNodes.forEach((cn) => {
-    //       graph.setItemState(cn, 'click', false);
-    //     });
-    //     const nodeItem = e.item;
-    //     // 设置目标节点的 click 状态 为 true
-    //     graph.setItemState(nodeItem, 'click', true);
-    //   });
-    //   // 监听鼠标点击节点
-    //   graph.on('edge:click', (e) => {
-    //     // 先将所有当前有 click 状态的边的 click 状态置为 false
-    //     const clickEdges = graph.findAllByState('edge', 'click');
-    //     clickEdges.forEach((ce) => {
-    //       graph.setItemState(ce, 'click', false);
-    //     });
-    //     const edgeItem = e.item;
-    //     // 设置目标边的 click 状态 为 true
-    //     graph.setItemState(edgeItem, 'click', true);
-    //   });
-    // }
   }
 }
 

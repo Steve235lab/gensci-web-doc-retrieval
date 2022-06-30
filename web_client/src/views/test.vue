@@ -229,7 +229,7 @@
                             <b v-if="item==='Title'||item ==='Chinese_Title'">{{ row }}</b>
                             <i v-else-if="item==='Authors'||item==='First_Author'||item==='Corresponding_Author'"
                                style="font-family: 'Times New Roman',serif">{{ row }}</i>
-                            <span v-else-if="item==='Abstract'" v-html="row"></span>
+                            <span v-else-if="item==='Abstract'||item==='Publication_Type'" v-html="row"></span>
                             <span v-else>{{ row }}</span>
                           </el-col>
                         </el-row>
@@ -307,7 +307,7 @@
             </el-tab-pane>
             <!--            network-->
             <el-tab-pane label="Network" name="network">
-              <el-select v-model="drawSelect" placeholder="请选择" @change="test" style="float: left">
+              <el-select v-model="drawSelect" placeholder="请选择" @change="select_network" style="float: left">
                 <el-option
                     v-for="item in drawOptions"
                     :key="item.Edge_Type"
@@ -328,9 +328,23 @@
 <script>
 
 import qs from "qs";
-import example from "../../../docs/example_test.json"
-import network_result from "../../../docs/network_test.json"
+import example from "../../../test_data/example_test.json"
+import network_result from "../../../test_data/network_test.json"
+import asd_net from "../../../test_data/asd.bfs.json"
+import IL6_net from "../../../test_data/IL-6.bfs.json"
 import G6 from '@antv/g6';
+import insertCss from 'insert-css';
+insertCss(`
+  .g6-component-tooltip {
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 8px;
+    box-shadow: rgb(174, 174, 174) 0px 0px 10px;
+  }
+`);
 
 let graph;
 
@@ -391,32 +405,6 @@ export default {
       clue_result: [],
       network_data: [],
       selected_network:{nodes: [], edges: []},
-      // networkData_selector: {
-      //   anatomy: {nodes: [], edges: []},
-      //   antibody_to_anatomy: {nodes: [], edges: []},
-      //   bacteria: {nodes: [], edges: []},
-      //   bacteria_to_anatomy: {nodes: [], edges: []},
-      //   bacteria_to_antibody: {nodes: [], edges: []},
-      //   bacteria_to_chemical: {nodes: [], edges: []},
-      //   bacteria_to_disease: {nodes: [], edges: []},
-      //   bacteria_to_mechanism: {nodes: [], edges: []},
-      //   bacteria_to_nutrient: {nodes: [], edges: []},
-      //   chemical: {nodes: [], edges: []},
-      //   chemical_to_anatomy: {nodes: [], edges: []},
-      //   chemical_to_disease: {nodes: [], edges: []},
-      //   chemical_to_mechanism: {nodes: [], edges: []},
-      //   disease: {nodes: [], edges: []},
-      //   disease_to_anatomy: {nodes: [], edges: []},
-      //   disease_to_antibody: {nodes: [], edges: []},
-      //   disease_to_mechanism: {nodes: [], edges: []},
-      //   mechanism: {nodes: [], edges: []},
-      //   mechanism_to_anatomy: {nodes: [], edges: []},
-      //   mechanism_to_antibody: {nodes: [], edges: []},
-      //   nutrient_to_anatomy: {nodes: [], edges: []},
-      //   nutrient_to_chemical: {nodes: [], edges: []},
-      //   nutrient_to_disease: {nodes: [], edges: []},
-      //   nutrient_to_mechanism: {nodes: [], edges: []},
-      // },
       paper_page_Info: {
         total: 100,
         currentNumber: 1,
@@ -432,6 +420,35 @@ export default {
   },
   mounted() {
     this.getHistory()
+    // const minimap = new G6.Minimap();
+    // const legend = new G6.Legend();
+    const tooltip = new G6.Tooltip({
+      offsetX: 10,
+      offsetY: 10,
+      // v4.2.1 起支持配置 trigger，click 代表点击后出现 tooltip。默认为 mouseenter
+      trigger: 'click',
+      fixToNode: [1, 0.5],
+      // the types of items that allow the tooltip show up
+      // 允许出现 tooltip 的 item 类型
+      itemTypes: ['node', 'edge'],
+      // custom the tooltip's content
+      // 自定义 tooltip 内容
+      getContent: (e) => {
+        const outDiv = document.createElement('div');
+        outDiv.style.width = 'fit-content';
+        outDiv.style.height = 'fit-content';
+        const model = e.item.getModel();
+        if (e.item.getType() === 'node') {
+          outDiv.innerHTML = `${model.id}`;
+        } else {
+          // const source = e.item.getSource();
+          // const target = e.item.getTarget();
+          // outDiv.innerHTML = `来源：${source.getModel().name}<br/>去向：${target.getModel().name}`;
+          outDiv.innerHTML = `Paper_List：${model.paper}<br/>Original_Text：${model.origin_text}`;
+        }
+        return outDiv;
+      },
+    });
     graph = new G6.Graph({
       container: 'network',
       width: 980,
@@ -452,6 +469,9 @@ export default {
       },
       // 边默认配置
       defaultEdge: {
+        style:{
+          lineAppendWidth: 50,
+        },
         labelCfg: {
           // opacity:'100%',
           autoRotate: true,
@@ -475,14 +495,23 @@ export default {
         // click 状态为 true 时的样式
         click: {
           stroke: 'red',
+          lineAppendWidth: 5,
         },
       },
       // 布局
       layout: {
-        type: 'force',
-        workerEnabled: true, // 开启 Web-Worker
+        type: 'fruchterman',
+        center: [200, 200], // 可选，默认为图的中心
+        gravity: 0, // 可选
+        speed: 2, // 可选
+        clustering: true, // 可选
+        clusterGravity: 5, // 可选
+        maxIteration: 3000, // 可选，迭代次数
+        workerEnabled: true, // 可选，开启 web-worker
+        gpuEnabled: true, // 可选，开启 GPU 并行计算，G6 4.0 支持
         // linkDistance: 1000,
         preventOverlap: true,
+        // nodeSpacing: 50,
         nodeStrength: -30,
         edgeStrength: 0.1,
       },
@@ -490,6 +519,8 @@ export default {
       modes: {
         default: ['drag-canvas', 'zoom-canvas', 'drag-node'],
       },
+      // plugins: [minimap,legend],
+      plugins: [tooltip],
     });
   },
   computed: {},
@@ -520,9 +551,17 @@ export default {
           })
     },
 
-    test() {
+    select_network() {
       console.log(this.drawSelect)
-      this.draw_network()
+      // this.draw_network()
+      var nodeType_selector = this.drawSelect.split('_')
+      if(nodeType_selector.length===1){
+        this.draw_network(nodeType_selector[0],nodeType_selector[0])
+      }else{
+        this.draw_network(nodeType_selector[0],nodeType_selector[2])
+      }
+      console.log(nodeType_selector.length)
+      console.log(nodeType_selector[0])
     },
 
 
@@ -696,29 +735,33 @@ export default {
     clueInfo() {
       console.log('请求clue数据')
       this.clue_result = example.clue_info;
-      this.network_data = network_result
+      // this.network_data = network_result
+      this.network_data = asd_net
     },
-    getdrawInfo() {
+    getdrawInfo(class1,class2) {
       this.selected_network = {nodes: [], edges: []};
       this.network_data.forEach((data) => {
-        if(data.Edge_Type===this.drawSelect){
+        // console.log(data.is_BFS_edge)
+        if(data.Edge_Type===this.drawSelect&&data.is_BFS_edge){
           this.selected_network.nodes.push({
             id: data.Node1,
             label: data.Node1,
-            class:"bacteria"
+            class: class1
           })
           this.selected_network.nodes.push({
             id: data.Node2,
             label: data.Node2,
-            class:"disease"
+            class: class2
           })
           this.selected_network.edges.push({
             source: data.Node1,
             target: data.Node2,
             weight: data.Weight,
-            // label: clue_info.Paper_List
+            paper: data.Paper_List,
+            origin_text: data.Original_Text
           })
         }
+
         // switch (data.Edge_Type) {
         //   case "bacteria_to_disease": {
         //     this.networkData_selector.bacteria_to_disease.nodes.push({
@@ -755,10 +798,14 @@ export default {
 
 
       });
+      console.log(!this.selected_network.edges)
+      if(!this.selected_network.edges){
+        console.log('无数据，请重新选择')
+      }
     },
-    draw_network() {
+    draw_network(class1,class2) {
 
-      this.getdrawInfo();
+      this.getdrawInfo(class1,class2);
 
       const nodes = this.selected_network.nodes;
       const edges = this.selected_network.edges;
@@ -767,24 +814,45 @@ export default {
           node.style = {};
         }
         // node.style.lineWidth = 1;
+        node.type = 'rect';
+        node.size = [30, 30];
+        node.style.radius = 8;
         node.style.stroke = '#fff';
-
         switch (node.class) {
-          case 'bacteria': {
-            node.type = 'circle';
-            node.size = 30;
-            node.style.fill = '#ffeda0';
+          case "disease": {
+            node.style.fill = '#c63225';
             break;
           }
-          case 'disease': {
-            node.type = 'rect';
-            node.size = [30, 30];
-            node.style.fill = '#d7301f';
+          case "bacteria": {
+            node.style.fill = '#fbeca0';
             break;
           }
-          case 'c2': {
-            node.type = 'ellipse';
-            node.size = [35, 20];
+          case "chemical": {
+            node.style.fill = '#534eff';
+            break;
+          }
+          case "mechanism": {
+            node.style.fill = '#bdbddc';
+            break;
+          }
+          case "anatomy": {
+            node.style.fill = '#8c0412';
+            break;
+          }
+          case "antibody": {
+            node.style.fill = '#737373';
+            break;
+          }
+          case "nutrient": {
+            node.style.fill = '#85c375';
+            break;
+          }
+          case class2: {
+            node.style.fill = '#9ad0f5';
+            break;
+          }
+          case class1: {
+            node.style.fill = '#f5b89a';
             break;
           }
         }
@@ -793,23 +861,19 @@ export default {
         if (!edge.style) {
           edge.style = {};
         }
-        // edge.style.lineWidth = edge.weight;
-        // edge.style.opacity = 0.8;
-        // edge.style.stroke = 'grey';
+        edge.style.lineWidth = edge.weight;
+        edge.style.stroke = 'grey';
         if (edge.weight === '1') {
-          edge.style.lineWidth = edge.weight;
-          edge.style.opacity = 0.3;
-          edge.style.stroke = 'grey';
+          edge.style.opacity = 0.1;
         } else {
-          edge.style.lineWidth = edge.weight;
           edge.style.opacity = 0.8;
-          edge.style.stroke = 'grey';
         }
 
       });
       // graph.clear();
       graph.data(this.selected_network);
       graph.render();
+      console.log("完成绘制")
 
       // 监听鼠标进入节点
       graph.on('node:mouseenter', (e) => {
@@ -846,6 +910,7 @@ export default {
         const edgeItem = e.item;
         // 设置目标边的 click 状态 为 true
         graph.setItemState(edgeItem, 'click', true);
+        console.log(e.item._cfg);
       });
     }
 
