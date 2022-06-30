@@ -658,6 +658,7 @@ def get_clue_info(request):
                     pass
 
                 row_max = len(clue_info)
+                json_rsp['total'] = row_max
 
                 if page_num == 0:
                     json_rsp['message_type'] = 'network'
