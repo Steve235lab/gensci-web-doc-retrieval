@@ -294,7 +294,7 @@ class Database:
 
             # 覆盖写入到数据库中
             self.is_connected()
-            sql = """update user set uuid = ('%d'),username = ('%s'), password = ('%s'), email = ('%s'), confirm_code = ('%s'), email_confirmed = ('%s'), permissions = ('%s') where uuid = ('%d') """ % (
+            sql = """update user set uuid = ('%d'), username = ('%s'), password = ('%s'), email = ('%s'), confirm_code = ('%s'), email_confirmed = ('%s'), permissions = ('%s') where uuid = ('%d') """ % (
                 uuid, changed_user.username, changed_user.password, changed_user.email, changed_user.confirm_code,
                 changed_user.email_confirmed,
                 changed_user.permissions,

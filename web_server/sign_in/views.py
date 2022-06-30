@@ -1,4 +1,5 @@
 import sys
+
 sys.path.append('..')
 
 from emoji import emojize
@@ -7,6 +8,7 @@ from django.http import JsonResponse
 from database_new import DATABASE
 from uuid_token import forge_token
 from controller import CONTROLLER
+from email_sender import EmailSender
 
 
 def sign_in(request):
@@ -31,7 +33,7 @@ def sign_in(request):
         print(emojize(':key: password(已加密): ' + input_password, language='alias'))
 
     # 判断用户是否已注册
-    if email not in DATABASE.email_list:    # 用户未注册
+    if email not in DATABASE.email_list:  # 用户未注册
         json_rsp = {
             "message_type": "rsp_sign_in",
             "token": 'None',
@@ -41,7 +43,7 @@ def sign_in(request):
         # 验证密码正误
         uuid = DATABASE.user_index[email]
         user = DATABASE.get_user(uuid)
-        if input_password == user.password:     # 密码正确
+        if input_password == user.password:  # 密码正确
             # 生成token
             new_token = forge_token(uuid)
             json_rsp = {
@@ -50,7 +52,7 @@ def sign_in(request):
                 "result": "success"
             }
             # json_rsp["Access-Control-Allow-Origin"] = "*"
-        else:   # 密码错误
+        else:  # 密码错误
             json_rsp = {
                 "message_type": "rsp_sign_in",
                 "token": 'None',
@@ -66,12 +68,76 @@ def sign_in(request):
     return cache
 
 
+def email_confirm(request):
+    """修改密码时验证用户输入的邮箱是否已注册
+
+    url: 42.192.44.52:8000/sign_in/email_confirm/
+    """
+    # 解包前端请求
+    if request.method == 'GET':
+        email = request.GET.get('email')
+    if request.method == 'POST':
+        email = request.POST.get('email')
+
+    # 判断用户是否已注册
+    if email not in DATABASE.email_list:  # 用户未注册
+        json_rsp = {
+            "message_type": "rsp_email_confirm",
+            "result": "email_noexist"
+        }
+    else:
+        json_rsp = {
+            "message_type": "rsp_email_confirm",
+            "result": "success"
+        }
+        # 使用邮箱获取用户名
+        uuid = DATABASE.user_index[email]
+        user = DATABASE.get_user(uuid)
+        username = user.username
+        # 发送验证邮件
+        email_sender = EmailSender(email, username)
+        email_sender.generate_content()
+        # email_sender.send()
+
+    cache = JsonResponse(json_rsp)
+    cache["Access-Control-Allow-Origin"] = "*"
+    return cache
+
+
 def reset_password(request):
     """修改密码请求处理函数
 
     url: 42.192.44.52:8000/sign_in/reset_keywords/
-
-    :param request:
-    :return:
     """
-    pass
+    # 解包前端请求
+    if request.method == 'GET':
+        confirm_code = request.GET.get('code')
+        new_password = request.GET.get('password')
+        email = request.GET.get('email')
+    if request.method == 'POST':
+        confirm_code = request.POST.get('code')
+        new_password = request.POST.get('password')
+        email = request.POST.get('email')
+
+    # 使用邮箱获取uuid
+    uuid = DATABASE.user_index[email]
+    user = DATABASE.get_user(uuid)
+    # 比对验证码
+    if confirm_code == user.confirm_code:
+        json_rsp = {
+            "message_type": "rsp_email_confirm",
+            "result": "success"
+        }
+        user.password = new_password
+        DATABASE.rewrite_user(user)
+    else:
+        json_rsp = {
+            "message_type": "rsp_email_confirm",
+            "result": "False"
+        }
+
+    cache = JsonResponse(json_rsp)
+    cache["Access-Control-Allow-Origin"] = "*"
+    return cache
+
+
