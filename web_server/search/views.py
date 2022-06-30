@@ -679,6 +679,8 @@ def get_clue_info(request):
                     edge_type_set.add(edge_type)
 
                 edge_type_set = list(edge_type_set)
+                edge_type_set = edge_type_set.sort()
+                edge_type_set.insert(0, 'BFS')
 
                 json_rsp["edge_type_list"] = edge_type_set
 
