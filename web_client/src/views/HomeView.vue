@@ -129,6 +129,7 @@
             </el-checkbox-group>
           </el-col>
         </el-row>
+        <!--        语言-->
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
@@ -144,7 +145,7 @@
             </el-checkbox-group>
           </el-col>
         </el-row>
-        <!--        语言-->
+        <!--        物种-->
         <el-row :gutter="20" style="height:45px;">
           <el-col :span="3" :offset="2"
           >
@@ -206,15 +207,16 @@
       <el-col :span="16" :offset="1">
 <!--        paper_info/clue_info/network标签页-->
         <div>
+
           <el-row :gutter="5">
-            <el-col :span="3" >
-              <el-button @click="addTab('paper')">Paper Info</el-button>
-            </el-col>
-            <el-col :span="3" >
-              <el-button @click="addTab('clue')">Clue Info</el-button>
-            </el-col>
-            <el-col :span="3">
-              <el-button @click="addTab('network')">Network</el-button>
+            <el-col :span="6" >
+              <div style="margin-top: 15px">
+                <el-radio-group v-model="tabselect" @change="TabSelect" size="small">
+                  <el-radio-button label="Paper Info"></el-radio-button>
+                  <el-radio-button label="Clue Info"></el-radio-button>
+                  <el-radio-button label="Network"></el-radio-button>
+                </el-radio-group>
+              </div>
             </el-col>
             <el-col :span="6">
               <div style="margin-top: 15px;">
@@ -231,11 +233,10 @@
               </div>
             </el-col>
           </el-row>
-
-
-
+          <p></p>
           <el-tabs  v-model="editableTabsValue"  @tab-click="handleClick" type="border-card" closable @tab-remove="removeTab">
             <el-tab-pane
+
                 v-for="(item, index) in editableTabs"
                 :key="index"
                 :label="item.title"
@@ -257,146 +258,8 @@
                   @update_clue="handleCurrentChange2"
                   @paper_details="getpaperdetails"
               ></component>
-              <!--            {{item.content}}-->
             </el-tab-pane>
-            <!--            paper_info-->
-            <!--          <el-tab-pane>-->
-            <!--            <Paper_info :paper_result="paper_result" v-show="paper_info_Flag"></Paper_info>-->
-            <!--          </el-tab-pane>-->
-
-
           </el-tabs>
-
-<!--          <el-tabs type="border-card" @tab-click="handleClick" v-model="tabName">-->
-<!--&lt;!&ndash;            paper_info&ndash;&gt;-->
-<!--            <el-tab-pane label="Paple_info" name="paper">-->
-<!--              <el-table-->
-<!--                  :data="paper_result"-->
-<!--                  style="width: 100%"-->
-<!--                  height=600>-->
-<!--                <el-table-column type="expand">-->
-<!--&lt;!&ndash;                  折叠面板-文章详情&ndash;&gt;-->
-<!--                  <template slot-scope="props">-->
-<!--                    <div v-for="(row,item) in props.row" :key="row" v-show="row">-->
-<!--                      <p>-->
-<!--                        <el-row :gutter="10">-->
-<!--&lt;!&ndash;                          左侧标题&ndash;&gt;-->
-<!--                          <el-col :span="5" >-->
-<!--                            <span class="table-expand-label" v-if="item==='Chinese_Title'">&emsp;中文标题 : </span>-->
-<!--                            <span class="table-expand-label" v-else-if="item==='Chinese_Abstract'">&emsp;中文摘要 : </span>-->
-<!--                            <span class="table-expand-label" v-else>&emsp;{{item}} : </span>-->
-<!--                          </el-col>-->
-<!--&lt;!&ndash;                          右侧具体内容及格式&ndash;&gt;-->
-<!--                          <el-col :span="19" >-->
-<!--                            <b  v-if="item==='Title'||item ==='Chinese_Title'">{{ row }}</b>-->
-<!--                            <i  v-else-if="item==='Authors'||item==='First_Author'||item==='Corresponding_Author'"-->
-<!--                                style="font-family: 'Times New Roman',serif">{{ row }}</i>-->
-<!--                            <span  v-else-if="item==='Abstract'" v-html="row"></span>-->
-<!--                            <span  v-else>{{ row }}</span>-->
-<!--                          </el-col>-->
-<!--                        </el-row>-->
-
-
-<!--                      </p>-->
-
-<!--                    </div>-->
-<!--                  </template>-->
-<!--&lt;!&ndash;                  表格纵列&ndash;&gt;-->
-<!--                </el-table-column>-->
-<!--                <el-table-column label="Title" prop="Title" sortable width="400"></el-table-column>-->
-<!--                <el-table-column label="Date" prop="Publication_Date" sortable></el-table-column>-->
-<!--                <el-table-column label="Pmid" prop="Pmid" sortable></el-table-column>-->
-<!--                <el-table-column label="Journal" prop="Journal" sortable width="150"></el-table-column>-->
-<!--                <el-table-column label="Journal_If" prop="Journal_If" sortable width="100"></el-table-column>-->
-<!--                <el-table-column label="Sample_Size" prop="Sample_Size" sortable width="100"></el-table-column>-->
-<!--                <el-table-column label="Publication_Type" prop="Publication_Type" sortable width="200"></el-table-column>-->
-
-<!--              </el-table>-->
-
-<!--              <el-row :gutter="20">-->
-<!--                <el-col :span="12" :offset="6" justify="center">-->
-<!--                  <el-pagination @current-change="handleCurrentChange1"-->
-<!--                                 :current-page="paper_page_Info.currentNumber" :page-size="10" :hide-on-single-page="true"-->
-<!--                                 layout="total, prev, pager, next ,jumper" :total="paper_page_Info.total">-->
-<!--                  </el-pagination>-->
-<!--                </el-col>-->
-<!--              </el-row>-->
-<!--            </el-tab-pane>-->
-<!--&lt;!&ndash;            clue_info&ndash;&gt;-->
-<!--            <el-tab-pane label="Clue_info" name="clue">-->
-<!--              <el-table-->
-<!--                  :data="clue_result"-->
-<!--                  style="width: 100%"-->
-<!--                  height=600>-->
-<!--&lt;!&ndash;                折叠面板&ndash;&gt;-->
-<!--                <el-table-column type="expand">-->
-<!--                  <template slot-scope="props">-->
-<!--                    <div v-for="(row,item) in props.row" :key="row" v-show="row">-->
-<!--                      <p>-->
-<!--                        <el-row :gutter="10">-->
-<!--                          <el-col :span="5" >-->
-<!--                            <span class="table-expand-label">&emsp;{{item}} : </span>-->
-<!--                          </el-col>-->
-<!--                          <el-col :span="19" >-->
-<!--                            <span v-if="item==='Paper_List'">-->
-<!--                              <span v-for="(pmid,index) in Pmid_separated(row) " :key=index>-->
-<!--                                <el-link :underline="false" @click="getpaperdetails(pmid)">{{pmid}}</el-link>-->
-<!--                                {{ index === Pmid_separated(row).length - 1 ? '' : '|'}}-->
-<!--                              </span>-->
-<!--                            </span>-->
-<!--                            <span v-else>{{ row }}</span>-->
-<!--                          </el-col>-->
-<!--                        </el-row>-->
-<!--                      </p>-->
-
-<!--                    </div>-->
-<!--                  </template>-->
-<!--                </el-table-column>-->
-<!--&lt;!&ndash;                表格纵列&ndash;&gt;-->
-<!--                <el-table-column label="Node1" prop="Node1" sortable />-->
-<!--                <el-table-column label="Edge_Type" prop="Edge_Type"   sortable/>-->
-<!--                <el-table-column label="Node2" prop="Node2"   sortable/>-->
-<!--                <el-table-column label="Weight" prop="Weight" width="100" sortable/>-->
-<!--                <el-table-column label="Paper_List"  sortable>-->
-
-<!--                  <template slot-scope="props">-->
-<!--                    <div v-for="(row,item) in props.row" :key="item">-->
-<!--                      <span v-if="item==='Paper_List'">-->
-<!--                        <span v-for="(pmid,index) in Pmid_separated(row) " :key=index>-->
-<!--                          <el-link :underline="false" @click="getpaperdetails(pmid)">{{pmid}}</el-link>-->
-<!--                          {{ index === Pmid_separated(row).length - 1 ? '' : '|'}}-->
-<!--                        </span>-->
-<!--                      </span>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash;                    <el-link>{{props.row}}</el-link>&ndash;&gt;-->
-<!--                  </template>-->
-
-<!--                </el-table-column>-->
-
-<!--              </el-table>-->
-<!--              <el-row :gutter="20">-->
-<!--                <el-col :span="12" :offset="6" justify="center">-->
-<!--                  <el-pagination @current-change="handleCurrentChange2"-->
-<!--                                 :current-page="clue_page_Info.currentNumber" :page-size="20" :hide-on-single-page="true"-->
-<!--                                 layout="total, prev, pager, next ,jumper" :total="clue_page_Info.total">-->
-<!--                  </el-pagination>-->
-<!--                </el-col>-->
-<!--              </el-row>-->
-<!--            </el-tab-pane>-->
-<!--&lt;!&ndash;            network&ndash;&gt;-->
-<!--            <el-tab-pane label="Network" name="network">-->
-<!--              <el-select v-model="drawSelect" placeholder="请选择" @change="select_network" style="float: left">-->
-<!--                <el-option-->
-<!--                    v-for="item in drawOptions"-->
-<!--                    :key="item"-->
-<!--                    :label="item"-->
-<!--                    :value="item">-->
-<!--                </el-option>-->
-<!--              </el-select>-->
-<!--              <div id="network" style="width: 100%;height: 600px"></div>-->
-<!--            </el-tab-pane>-->
-
-<!--          </el-tabs>-->
         </div>
       </el-col>
     </el-row>
@@ -441,6 +304,7 @@ export default {
     return {
       token,
       timestamp,
+      tabselect:'',
       paper_index:-1,
       activeIndex: '0',
       activeState:'',
@@ -645,6 +509,7 @@ export default {
                 type: 'error'
               });
             }else if(res.data.message_type==="history_list"){
+              console.log(res.data)
               that.history = res.data.history
               that.token = res.data.token
             }
@@ -684,6 +549,23 @@ export default {
         // this.network_data = network_result //本地数据
         // this.draw_network()  //测试用
       // }
+    },
+
+    TabSelect(tab){
+      console.log('tab：',tab);
+      console.log(this.tabselect)
+      if(tab==='Paper Info'){
+        console.log('test')
+        this.addTab('paper')
+      }
+      else if(tab==='Clue Info'){
+        console.log('test')
+        this.addTab('clue')
+      }
+      else if(tab==='Network'){
+        console.log('test')
+        this.addTab('network')
+      }
     },
 
     //增加标签页
@@ -1213,7 +1095,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /*text-align: center;*/
   color: #2c3e50;
   margin-top: 0;
 }
