@@ -21,6 +21,7 @@
               v-model="keywords"
               class="input-with-select"
               clearable
+              @keyup.enter.native="handleSearch"
               style="height:40px;"
               autocomplete="on">
             <el-button slot="append" icon="el-icon-search" @click="handleSearch"></el-button>
@@ -205,118 +206,197 @@
       <el-col :span="16" :offset="1">
 <!--        paper_info/clue_info/network标签页-->
         <div>
-          <el-tabs type="border-card" @tab-click="handleClick" v-model="tabName">
-<!--            paper_info-->
-            <el-tab-pane label="Paple_info" name="paper">
-              <el-table
-                  :data="paper_result"
-                  style="width: 100%"
-                  height=600>
-                <el-table-column type="expand">
-<!--                  折叠面板-文章详情-->
-                  <template slot-scope="props">
-                    <div v-for="(row,item) in props.row" :key="row" v-show="row">
-                      <p>
-                        <el-row :gutter="10">
-<!--                          左侧标题-->
-                          <el-col :span="5" >
-                            <span class="table-expand-label" v-if="item==='Chinese_Title'">&emsp;中文标题 : </span>
-                            <span class="table-expand-label" v-else-if="item==='Chinese_Abstract'">&emsp;中文摘要 : </span>
-                            <span class="table-expand-label" v-else>&emsp;{{item}} : </span>
-                          </el-col>
-<!--                          右侧具体内容及格式-->
-                          <el-col :span="19" >
-                            <b  v-if="item==='Title'||item ==='Chinese_Title'">{{ row }}</b>
-                            <i  v-else-if="item==='Authors'||item==='First_Author'||item==='Corresponding_Author'"
-                                style="font-family: 'Times New Roman',serif">{{ row }}</i>
-                            <span  v-else-if="item==='Abstract'" v-html="row"></span>
-                            <span  v-else>{{ row }}</span>
-                          </el-col>
-                        </el-row>
+          <el-row :gutter="5">
+            <el-col :span="3" >
+              <el-button @click="addTab('paper')">Paper Info</el-button>
+            </el-col>
+            <el-col :span="3" >
+              <el-button @click="addTab('clue')">Clue Info</el-button>
+            </el-col>
+            <el-col :span="3">
+              <el-button @click="addTab('network')">Network</el-button>
+            </el-col>
+            <el-col :span="6">
+              <div style="margin-top: 15px;">
+                <el-input
+                    placeholder="请输入Pmid"
+                    v-model="Pmid"
+                    class="input-with-select"
+                    clearable
+                    size="small"
+                    @keyup.enter.native="Search_Pmid"
+                    autocomplete="on">
+                  <el-button slot="append" icon="el-icon-search" @click="Search_Pmid"></el-button>
+                </el-input>
+              </div>
+            </el-col>
+          </el-row>
 
 
-                      </p>
 
-                    </div>
-                  </template>
-<!--                  表格纵列-->
-                </el-table-column>
-                <el-table-column label="Title" prop="Title" sortable width="400"></el-table-column>
-                <el-table-column label="Date" prop="Publication_Date" sortable></el-table-column>
-                <el-table-column label="Pmid" prop="Pmid" sortable></el-table-column>
-                <el-table-column label="Journal" prop="Journal" sortable width="150"></el-table-column>
-                <el-table-column label="Journal_If" prop="Journal_If" sortable width="100"></el-table-column>
-                <el-table-column label="Sample_Size" prop="Sample_Size" sortable width="100"></el-table-column>
-                <el-table-column label="Publication_Type" prop="Publication_Type" sortable width="200"></el-table-column>
-
-              </el-table>
-
-              <el-row :gutter="20">
-                <el-col :span="12" :offset="6" justify="center">
-                  <el-pagination @current-change="handleCurrentChange1"
-                                 :current-page="paper_page_Info.currentNumber" :page-size="10" :hide-on-single-page="true"
-                                 layout="total, prev, pager, next ,jumper" :total="paper_page_Info.total">
-                  </el-pagination>
-                </el-col>
-              </el-row>
+          <el-tabs  v-model="editableTabsValue"  @tab-click="handleClick" type="border-card" closable @tab-remove="removeTab">
+            <el-tab-pane
+                v-for="(item, index) in editableTabs"
+                :key="index"
+                :label="item.title"
+                :name="item.name"
+            >
+              <component
+                  :is=item.content
+                  :paper_result="paper_result"
+                  :clue_result="clue_result"
+                  :network_data="network_data"
+                  :paper_details="paper_details[item.index]"
+                  :drawSelect="drawSelect"
+                  :drawOptions="drawOptions"
+                  :paper_page="paper_page_Info.currentNumber"
+                  :paper_total="paper_page_Info.total"
+                  :clue_page="clue_page_Info.currentNumber"
+                  :clue_total="clue_page_Info.total"
+                  @update_paper="handleCurrentChange1"
+                  @update_clue="handleCurrentChange2"
+                  @paper_details="getpaperdetails"
+              ></component>
+              <!--            {{item.content}}-->
             </el-tab-pane>
-<!--            clue_info-->
-            <el-tab-pane label="Clue_info" name="clue">
-              <el-table
-                  :data="clue_result"
-                  style="width: 100%"
-                  height=600>
-<!--                折叠面板-->
-                <el-table-column type="expand">
-                  <template slot-scope="props">
-                    <div v-for="(row,item) in props.row" :key="row" v-show="row">
-                      <p>
-                        <el-row :gutter="10">
-                          <el-col :span="5" >
-                            <span class="table-expand-label">&emsp;{{item}} : </span>
-                          </el-col>
-                          <el-col :span="19" >
-                            <span>{{ row }}</span>
-                          </el-col>
-                        </el-row>
+            <!--            paper_info-->
+            <!--          <el-tab-pane>-->
+            <!--            <Paper_info :paper_result="paper_result" v-show="paper_info_Flag"></Paper_info>-->
+            <!--          </el-tab-pane>-->
 
-
-                      </p>
-
-                    </div>
-                  </template>
-                </el-table-column>
-<!--                表格纵列-->
-                <el-table-column label="Node1" prop="Node1" sortable />
-                <el-table-column label="Edge_Type" prop="Edge_Type"   sortable/>
-                <el-table-column label="Node2" prop="Node2"   sortable/>
-                <el-table-column label="Weight" prop="Weight" width="100" sortable/>
-                <el-table-column label="Paper_List" prop="Paper_List" sortable/>
-
-              </el-table>
-              <el-row :gutter="20">
-                <el-col :span="12" :offset="6" justify="center">
-                  <el-pagination @current-change="handleCurrentChange2"
-                                 :current-page="clue_page_Info.currentNumber" :page-size="20" :hide-on-single-page="true"
-                                 layout="total, prev, pager, next ,jumper" :total="clue_page_Info.total">
-                  </el-pagination>
-                </el-col>
-              </el-row>
-            </el-tab-pane>
-<!--            network-->
-            <el-tab-pane label="Network" name="network">
-              <el-select v-model="drawSelect" placeholder="请选择" @change="select_network" style="float: left">
-                <el-option
-                    v-for="item in drawOptions"
-                    :key="item.Edge_Type"
-                    :label="item.Edge_Type"
-                    :value="item.Edge_Type">
-                </el-option>
-              </el-select>
-              <div id="network" style="width: 100%;height: 600px"></div>
-            </el-tab-pane>
 
           </el-tabs>
+
+<!--          <el-tabs type="border-card" @tab-click="handleClick" v-model="tabName">-->
+<!--&lt;!&ndash;            paper_info&ndash;&gt;-->
+<!--            <el-tab-pane label="Paple_info" name="paper">-->
+<!--              <el-table-->
+<!--                  :data="paper_result"-->
+<!--                  style="width: 100%"-->
+<!--                  height=600>-->
+<!--                <el-table-column type="expand">-->
+<!--&lt;!&ndash;                  折叠面板-文章详情&ndash;&gt;-->
+<!--                  <template slot-scope="props">-->
+<!--                    <div v-for="(row,item) in props.row" :key="row" v-show="row">-->
+<!--                      <p>-->
+<!--                        <el-row :gutter="10">-->
+<!--&lt;!&ndash;                          左侧标题&ndash;&gt;-->
+<!--                          <el-col :span="5" >-->
+<!--                            <span class="table-expand-label" v-if="item==='Chinese_Title'">&emsp;中文标题 : </span>-->
+<!--                            <span class="table-expand-label" v-else-if="item==='Chinese_Abstract'">&emsp;中文摘要 : </span>-->
+<!--                            <span class="table-expand-label" v-else>&emsp;{{item}} : </span>-->
+<!--                          </el-col>-->
+<!--&lt;!&ndash;                          右侧具体内容及格式&ndash;&gt;-->
+<!--                          <el-col :span="19" >-->
+<!--                            <b  v-if="item==='Title'||item ==='Chinese_Title'">{{ row }}</b>-->
+<!--                            <i  v-else-if="item==='Authors'||item==='First_Author'||item==='Corresponding_Author'"-->
+<!--                                style="font-family: 'Times New Roman',serif">{{ row }}</i>-->
+<!--                            <span  v-else-if="item==='Abstract'" v-html="row"></span>-->
+<!--                            <span  v-else>{{ row }}</span>-->
+<!--                          </el-col>-->
+<!--                        </el-row>-->
+
+
+<!--                      </p>-->
+
+<!--                    </div>-->
+<!--                  </template>-->
+<!--&lt;!&ndash;                  表格纵列&ndash;&gt;-->
+<!--                </el-table-column>-->
+<!--                <el-table-column label="Title" prop="Title" sortable width="400"></el-table-column>-->
+<!--                <el-table-column label="Date" prop="Publication_Date" sortable></el-table-column>-->
+<!--                <el-table-column label="Pmid" prop="Pmid" sortable></el-table-column>-->
+<!--                <el-table-column label="Journal" prop="Journal" sortable width="150"></el-table-column>-->
+<!--                <el-table-column label="Journal_If" prop="Journal_If" sortable width="100"></el-table-column>-->
+<!--                <el-table-column label="Sample_Size" prop="Sample_Size" sortable width="100"></el-table-column>-->
+<!--                <el-table-column label="Publication_Type" prop="Publication_Type" sortable width="200"></el-table-column>-->
+
+<!--              </el-table>-->
+
+<!--              <el-row :gutter="20">-->
+<!--                <el-col :span="12" :offset="6" justify="center">-->
+<!--                  <el-pagination @current-change="handleCurrentChange1"-->
+<!--                                 :current-page="paper_page_Info.currentNumber" :page-size="10" :hide-on-single-page="true"-->
+<!--                                 layout="total, prev, pager, next ,jumper" :total="paper_page_Info.total">-->
+<!--                  </el-pagination>-->
+<!--                </el-col>-->
+<!--              </el-row>-->
+<!--            </el-tab-pane>-->
+<!--&lt;!&ndash;            clue_info&ndash;&gt;-->
+<!--            <el-tab-pane label="Clue_info" name="clue">-->
+<!--              <el-table-->
+<!--                  :data="clue_result"-->
+<!--                  style="width: 100%"-->
+<!--                  height=600>-->
+<!--&lt;!&ndash;                折叠面板&ndash;&gt;-->
+<!--                <el-table-column type="expand">-->
+<!--                  <template slot-scope="props">-->
+<!--                    <div v-for="(row,item) in props.row" :key="row" v-show="row">-->
+<!--                      <p>-->
+<!--                        <el-row :gutter="10">-->
+<!--                          <el-col :span="5" >-->
+<!--                            <span class="table-expand-label">&emsp;{{item}} : </span>-->
+<!--                          </el-col>-->
+<!--                          <el-col :span="19" >-->
+<!--                            <span v-if="item==='Paper_List'">-->
+<!--                              <span v-for="(pmid,index) in Pmid_separated(row) " :key=index>-->
+<!--                                <el-link :underline="false" @click="getpaperdetails(pmid)">{{pmid}}</el-link>-->
+<!--                                {{ index === Pmid_separated(row).length - 1 ? '' : '|'}}-->
+<!--                              </span>-->
+<!--                            </span>-->
+<!--                            <span v-else>{{ row }}</span>-->
+<!--                          </el-col>-->
+<!--                        </el-row>-->
+<!--                      </p>-->
+
+<!--                    </div>-->
+<!--                  </template>-->
+<!--                </el-table-column>-->
+<!--&lt;!&ndash;                表格纵列&ndash;&gt;-->
+<!--                <el-table-column label="Node1" prop="Node1" sortable />-->
+<!--                <el-table-column label="Edge_Type" prop="Edge_Type"   sortable/>-->
+<!--                <el-table-column label="Node2" prop="Node2"   sortable/>-->
+<!--                <el-table-column label="Weight" prop="Weight" width="100" sortable/>-->
+<!--                <el-table-column label="Paper_List"  sortable>-->
+
+<!--                  <template slot-scope="props">-->
+<!--                    <div v-for="(row,item) in props.row" :key="item">-->
+<!--                      <span v-if="item==='Paper_List'">-->
+<!--                        <span v-for="(pmid,index) in Pmid_separated(row) " :key=index>-->
+<!--                          <el-link :underline="false" @click="getpaperdetails(pmid)">{{pmid}}</el-link>-->
+<!--                          {{ index === Pmid_separated(row).length - 1 ? '' : '|'}}-->
+<!--                        </span>-->
+<!--                      </span>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash;                    <el-link>{{props.row}}</el-link>&ndash;&gt;-->
+<!--                  </template>-->
+
+<!--                </el-table-column>-->
+
+<!--              </el-table>-->
+<!--              <el-row :gutter="20">-->
+<!--                <el-col :span="12" :offset="6" justify="center">-->
+<!--                  <el-pagination @current-change="handleCurrentChange2"-->
+<!--                                 :current-page="clue_page_Info.currentNumber" :page-size="20" :hide-on-single-page="true"-->
+<!--                                 layout="total, prev, pager, next ,jumper" :total="clue_page_Info.total">-->
+<!--                  </el-pagination>-->
+<!--                </el-col>-->
+<!--              </el-row>-->
+<!--            </el-tab-pane>-->
+<!--&lt;!&ndash;            network&ndash;&gt;-->
+<!--            <el-tab-pane label="Network" name="network">-->
+<!--              <el-select v-model="drawSelect" placeholder="请选择" @change="select_network" style="float: left">-->
+<!--                <el-option-->
+<!--                    v-for="item in drawOptions"-->
+<!--                    :key="item"-->
+<!--                    :label="item"-->
+<!--                    :value="item">-->
+<!--                </el-option>-->
+<!--              </el-select>-->
+<!--              <div id="network" style="width: 100%;height: 600px"></div>-->
+<!--            </el-tab-pane>-->
+
+<!--          </el-tabs>-->
         </div>
       </el-col>
     </el-row>
@@ -324,14 +404,14 @@
 </template>
 
 <script>
-
-import qs from "qs";
-import md5 from "js-md5";
-import axios from "axios";
-import example from "../../../test_data/example_test.json"
 import network_result from "../../../test_data/network_test.json"
+import qs from "qs";
 import G6 from '@antv/g6';
 import insertCss from 'insert-css';
+import Paper_info from "@/components/paper_info";
+import Clue_info from "@/components/clue_info";
+import Network from "@/components/network";
+import Paper_details from "@/components/paper_details";
 insertCss(`
   .g6-component-tooltip {
     border: 1px solid #e2e2e2;
@@ -347,6 +427,12 @@ insertCss(`
 let graph ;
 
 export default {
+  components: {
+    Paper_info,
+    Clue_info,
+    Network,
+    Paper_details
+  },
 
   data() {
 
@@ -355,6 +441,7 @@ export default {
     return {
       token,
       timestamp,
+      paper_index:-1,
       activeIndex: '0',
       activeState:'',
       keywords: '',
@@ -366,6 +453,8 @@ export default {
       age: [],
       publication_date: [],
       tabName:'',
+      editableTabsValue: '',
+      editableTabs: [],
 
       pickerOptions: {
         disabledDate(time) {
@@ -400,6 +489,7 @@ export default {
       history:[],
       paper_result:[],
       clue_result:[],
+      paper_details:[],
       network_data:[],
       selected_network:{nodes: [], edges: []},
       paper_page_Info: {
@@ -411,12 +501,13 @@ export default {
         currentNumber: 1,
       },
       drawSelect: '',
-      drawOptions: [{"Edge_Type": "BFS"},{"Edge_Type": "anatomy"}, {"Edge_Type": "antibody_to_anatomy"}, {"Edge_Type": "bacteria"}, {"Edge_Type": "bacteria_to_anatomy"}, {"Edge_Type": "bacteria_to_antibody"}, {"Edge_Type": "bacteria_to_chemical"}, {"Edge_Type": "bacteria_to_disease"}, {"Edge_Type": "bacteria_to_mechanism"}, {"Edge_Type": "bacteria_to_nutrient"}, {"Edge_Type": "chemical"}, {"Edge_Type": "chemical_to_anatomy"}, {"Edge_Type": "chemical_to_disease"}, {"Edge_Type": "chemical_to_mechanism"}, {"Edge_Type": "disease"}, {"Edge_Type": "disease_to_anatomy"}, {"Edge_Type": "disease_to_antibody"}, {"Edge_Type": "disease_to_mechanism"}, {"Edge_Type": "mechanism"}, {"Edge_Type": "mechanism_to_anatomy"}, {"Edge_Type": "mechanism_to_antibody"}, {"Edge_Type": "nutrient_to_anatomy"}, {"Edge_Type": "nutrient_to_chemical"}, {"Edge_Type": "nutrient_to_disease"}, {"Edge_Type": "nutrient_to_mechanism"}],
+      drawOptions: [],
+      Pmid:'',
 
     };
   },
   mounted() {
-    this.keyDown()
+    // this.keyDown()
     this.getHistory();
     const tooltip = new G6.Tooltip({
       offsetX: 10,
@@ -517,20 +608,22 @@ export default {
   },
   computed: {
     // 计算属性的 getter
-    // reversedHistory: function () {
-    //   // `this` 指向 vm 实例
-    //   return this.history.reverse()
-    // }
+    Pmid_separated: function (){
+      return function (pmid){
+        return Array.from(new Set(pmid.split('|')))
+      }
+    },
   },
   methods: {
     // 监听键盘
-    keyDown() {
-      document.onkeydown =  (e) => {
-        if (e && e.keyCode === 13) {
-          this.handleSearch()
-        }
-      }
-    },
+    // keyDown() {
+    //   document.onkeydown =  (e) => {
+    //     if (e && e.keyCode === 13) {
+    //       this.handleSearch()
+    //     }
+    //   }
+    // },
+
     //获取历史记录
     getHistory(){
       var that = this;
@@ -545,19 +638,16 @@ export default {
           .then(function (res){
             console.log(res)
             console.log('连接成功')
-
-            that.history = res.data.history
-            that.token = res.data.token
             if(res.data.message_type==="token_expired"){
               that.$message({
                 showClose: true,
                 message: '登录已过期，请重新登录！',
                 type: 'error'
               });
+            }else if(res.data.message_type==="history_list"){
+              that.history = res.data.history
+              that.token = res.data.token
             }
-            console.log(that.history)
-            console.log(that.token)
-            console.log(res.data)
           })
           .catch(function(err){
             console.log(err)
@@ -571,35 +661,95 @@ export default {
             }
           })
     },
+
     //监听结果显示标签页选择事件
     handleClick(tab, event) {
       console.log('tab：',tab);
       console.log('event',event)
       console.log(tab.name)
-      if(tab.name==='paper'){
-        console.log('请求paper数据')
-        this.paper_page_Info.currentNumber=1
-        this.paperInfo()
-      }
-      if(tab.name==='clue'){
-        console.log('请求clue数据')
-        this.clue_page_Info.currentNumber=1
-        this.clueInfo()
-      }
-      if(tab.name==='network'){
-        console.log('请求network数据')
-        this.clue_page_Info.currentNumber=0
-        this.clueInfo()  //向后台请求数据并开始绘图
+      // if(tab.name==='paper'){
+      //   console.log('请求paper数据')
+      //   this.paper_page_Info.currentNumber=1
+      //   this.paperInfo()
+      // }
+      // if(tab.name==='clue'){
+      //   console.log('请求clue数据')
+      //   this.clue_page_Info.currentNumber=1
+      //   this.clueInfo()
+      // }
+      // if(tab.name==='network'){
+      //   console.log('请求network数据')
+      //   this.clue_page_Info.currentNumber=0
+      //   this.clueInfo()  //向后台请求数据并开始绘图
         // this.network_data = network_result //本地数据
         // this.draw_network()  //测试用
+      // }
+    },
+
+    //增加标签页
+    addTab(newTabName) {
+      if(newTabName==='paper'){
+        this.paper_page_Info.currentNumber=1
+        this.paperInfo()
+        this.editableTabs.push({
+          title: 'Paper Info',
+          name: newTabName,
+          content: Paper_info
+        });
       }
+      else if(newTabName==='clue'){
+        this.clue_page_Info.currentNumber=1
+        this.clueInfo()
+        this.editableTabs.push({
+          title: 'Clue Info',
+          name: newTabName,
+          content: Clue_info
+        });
+      }
+      else if(newTabName==='network'){
+        this.clue_page_Info.currentNumber = 0;
+        this.clueInfo()
+        this.editableTabs.push({
+          title: 'Network',
+          name: newTabName,
+          content: Network
+        });
+      }
+      else{
+        this.editableTabs.push({
+          title: newTabName,
+          name: newTabName,
+          index: ++this.paper_index,
+          content: Paper_details
+        });
+        console.log(this.editableTabs)
+      }
+
+      this.editableTabsValue = newTabName;
+    },
+    //关闭标签页
+    removeTab(targetName) {
+      let tabs = this.editableTabs;
+      let activeName = this.editableTabsValue;
+      if (activeName === targetName) {
+        tabs.forEach((tab, index) => {
+          if (tab.name === targetName) {
+            let nextTab = tabs[index + 1] || tabs[index - 1];
+            if (nextTab) {
+              activeName = nextTab.name;
+            }
+          }
+        });
+      }
+
+      this.editableTabsValue = activeName;
+      this.editableTabs = tabs.filter(tab => tab.name !== targetName);
     },
     //获取时间戳并获取该记录的paper_info
     gettimestamp(timestamp){
       this.timestamp = timestamp
       console.log(this.timestamp)
-      this.tabName = 'paper'
-      this.paperInfo()
+      this.addTab('paper')
     },
     // 监听paper_info页码值改变的事件
     handleCurrentChange1(newPage) {
@@ -686,6 +836,7 @@ export default {
                   message: '您已成功提交搜索，稍后将于邮箱通知您！',
                   type: 'success'
                 });
+                that.token = res.data.token
               }
             })
             .catch(function(err){
@@ -709,6 +860,7 @@ export default {
       }
 
     },
+
     //获取当前页paper_info数据
     paperInfo() {
       console.log('请求paper数据')
@@ -721,7 +873,9 @@ export default {
           "token": this.token,
           "message_type": "get_paper_info",
           "timestamp": this.timestamp,
-          "page_num": this.paper_page_Info.currentNumber
+          "page_num": this.paper_page_Info.currentNumber,
+          "column": "Journal_If",
+          "order": "reverse"
           // "page_num": 1
         })
       })
@@ -735,9 +889,12 @@ export default {
                 message: '登录已过期，请重新登录！',
                 type: 'error'
               });
+            }else if(res.data.message_type==="paper_info"){
+              that.paper_result=res.data.paper_info
+              that.paper_page_Info.total=res.data.total
+              that.token = res.data.token
             }
-            that.paper_result=res.data.paper_info
-            that.paper_page_Info.total=res.data.total
+
           })
           .catch(function(err){
             console.log(err)
@@ -751,6 +908,7 @@ export default {
           })
 
     },
+
     //获取当前页clue_info数据
     clueInfo() {
       console.log('请求clue数据')
@@ -762,7 +920,9 @@ export default {
           "token": this.token,
           "message_type": "get_clue_info",
           "timestamp": this.timestamp,
-          "page_num": this.clue_page_Info.currentNumber
+          "page_num": this.clue_page_Info.currentNumber,
+          'column': "Weight",
+          'order': "reverse"
           // "page_num": 1
         })
       })
@@ -776,11 +936,15 @@ export default {
                 type: 'error'
               });
             }
-            // console.log(res.data)
-            that.clue_result=res.data.clue_info
-            that.clue_page_Info.total=res.data.total
-            if(res.data.message_type==="network"){
-              that.network_data = that.clue_result
+            else if (res.data.message_type=== "clue_info"){
+              that.clue_result=res.data.clue_info
+              that.clue_page_Info.total=res.data.total
+              that.token = res.data.token
+            }
+            else if(res.data.message_type==="network"){
+              that.network_data = res.data.clue_info
+              that.drawOptions = res.data.edge_type_list
+              that.token = res.data.token
               that.draw_network()
             }
           })
@@ -796,8 +960,61 @@ export default {
           })
 
     },
-    //绘图数据预处理
 
+    // 搜索文章详情
+    Search_Pmid(){
+      this.getpaperdetails(this.Pmid)
+      this.Pmid = ''
+    },
+
+    //获取单篇文章详情
+    getpaperdetails(pmid){
+      console.log("pmid:",pmid)
+      console.log('请求单篇paper数据')
+      var that=this;
+      that.axios({
+        method:"post",
+        url:"http://42.192.44.52:8000/search/paper_details/",
+        data:qs.stringify({
+          "token": this.token,
+          "message_type": "get_paper_details",
+          "timestamp": this.timestamp,
+          "pmid": pmid
+        })
+      })
+          .then(function(res){
+            console.log(res);
+            console.log('连接成功');
+            if(res.data.message_type==="token_expired"){
+              that.$message({
+                showClose: true,
+                message: '登录已过期，请重新登录！',
+                type: 'error'
+              });
+            }else if(res.data.message_type==="paper_details"){
+              that.paper_details.push(res.data.paper_info)
+              console.log(that.paper_details)
+              that.Pmid = res.data.Pmid
+              that.token = res.data.token
+              that.addTab(that.Pmid)
+            }
+            // console.log(res.data)
+
+
+
+          })
+          .catch(function(err){
+            console.log(err)
+            if(err.message==="Network Error"){
+              that.$message({
+                showClose: true,
+                message: '连接错误，请重试！',
+                type: 'error'
+              });
+            }
+          })
+    },
+    //绘图数据预处理
     getdrawInfo(class1,class2) {
       this.selected_network = {nodes: [], edges: []};
       if(this.drawSelect==="BFS"){
@@ -1005,12 +1222,7 @@ export default {
   background-color: #fff;
 }
 
-.table-expand-label {
-  width: 180px;
-  display:-moz-inline-box;
-  display:inline-block;
-  color: #A9A9A9;
-}
+
 
 .el-collapse-item__arrow{
   float : left;

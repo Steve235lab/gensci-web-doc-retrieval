@@ -34,11 +34,11 @@
         <!--                  表格纵列-->
       </el-table-column>
       <el-table-column label="Title" prop="Title" sortable width="400"></el-table-column>
-      <el-table-column label="Date" prop="Publication_Date" sortable></el-table-column>
-      <el-table-column label="Pmid" prop="Pmid" sortable></el-table-column>
+      <el-table-column label="Date" prop="Publication_Date" sortable width="100"></el-table-column>
+      <el-table-column label="Pmid" prop="Pmid" sortable width="100"></el-table-column>
       <el-table-column label="Journal" prop="Journal" sortable width="150"></el-table-column>
-      <el-table-column label="Journal_If" prop="Journal_If" sortable width="100"></el-table-column>
-      <el-table-column label="Sample_Size" prop="Sample_Size" sortable width="100"></el-table-column>
+      <el-table-column label="If" prop="Journal_If" sortable width="100"></el-table-column>
+      <el-table-column label="Sample_Size" prop="Sample_Size" sortable width="150"></el-table-column>
       <el-table-column label="Publication_Type" prop="Publication_Type" sortable width="200"></el-table-column>
 
     </el-table>

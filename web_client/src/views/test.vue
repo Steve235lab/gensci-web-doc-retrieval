@@ -204,6 +204,46 @@
       <!--      结果显示-->
       <el-col :span="16" :offset="1">
         <!--        paper_info/clue_info/network标签页-->
+        <div style="margin-bottom: 20px;">
+          <el-button
+              size="small"
+              @click="addTab(editableTabsValue)"
+          >
+            add tab
+          </el-button>
+          <el-button
+              size="small"
+              @click="test"
+          >
+            paper info
+          </el-button>
+        </div>
+        <el-tabs v-model="editableTabsValue"  @tab-click="handleClick" type="border-card" closable @tab-remove="removeTab">
+          <el-tab-pane
+              v-for="(item, index) in editableTabs"
+              :key="index"
+              :label="item.title"
+              :name="item.name"
+          >
+            {{item.name}}
+            <component
+                :is=item.content
+                :paper_result="paper_result"
+                :paper_page.sync="paper_page_Info.currentNumber"
+                @update_paper="handleCurrentChange1"
+                @updata_clue="handleCurrentChange2"
+                :paper_total="paper_page_Info.total"
+                :clue_result="clue_result"
+            ></component>
+<!--            {{item.content}}-->
+          </el-tab-pane>
+          <!--            paper_info-->
+<!--          <el-tab-pane>-->
+<!--            <Paper_info :paper_result="paper_result" v-show="paper_info_Flag"></Paper_info>-->
+<!--          </el-tab-pane>-->
+
+
+        </el-tabs>
         <div>
           <el-tabs type="border-card" @tab-click="handleClick" v-model="tabName">
             <!--            paper_info-->
@@ -247,8 +287,7 @@
                 <el-table-column label="Journal" prop="Journal" sortable width="150"></el-table-column>
                 <el-table-column label="Journal_If" prop="Journal_If" sortable width="100"></el-table-column>
                 <el-table-column label="Sample_Size" prop="Sample_Size" sortable width="100"></el-table-column>
-                <el-table-column label="Publication_Type" prop="Publication_Type" sortable
-                                 width="200"></el-table-column>
+                <el-table-column label="Publication_Type" prop="Publication_Type" sortable width="200"></el-table-column>
 
               </el-table>
               <el-row :gutter="20">
@@ -277,11 +316,10 @@
                             <span class="table-expand-label">&emsp;{{ item }} : </span>
                           </el-col>
                           <el-col :span="19">
-                            <span>{{ row }}</span>
+                            <el-link v-if="item==='Paper_List'" @click="getpaperdetails(row)">{{row}}</el-link>
+                            <span v-else>{{ row }}</span>
                           </el-col>
                         </el-row>
-
-
                       </p>
 
                     </div>
@@ -292,7 +330,20 @@
                 <el-table-column label="Edge_Type" prop="Edge_Type" sortable/>
                 <el-table-column label="Node2" prop="Node2" sortable/>
                 <el-table-column label="Weight" prop="Weight" width="100" sortable/>
-                <el-table-column label="Paper_List" prop="Paper_List" sortable/>
+                <el-table-column label="Paper_List"  sortable>
+
+                  <template slot-scope="props">
+                    <div v-for="(row,item) in props.row" :key="item">
+                      <span v-if="item==='Paper_List'">
+                        <span v-for="pmid in Pmid_separated(row) " :key=pmid>
+                          <el-link  @click="getpaperdetails(row)">{{pmid}}</el-link>&emsp;
+                        </span>
+                      </span>
+                    </div>
+<!--                    <el-link>{{props.row}}</el-link>-->
+                  </template>
+
+                </el-table-column>
 
               </el-table>
               <el-row :gutter="20">
@@ -332,8 +383,11 @@ import example from "../../../test_data/example_test.json"
 import network_result from "../../../test_data/network_test.json"
 import asd_net from "../../../test_data/asd.bfs.json"
 import IL6_net from "../../../test_data/IL-6.bfs.json"
+import paper_info from "@/components/paper_info";
 import G6 from '@antv/g6';
 import insertCss from 'insert-css';
+import Paper_info from "@/components/paper_info";
+import Clue_info from "@/components/clue_info";
 insertCss(`
   .g6-component-tooltip {
     border: 1px solid #e2e2e2;
@@ -349,7 +403,10 @@ insertCss(`
 let graph;
 
 export default {
-
+  components: {
+    Paper_info,
+    Clue_info
+  },
   data() {
 
     let token = window.localStorage.getItem('token')
@@ -401,6 +458,8 @@ export default {
         }]
       },
       history: [],
+
+      paper_info_Flag: 'false',
       paper_result: [],
       clue_result: [],
       network_data: [],
@@ -415,8 +474,18 @@ export default {
       },
       drawSelect: '',
       drawOptions: [{"Edge_Type": "BFS"},{"Edge_Type": "anatomy"}, {"Edge_Type": "antibody_to_anatomy"}, {"Edge_Type": "bacteria"}, {"Edge_Type": "bacteria_to_anatomy"}, {"Edge_Type": "bacteria_to_antibody"}, {"Edge_Type": "bacteria_to_chemical"}, {"Edge_Type": "bacteria_to_disease"}, {"Edge_Type": "bacteria_to_mechanism"}, {"Edge_Type": "bacteria_to_nutrient"}, {"Edge_Type": "chemical"}, {"Edge_Type": "chemical_to_anatomy"}, {"Edge_Type": "chemical_to_disease"}, {"Edge_Type": "chemical_to_mechanism"}, {"Edge_Type": "disease"}, {"Edge_Type": "disease_to_anatomy"}, {"Edge_Type": "disease_to_antibody"}, {"Edge_Type": "disease_to_mechanism"}, {"Edge_Type": "mechanism"}, {"Edge_Type": "mechanism_to_anatomy"}, {"Edge_Type": "mechanism_to_antibody"}, {"Edge_Type": "nutrient_to_anatomy"}, {"Edge_Type": "nutrient_to_chemical"}, {"Edge_Type": "nutrient_to_disease"}, {"Edge_Type": "nutrient_to_mechanism"}],
-
-    };
+      editableTabsValue: '2',
+      editableTabs: [{
+        title: 'Tab 1',
+        name: '1',
+        content: Paper_info
+      }, {
+        title: 'Tab 2',
+        name: '2',
+        content: Clue_info
+      }],
+      tabIndex: 2
+    }
   },
   mounted() {
     this.getHistory()
@@ -523,8 +592,66 @@ export default {
       plugins: [tooltip],
     });
   },
-  computed: {},
+  computed: {
+    Pmid_separated: function (){
+      return function (pmid){
+        // Array.from(new Set(pmid.split('|')))
+        return Array.from(new Set(pmid.split('|')))
+      }
+    },
+  },
   methods: {
+    test(){
+      console.log(this.paper_info_Flag)
+      this.paper_info_Flag = !this.paper_info_Flag
+      console.log(this.paper_info_Flag)
+    },
+    // getpaperdetails(pmid){
+    //   console.log(pmid)
+    // },
+    //获取单篇文章详情
+    getpaperdetails(pmid){
+      console.log(pmid)
+      // pmid=11938636
+      // console.log(pmid)
+      console.log('请求单篇paper数据')
+      // var that=this;
+      // that.axios({
+      //   method:"post",
+      //   url:"http://42.192.44.52:8000/search/paper_details/",
+      //   data:qs.stringify({
+      //     "token": this.token,
+      //     "message_type": "get_paper_details",
+      //     "timestamp": this.timestamp,
+      //     "pmid": pmid
+      //   })
+      // })
+      //     .then(function(res){
+      //       console.log(res);
+      //       console.log('连接成功');
+      //       if(res.data.message_type==="token_expired"){
+      //         that.$message({
+      //           showClose: true,
+      //           message: '登录已过期，请重新登录！',
+      //           type: 'error'
+      //         });
+      //       }
+      //       // console.log(res.data)
+      //       that.paper_details=res.data.paper_info
+      //       console.log(that.paper_details)
+      //
+      //     })
+      //     .catch(function(err){
+      //       console.log(err)
+      //       if(err.message==="Network Error"){
+      //         that.$message({
+      //           showClose: true,
+      //           message: '连接错误，请重试！',
+      //           type: 'error'
+      //         });
+      //       }
+      //     })
+    },
     // 获取历史记录
     getHistory() {
       var that = this;
@@ -564,6 +691,32 @@ export default {
       console.log(nodeType_selector[0])
     },
 
+    addTab(targetName) {
+      let newTabName = ++this.tabIndex + '';
+      this.editableTabs.push({
+        title: 'New Tab',
+        name: newTabName,
+        content: Paper_info
+      });
+      this.editableTabsValue = newTabName;
+    },
+    removeTab(targetName) {
+      let tabs = this.editableTabs;
+      let activeName = this.editableTabsValue;
+      if (activeName === targetName) {
+        tabs.forEach((tab, index) => {
+          if (tab.name === targetName) {
+            let nextTab = tabs[index + 1] || tabs[index - 1];
+            if (nextTab) {
+              activeName = nextTab.name;
+            }
+          }
+        });
+      }
+
+      this.editableTabsValue = activeName;
+      this.editableTabs = tabs.filter(tab => tab.name !== targetName);
+    },
 
     //监听结果显示标签页选择事件
     handleClick(tab, event) {
@@ -969,7 +1122,7 @@ export default {
         graph.setItemState(edgeItem, 'click', true);
         console.log(e.item._cfg);
       });
-    }
+    },
 
   }
 }
