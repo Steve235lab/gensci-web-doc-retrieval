@@ -79,10 +79,10 @@
       <el-collapse style="display:inline;width: 1500px" v-model="activeState" >
         <el-collapse-item >
           <template slot="title">
-            <div style="font-weight :bold;font-size: 16px;float: left">More Filters</div>
+            <div style="font-weight :bold;font-size: 16px;float: left;text-align: left">More Filters</div>
           </template>
           <!--        年龄-->
-          <el-row :gutter="20" type="flex">
+          <el-row :gutter="20" >
             <el-col :span="3">
               <div style="float:left;font-weight :bold;">AGE</div>
             </el-col>
@@ -151,9 +151,9 @@
       </el-collapse>
       <p></p>
   <!--    历史记录及结果显示-->
-      <el-row :gutter="20">
+      <el-row :gutter="20" type="flex" justify="end" style="flex-wrap: wrap;flex-direction: row">
   <!--      历史记录-->
-        <el-col :span="3">
+        <el-col :xs="24" :sm="24" :md="4" :lg="history_lg" :xl="3">
           <el-card :body-style="{ padding: '0px' }" class="box-card">
             <div slot="header" class="clearfix">
               <span>当前可查看</span>
@@ -196,7 +196,7 @@
         </el-col>
 
   <!--      结果显示-->
-        <el-col :span="21">
+        <el-col :xs="24" :sm="24" :md="20" :lg="result_lg" :xl="21">
   <!--        paper_info/clue_info/network标签页-->
           <div>
 
@@ -261,6 +261,7 @@
 
 <script>
 import network_result from "../../../test_data/network_test.json"
+import history_test from "../../../test_data/history_test.json"
 import qs from "qs";
 import G6 from '@antv/g6';
 import insertCss from 'insert-css';
@@ -295,6 +296,8 @@ export default {
     let token = window.localStorage.getItem('token');
     return {
       token,
+      history_lg:24,
+      result_lg:0,
       timestamp:'',
       tabselect:'',
       paper_index:-1,
@@ -420,6 +423,7 @@ export default {
                 message: '连接错误，请重试！',
                 type: 'error'
               });
+              that.history=history_test //测试用
             }
           })
     },
@@ -531,6 +535,8 @@ export default {
     gettimestamp(timestamp){
       this.timestamp = timestamp
       console.log(this.timestamp)
+      this.history_lg=3;
+      this.result_lg=21;
       this.addTab('paper')
     },
     // 监听paper_info页码值改变的事件
@@ -831,6 +837,8 @@ export default {
   margin-right:15px;
 }
 
-
+.el-table .cell {
+  white-space: pre-line;
+}
 
 </style>
