@@ -8,9 +8,27 @@
         background-color="#20558a"
         text-color="#fff"
         active-text-color="#b4c8e0">
-      <el-menu-item index="0">HOME</el-menu-item>
-      <el-menu-item index="1" style="float: right" @click="gotoLogin">登录</el-menu-item>
-      <el-menu-item index="2" style="float: right" @click="gotoRegister">注册</el-menu-item>
+      <el-menu-item style="font-size: 16px" index="0">HOME</el-menu-item>
+     <template v-if="userName">
+       <el-menu-item  style="float: right;font-size: 16px" @click="dialogVisible = true">退出</el-menu-item>
+       <el-menu-item  style="float: right;font-size: 16px" >欢迎登录！{{ userName }}</el-menu-item>
+
+       <el-dialog
+           :visible.sync="dialogVisible"
+           width="30%">
+         <span>确定退出登录吗？</span>
+         <span slot="footer" class="dialog-footer">
+            <el-button @click="dialogVisible = false">取 消</el-button>
+            <el-button type="danger" @click="gotoLogin">确 定</el-button>
+          </span>
+       </el-dialog>
+
+     </template>
+     <template v-else>
+       <el-menu-item  style="float: right" @click="gotoLogin">登录</el-menu-item>
+       <el-menu-item  style="float: right" @click="gotoRegister">注册</el-menu-item>
+     </template>
+
     </el-menu>
     <div id="body">
       <!--    搜索框-->
@@ -34,10 +52,10 @@
   <!--    筛选条件-->
       <!--        文章类型-->
       <el-row :gutter="20" type="flex" justify="end" style="flex-wrap: wrap;flex-direction: row">
-        <el-col :xs="24" :sm="24" :md="4" :lg="3" :xl="3">
+        <el-col :sm="24" :md="4" :lg="3" >
           <div style="float:left;font-weight :bold;">ARTICLE TYPE</div>
         </el-col>
-        <el-col :xs="24" :sm="24" :md="20" :lg="21" :xl="21">
+        <el-col  :sm="24" :md="20" :lg="21" >
           <el-checkbox-group v-model="article_type" style="float:left;" >
 
             <el-checkbox label="Books and Documents"/>
@@ -51,11 +69,11 @@
         </el-col>
       </el-row>
       <!--        发表时间-->
-      <el-row :gutter="20" style="height:40px;">
-        <el-col :span="3">
+      <el-row :gutter="20" type="flex" justify="end" style="flex-wrap: wrap;flex-direction: row">
+        <el-col  :sm="24" :md="4" :lg="3" >
           <div style="float:left;font-weight :bold;">PUBLICATION DATE</div>
         </el-col>
-        <el-col :span="21">
+        <el-col  :sm="24" :md="20" :lg="21" >
           <div class="block">
             <el-date-picker
                 v-model="publication_date"
@@ -284,8 +302,6 @@ insertCss(`
   }
 `);
 
-let graph ;
-
 export default {
   components: {
     Paper_info,
@@ -296,9 +312,11 @@ export default {
 
   data() {
 
-    let token = window.localStorage.getItem('token');
+
     return {
-      token,
+      token:'',
+      userName:'',
+      dialogVisible: false,
       history_lg:24,
       result_lg:0,
       timestamp:'',
@@ -375,6 +393,10 @@ export default {
       Pmid:'',
 
     };
+  },
+  created() {
+    this.token = window.localStorage.getItem('token');
+    this.userName = window.localStorage.getItem('userName');
   },
   mounted() {
     // this.keyDown()
@@ -587,6 +609,7 @@ export default {
 
     //跳转至登录页面
     gotoLogin(){
+      window.localStorage.setItem('userName', '')
       this.$router.push('login')
     },
     //跳转至注册页面
