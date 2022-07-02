@@ -8,20 +8,14 @@
       <el-table-column type="expand">
         <template slot-scope="props">
           <div v-for="(row,item) in props.row" :key="row" v-show="row">
-            <p>
-              <el-row :gutter="10">
-                <el-col :span="3">
-                  <span class="table-expand-label">&emsp;{{ item }} : </span>
-                </el-col>
-                <el-col :span="21">
+            <p id="expand">
+<!--              <el-row :gutter="10">-->
+<!--                <el-col :span="3">-->
+<!--                  <span class="table-expand-label">&emsp;{{ item }} : </span>-->
+<!--                </el-col>-->
+<!--                <el-col :span="21">-->
 
-                  <span v-if="item==='Paper_List'">
-                    <span v-for="(pmid,index) in Text_separated(row) " :key=index>
-                      <el-link :underline="false" @click="getpaperdetails(pmid)">{{pmid}}</el-link>
-                      {{ index === Text_separated(row).length - 1 ? '' : '|' }}
-                    </span>
-                  </span>
-                  <span v-else-if="item==='Original_Text'">
+                  <span v-if="item==='Original_Text'">
                     <span v-for="(text,index) in Text_separated(row) " :key=index>
                       <span v-for="(new_text,index) in separated(text)" :key=index>
                         <span v-if="index===0">
@@ -34,12 +28,18 @@
                         <span v-else>{{new_text}}</span>
                       </span>
 <!--                      <span  @click="getpaperdetails(text)">{{text}}<br/></span>-->
-                      <el-divider></el-divider>
+                      <el-divider v-if="index !== Text_separated(row).length - 1"></el-divider>
                     </span>
                   </span>
-                  <span v-else>{{ row }}</span>
-                </el-col>
-              </el-row>
+<!--                  <span v-else-if="item==='Paper_List'">-->
+<!--                    <span v-for="(pmid,index) in Text_separated(row) " :key=index>-->
+<!--                      <el-link :underline="false" @click="getpaperdetails(pmid)">{{pmid}}</el-link>-->
+<!--                      {{ index === Text_separated(row).length - 1 ? '' : '|' }}-->
+<!--                    </span>-->
+<!--                  </span>-->
+<!--                  <span v-else>{{ row }}</span>-->
+<!--                </el-col>-->
+<!--              </el-row>-->
             </p>
 
           </div>
@@ -141,5 +141,10 @@ export default {
   display:-moz-inline-box;
   display:inline-block;
   color: #A9A9A9;
+}
+#expand{
+  margin-left:3%;
+  margin-right:3%;
+  line-height:30px;
 }
 </style>
