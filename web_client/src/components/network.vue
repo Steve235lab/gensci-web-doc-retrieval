@@ -1,14 +1,17 @@
 <template>
   <div>
-    <el-select v-model="drawSelected" placeholder="请选择" @change="select_network" style="float: left">
-      <el-option
-          v-for="item in drawOptions"
-          :key="item"
-          :label="item"
-          :value="item">
-      </el-option>
-    </el-select>
-    <div id="network" style="width: 100%;height: 600px"></div>
+
+
+    <div id="network" style="width: 100%;height: 100%">
+      <el-select v-model="drawSelected" placeholder="请选择" @change="select_network" style="float: left">
+        <el-option
+            v-for="item in drawOptions"
+            :key="item"
+            :label="item"
+            :value="item">
+        </el-option>
+      </el-select>
+    </div>
   </div>
 </template>
 
@@ -72,7 +75,7 @@ export default {
     });
     graph = new G6.Graph({
       container: 'network',
-      width: 980,
+      width: 1200,
       height: 600,
       // 是否开启画布自适应。开启后图自动适配画布大小。
       fitView: true,
@@ -348,5 +351,13 @@ export default {
 </script>
 
 <style scoped>
+#network {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 0;
 
+}
 </style>
