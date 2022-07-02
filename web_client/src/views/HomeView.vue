@@ -33,11 +33,11 @@
       <p></p>
   <!--    筛选条件-->
       <!--        文章类型-->
-      <el-row :gutter="20" style="height:45px;">
-        <el-col :span="3">
+      <el-row :gutter="20" style="height:45px;flex-wrap: wrap;flex-direction: row" type="flex" justify="end" >
+        <el-col  :xs="24" :sm="24" :md="24" :lg="3" :xl="3">
           <div style="float:left;font-weight :bold;">ARTICLE TYPE</div>
         </el-col>
-        <el-col :span="21">
+        <el-col :xs="24" :sm="24" :md="24" :lg="21" :xl="21">
           <el-checkbox-group v-model="article_type" style="float:left;" >
 
             <el-checkbox label="Books and Documents"/>
@@ -52,10 +52,10 @@
       </el-row>
       <!--        发表时间-->
       <el-row :gutter="20" style="height:40px;">
-        <el-col :span="3">
+        <el-col :xs="24" :sm="6" :md="6" :lg="3" :xl="3">
           <div style="float:left;font-weight :bold;">PUBLICATION DATE</div>
         </el-col>
-        <el-col :span="21">
+        <el-col :xs="24" :sm="18" :md="18" :lg="21" :xl="21">
           <div class="block">
             <el-date-picker
                 v-model="publication_date"
@@ -83,10 +83,10 @@
           </template>
           <!--        年龄-->
           <el-row :gutter="20" >
-            <el-col :span="3">
+            <el-col :xs="24" :sm="24" :md="3" :lg="3" :xl="3">
               <div style="float:left;font-weight :bold;">AGE</div>
             </el-col>
-            <el-col :span="21">
+            <el-col :xs="24" :sm="24" :md="21" :lg="21" :xl="21">
               <el-checkbox-group v-model="age" style="float:left;">
                 <el-checkbox label="Child: birth-18 years"/>
                 <el-checkbox label="Newborn: birth-1 month"/>
@@ -107,10 +107,10 @@
           </el-row>
           <!--        语言-->
           <el-row :gutter="20">
-            <el-col :span="3">
+            <el-col :xs="24" :sm="24" :md="3" :lg="3" :xl="3">
               <div style="float:left;font-weight :bold;">LANGUAGE</div>
             </el-col>
-            <el-col :span="21">
+            <el-col :xs="24" :sm="24" :md="21" :lg="21" :xl="21">
               <el-checkbox-group v-model="language" style="float:left;">
 
                 <el-checkbox label="English"/>
@@ -121,10 +121,10 @@
           </el-row>
           <!--        物种-->
           <el-row :gutter="20">
-            <el-col :span="3">
+            <el-col :xs="24" :sm="24" :md="3" :lg="3" :xl="3">
               <div style="float:left;font-weight :bold;">SPECIES</div>
             </el-col>
-            <el-col :span="21">
+            <el-col :xs="24" :sm="24" :md="21" :lg="21" :xl="21">
               <el-checkbox-group v-model="species" style="float:left;">
 
                 <el-checkbox label="Humans"/>
@@ -135,10 +135,10 @@
           </el-row>
           <!--        性别-->
           <el-row :gutter="20">
-            <el-col :span="3" >
+            <el-col :xs="24" :sm="24" :md="3" :lg="3" :xl="3" >
               <div style="float:left;font-weight :bold;">SEX</div>
             </el-col>
-            <el-col :span="21" >
+            <el-col :xs="24" :sm="24" :md="21" :lg="21" :xl="21">
               <el-checkbox-group v-model="sex" style="float:left;">
 
                 <el-checkbox label="Female"/>
