@@ -261,6 +261,7 @@
 
 <script>
 import network_result from "../../../test_data/network_test.json"
+import example from "../../../test_data/example_test.json"
 import history_test from "../../../test_data/history_test.json"
 import qs from "qs";
 import G6 from '@antv/g6';
@@ -692,6 +693,7 @@ export default {
                 message: '连接错误，请重试！',
                 type: 'error'
               });
+              that.paper_result = example.paper_info_4 //测试用
             }
           })
 
@@ -733,7 +735,6 @@ export default {
               that.network_data = res.data.clue_info
               that.drawOptions = res.data.edge_type_list
               that.token = res.data.token
-              that.draw_network()
             }
           })
           .catch(function(err){
@@ -744,6 +745,8 @@ export default {
                 message: '连接错误，请重试！',
                 type: 'error'
               });
+              that.clue_result = example.clue_info //测试用
+              that.network_data = network_result  //测试用
             }
           })
 
