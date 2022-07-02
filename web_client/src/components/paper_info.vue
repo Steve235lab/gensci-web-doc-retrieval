@@ -2,26 +2,30 @@
   <div>
     <el-table
         :data="paper_result"
+        border
         style="width: 100%"
         height=600>
       <el-table-column type="expand">
         <!--                  折叠面板-文章详情-->
         <template slot-scope="props">
-          <div v-for="(row,item) in props.row" :key="row" v-show="row">
+          <div v-for="(row,index) in props.row" :key="row" v-show="row">
             <p>
               <el-row :gutter="10">
                 <!--                          左侧标题-->
                 <el-col :span="5">
-                  <span class="table-expand-label" v-if="item==='Chinese_Title'">&emsp;中文标题 : </span>
-                  <span class="table-expand-label" v-else-if="item==='Chinese_Abstract'">&emsp;中文摘要 : </span>
-                  <span class="table-expand-label" v-else>&emsp;{{ item }} : </span>
+                  <span class="table-expand-label" v-if="index==='Chinese_Title'">&emsp;中文标题 : </span>
+                  <span class="table-expand-label" v-else-if="index==='Chinese_Abstract'">&emsp;中文摘要 : </span>
+                  <span class="table-expand-label" v-else>&emsp;{{ index }} : </span>
                 </el-col>
                 <!--                          右侧具体内容及格式-->
                 <el-col :span="19">
-                  <b v-if="item==='Title'||item ==='Chinese_Title'">{{ row }}</b>
-                  <i v-else-if="item==='Authors'||item==='First_Author'||item==='Corresponding_Author'"
+                  <b v-if="index==='Title'||index ==='Chinese_Title'">{{ row }}</b>
+                  <i v-else-if="index==='Authors'||index==='First_Author'||index==='Corresponding_Author'"
                      style="font-family: 'Times New Roman',serif">{{ row }}</i>
-                  <span v-else-if="item==='Abstract'||item==='Publication_Type'" v-html="row"></span>
+                  <span v-else-if="index==='Abstract'" v-html="row"></span>
+                  <span v-else-if="index==='Publication_Type'||index==='Location'||index==='Organization'">
+                    <span v-for="item in Line_Feed(row)" :key=item>{{item}}<br/></span>
+                  </span>
                   <span v-else>{{ row }}</span>
                 </el-col>
               </el-row>
@@ -38,8 +42,16 @@
       <el-table-column label="Pmid" prop="Pmid" sortable width="100"></el-table-column>
       <el-table-column label="Journal" prop="Journal" sortable width="150"></el-table-column>
       <el-table-column label="If" prop="Journal_If" sortable width="100"></el-table-column>
-      <el-table-column label="Sample_Size" prop="Sample_Size" sortable width="150"></el-table-column>
-      <el-table-column label="Publication_Type" prop="Publication_Type" sortable width="200"></el-table-column>
+      <el-table-column label="Sample_Size" prop="Sample_Size" sortable width="150" align="center"></el-table-column>
+      <el-table-column label="Publication_Type" prop="Publication_Type" sortable width="200">
+      <template slot-scope="props">
+        <div v-for="(row,index) in props.row" :key="index">
+            <span v-if="index==='Publication_Type'">
+              <span v-for="item in Line_Feed(row)" :key=item>{{item}}<br/></span>
+            </span>
+        </div>
+      </template>
+      </el-table-column>
 
     </el-table>
 
@@ -80,6 +92,13 @@ export default {
     return {
       current_page: 1,
     }
+  },
+  computed:{
+    Line_Feed: function (){
+      return function (text){
+        return Array.from(new Set(text.split('\n')))
+      }
+    },
   },
   methods: {
     handleCurrentChange(newPage){
