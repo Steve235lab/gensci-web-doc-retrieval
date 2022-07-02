@@ -79,8 +79,8 @@ export default {
         data:qs.stringify({
           message_type: "sign_in",
           email:this.loginForm.email,
-          // password:md5(this.loginForm.password)
-          password:this.loginForm.password
+          password:md5(this.loginForm.password)
+          // password:this.loginForm.password
         })
       })
           .then(function(res){
@@ -92,7 +92,8 @@ export default {
           if(res.data.result==='success'){
             console.log('登录成功')
             window.localStorage.setItem('token', res.data.token)
-
+            let userName = 'test'
+            window.localStorage.setItem('userName', userName)
             that.$router.push('home')
           }
             //setStorage.getItem('token')//获取token
