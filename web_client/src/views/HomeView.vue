@@ -13,256 +13,249 @@
       <el-menu-item index="2" style="float: right" @click="gotoRegister">注册</el-menu-item>
     </el-menu>
 <!--    搜索框-->
-    <el-row :gutter="20">
-      <el-col :span="12" :offset="6">
-        <div style="margin-top: 15px;">
-          <el-input
-              placeholder="请输入搜索关键词"
-              v-model="keywords"
-              class="input-with-select"
-              clearable
-              @keyup.enter.native="handleSearch"
-              style="height:40px;"
-              autocomplete="on">
-            <el-button slot="append" icon="el-icon-search" @click="handleSearch"></el-button>
-          </el-input>
-        </div>
-      </el-col>
-    </el-row>
-    <p></p>
-<!--    筛选条件折叠面板-->
-
-    <!--        文章类型-->
-    <el-row :gutter="20" style="height:45px;">
-      <el-col :span="3" :offset="2"
-      >
-        <div style="float:left;font-weight :bold;">ARTICLE TYPE</div>
-      </el-col>
-      <el-col :span="19" :offset="0"
-      >
-        <el-checkbox-group v-model="article_type" style="float:left;" >
-
-          <el-checkbox label="Books and Documents"/>
-          <el-checkbox label="Clinical Trial"/>
-          <el-checkbox label="Meta-Analysis"/>
-          <el-checkbox label="Randomized Controlled Trial"/>
-          <el-checkbox label="Review"/>
-          <el-checkbox label="Systematic Review"/>
-
-        </el-checkbox-group>
-      </el-col>
-    </el-row>
-    <!--        发表时间-->
-    <el-row :gutter="20" style="height:40px;">
-      <el-col :span="3" :offset="2"
-      >
-        <div style="float:left;font-weight :bold;">PUBLICATION DATE</div>
-      </el-col>
-      <el-col :span="6" :offset="0">
-        <div class="block">
-          <el-date-picker
-              v-model="publication_date"
-              type="daterange"
-              unlink-panels
-              range-separator="至"
-              start-placeholder="开始日期"
-              end-placeholder="结束日期"
-              value-format="yyyy-MM-dd"
-              size="small"
-              :picker-options="pickerOptions">
-          </el-date-picker>
-        </div>
-      </el-col>
-      <!--          <el-col :span="2" :offset="9">-->
-      <!--            <el-button type="primary" round @click="handleSearch">高级检索</el-button>-->
-      <!--          </el-col>-->
-
-    </el-row>
-    <el-collapse style="display:inline;width: 1500px" v-model="activeState" >
-      <el-collapse-item >
-        <template slot="title">
-          <div style="font-weight :bold;font-size: 16px;float: left">More Filters</div>
-        </template>
-        <!--        年龄-->
-        <el-row :gutter="20" type="flex" style="height:45px;">
-          <el-col :span="3" :offset="2"
-          >
-            <div style="float:left;font-weight :bold;">AGE</div>
-          </el-col>
-          <el-col :span="17" :offset="0"
-          >
-            <el-checkbox-group v-model="age" style="float:left;">
-              <el-checkbox label="Child: birth-18 years"/>
-              <el-checkbox label="Newborn: birth-1 month"/>
-              <el-checkbox label="Infant: birth-23 months"/>
-              <el-checkbox label="Infant: 1-23 months"/>
-              <el-checkbox label="Preschool Child: 2-5 years"/>
-
-
-            </el-checkbox-group>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20" style="height:40px;">
-          <el-col :span="3" :offset="2"
-          >&emsp;</el-col>
-          <el-col :span="17" :offset="0"
-          >
-            <el-checkbox-group v-model="age" style="float:left;">
-              <el-checkbox label="Child: 6-12 years"/>
-              <el-checkbox label="Adolescent: 13-18 years" />
-              <el-checkbox label="Adult: 19+ years" />
-              <el-checkbox label="Young Adult: 19-24 years" />
-              <el-checkbox label="Adult: 19-44 years" />
-            </el-checkbox-group>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20" style="height:40px;">
-          <el-col :span="3" :offset="2"
-          >&emsp;</el-col>
-          <el-col :span="17" :offset="0"
-          >
-            <el-checkbox-group v-model="age" style="float:left;">
-              <el-checkbox label="Middle Aged + Aged: 45+ years"/>
-              <el-checkbox label="Middle Aged: 45-64 years" />
-              <el-checkbox label="Aged: 65+ years" />
-              <el-checkbox label="80 and over: 80+ years" />
-            </el-checkbox-group>
-          </el-col>
-        </el-row>
-        <!--        语言-->
-        <el-row :gutter="20" style="height:45px;">
-          <el-col :span="3" :offset="2"
-          >
-            <div style="float:left;font-weight :bold;">LANGUAGE</div>
-          </el-col>
-          <el-col :span="6" :offset="0"
-          >
-            <el-checkbox-group v-model="language" style="float:left;">
-
-              <el-checkbox label="English"/>
-              <el-checkbox label="Others"/>
-
-            </el-checkbox-group>
-          </el-col>
-        </el-row>
-        <!--        物种-->
-        <el-row :gutter="20" style="height:45px;">
-          <el-col :span="3" :offset="2"
-          >
-            <div style="float:left;font-weight :bold;">SPECIES</div>
-          </el-col>
-          <el-col :span="6" :offset="0"
-          >
-            <el-checkbox-group v-model="species" style="float:left;">
-
-              <el-checkbox label="Humans"/>
-              <el-checkbox label="Other Animals"/>
-
-            </el-checkbox-group>
-          </el-col>
-        </el-row>
-        <!--        性别-->
-        <el-row :gutter="20" style="height:45px;">
-          <el-col :span="3" :offset="2"
-          >
-            <div style="float:left;font-weight :bold;">SEX</div>
-          </el-col>
-          <el-col :span="6" :offset="0"
-          >
-            <el-checkbox-group v-model="sex" style="float:left;">
-
-              <el-checkbox label="Female"/>
-              <el-checkbox label="Male"/>
-
-            </el-checkbox-group>
-          </el-col>
-        </el-row>
-      </el-collapse-item>
-    </el-collapse>
-    <p></p>
-<!--    历史记录及结果显示-->
-    <el-row :gutter="5">
-<!--      历史记录-->
-      <el-col :span="3" :offset="2" >
-        <div style="height:30px;text-align:left;">
-          当前可查看
-          <el-link :underline="false" @click="getHistory" icon="el-icon-refresh" style="font-size: 17px"></el-link>
-        </div>
-        <div style="height: 650px;overflow:auto">
-          <div v-for="(row,item) in history" :key="item" style="text-align:left">
-            <el-tooltip effect="dark" placement="right">
-              <div slot="content" class="tips" style="word-wrap:break-word;width: 400px;line-height: 20px" >
-                <b>{{row.robust_keywords}}</b>
-              </div>
-              <el-link :underline="false" @click="gettimestamp(row.timestamp)">
-                <p class="content" style="font-size: 16px;line-height: 10px">
-                  &emsp;{{row.raw_keywords}}
-                </p>
-              </el-link>
-            </el-tooltip>
+    <div id="body">
+      <el-row :gutter="20">
+        <el-col :span="14" :offset="5">
+          <div style="margin-top: 15px;">
+            <el-input
+                placeholder="请输入搜索关键词"
+                v-model="keywords"
+                class="input-with-select"
+                clearable
+                @keyup.enter.native="handleSearch"
+                style="height:40px;"
+                autocomplete="on">
+              <el-button slot="append" icon="el-icon-search" @click="handleSearch"></el-button>
+            </el-input>
           </div>
-        </div>
-      </el-col>
-<!--      结果显示-->
-      <el-col :span="16" :offset="1">
-<!--        paper_info/clue_info/network标签页-->
-        <div>
+        </el-col>
+      </el-row>
+      <p></p>
+  <!--    筛选条件-->
+      <!--        文章类型-->
+      <el-row :gutter="20" style="height:45px;">
+        <el-col :span="3">
+          <div style="float:left;font-weight :bold;">ARTICLE TYPE</div>
+        </el-col>
+        <el-col :span="21">
+          <el-checkbox-group v-model="article_type" style="float:left;" >
 
-          <el-row :gutter="5">
-            <el-col :span="6" >
-              <div style="margin-top: 15px">
-                <el-radio-group v-model="tabselect" @change="TabSelect" size="small">
-                  <el-radio-button label="Paper Info"></el-radio-button>
-                  <el-radio-button label="Clue Info"></el-radio-button>
-                  <el-radio-button label="Network"></el-radio-button>
-                </el-radio-group>
-              </div>
+            <el-checkbox label="Books and Documents"/>
+            <el-checkbox label="Clinical Trial"/>
+            <el-checkbox label="Meta-Analysis"/>
+            <el-checkbox label="Randomized Controlled Trial"/>
+            <el-checkbox label="Review"/>
+            <el-checkbox label="Systematic Review"/>
+
+          </el-checkbox-group>
+        </el-col>
+      </el-row>
+      <!--        发表时间-->
+      <el-row :gutter="20" style="height:40px;">
+        <el-col :span="3">
+          <div style="float:left;font-weight :bold;">PUBLICATION DATE</div>
+        </el-col>
+        <el-col :span="21">
+          <div class="block">
+            <el-date-picker
+                v-model="publication_date"
+                type="daterange"
+                unlink-panels
+                range-separator="至"
+                start-placeholder="开始日期"
+                end-placeholder="结束日期"
+                value-format="yyyy-MM-dd"
+                size="small"
+                :picker-options="pickerOptions">
+            </el-date-picker>
+          </div>
+        </el-col>
+        <!--          <el-col :span="2" :offset="9">-->
+        <!--            <el-button type="primary" round @click="handleSearch">高级检索</el-button>-->
+        <!--          </el-col>-->
+
+      </el-row>
+      <!--    筛选条件折叠面板-->
+      <el-collapse style="display:inline;width: 1500px" v-model="activeState" >
+        <el-collapse-item >
+          <template slot="title">
+            <div style="font-weight :bold;font-size: 16px;float: left">More Filters</div>
+          </template>
+          <!--        年龄-->
+          <el-row :gutter="20" type="flex">
+            <el-col :span="3">
+              <div style="float:left;font-weight :bold;">AGE</div>
             </el-col>
-            <el-col :span="6">
-              <div style="margin-top: 15px;">
-                <el-input
-                    placeholder="请输入Pmid"
-                    v-model="Pmid"
-                    class="input-with-select"
-                    clearable
-                    size="small"
-                    @keyup.enter.native="Search_Pmid"
-                    autocomplete="on">
-                  <el-button slot="append" icon="el-icon-search" @click="Search_Pmid"></el-button>
-                </el-input>
-              </div>
+            <el-col :span="21">
+              <el-checkbox-group v-model="age" style="float:left;">
+                <el-checkbox label="Child: birth-18 years"/>
+                <el-checkbox label="Newborn: birth-1 month"/>
+                <el-checkbox label="Infant: birth-23 months"/>
+                <el-checkbox label="Infant: 1-23 months"/>
+                <el-checkbox label="Preschool Child: 2-5 years"/>
+                <el-checkbox label="Child: 6-12 years"/>
+                <el-checkbox label="Adolescent: 13-18 years" />
+                <el-checkbox label="Adult: 19+ years" />
+                <el-checkbox label="Young Adult: 19-24 years" />
+                <el-checkbox label="Adult: 19-44 years" />
+                <el-checkbox label="Middle Aged + Aged: 45+ years"/>
+                <el-checkbox label="Middle Aged: 45-64 years" />
+                <el-checkbox label="Aged: 65+ years" />
+                <el-checkbox label="80 and over: 80+ years" />
+              </el-checkbox-group>
             </el-col>
           </el-row>
-          <p></p>
-          <el-tabs  v-model="editableTabsValue"  @tab-click="handleClick" type="border-card" closable @tab-remove="removeTab">
-            <el-tab-pane
+          <!--        语言-->
+          <el-row :gutter="20">
+            <el-col :span="3">
+              <div style="float:left;font-weight :bold;">LANGUAGE</div>
+            </el-col>
+            <el-col :span="21">
+              <el-checkbox-group v-model="language" style="float:left;">
 
-                v-for="(item, index) in editableTabs"
-                :key="index"
-                :label="item.title"
-                :name="item.name"
-            >
-              <component
-                  :is=item.content
-                  :paper_result="paper_result"
-                  :clue_result="clue_result"
-                  :network_data="network_data"
-                  :paper_details="paper_details[item.index]"
-                  :drawSelect="drawSelect"
-                  :drawOptions="drawOptions"
-                  :paper_page="paper_page_Info.currentNumber"
-                  :paper_total="paper_page_Info.total"
-                  :clue_page="clue_page_Info.currentNumber"
-                  :clue_total="clue_page_Info.total"
-                  @update_paper="handleCurrentChange1"
-                  @update_clue="handleCurrentChange2"
-                  @paper_details="getpaperdetails"
-              ></component>
-            </el-tab-pane>
-          </el-tabs>
-        </div>
-      </el-col>
-    </el-row>
+                <el-checkbox label="English"/>
+                <el-checkbox label="Others"/>
+
+              </el-checkbox-group>
+            </el-col>
+          </el-row>
+          <!--        物种-->
+          <el-row :gutter="20">
+            <el-col :span="3">
+              <div style="float:left;font-weight :bold;">SPECIES</div>
+            </el-col>
+            <el-col :span="21">
+              <el-checkbox-group v-model="species" style="float:left;">
+
+                <el-checkbox label="Humans"/>
+                <el-checkbox label="Other Animals"/>
+
+              </el-checkbox-group>
+            </el-col>
+          </el-row>
+          <!--        性别-->
+          <el-row :gutter="20">
+            <el-col :span="3" >
+              <div style="float:left;font-weight :bold;">SEX</div>
+            </el-col>
+            <el-col :span="21" >
+              <el-checkbox-group v-model="sex" style="float:left;">
+
+                <el-checkbox label="Female"/>
+                <el-checkbox label="Male"/>
+
+              </el-checkbox-group>
+            </el-col>
+          </el-row>
+        </el-collapse-item>
+      </el-collapse>
+      <p></p>
+  <!--    历史记录及结果显示-->
+      <el-row :gutter="20">
+  <!--      历史记录-->
+        <el-col :span="3">
+          <el-card :body-style="{ padding: '0px' }" class="box-card">
+            <div slot="header" class="clearfix">
+              <span>当前可查看</span>
+              <el-link :underline="false" @click="getHistory" icon="el-icon-refresh" style="font-size: 17px;float: right; padding: 3px 0"></el-link>
+<!--              <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>-->
+            </div>
+            <div style="height: 650px;overflow-y:auto;word-break:normal;padding: 0">
+              <div v-for="(row,item) in history" :key="item" style="text-align:left;">
+                <el-tooltip effect="dark" placement="right">
+                  <div slot="content" class="tips" style="word-wrap:break-word;width: 400px;line-height: 20px" >
+                    <b>{{row.robust_keywords}}</b>
+                  </div>
+                  <el-link :underline="false" @click="gettimestamp(row.timestamp)">
+                    <p class="content" style="font-size: 16px;line-height: 10px">
+                      &emsp;{{row.raw_keywords}}
+                    </p>
+                  </el-link>
+                </el-tooltip>
+              </div>
+            </div>
+          </el-card>
+          <div style="height:30px;text-align:left;">
+            当前可查看
+            <div style="height: 650px;overflow-y:auto;word-break:normal">
+              <div v-for="(row,item) in history" :key="item" style="text-align:left;">
+                <el-tooltip effect="dark" placement="right">
+                  <div slot="content" class="tips" style="word-wrap:break-word;width: 400px;line-height: 20px" >
+                    <b>{{row.robust_keywords}}</b>
+                  </div>
+                  <el-link :underline="false" @click="gettimestamp(row.timestamp)">
+                    <p class="content" style="font-size: 16px;line-height: 10px">
+                      &emsp;{{row.raw_keywords}}
+                    </p>
+                  </el-link>
+                </el-tooltip>
+              </div>
+            </div>
+          </div>
+
+        </el-col>
+
+  <!--      结果显示-->
+        <el-col :span="21">
+  <!--        paper_info/clue_info/network标签页-->
+          <div>
+
+            <el-row :gutter="5">
+              <el-col :span="18" >
+                <div style="margin-top: 15px;float: left">
+                  <el-radio-group v-model="tabselect" @change="TabSelect" size="small">
+                    <el-radio-button label="Paper Info"></el-radio-button>
+                    <el-radio-button label="Clue Info"></el-radio-button>
+                    <el-radio-button label="Network"></el-radio-button>
+                  </el-radio-group>
+                </div>
+              </el-col>
+              <el-col :span="6">
+                <div style="margin-top: 15px;float: right">
+                  <el-input
+                      placeholder="请输入Pmid"
+                      v-model="Pmid"
+                      class="input-with-select"
+                      clearable
+                      size="small"
+                      @keyup.enter.native="Search_Pmid"
+                      autocomplete="on">
+                    <el-button slot="append" icon="el-icon-search" @click="Search_Pmid"></el-button>
+                  </el-input>
+                </div>
+              </el-col>
+            </el-row>
+            <p></p>
+            <el-tabs  v-model="editableTabsValue"  @tab-click="handleClick" type="border-card" closable @tab-remove="removeTab">
+              <el-tab-pane
+
+                  v-for="(item, index) in editableTabs"
+                  :key="index"
+                  :label="item.title"
+                  :name="item.name"
+              >
+                <component
+                    :is=item.content
+                    :paper_result="paper_result"
+                    :clue_result="clue_result"
+                    :network_data="network_data"
+                    :paper_details="paper_details[item.index]"
+                    :drawSelect="drawSelect"
+                    :drawOptions="drawOptions"
+                    :paper_page="paper_page_Info.currentNumber"
+                    :paper_total="paper_page_Info.total"
+                    :clue_page="clue_page_Info.currentNumber"
+                    :clue_total="clue_page_Info.total"
+                    @update_paper="handleCurrentChange1"
+                    @update_clue="handleCurrentChange2"
+                    @paper_details="getpaperdetails"
+                ></component>
+              </el-tab-pane>
+            </el-tabs>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
@@ -300,10 +293,9 @@ export default {
   data() {
 
     let token = window.localStorage.getItem('token');
-    let timestamp = 114514;
     return {
       token,
-      timestamp,
+      timestamp:'',
       tabselect:'',
       paper_index:-1,
       activeIndex: '0',
@@ -373,102 +365,7 @@ export default {
   mounted() {
     // this.keyDown()
     this.getHistory();
-    const tooltip = new G6.Tooltip({
-      offsetX: 10,
-      offsetY: 10,
-      // v4.2.1 起支持配置 trigger，click 代表点击后出现 tooltip。默认为 mouseenter
-      trigger: 'click',
-      fixToNode: [1, 0.5],
-      // the types of items that allow the tooltip show up
-      // 允许出现 tooltip 的 item 类型
-      itemTypes: ['node', 'edge'],
-      // custom the tooltip's content
-      // 自定义 tooltip 内容
-      getContent: (e) => {
-        const outDiv = document.createElement('div');
-        outDiv.style.width = 'fit-content';
-        outDiv.style.height = 'fit-content';
-        const model = e.item.getModel();
-        if (e.item.getType() === 'node') {
-          outDiv.innerHTML = `${model.id}`;
-        } else {
-          // const source = e.item.getSource();
-          // const target = e.item.getTarget();
-          // outDiv.innerHTML = `来源：${source.getModel().name}<br/>去向：${target.getModel().name}`;
-          outDiv.innerHTML = `Paper_List：${model.paper}<br/>Original_Text：${model.origin_text}`;
-        }
-        return outDiv;
-      },
-    });
-    graph = new G6.Graph({
-      container: 'network',
-      width: 980,
-      height: 600,
-      // 是否开启画布自适应。开启后图自动适配画布大小。
-      fitView: true,
-      //v3.5.1 后支持。开启后，图将会被平移，图的中心将对齐到画布中心，但不缩放。优先级低于 fitView
-      fitCenter: true,
-      // 节点默认配置
-      defaultNode: {
-        labelCfg: {
-          position: 'bottom',
-          offset: 3,
-          style: {
-            fill: '#000',
-          },
-        },
-      },
-      // 边默认配置
-      defaultEdge: {
-        labelCfg: {
-          // opacity:'100%',
-          autoRotate: true,
-        },
-      },
-      // 节点在各状态下的样式
-      nodeStateStyles: {
-        // hover 状态为 true 时的样式
-        hover: {
-          fill: 'lightsteelblue',
-        },
-        // click 状态为 true 时的样式
-        click: {
-          fill: 'lightsteelblue',
-          stroke: 'red',
-          lineWidth: 2,
-        },
-      },
-      // 边在各状态下的样式
-      edgeStateStyles: {
-        // click 状态为 true 时的样式
-        click: {
-          stroke: 'red',
-          lineAppendWidth: 5,
-        },
-      },
-      // 布局
-      layout: {
-        type: 'fruchterman',
-        center: [200, 200], // 可选，默认为图的中心
-        gravity: 0, // 可选
-        speed: 2, // 可选
-        clustering: true, // 可选
-        clusterGravity: 5, // 可选
-        maxIteration: 3000, // 可选，迭代次数
-        workerEnabled: true, // 可选，开启 web-worker
-        gpuEnabled: true, // 可选，开启 GPU 并行计算，G6 4.0 支持
-        // linkDistance: 1000,
-        preventOverlap: true,
-        nodeStrength: -30,
-        edgeStrength: 0.1,
-      },
-      // 内置交互
-      modes: {
-        default: ['drag-canvas', 'zoom-canvas', 'drag-node'],
-      },
-      // plugins: [minimap,legend],
-      plugins: [tooltip],
-    });
+
   },
   computed: {
     // 计算属性的 getter
@@ -557,14 +454,17 @@ export default {
       if(tab==='Paper Info'){
         console.log('test')
         this.addTab('paper')
+        this.tabselect=''
       }
       else if(tab==='Clue Info'){
         console.log('test')
         this.addTab('clue')
+        this.tabselect=''
       }
       else if(tab==='Network'){
         console.log('test')
         this.addTab('network')
+        this.tabselect=''
       }
     },
 
@@ -896,195 +796,7 @@ export default {
             }
           })
     },
-    //绘图数据预处理
-    getdrawInfo(class1,class2) {
-      this.selected_network = {nodes: [], edges: []};
-      if(this.drawSelect==="BFS"){
-        this.network_data.forEach((data) => {
-          // console.log(data.is_BFS_edge)
-          if(data.is_BFS_edge){
-            var nodeType_selector = data.Edge_Type.split('_')
-            if(nodeType_selector.length===1){
-              var node1_type = nodeType_selector[0];
-              var node2_type = nodeType_selector[0];
-            }else{
-              node1_type = nodeType_selector[0];
-              node2_type = nodeType_selector[2];
-            }
-            this.selected_network.nodes.push({
-              id: data.Node1,
-              label: data.Node1,
-              class: node1_type
-            })
-            this.selected_network.nodes.push({
-              id: data.Node2,
-              label: data.Node2,
-              class: node2_type
-            })
-            this.selected_network.edges.push({
-              source: data.Node1,
-              target: data.Node2,
-              weight: data.Weight,
-              paper: data.Paper_List,
-              origin_text: data.Original_Text
-            })
-          }
-        });
-      }else{
-        this.network_data.forEach((data) => {
-          // console.log(data.is_BFS_edge)
-          if(data.Edge_Type===this.drawSelect&&data.is_BFS_edge){
-            this.selected_network.nodes.push({
-              id: data.Node1,
-              label: data.Node1,
-              class: class1
-            })
-            this.selected_network.nodes.push({
-              id: data.Node2,
-              label: data.Node2,
-              class: class2
-            })
-            this.selected_network.edges.push({
-              source: data.Node1,
-              target: data.Node2,
-              weight: data.Weight,
-              paper: data.Paper_List,
-              origin_text: data.Original_Text
-            })
-          }
 
-
-        });
-      }
-
-      // if(this.selected_network.edges.length===0){
-      //   this.$message({
-      //     showClose: true,
-      //     message: '无数据，请重新选择！',
-      //     type: 'warning'
-      //   });
-      // }
-    },
-    //绘制network网络图
-    draw_network(class1,class2) {
-
-      this.getdrawInfo(class1,class2);
-
-      const nodes = this.selected_network.nodes;
-      const edges = this.selected_network.edges;
-      if(edges.length===0) {
-        this.$message({
-          showClose: true,
-          message: '无数据，请重新选择！',
-          type: 'warning'
-        });
-      }
-
-      nodes.forEach((node) => {
-        if (!node.style) {
-          node.style = {};
-        }
-        console.log(node.class)
-        // node.style.lineWidth = 1;
-        node.type = 'rect';
-        node.size = [30, 30];
-        node.style.radius = 8;
-        node.style.stroke = '#fff';
-        switch (node.class) {
-          case "disease": {
-            node.style.fill = '#c63225';
-            break;
-          }
-          case "bacteria": {
-            node.style.fill = '#fbeca0';
-            break;
-          }
-          case "chemical": {
-            node.style.fill = '#534eff';
-            break;
-          }
-          case "mechanism": {
-            node.style.fill = '#bdbddc';
-            break;
-          }
-          case "anatomy": {
-            node.style.fill = '#8c0412';
-            break;
-          }
-          case "antibody": {
-            node.style.fill = '#737373';
-            break;
-          }
-          case "nutrient": {
-            node.style.fill = '#85c375';
-            break;
-          }
-          case class2: {
-            node.style.fill = '#9ad0f5';
-            break;
-          }
-          case class1: {
-            node.style.fill = '#f5b89a';
-            break;
-          }
-        }
-      });
-      edges.forEach((edge) => {
-        if (!edge.style) {
-          edge.style = {};
-        }
-        edge.style.lineWidth = edge.weight;
-        edge.style.stroke = 'grey';
-        if (edge.weight === '1') {
-          edge.style.opacity = 0.1;
-        } else {
-          edge.style.opacity = 0.8;
-        }
-
-      });
-      // graph.clear();
-      graph.data(this.selected_network);
-      graph.render();
-      console.log("完成绘制")
-
-      // 监听鼠标进入节点
-      graph.on('node:mouseenter', (e) => {
-        const nodeItem = e.item;
-        // 设置目标节点的 hover 状态 为 true
-        graph.setItemState(nodeItem, 'hover', true);
-
-      });
-      // 监听鼠标离开节点
-      graph.on('node:mouseleave', (e) => {
-        const nodeItem = e.item;
-        // 设置目标节点的 hover 状态 false
-        graph.setItemState(nodeItem, 'hover', false);
-      });
-      // 监听鼠标点击节点
-      graph.on('node:click', (e) => {
-        // 先将所有当前有 click 状态的节点的 click 状态置为 false
-        const clickNodes = graph.findAllByState('node', 'click');
-        clickNodes.forEach((cn) => {
-          graph.setItemState(cn, 'click', false);
-        });
-        const nodeItem = e.item;
-        // 设置目标节点的 click 状态 为 true
-        graph.setItemState(nodeItem, 'click', true);
-        console.log(e.item);
-      });
-      // 监听鼠标点击节点
-      graph.on('edge:click', (e) => {
-        // 先将所有当前有 click 状态的边的 click 状态置为 false
-        const clickEdges = graph.findAllByState('edge', 'click');
-        clickEdges.forEach((ce) => {
-          graph.setItemState(ce, 'click', false);
-        });
-        const edgeItem = e.item;
-        // 设置目标边的 click 状态 为 true
-        graph.setItemState(edgeItem, 'click', true);
-        console.log(e.item._cfg);
-      });
-    }
   }
 }
 
@@ -1095,9 +807,16 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /*text-align: center;*/
+  text-align: center;
   color: #2c3e50;
   margin-top: 0;
+
+}
+
+#body{
+  margin-left:3%;
+  margin-right:3%;
+  line-height:30px;
 }
 
 .input-with-select {
@@ -1111,9 +830,7 @@ export default {
   margin-left:5px;
   margin-right:15px;
 }
-.el-collapse-item__header{
-  margin-left:130px;
-}
+
 
 
 </style>
