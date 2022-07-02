@@ -130,6 +130,15 @@ export default {
     getpaperdetails(pmid){
       this.$emit('paper_details', pmid);
     },
+    changeTableSort(column){
+      console.log(column)
+      if(column.order==='descending'||column.order===null){
+        column.order='reverse'
+      }else if(column.order==='ascending'){
+        column.order='positive'
+      }
+      this.$emit('changesort_clue',[column.prop,column.order])
+    },
 
   }
 }

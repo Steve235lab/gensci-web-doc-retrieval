@@ -3,6 +3,7 @@
     <el-table
         :data="paper_result"
         border
+        @sort-change="changeTableSort"
         style="width: 100%"
         height=600>
       <el-table-column type="expand">
@@ -37,13 +38,13 @@
         </template>
         <!--                  表格纵列-->
       </el-table-column>
-      <el-table-column label="Title" prop="Title" sortable width="400"></el-table-column>
-      <el-table-column label="Date" prop="Publication_Date" sortable width="100"></el-table-column>
-      <el-table-column label="Pmid" prop="Pmid" sortable width="100"></el-table-column>
-      <el-table-column label="Journal" prop="Journal" sortable width="150"></el-table-column>
-      <el-table-column label="If" prop="Journal_If" sortable width="100"></el-table-column>
-      <el-table-column label="Sample_Size" prop="Sample_Size" sortable width="150" align="center"></el-table-column>
-      <el-table-column label="Publication_Type" prop="Publication_Type" sortable width="200">
+      <el-table-column label="Title" prop="Title" width="400"></el-table-column>
+      <el-table-column label="Date" prop="Publication_Date" sortable="custom" width="100"></el-table-column>
+      <el-table-column label="Pmid" prop="Pmid" width="100"></el-table-column>
+      <el-table-column label="Journal" prop="Journal" width="150"></el-table-column>
+      <el-table-column label="If" prop="Journal_If" sortable="custom" width="100"></el-table-column>
+      <el-table-column label="Sample_Size" prop="Sample_Size" width="150" align="center"></el-table-column>
+      <el-table-column label="Publication_Type" prop="Publication_Type" width="200">
       <template slot-scope="props">
         <div v-for="(row,index) in props.row" :key="index">
             <span v-if="index==='Publication_Type'">
@@ -68,6 +69,9 @@
 </template>
 
 <script>
+import qs from "qs";
+import example from "../../../test_data/example_test.json";
+
 export default {
   name: "paper_info",
   props: {
@@ -105,6 +109,15 @@ export default {
       this.current_page=newPage
       console.log(this.current_page)
       this.$emit('update_paper', this.current_page);
+    },
+    changeTableSort(column){
+      console.log(column)
+      if(column.order==='descending'||column.order===null){
+        column.order='reverse'
+      }else if(column.order==='ascending'){
+        column.order='positive'
+      }
+      this.$emit('changesort_paper',[column.prop,column.order])
     },
   }
 }

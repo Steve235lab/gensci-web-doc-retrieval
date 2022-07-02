@@ -12,8 +12,8 @@
       <el-menu-item index="1" style="float: right" @click="gotoLogin">登录</el-menu-item>
       <el-menu-item index="2" style="float: right" @click="gotoRegister">注册</el-menu-item>
     </el-menu>
-<!--    搜索框-->
     <div id="body">
+      <!--    搜索框-->
       <el-row :gutter="20">
         <el-col :span="14" :offset="5">
           <div style="margin-top: 15px;">
@@ -33,11 +33,11 @@
       <p></p>
   <!--    筛选条件-->
       <!--        文章类型-->
-      <el-row :gutter="20" style="height:45px;">
-        <el-col :span="3">
+      <el-row :gutter="20" type="flex" justify="end" style="flex-wrap: wrap;flex-direction: row">
+        <el-col :xs="24" :sm="24" :md="4" :lg="3" :xl="3">
           <div style="float:left;font-weight :bold;">ARTICLE TYPE</div>
         </el-col>
-        <el-col :span="21">
+        <el-col :xs="24" :sm="24" :md="20" :lg="21" :xl="21">
           <el-checkbox-group v-model="article_type" style="float:left;" >
 
             <el-checkbox label="Books and Documents"/>
@@ -246,6 +246,8 @@
                     :paper_total="paper_page_Info.total"
                     :clue_page="clue_page_Info.currentNumber"
                     :clue_total="clue_page_Info.total"
+                    @changesort_paper="changeSort_paper"
+                    @changesort_clue="changeSort_clue"
                     @update_paper="handleCurrentChange1"
                     @update_clue="handleCurrentChange2"
                     @paper_details="getpaperdetails"
@@ -260,7 +262,7 @@
 </template>
 
 <script>
-import network_result from "../../../test_data/network_test.json"
+import network_result from "../../../test_data/asd.bfs.json"
 import example from "../../../test_data/example_test.json"
 import history_test from "../../../test_data/history_test.json"
 import qs from "qs";
@@ -315,6 +317,10 @@ export default {
       tabName:'',
       editableTabsValue: '',
       editableTabs: [],
+      tabIndex:0,
+      paper_tabIndex:0,
+      clue_tabIndex:0,
+      network_tabIndex:0,
 
       pickerOptions: {
         disabledDate(time) {
@@ -352,6 +358,10 @@ export default {
       paper_details:[],
       network_data:[],
       selected_network:{nodes: [], edges: []},
+      paper_column:'Publication_Date',
+      paper_order:'reverse',
+      clue_column:'Weight',
+      clue_order:'reverse',
       paper_page_Info: {
         total: 0,
         currentNumber: 1,
@@ -474,37 +484,41 @@ export default {
     },
 
     //增加标签页
-    addTab(newTabName) {
-      if(newTabName==='paper'){
+    addTab(newTab) {
+      let newTabName = ++this.tabIndex + '';
+      if(newTab==='paper'){
+        ++this.paper_tabIndex
         this.paper_page_Info.currentNumber=1
         this.paperInfo()
         this.editableTabs.push({
-          title: 'Paper Info',
+          title: 'Paper Info '+this.paper_tabIndex,
           name: newTabName,
           content: Paper_info
         });
       }
-      else if(newTabName==='clue'){
+      else if(newTab==='clue'){
+        ++this.clue_tabIndex
         this.clue_page_Info.currentNumber=1
         this.clueInfo()
         this.editableTabs.push({
-          title: 'Clue Info',
+          title: 'Clue Info '+this.clue_tabIndex,
           name: newTabName,
           content: Clue_info
         });
       }
-      else if(newTabName==='network'){
+      else if(newTab==='network'){
+        ++this.network_tabIndex
         this.clue_page_Info.currentNumber = 0;
         this.clueInfo()
         this.editableTabs.push({
-          title: 'Network',
+          title: 'Network '+this.network_tabIndex,
           name: newTabName,
           content: Network
         });
       }
       else{
         this.editableTabs.push({
-          title: newTabName,
+          title: newTab,
           name: newTabName,
           index: ++this.paper_index,
           content: Paper_details
@@ -663,8 +677,8 @@ export default {
           "message_type": "get_paper_info",
           "timestamp": this.timestamp,
           "page_num": this.paper_page_Info.currentNumber,
-          "column": "Journal_If",
-          "order": "reverse"
+          "column": this.paper_column,
+          "order": this.paper_order,
           // "page_num": 1
         })
       })
@@ -711,8 +725,8 @@ export default {
           "message_type": "get_clue_info",
           "timestamp": this.timestamp,
           "page_num": this.clue_page_Info.currentNumber,
-          'column': "Weight",
-          'order': "reverse"
+          'column': this.clue_column,
+          'order': this.clue_order
           // "page_num": 1
         })
       })
@@ -745,12 +759,30 @@ export default {
                 message: '连接错误，请重试！',
                 type: 'error'
               });
-              that.clue_result = example.clue_info //测试用
+              that.clue_result = network_result //测试用
               that.network_data = network_result  //测试用
+              that.drawOptions = ["BFS","anatomy","antibody_to_anatomy", "bacteria","bacteria_to_anatomy","bacteria_to_antibody","bacteria_to_chemical","bacteria_to_disease","bacteria_to_mechanism","bacteria_to_nutrient","chemical","chemical_to_anatomy","chemical_to_disease","chemical_to_mechanism","disease","disease_to_anatomy","disease_to_antibody","disease_to_mechanism","mechanism","mechanism_to_anatomy","mechanism_to_antibody","nutrient_to_anatomy","nutrient_to_chemical","nutrient_to_disease","nutrient_to_mechanism"]
             }
           })
 
     },
+
+    //更改paper_info排序方式
+    changeSort_paper(column){
+      this.paper_page_Info.currentNumber=1;
+      this.paper_column=column[0];
+      this.paper_order=column[1];
+      this.paperInfo()
+    },
+
+    //更改clue_info排序方式
+    changeSort_clue(column){
+      this.clue_page_Info.currentNumber=1;
+      this.clue_column=column[0];
+      this.clue_order=column[1];
+      this.clueInfo()
+    },
+
 
     // 搜索文章详情
     Search_Pmid(){
@@ -802,6 +834,7 @@ export default {
                 message: '连接错误，请重试！',
                 type: 'error'
               });
+              that.addTab(that.Pmid)
             }
           })
     },
