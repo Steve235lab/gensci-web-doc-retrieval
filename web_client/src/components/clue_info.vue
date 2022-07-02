@@ -2,6 +2,7 @@
   <div>
     <el-table
         :data="clue_result"
+        @sort-change="changeTableSort"
         style="width: 100%"
         height=600>
       <!--                折叠面板-->
@@ -46,10 +47,10 @@
         </template>
       </el-table-column>
       <!--                表格纵列-->
-      <el-table-column label="Node1" prop="Node1" sortable/>
-      <el-table-column label="Edge_Type" prop="Edge_Type" sortable/>
-      <el-table-column label="Node2" prop="Node2" sortable/>
-      <el-table-column label="Weight" prop="Weight" sortable/>
+      <el-table-column label="Node1" prop="Node1" />
+      <el-table-column label="Edge_Type" prop="Edge_Type" />
+      <el-table-column label="Node2" prop="Node2" />
+      <el-table-column label="Weight" prop="Weight" sortable="custom"/>
 <!--      <el-table-column label="Paper_List" prop="Paper_List" sortable>-->
 <!--        <template slot-scope="props">-->
 <!--          <div v-for="(row,item) in props.row" :key="item">-->
