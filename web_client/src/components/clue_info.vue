@@ -14,12 +14,29 @@
                   <span class="table-expand-label">&emsp;{{ item }} : </span>
                 </el-col>
                 <el-col :span="21">
+
                   <span v-if="item==='Paper_List'">
-                      <span v-for="(pmid,index) in Pmid_separated(row) " :key=index>
-                        <el-link :underline="false" @click="getpaperdetails(pmid)">{{pmid}}</el-link>
-                        {{ index === Pmid_separated(row).length - 1 ? '' : '|'}}
-                      </span>
+                    <span v-for="(pmid,index) in Text_separated(row) " :key=index>
+                      <el-link :underline="false" @click="getpaperdetails(pmid)">{{pmid}}</el-link>
+                      {{ index === Text_separated(row).length - 1 ? '' : '|' }}
                     </span>
+                  </span>
+                  <span v-else-if="item==='Original_Text'">
+                    <span v-for="(text,index) in Text_separated(row) " :key=index>
+                      <span v-for="(new_text,index) in separated(text)" :key=index>
+                        <span v-if="index===0">
+                          <span v-for="(final,index) in separated_again(new_text)" :key="index">
+                            <el-link v-if="index===1" :underline="false" @click="getpaperdetails(final)">{{final}}</el-link>
+                            <span v-else>{{final}}</span>
+                            {{ index === separated_again(new_text).length - 1 ? '' : ':' }}
+                          </span><br/>
+                        </span>
+                        <span v-else>{{new_text}}</span>
+                      </span>
+<!--                      <span  @click="getpaperdetails(text)">{{text}}<br/></span>-->
+                      <el-divider></el-divider>
+                    </span>
+                  </span>
                   <span v-else>{{ row }}</span>
                 </el-col>
               </el-row>
@@ -32,19 +49,19 @@
       <el-table-column label="Node1" prop="Node1" sortable/>
       <el-table-column label="Edge_Type" prop="Edge_Type" sortable/>
       <el-table-column label="Node2" prop="Node2" sortable/>
-      <el-table-column label="Weight" prop="Weight" width="100" sortable/>
-      <el-table-column label="Paper_List" prop="Paper_List" sortable>
-        <template slot-scope="props">
-          <div v-for="(row,item) in props.row" :key="item">
-            <span v-if="item==='Paper_List'">
-              <span v-for="(pmid,index) in Pmid_separated(row) " :key=index>
-                <el-link :underline="false" @click="getpaperdetails(pmid)">{{pmid}}</el-link>
-                {{ index === Pmid_separated(row).length - 1 ? '' : '|'}}
-              </span>
-            </span>
-          </div>
-        </template>
-      </el-table-column>
+      <el-table-column label="Weight" prop="Weight" sortable/>
+<!--      <el-table-column label="Paper_List" prop="Paper_List" sortable>-->
+<!--        <template slot-scope="props">-->
+<!--          <div v-for="(row,item) in props.row" :key="item">-->
+<!--            <span v-if="item==='Paper_List'">-->
+<!--              <span v-for="(pmid,index) in Pmid_separated(row) " :key=index>-->
+<!--                <el-link :underline="false" @click="getpaperdetails(pmid)">{{pmid}}</el-link>-->
+<!--                {{ index === Pmid_separated(row).length - 1 ? '' : '|'}}-->
+<!--              </span>-->
+<!--            </span>-->
+<!--          </div>-->
+<!--        </template>-->
+<!--      </el-table-column>-->
 
     </el-table>
     <el-row :gutter="20">
@@ -88,9 +105,19 @@ export default {
   },
   computed: {
     // 计算属性的 getter
-    Pmid_separated: function (){
-      return function (pmid){
-        return Array.from(new Set(pmid.split('|')))
+    Text_separated: function (){
+      return function (text){
+        return text.split('|')
+      }
+    },
+    separated: function (){
+      return function (text){
+        return text.split(';')
+      }
+    },
+    separated_again: function (){
+      return function (text){
+        return text.split(':')
       }
     },
   },
