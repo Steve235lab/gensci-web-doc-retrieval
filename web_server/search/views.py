@@ -12,6 +12,7 @@ from django.http import JsonResponse
 from database_new import DATABASE
 from uuid_token import forge_token, get_uuid_from_token
 from controller import CONTROLLER
+from email_sender import EmailSender
 
 
 def search(request):
@@ -188,7 +189,18 @@ def run_search(robust_keywords: str, timestamp: int):
     # 将数据库中所有搜索该关键词的搜索记录标记为已完成搜索
     DATABASE.search_completed(robust_keywords)
 
-    # TODO: 向发起搜索的用户发送提醒邮件
+    # 向发起搜索的用户发送提醒邮件
+    # 生成验证码
+    uuids = DATABASE.get_uuids_with_keywords(robust_keywords)
+    for uuid in uuids:
+        uuid = uuid[0]
+        user = DATABASE.get_user(uuid)
+        email = user.email
+        username = user.username
+        email_sender = EmailSender(email, username)
+        email_sender.generate_search_completed_content(robust_keywords)
+        # 发送验证邮件
+        email_sender.send()
 
 
 def get_history(request):

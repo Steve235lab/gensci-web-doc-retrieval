@@ -27,5 +27,11 @@ class Controller:
         self.paper_info_data_source: str = 'json'
         self.clue_info_data_source: str = 'json'
 
+        # 发送邮件相关设定
+        self.email_sender = 'xuchixuchixu@foxmail.com'
+        self.email_auth_passport = 'idmbeadoeeohbaja'
+        self.email_subject = 'gensci-web-doc-retrieval sign up confirming email'
+        self.smtp_host = 'smtp.qq.com'
+
 
 CONTROLLER = Controller()

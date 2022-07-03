@@ -43,13 +43,15 @@ def sign_in(request):
         # 验证密码正误
         uuid = DATABASE.user_index[email]
         user = DATABASE.get_user(uuid)
+        username = user.username
         if input_password == user.password:  # 密码正确
             # 生成token
             new_token = forge_token(uuid)
             json_rsp = {
                 "message_type": "rsp_sign_in",
                 "token": new_token,
-                "result": "success"
+                "result": "success",
+                "username": username
             }
             # json_rsp["Access-Control-Allow-Origin"] = "*"
         else:  # 密码错误

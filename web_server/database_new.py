@@ -397,6 +397,19 @@ class Database:
         self.cursor.execute(sql)
         self.conn.commit()
 
+    def get_uuids_with_keywords(self, keywords: str):
+        """通过搜索关键词查找发起搜索的用户uuid
+
+        :param keywords:  (str) 关键词组合
+        :return: (list) 所有搜索过该关键词组合的用户uuid
+        """
+        self.is_connected()
+        sql = """select uuid from search_history where keywords = ('%s')""" % keywords
+        self.cursor.execute(sql)
+        uuids = self.cursor.fetchall()
+
+        return uuids
+
     def add_paper_highlight_abstract(self, pmid: int, highlight_abstract: str):
         """将高亮处理后的文章摘要保存至数据库 paper_abstract 表
 

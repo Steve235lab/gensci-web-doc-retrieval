@@ -43,9 +43,9 @@ def sign_up(request):
     else:  # 邮箱可用
         # 生成验证码
         email_sender = EmailSender(email, username)
-        email_sender.generate_content()
+        email_sender.generate_sign_up_content()
         # 发送验证邮件
-        # email_sender.send()
+        email_sender.send()
         # 构造用户对象
         new_user = User(username=username, password=password, email=email, confirm_code=email_sender.confirm_code)
         # 将用户对象添加至数据库
