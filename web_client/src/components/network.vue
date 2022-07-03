@@ -1,8 +1,6 @@
 <template>
-  <div>
-
-
-    <div id="network" style="width: 100%;height: 100%">
+  <div v-loading="draw_loading" element-loading-text="拼命加载中" >
+    <div id="network" style="width: 100%;height: 100%;position: relative" >
       <el-select v-model="drawSelected" placeholder="请选择" @change="select_network" style="float: left">
         <el-option
             v-for="item in drawOptions"
@@ -12,12 +10,83 @@
         </el-option>
       </el-select>
     </div>
+    <div style="position: absolute;width: 100%;top:400px;background-color: rgb(255,255,255,0.9)">
+      <el-table
+          :header-cell-style="{background:'rbg(255,255,255,0.9)',color:'rbg(255,255,255,0.9)'}"
+          v-if="table_flag"
+          :data="selected_edgeInfo"
+          v-loading="loading"
+          element-loading-text="拼命加载中"
+          style="width: 100%"
+          height=300>
+        <!--                折叠面板-->
+              <el-table-column type="expand" style="word-break:break-all; white-space: pre-line;padding-left: 10px;padding-right: 10px">
+                <template slot-scope="props">
+                  <div v-for="(row,item) in props.row" :key="row" v-show="row">
+                    <p id="expand">
+                      <!--              <el-row :gutter="10">-->
+                      <!--                <el-col :span="3">-->
+                      <!--                  <span class="table-expand-label">&emsp;{{ item }} : </span>-->
+                      <!--                </el-col>-->
+                      <!--                <el-col :span="21">-->
+
+                      <span v-if="item==='Original_Text'" >
+                            <span v-for="(text,index) in Text_separated(row) " :key=index>
+                              <span v-for="(new_text,index) in separated(text)" :key=index>
+                                <span v-if="index===0">
+                                  <span v-for="(final,index) in separated_again(new_text)" :key="index">
+                                    <el-link v-if="index===1" :underline="false" @click="getpaperdetails(final)">{{final}}</el-link>
+                                    <span v-else>{{final}}</span>
+                                    {{ index === separated_again(new_text).length - 1 ? '' : ':' }}
+                                  </span><br/>
+                                </span>
+                                <span v-else>{{new_text}}</span>
+                              </span>
+                              <!--                      <span  @click="getpaperdetails(text)">{{text}}<br/></span>-->
+                              <el-divider v-if="index !== Text_separated(row).length - 1"></el-divider>
+                            </span>
+                          </span>
+                      <!--                  <span v-else-if="item==='Paper_List'">-->
+                      <!--                    <span v-for="(pmid,index) in Text_separated(row) " :key=index>-->
+                      <!--                      <el-link :underline="false" @click="getpaperdetails(pmid)">{{pmid}}</el-link>-->
+                      <!--                      {{ index === Text_separated(row).length - 1 ? '' : '|' }}-->
+                      <!--                    </span>-->
+                      <!--                  </span>-->
+                      <!--                  <span v-else>{{ row }}</span>-->
+                      <!--                </el-col>-->
+                      <!--              </el-row>-->
+                    </p>
+
+                  </div>
+                </template>
+              </el-table-column>
+        <!--                表格纵列-->
+        <el-table-column label="Node1" prop="Node1" />
+        <el-table-column label="Edge_Type" prop="Edge_Type" />
+        <el-table-column label="Node2" prop="Node2" />
+        <el-table-column label="Weight" prop="Weight" sortable="custom"/>
+        <!--      <el-table-column label="Paper_List" prop="Paper_List" sortable>-->
+        <!--        <template slot-scope="props">-->
+        <!--          <div v-for="(row,item) in props.row" :key="item">-->
+        <!--            <span v-if="item==='Paper_List'">-->
+        <!--              <span v-for="(pmid,index) in Pmid_separated(row) " :key=index>-->
+        <!--                <el-link :underline="false" @click="getpaperdetails(pmid)">{{pmid}}</el-link>-->
+        <!--                {{ index === Pmid_separated(row).length - 1 ? '' : '|'}}-->
+        <!--              </span>-->
+        <!--            </span>-->
+        <!--          </div>-->
+        <!--        </template>-->
+        <!--      </el-table-column>-->
+
+      </el-table>
+    </div>
   </div>
 </template>
 
 <script>
 import G6 from "@antv/g6";
 let graph;
+import example from "../../../test_data/example_test.json"
 export default {
   name: "network",
   props: {
@@ -45,23 +114,40 @@ export default {
         return true
       }
     },
-    new_network:{
-      type:String,
-      default:function (){
-        return ''
+    table_flag: {
+      type: Boolean,
+      default: function (){
+        return true
       }
-    }
+    },
   },
   data(){
     return{
       drawSelected:this.drawSelect,
-
+      selected_edgeInfo:[],
+      test:example.clue_info
     }
   },
   computed:{
     draw_loading: function (){
       return this.loading
-    }
+    },
+    Text_separated: function (){
+      return function (text){
+        return text.split('|')
+      }
+    },
+    separated: function (){
+      return function (text){
+        return text.split(';')
+      }
+    },
+    separated_again: function (){
+      return function (text){
+        return text.split(':')
+      }
+    },
+
   },
   mounted() {
     const tooltip = new G6.Tooltip({
@@ -72,21 +158,16 @@ export default {
       fixToNode: [1, 0.5],
       // the types of items that allow the tooltip show up
       // 允许出现 tooltip 的 item 类型
-      itemTypes: ['node', 'edge'],
+      itemTypes: ['node'],
       // custom the tooltip's content
       // 自定义 tooltip 内容
       getContent: (e) => {
         const outDiv = document.createElement('div');
-        outDiv.style.width = '300px';
-        outDiv.style.height = '200px';
+        outDiv.style.width = 'fit-content';
+        outDiv.style.height = 'fit-content';
         const model = e.item.getModel();
         if (e.item.getType() === 'node') {
           outDiv.innerHTML = `${model.id}`;
-        } else {
-          // const source = e.item.getSource();
-          // const target = e.item.getTarget();
-          // outDiv.innerHTML = `来源：${source.getModel().name}<br/>去向：${target.getModel().name}`;
-          outDiv.innerHTML = `<div style="height:200px;width:300px;overflow: auto">Paper_List：${model.paper}<br/>Original_Text：${model.origin_text}</div>`;
         }
         return outDiv;
       },
@@ -188,9 +269,25 @@ export default {
             if(nodeType_selector.length===1){
               var node1_type = nodeType_selector[0];
               var node2_type = nodeType_selector[0];
+              this.selected_network.edges.push({
+                source: data.Node1,
+                target: data.Node2,
+                edge_type: node1_type,
+                weight: data.Weight,
+                paper: data.Paper_List,
+                original_text: data.Original_Text
+              })
             }else{
               node1_type = nodeType_selector[0];
               node2_type = nodeType_selector[2];
+              this.selected_network.edges.push({
+                source: data.Node1,
+                target: data.Node2,
+                edge_type: node1_type+' to '+node2_type,
+                weight: data.Weight,
+                paper: data.Paper_List,
+                original_text: data.Original_Text
+              })
             }
             this.selected_network.nodes.push({
               id: data.Node1,
@@ -202,13 +299,7 @@ export default {
               label: data.Node2,
               class: node2_type
             })
-            this.selected_network.edges.push({
-              source: data.Node1,
-              target: data.Node2,
-              weight: data.Weight,
-              paper: data.Paper_List,
-              origin_text: data.Original_Text
-            })
+
           }
         });
       }else{
@@ -228,9 +319,10 @@ export default {
             this.selected_network.edges.push({
               source: data.Node1,
               target: data.Node2,
+              edge_type: this.drawSelected,
               weight: data.Weight,
               paper: data.Paper_List,
-              origin_text: data.Original_Text
+              original_text: data.Original_Text
             })
           }
 
@@ -363,10 +455,25 @@ export default {
         });
         const edgeItem = e.item;
         // 设置目标边的 click 状态 为 true
+        this.selected_edgeInfo=[];
         graph.setItemState(edgeItem, 'click', true);
-        console.log(e.item._cfg);
+        const model = e.item.getModel();
+        console.log('test:',model)
+        this.selected_edgeInfo.push({
+          Id:model.id,
+          Node1:model.source,
+          Node2:model.target,
+          Edge_Type:model.edge_type,
+          Weight:model.weight,
+          Original_Text:model.original_text
+        })
+        console.log('test1:',this.selected_edgeInfo);
       });
-    }
+    },
+    //请求单篇paper数据
+    getpaperdetails(pmid){
+      this.$emit('paper_details', pmid);
+    },
   }
 }
 </script>
@@ -379,6 +486,18 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 0;
-
 }
+
+/*最外层透明*/
+/deep/ .el-table, /deep/ .el-table__expanded-cell{
+  background-color: transparent;
+}
+/* 表格内背景颜色 */
+/deep/ .el-table th,
+/deep/ .el-table tr,
+/deep/ .el-table td {
+  background-color: transparent;
+}
+
+
 </style>

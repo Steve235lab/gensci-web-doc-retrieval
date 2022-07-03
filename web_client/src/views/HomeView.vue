@@ -216,6 +216,9 @@
                     <el-radio-button label="Paper Info" :disabled=paper_disable></el-radio-button>
                     <el-radio-button label="Clue Info" :disabled=clue_disable></el-radio-button>
                     <el-radio-button label="Network" :disabled=network_disable></el-radio-button>
+                    <el-radio-button label="Table_Flag"  :disabled=!network_disable>
+                      <i class="el-icon-s-grid"></i>
+                    </el-radio-button>
                   </el-radio-group>
                 </div>
               </el-col>
@@ -252,6 +255,7 @@
                     :paper_details="paper_details[item.index]"
                     :drawSelect="drawSelect"
                     :drawOptions="drawOptions"
+                    :table_flag.sync="table_flag"
                     :paper_page="paper_page_Info.currentNumber"
                     :paper_total="paper_page_Info.total"
                     :clue_page="clue_page_Info.currentNumber"
@@ -309,8 +313,12 @@ export default {
       paper_disable:false,
       clue_disable:false,
       network_disable:false,
+      paper_tab:'off',
+      clue_tab:'off',
+      network_tab:'off',
       loading:true,
       dialogVisible: false,
+      table_flag:false,
       history_lg:24,
       result_lg:0,
       timestamp:'',
@@ -415,6 +423,7 @@ export default {
     },
     message_type(new_message){
       if(new_message==="token_expired"){
+        this.gotoLogin()
         this.$message({
           showClose: true,
           message: '登录已过期，请重新登录！',
@@ -427,7 +436,8 @@ export default {
           type: 'error'
         });
       }
-    }
+    },
+
   },
   methods: {
     //获取历史记录
@@ -463,44 +473,24 @@ export default {
       console.log('tab：',tab);
       console.log('event',event)
       console.log(tab.name)
-      // if(tab.name==='paper'){
-      //   console.log('请求paper数据')
-      //   this.paper_page_Info.currentNumber=1
-      //   this.paperInfo()
-      // }
-      // if(tab.name==='clue'){
-      //   console.log('请求clue数据')
-      //   this.clue_page_Info.currentNumber=1
-      //   this.clueInfo()
-      // }
-      // if(tab.name==='network'){
-      //   console.log('请求network数据')
-      //   this.clue_page_Info.currentNumber=0
-      //   this.clueInfo()  //向后台请求数据并开始绘图
-        // this.network_data = network_result //本地数据
-        // this.draw_network()  //测试用
-      // }
     },
 
     TabSelect(tab){
       console.log('tab：',tab);
-      console.log(this.tabselect)
       if(tab==='Paper Info'){
-        console.log('test')
         this.addTab('paper')
-        this.tab_last=tab
         this.tabselect=''
       }
       else if(tab==='Clue Info'){
-        console.log('test')
         this.addTab('clue')
-        this.tab_last=tab
         this.tabselect=''
       }
       else if(tab==='Network'){
-        console.log('test')
         this.addTab('network')
-        this.tab_last=tab
+        this.tabselect=''
+      }
+      else if(tab==='Table_Flag'){
+        this.table_flag=!this.table_flag
         this.tabselect=''
       }
     },
@@ -509,6 +499,7 @@ export default {
     addTab(newTab) {
       let newTabName = ++this.tabIndex + '';
       if(newTab==='paper'){
+        this.paper_tab='on';
         this.paper_tabIndex=newTabName
         this.paper_page_Info.currentNumber=1
         this.history_lg=0;
@@ -522,6 +513,7 @@ export default {
         });
       }
       else if(newTab==='clue'){
+        this.clue_tab='on';
         this.clue_tabIndex=newTabName
         this.clue_page_Info.currentNumber=1
         this.clueInfo()
@@ -533,6 +525,7 @@ export default {
         });
       }
       else if(newTab==='network'){
+        this.network_tab='on';
         this.network_tabIndex=newTabName
         this.clue_page_Info.currentNumber = 0;
         this.clueInfo()
@@ -562,13 +555,15 @@ export default {
       let tabs = this.editableTabs;
       let activeName = this.editableTabsValue;
       if(targetName===this.paper_tabIndex){
+        this.paper_tab='off'
         this.paper_disable=false;
       }else if(targetName===this.clue_tabIndex){
+        this.clue_tab='off'
         this.clue_disable=false;
       }else if(targetName===this.network_tabIndex){
-        this.network_disable=false
+        this.network_tab='off';
+        this.network_disable=false;
       }
-      console.log(this.paper_disable,this.clue_disable,this.network_disable)
       if(this.paper_disable===false&&this.clue_disable===false&&this.network_disable===false){
         this.history_lg=3;
         this.result_lg=21;
@@ -708,7 +703,9 @@ export default {
               that.paper_result=res.data.paper_info
               that.paper_page_Info.total=res.data.total
               that.token = res.data.token
-              that.paper_disable = true
+              if(that.paper_tab==='on'){
+                that.paper_disable = true
+              }
             }
           })
           .catch(function(err){
@@ -747,24 +744,23 @@ export default {
               that.clue_result=res.data.clue_info
               that.clue_page_Info.total=res.data.total
               that.token = res.data.token
-              that.clue_disable = true
+              if(that.clue_tab==='on'){
+                that.clue_disable = true
+              }
             }
             else if(res.data.message_type==="network"){
               that.loading=false
               that.network_data = res.data.clue_info
               that.drawOptions = res.data.edge_type_list
-              that.network_disable = true
               that.token = res.data.token
+              if(that.network_tab==='on'){
+                that.network_disable = true
+              }
             }
           })
           .catch(function(err){
             console.log(err)
             that.message_type = err.message;
-            if(that.tab_last==='Clue Info'){
-              that.clue_disable=false
-            }else if(that.tab_last==='Network'){
-              that.network_disable=false
-            }
             that.clue_result = network_result //测试用
             that.network_data = network_result  //测试用
             that.drawOptions = ["BFS","anatomy","antibody_to_anatomy", "bacteria","bacteria_to_anatomy","bacteria_to_antibody","bacteria_to_chemical","bacteria_to_disease","bacteria_to_mechanism","bacteria_to_nutrient","chemical","chemical_to_anatomy","chemical_to_disease","chemical_to_mechanism","disease","disease_to_anatomy","disease_to_antibody","disease_to_mechanism","mechanism","mechanism_to_anatomy","mechanism_to_antibody","nutrient_to_anatomy","nutrient_to_chemical","nutrient_to_disease","nutrient_to_mechanism"]
