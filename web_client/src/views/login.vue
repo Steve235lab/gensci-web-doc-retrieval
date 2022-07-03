@@ -92,8 +92,7 @@ export default {
           if(res.data.result==='success'){
             that.$message({message:'登录成功',type:'success'})
             window.localStorage.setItem('token', res.data.token)
-            let userName = 'test'
-            window.localStorage.setItem('userName', userName)
+            window.localStorage.setItem('userName', res.data.username)
             that.$router.push('home')
           }
           else{
