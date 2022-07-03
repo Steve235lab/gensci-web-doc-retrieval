@@ -1,0 +1,7 @@
+{
+  "filter_article_type": "set('Books and Documents','Clinical Trial','Meta-Analysis','Randomized Controlled Trial','Review','Systematic Review')",
+  "filter_age": "set('0-18y','0-1m','0-23m','1-23m','2-5y','6-12y','13-18y','19+y','19-24y','19-44y','45+y','45-64y','65+y','80+y')",
+  "filter_language": "set('English','Others')",
+  "filter_species": "set('Humans','Other Animals')",
+  "filter_sex": "set('Female','Male')"
+}

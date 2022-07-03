@@ -1,21 +1,12 @@
-import json
-import time
+from pymysql import connect
 
-file_dir = 'static/json_data_test/'
+conn = connect(host='42.192.44.52', port=3306, user='root', password='root',
+                    database='gensci-web-doc-retrieval-db', charset='utf8')
+cursor = conn.cursor()
 
-# 读取 file.list 获取包含结果文献信息的json文件目录
-start_time = time.time()
-file_list = open(file_dir + 'file.list', 'r')
-json_dir_list = file_list.readlines()
-paper_info_list = []
+sql = """select * from new_search_history"""
+cursor.execute(sql)
+history = cursor.fetchone()
 
-for json_dir in json_dir_list:
-    json_dir = json_dir[:-1]
-    raw_paper_info = json.load(open(json_dir, 'r'))
-    paper_info_list.append(raw_paper_info)
+print(history[8].split(','))
 
-sorted_paper_info = sorted(paper_info_list, key=lambda x: x['publication_date'])
-end_time = time.time()
-
-# print(sorted_paper_info)
-print("time: ", end_time-start_time)
