@@ -2,6 +2,7 @@
   <div>
     <el-table
         :data="paper_result"
+        :header-cell-style="{background:'#eef1f6',color:'#606266'}"
         border
         v-loading="loading"
         element-loading-text="拼命加载中"

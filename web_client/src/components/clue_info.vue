@@ -2,6 +2,7 @@
   <div>
     <el-table
         :data="clue_result"
+        :header-cell-style="{background:'#eef1f6',color:'#606266'}"
         v-loading="loading"
         element-loading-text="拼命加载中"
         @sort-change="changeTableSort"
