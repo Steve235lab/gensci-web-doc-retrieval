@@ -79,8 +79,8 @@ export default {
         data:qs.stringify({
           message_type: "sign_in",
           email:this.loginForm.email,
-          // password:md5(this.loginForm.password)
-          password:this.loginForm.password
+          //password:this.loginForm.password,
+           password:md5(this.loginForm.password)
         })
       })
           .then(function(res){
@@ -90,10 +90,12 @@ export default {
             console.log(token);
 
           if(res.data.result==='success'){
-            console.log('登录成功')
+            that.$message({message:'登录成功',type:'success'})
             window.localStorage.setItem('token', res.data.token)
-
             that.$router.push('home')
+          }
+          else{
+            that.$message({message:'密码与邮箱不匹配',type:'warning'})
           }
             //setStorage.getItem('token')//获取token
             //console.log(setStorage.token)
@@ -120,7 +122,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image:url('../assets/beijing.png');
+  background-image:url('/src/assets/beijing.png');
   background-size: 100% 100%;
   .loginForm{
     height: 300px;
