@@ -167,9 +167,12 @@ export default {
             console.log(res)
             console.log(res.data);
             var yanzhengma=res.data.confirmed;
-            console.log(yanzhengma)
             if(yanzhengma==='True'){
+            that.$message({message:'注册成功',type:'success'})
             that.router.push('login')
+            }
+            else{
+              that.$message({message:'验证码错误',type:'warning'})
             }
           })
           .catch(function(err){
@@ -199,8 +202,11 @@ export default {
           .then(function(res){
             console.log(res)
             if(res.data.result==='success'){
-              console.log('登录成功')
+              that.$message({message:'已发送验证码',type:'success'})
               that.token=res.data.token;
+            }
+            else{
+              that.$message({message:'邮箱已被注册',type:'warning'})
             }
           })
           .catch(function(err){
