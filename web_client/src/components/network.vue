@@ -1,7 +1,5 @@
 <template>
-  <div>
-
-
+  <div v-loading="draw_loading" element-loading-text="拼命加载中">
     <div id="network" style="width: 100%;height: 100%">
       <el-select v-model="drawSelected" placeholder="请选择" @change="select_network" style="float: left">
         <el-option
