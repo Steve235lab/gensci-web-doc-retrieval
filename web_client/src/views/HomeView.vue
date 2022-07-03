@@ -43,7 +43,9 @@
                 @keyup.enter.native="handleSearch"
                 style="height:40px;"
                 autocomplete="on">
-              <el-button slot="append" icon="el-icon-search" @click="handleSearch"></el-button>
+              <el-button slot="append"  @click="handleSearch">
+                <i class="el-icon-search" style="color:cornflowerblue" />
+              </el-button>
             </el-input>
           </div>
         </el-col>
@@ -51,7 +53,7 @@
       <p></p>
   <!--    筛选条件-->
       <!--        文章类型-->
-      <el-row :gutter="20" type="flex" justify="end" style="flex-wrap: wrap;flex-direction: row">
+      <el-row :gutter="20" type="flex" justify="space-around" style="flex-wrap: wrap;flex-direction: row">
         <el-col :sm="24" :md="4" :lg="3" >
           <div style="float:left;font-weight :bold;">ARTICLE TYPE</div>
         </el-col>
@@ -68,8 +70,9 @@
           </el-checkbox-group>
         </el-col>
       </el-row>
+      <p></p>
       <!--        发表时间-->
-      <el-row :gutter="20" type="flex" justify="end" style="flex-wrap: wrap;flex-direction: row">
+      <el-row :gutter="20" type="flex" justify="space-around" style="flex-wrap: wrap;flex-direction: row">
         <el-col  :sm="24" :md="4" :lg="3" >
           <div style="float:left;font-weight :bold;">PUBLICATION DATE</div>
         </el-col>
@@ -100,11 +103,11 @@
             <div style="font-weight :bold;font-size: 16px;float: left;text-align: left">More Filters</div>
           </template>
           <!--        年龄-->
-          <el-row :gutter="20" >
-            <el-col :span="3">
+          <el-row :gutter="20" type="flex" justify="space-around" style="flex-wrap: wrap;flex-direction: row">
+            <el-col :sm="24" :md="4" :lg="3">
               <div style="float:left;font-weight :bold;">AGE</div>
             </el-col>
-            <el-col :span="21">
+            <el-col :sm="24" :md="20" :lg="21">
               <el-checkbox-group v-model="age" style="float:left;">
                 <el-checkbox label="Child: birth-18 years"/>
                 <el-checkbox label="Newborn: birth-1 month"/>
@@ -123,12 +126,13 @@
               </el-checkbox-group>
             </el-col>
           </el-row>
+          <p></p>
           <!--        语言-->
-          <el-row :gutter="20">
-            <el-col :span="3">
+          <el-row :gutter="20" type="flex" justify="space-around" style="flex-wrap: wrap;flex-direction: row">
+            <el-col :sm="24" :md="4" :lg="3">
               <div style="float:left;font-weight :bold;">LANGUAGE</div>
             </el-col>
-            <el-col :span="21">
+            <el-col :sm="24" :md="20" :lg="21">
               <el-checkbox-group v-model="language" style="float:left;">
 
                 <el-checkbox label="English"/>
@@ -137,12 +141,13 @@
               </el-checkbox-group>
             </el-col>
           </el-row>
+          <p></p>
           <!--        物种-->
-          <el-row :gutter="20">
-            <el-col :span="3">
+          <el-row :gutter="20" type="flex" justify="space-around" style="flex-wrap: wrap;flex-direction: row">
+            <el-col :sm="24" :md="4" :lg="3">
               <div style="float:left;font-weight :bold;">SPECIES</div>
             </el-col>
-            <el-col :span="21">
+            <el-col :sm="24" :md="20" :lg="21">
               <el-checkbox-group v-model="species" style="float:left;">
 
                 <el-checkbox label="Humans"/>
@@ -151,12 +156,13 @@
               </el-checkbox-group>
             </el-col>
           </el-row>
+          <p></p>
           <!--        性别-->
-          <el-row :gutter="20">
-            <el-col :span="3" >
+          <el-row :gutter="20" type="flex" justify="space-around" style="flex-wrap: wrap;flex-direction: row">
+            <el-col :sm="24" :md="4" :lg="3">
               <div style="float:left;font-weight :bold;">SEX</div>
             </el-col>
-            <el-col :span="21" >
+            <el-col :sm="24" :md="20" :lg="21">
               <el-checkbox-group v-model="sex" style="float:left;">
 
                 <el-checkbox label="Female"/>
@@ -169,62 +175,47 @@
       </el-collapse>
       <p></p>
   <!--    历史记录及结果显示-->
-      <el-row :gutter="20" type="flex" justify="end" style="flex-wrap: wrap;flex-direction: row">
+      <el-row :gutter="20" type="flex" justify="space-around" style="flex-wrap: wrap;flex-direction: row">
   <!--      历史记录-->
-        <el-col :xs="24" :sm="24" :md="4" :lg="history_lg" :xl="3">
-          <el-card :body-style="{ padding: '0px' }" class="box-card">
-            <div slot="header" class="clearfix">
-              <span>当前可查看</span>
-              <el-link :underline="false" @click="getHistory" icon="el-icon-refresh" style="font-size: 17px;float: right; padding: 3px 0"></el-link>
-<!--              <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>-->
+        <el-col :xs="24" :sm="24" :md="history_lg+1" :lg="history_lg" >
+          <el-card :body-style="{ padding: '0px' }" class="box-card" style="max-height: 650px">
+            <div slot="header" class="clearfix" style="text-align:center;">
+              <span >当前可查看</span>
+              <el-link :underline="false"
+                       @click="getHistory"
+                       icon="el-icon-refresh"
+                       style="font-size: 17px;float: right; padding: 3px 0"
+              ></el-link>
             </div>
-            <div style="height: 650px;overflow-y:auto;word-break:normal;padding: 0">
+            <div style="max-height: 650px;min-height: 300px;word-break:break-all; white-space: pre-line;padding-left: 10px;padding-right: 10px">
               <div v-for="(row,item) in history" :key="item" style="text-align:left;">
                 <el-tooltip effect="dark" placement="right">
                   <div slot="content" class="tips" style="word-wrap:break-word;width: 400px;line-height: 20px" >
                     <b>{{row.robust_keywords}}</b>
                   </div>
-                  <el-link :underline="false" @click="gettimestamp(row.timestamp)">
-                    <p class="content" style="font-size: 16px;line-height: 10px">
-                      &emsp;{{row.raw_keywords}}
-                    </p>
+                  <el-link :underline="false" :disabled="paper_disable" @click="gettimestamp(row.timestamp)" style="font-size: 16px;line-height: 18px;padding-top: 10px">
+                      {{row.raw_keywords}}
+
                   </el-link>
                 </el-tooltip>
               </div>
             </div>
           </el-card>
-          <div style="height:30px;text-align:left;">
-            当前可查看
-            <div style="height: 650px;overflow-y:auto;word-break:normal">
-              <div v-for="(row,item) in history" :key="item" style="text-align:left;">
-                <el-tooltip effect="dark" placement="right">
-                  <div slot="content" class="tips" style="word-wrap:break-word;width: 400px;line-height: 20px" >
-                    <b>{{row.robust_keywords}}</b>
-                  </div>
-                  <el-link :underline="false" @click="gettimestamp(row.timestamp)">
-                    <p class="content" style="font-size: 16px;line-height: 10px">
-                      &emsp;{{row.raw_keywords}}
-                    </p>
-                  </el-link>
-                </el-tooltip>
-              </div>
-            </div>
-          </div>
 
         </el-col>
 
   <!--      结果显示-->
-        <el-col :xs="24" :sm="24" :md="20" :lg="result_lg" :xl="21">
+        <el-col :xs="24" :sm="24" :md="result_lg-1" :lg="result_lg">
   <!--        paper_info/clue_info/network标签页-->
           <div>
 
             <el-row :gutter="5">
               <el-col :span="18" >
                 <div style="margin-top: 15px;float: left">
-                  <el-radio-group v-model="tabselect" @change="TabSelect" size="small">
-                    <el-radio-button label="Paper Info"></el-radio-button>
-                    <el-radio-button label="Clue Info"></el-radio-button>
-                    <el-radio-button label="Network"></el-radio-button>
+                  <el-radio-group v-model="tabselect" @change="TabSelect" size="small" >
+                    <el-radio-button label="Paper Info" :disabled=paper_disable></el-radio-button>
+                    <el-radio-button label="Clue Info" :disabled=clue_disable></el-radio-button>
+                    <el-radio-button label="Network" :disabled=network_disable></el-radio-button>
                   </el-radio-group>
                 </div>
               </el-col>
@@ -232,7 +223,7 @@
                 <div style="margin-top: 15px;float: right">
                   <el-input
                       placeholder="请输入Pmid"
-                      v-model="Pmid"
+                      v-model="Pmid_input"
                       class="input-with-select"
                       clearable
                       size="small"
@@ -254,6 +245,7 @@
               >
                 <component
                     :is=item.content
+                    :loading.sync="loading"
                     :paper_result="paper_result"
                     :clue_result="clue_result"
                     :network_data="network_data"
@@ -311,16 +303,19 @@ export default {
   },
 
   data() {
-
-
     return {
       token:'',
       userName:'',
+      paper_disable:false,
+      clue_disable:false,
+      network_disable:false,
+      loading:true,
       dialogVisible: false,
       history_lg:24,
       result_lg:0,
       timestamp:'',
       tabselect:'',
+      tab_last:'',
       paper_index:-1,
       activeIndex: '0',
       activeState:'',
@@ -391,6 +386,8 @@ export default {
       drawSelect: '',
       drawOptions: [],
       Pmid:'',
+      Pmid_input:'',
+      message_type: '',
 
     };
   },
@@ -405,22 +402,34 @@ export default {
   },
   computed: {
     // 计算属性的 getter
-    Pmid_separated: function (){
-      return function (pmid){
-        return Array.from(new Set(pmid.split('|')))
-      }
-    },
-  },
-  methods: {
-    // 监听键盘
-    // keyDown() {
-    //   document.onkeydown =  (e) => {
-    //     if (e && e.keyCode === 13) {
-    //       this.handleSearch()
-    //     }
+    // Pmid_separated: function (){
+    //   return function (pmid){
+    //     return Array.from(new Set(pmid.split('|')))
     //   }
     // },
 
+  },
+  watch:{
+    token(newToken){
+      window.localStorage.setItem('token',newToken)
+    },
+    message_type(new_message){
+      if(new_message==="token_expired"){
+        this.$message({
+          showClose: true,
+          message: '登录已过期，请重新登录！',
+          type: 'error'
+        })
+      }else if(new_message==="Network Error"){
+        this.$message({
+          showClose: true,
+          message: '连接错误，请重试！',
+          type: 'error'
+        });
+      }
+    }
+  },
+  methods: {
     //获取历史记录
     getHistory(){
       var that = this;
@@ -435,13 +444,8 @@ export default {
           .then(function (res){
             console.log(res)
             console.log('连接成功')
-            if(res.data.message_type==="token_expired"){
-              that.$message({
-                showClose: true,
-                message: '登录已过期，请重新登录！',
-                type: 'error'
-              });
-            }else if(res.data.message_type==="history_list"){
+            that.message_type = res.data.message_type
+            if(res.data.message_type==="history_list"){
               console.log(res.data)
               that.history = res.data.history
               that.token = res.data.token
@@ -450,14 +454,7 @@ export default {
           .catch(function(err){
             console.log(err)
             console.log('连接失败')
-            if(err.message==="Network Error"){
-              that.$message({
-                showClose: true,
-                message: '连接错误，请重试！',
-                type: 'error'
-              });
-              that.history=history_test //测试用
-            }
+            that.message_type = err.message;
           })
     },
 
@@ -491,16 +488,19 @@ export default {
       if(tab==='Paper Info'){
         console.log('test')
         this.addTab('paper')
+        this.tab_last=tab
         this.tabselect=''
       }
       else if(tab==='Clue Info'){
         console.log('test')
         this.addTab('clue')
+        this.tab_last=tab
         this.tabselect=''
       }
       else if(tab==='Network'){
         console.log('test')
         this.addTab('network')
+        this.tab_last=tab
         this.tabselect=''
       }
     },
@@ -509,31 +509,36 @@ export default {
     addTab(newTab) {
       let newTabName = ++this.tabIndex + '';
       if(newTab==='paper'){
-        ++this.paper_tabIndex
+        this.paper_tabIndex=newTabName
         this.paper_page_Info.currentNumber=1
+        this.history_lg=0;
+        this.result_lg=24;
         this.paperInfo()
+        this.paper_disable = true
         this.editableTabs.push({
-          title: 'Paper Info '+this.paper_tabIndex,
+          title: 'Paper Info ',
           name: newTabName,
           content: Paper_info
         });
       }
       else if(newTab==='clue'){
-        ++this.clue_tabIndex
+        this.clue_tabIndex=newTabName
         this.clue_page_Info.currentNumber=1
         this.clueInfo()
+        this.clue_disable = true
         this.editableTabs.push({
-          title: 'Clue Info '+this.clue_tabIndex,
+          title: 'Clue Info ',
           name: newTabName,
           content: Clue_info
         });
       }
       else if(newTab==='network'){
-        ++this.network_tabIndex
+        this.network_tabIndex=newTabName
         this.clue_page_Info.currentNumber = 0;
         this.clueInfo()
+        this.network_disable = true
         this.editableTabs.push({
-          title: 'Network '+this.network_tabIndex,
+          title: 'Network ',
           name: newTabName,
           content: Network
         });
@@ -550,10 +555,24 @@ export default {
 
       this.editableTabsValue = newTabName;
     },
+
     //关闭标签页
     removeTab(targetName) {
+      console.log(targetName)
       let tabs = this.editableTabs;
       let activeName = this.editableTabsValue;
+      if(targetName===this.paper_tabIndex){
+        this.paper_disable=false;
+      }else if(targetName===this.clue_tabIndex){
+        this.clue_disable=false;
+      }else if(targetName===this.network_tabIndex){
+        this.network_disable=false
+      }
+      console.log(this.paper_disable,this.clue_disable,this.network_disable)
+      if(this.paper_disable===false&&this.clue_disable===false&&this.network_disable===false){
+        this.history_lg=3;
+        this.result_lg=21;
+      }
       if (activeName === targetName) {
         tabs.forEach((tab, index) => {
           if (tab.name === targetName) {
@@ -564,18 +583,17 @@ export default {
           }
         });
       }
-
       this.editableTabsValue = activeName;
       this.editableTabs = tabs.filter(tab => tab.name !== targetName);
     },
+
     //获取时间戳并获取该记录的paper_info
     gettimestamp(timestamp){
       this.timestamp = timestamp
       console.log(this.timestamp)
-      this.history_lg=3;
-      this.result_lg=21;
       this.addTab('paper')
     },
+
     // 监听paper_info页码值改变的事件
     handleCurrentChange1(newPage) {
       console.log('当前paper_info页码为：',newPage)
@@ -584,6 +602,7 @@ export default {
       //获取到最新显示的页码值  重新发送axios请求 这里是封装好的请求方法
       this.paperInfo()
     },
+
     // 监听clue_info页码值改变的事件
     handleCurrentChange2(newPage) {
       console.log('当前clue_info页码为：',newPage)
@@ -592,19 +611,6 @@ export default {
       //获取到最新显示的页码值  重新发送axios请求 这里是封装好的请求方法
       this.clueInfo()
     },
-    // 选择绘制的网络图
-    select_network() {
-      console.log(this.drawSelect)
-      // this.draw_network()
-      var nodeType_selector = this.drawSelect.split('_')
-      if(nodeType_selector.length===1){
-        this.draw_network(nodeType_selector[0],nodeType_selector[0])
-      }else{
-        this.draw_network(nodeType_selector[0],nodeType_selector[2])
-      }
-      console.log(nodeType_selector.length)
-      console.log(nodeType_selector[0])
-    },
 
 
     //跳转至登录页面
@@ -612,10 +618,12 @@ export default {
       window.localStorage.setItem('userName', '')
       this.$router.push('login')
     },
+
     //跳转至注册页面
     gotoRegister(){
       this.$router.push('register')
     },
+
     //提交搜索请求
     handleSearch() {
       if (this.keywords === ''){
@@ -646,17 +654,8 @@ export default {
           })
         })
             .then(function(res){
-              console.log(res);
-              console.log('已成功发送搜索请求');
-              console.log(res.data)
-              if(res.data.message_type==="token_expired"){
-                that.$message({
-                  showClose: true,
-                  message: '登录已过期，请重新登录！',
-                  type: 'error'
-                });
-              }
-              else if(res.data.message_type==="search_received"){
+              that.message_type = res.data.message_type
+              if(res.data.message_type==="search_received"){
                 that.$message({
                   showClose: true,
                   message: '您已成功提交搜索，稍后将于邮箱通知您！',
@@ -667,13 +666,7 @@ export default {
             })
             .catch(function(err){
               console.log(err)
-              if(err.message==="Network Error"){
-                that.$message({
-                  showClose: true,
-                  message: '连接错误，请重试！',
-                  type: 'error'
-                });
-              }
+              that.message_type = err.message;
             })
         this.keywords = '';
         this.species = [];
@@ -689,6 +682,7 @@ export default {
 
     //获取当前页paper_info数据
     paperInfo() {
+      this.loading=true
       console.log('请求paper数据')
       console.log(this.timestamp);
       var that=this;
@@ -702,42 +696,33 @@ export default {
           "page_num": this.paper_page_Info.currentNumber,
           "column": this.paper_column,
           "order": this.paper_order,
-          // "page_num": 1
         })
       })
           .then(function(res){
             console.log(res);
             console.log('连接成功');
             console.log(res.data)
-            if(res.data.message_type==="token_expired"){
-              that.$message({
-                showClose: true,
-                message: '登录已过期，请重新登录！',
-                type: 'error'
-              });
-            }else if(res.data.message_type==="paper_info"){
+            that.message_type = res.data.message_type;
+            if(res.data.message_type==="paper_info"){
+              that.loading=false
               that.paper_result=res.data.paper_info
               that.paper_page_Info.total=res.data.total
               that.token = res.data.token
+              that.paper_disable = true
             }
-
           })
           .catch(function(err){
             console.log(err)
-            if(err.message==="Network Error"){
-              that.$message({
-                showClose: true,
-                message: '连接错误，请重试！',
-                type: 'error'
-              });
-              that.paper_result = example.paper_info_4 //测试用
-            }
+            that.paper_disable=false;
+            that.message_type = err.message;
+            that.paper_result = example.paper_info_4 //测试用
           })
 
     },
 
     //获取当前页clue_info数据
     clueInfo() {
+      this.loading=true
       console.log('请求clue数据')
       var that=this;
       that.axios({
@@ -756,36 +741,34 @@ export default {
           .then(function(res){
             console.log(res);
             console.log('连接成功');
-            if(res.data.message_type==="token_expired"){
-              that.$message({
-                showClose: true,
-                message: '登录已过期，请重新登录！',
-                type: 'error'
-              });
-            }
-            else if (res.data.message_type=== "clue_info"){
+            that.message_type = res.data.message_type;
+            if (res.data.message_type=== "clue_info"){
+              that.loading=false
               that.clue_result=res.data.clue_info
               that.clue_page_Info.total=res.data.total
               that.token = res.data.token
+              that.clue_disable = true
             }
             else if(res.data.message_type==="network"){
+              that.loading=false
               that.network_data = res.data.clue_info
               that.drawOptions = res.data.edge_type_list
+              that.network_disable = true
               that.token = res.data.token
             }
           })
           .catch(function(err){
             console.log(err)
-            if(err.message==="Network Error"){
-              that.$message({
-                showClose: true,
-                message: '连接错误，请重试！',
-                type: 'error'
-              });
-              that.clue_result = network_result //测试用
-              that.network_data = network_result  //测试用
-              that.drawOptions = ["BFS","anatomy","antibody_to_anatomy", "bacteria","bacteria_to_anatomy","bacteria_to_antibody","bacteria_to_chemical","bacteria_to_disease","bacteria_to_mechanism","bacteria_to_nutrient","chemical","chemical_to_anatomy","chemical_to_disease","chemical_to_mechanism","disease","disease_to_anatomy","disease_to_antibody","disease_to_mechanism","mechanism","mechanism_to_anatomy","mechanism_to_antibody","nutrient_to_anatomy","nutrient_to_chemical","nutrient_to_disease","nutrient_to_mechanism"]
+            that.message_type = err.message;
+            if(that.tab_last==='Clue Info'){
+              that.clue_disable=false
+            }else if(that.tab_last==='Network'){
+              that.network_disable=false
             }
+            that.clue_result = network_result //测试用
+            that.network_data = network_result  //测试用
+            that.drawOptions = ["BFS","anatomy","antibody_to_anatomy", "bacteria","bacteria_to_anatomy","bacteria_to_antibody","bacteria_to_chemical","bacteria_to_disease","bacteria_to_mechanism","bacteria_to_nutrient","chemical","chemical_to_anatomy","chemical_to_disease","chemical_to_mechanism","disease","disease_to_anatomy","disease_to_antibody","disease_to_mechanism","mechanism","mechanism_to_anatomy","mechanism_to_antibody","nutrient_to_anatomy","nutrient_to_chemical","nutrient_to_disease","nutrient_to_mechanism"]
+
           })
 
     },
@@ -809,14 +792,16 @@ export default {
 
     // 搜索文章详情
     Search_Pmid(){
+      this.Pmid=this.Pmid_input
       this.getpaperdetails(this.Pmid)
-      this.Pmid = ''
+      this.Pmid_input = ''
     },
 
     //获取单篇文章详情
     getpaperdetails(pmid){
       console.log("pmid:",pmid)
       console.log('请求单篇paper数据')
+      this.loading=true
       var that=this;
       that.axios({
         method:"post",
@@ -831,34 +816,19 @@ export default {
           .then(function(res){
             console.log(res);
             console.log('连接成功');
-            if(res.data.message_type==="token_expired"){
-              that.$message({
-                showClose: true,
-                message: '登录已过期，请重新登录！',
-                type: 'error'
-              });
-            }else if(res.data.message_type==="paper_details"){
+            that.message_type = res.data.message_type;
+            if(res.data.message_type==="paper_details"){
               that.paper_details.push(res.data.paper_info)
               console.log(that.paper_details)
               that.Pmid = res.data.Pmid
               that.token = res.data.token
               that.addTab(that.Pmid)
+              that.loading = false
             }
-            // console.log(res.data)
-
-
-
           })
           .catch(function(err){
+            that.message_type = err.message;
             console.log(err)
-            if(err.message==="Network Error"){
-              that.$message({
-                showClose: true,
-                message: '连接错误，请重试！',
-                type: 'error'
-              });
-              that.addTab(that.Pmid)
-            }
           })
     },
 
@@ -873,7 +843,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /*text-align: center;*/
-  color: #2c3e50;
+
   margin-top: 0;
 
 }
@@ -899,5 +869,9 @@ export default {
 .el-table .cell {
   white-space: pre-line;
 }
-
+.el-card__header {
+  padding: 10px 10px;
+  border-bottom: 1px solid #EBEEF5;
+  box-sizing: border-box;
+}
 </style>
