@@ -7,11 +7,15 @@ import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import cookies from 'vue-cookies'
+import Vuex from 'vuex'
+
+
 // import vueResource from 'vue-resource'
 
 Vue.prototype.$cookies = cookies;
 Vue.prototype.$http = axios
 Vue.use(VueAxios, axios)
+Vue.use(Vuex)
 Vue.use(ElementUI);
 // Vue.use(vueResource)
 Vue.config.productionTip = false
