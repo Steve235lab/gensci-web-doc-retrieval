@@ -415,6 +415,7 @@ export default {
     },
     message_type(new_message){
       if(new_message==="token_expired"){
+        this.gotoLogin()
         this.$message({
           showClose: true,
           message: '登录已过期，请重新登录！',
