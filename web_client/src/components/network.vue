@@ -38,11 +38,29 @@ export default {
       default: function (){
         return []
       }
+    },
+    loading: {
+      type: Boolean,
+      default: function (){
+        return true
+      }
+    },
+    new_network:{
+      type:String,
+      default:function (){
+        return ''
+      }
     }
   },
   data(){
     return{
-      drawSelected:this.drawSelect
+      drawSelected:this.drawSelect,
+
+    }
+  },
+  computed:{
+    draw_loading: function (){
+      return this.loading
     }
   },
   mounted() {
@@ -59,8 +77,8 @@ export default {
       // 自定义 tooltip 内容
       getContent: (e) => {
         const outDiv = document.createElement('div');
-        outDiv.style.width = 'fit-content';
-        outDiv.style.height = 'fit-content';
+        outDiv.style.width = '300px';
+        outDiv.style.height = '200px';
         const model = e.item.getModel();
         if (e.item.getType() === 'node') {
           outDiv.innerHTML = `${model.id}`;
@@ -68,7 +86,7 @@ export default {
           // const source = e.item.getSource();
           // const target = e.item.getTarget();
           // outDiv.innerHTML = `来源：${source.getModel().name}<br/>去向：${target.getModel().name}`;
-          outDiv.innerHTML = `Paper_List：${model.paper}<br/>Original_Text：${model.origin_text}`;
+          outDiv.innerHTML = `<div style="height:200px;width:300px;overflow: auto">Paper_List：${model.paper}<br/>Original_Text：${model.origin_text}</div>`;
         }
         return outDiv;
       },
@@ -122,12 +140,12 @@ export default {
       // 布局
       layout: {
         type: 'fruchterman',
-        center: [200, 200], // 可选，默认为图的中心
+        // center: [200, 200], // 可选，默认为图的中心
         gravity: 0, // 可选
         speed: 2, // 可选
         clustering: true, // 可选
         clusterGravity: 5, // 可选
-        maxIteration: 3000, // 可选，迭代次数
+        maxIteration: 300, // 可选，迭代次数
         workerEnabled: true, // 可选，开启 web-worker
         gpuEnabled: true, // 可选，开启 GPU 并行计算，G6 4.0 支持
         // linkDistance: 1000,
@@ -146,6 +164,8 @@ export default {
   methods:{
     // 选择绘制的网络图
     select_network() {
+      this.draw_loading=true
+      console.log(this.new_network)
       console.log(this.drawSelected)
       // this.draw_network()
       var nodeType_selector = this.drawSelected.split('_')
@@ -306,6 +326,7 @@ export default {
       // graph.clear();
       graph.data(this.selected_network);
       graph.render();
+      this.draw_loading=false
       console.log("完成绘制")
 
       // 监听鼠标进入节点

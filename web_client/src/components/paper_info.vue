@@ -3,6 +3,8 @@
     <el-table
         :data="paper_result"
         border
+        v-loading="loading"
+        element-loading-text="拼命加载中"
         @sort-change="changeTableSort"
         style="width: 100%"
         height=600>
@@ -38,13 +40,13 @@
         </template>
         <!--                  表格纵列-->
       </el-table-column>
-      <el-table-column label="Title" prop="Title" width="400"></el-table-column>
-      <el-table-column label="Date" prop="Publication_Date" sortable="custom" width="100"></el-table-column>
-      <el-table-column label="Pmid" prop="Pmid" width="100"></el-table-column>
-      <el-table-column label="Journal" prop="Journal" width="150"></el-table-column>
-      <el-table-column label="If" prop="Journal_If" sortable="custom" width="100"></el-table-column>
-      <el-table-column label="Sample_Size" prop="Sample_Size" width="150" align="center"></el-table-column>
-      <el-table-column label="Publication_Type" prop="Publication_Type" width="200">
+      <el-table-column label="Title" prop="Title" min-width="400"></el-table-column>
+      <el-table-column label="Date" prop="Publication_Date" sortable="custom" min-width="100"></el-table-column>
+      <el-table-column label="Pmid" prop="Pmid" min-width="100"></el-table-column>
+      <el-table-column label="Journal" prop="Journal" min-width="150"></el-table-column>
+      <el-table-column label="If" prop="Journal_If" sortable="custom" min-width="100"></el-table-column>
+      <el-table-column label="Sample_Size" prop="Sample_Size" min-width="150" align="center"></el-table-column>
+      <el-table-column label="Publication_Type" prop="Publication_Type" min-width="200">
       <template slot-scope="props">
         <div v-for="(row,index) in props.row" :key="index">
             <span v-if="index==='Publication_Type'">
@@ -91,6 +93,12 @@ export default {
       type: Number,
       default: 0
     },
+    loading: {
+      type: Boolean,
+      default: function (){
+        return true
+      }
+    }
   },
   data() {
     return {
@@ -130,4 +138,5 @@ export default {
   display:inline-block;
   color: #A9A9A9;
 }
+
 </style>

@@ -2,6 +2,8 @@
   <div>
     <el-table
         :data="clue_result"
+        v-loading="loading"
+        element-loading-text="拼命加载中"
         @sort-change="changeTableSort"
         style="width: 100%"
         height=600>
@@ -97,6 +99,12 @@ export default {
     clue_total: {
       type: Number,
       default: 0
+    },
+    loading: {
+      type: Boolean,
+      default: function (){
+        return true
+      }
     },
   },
   data() {
