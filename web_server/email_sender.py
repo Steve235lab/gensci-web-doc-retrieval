@@ -60,7 +60,7 @@ class EmailSender:
 
     def send(self):
         self.server.sendmail(self.sender, self.receivers, self.message.as_string())
-        print("已向用户" + self.username + "的电子邮箱" + self.receivers[0] + "发送验证邮件")
+        print("已向用户" + self.username + "的电子邮箱" + self.receivers[0] + "发送邮件")
 
 
 if __name__ == "__main__":

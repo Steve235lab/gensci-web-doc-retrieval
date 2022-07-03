@@ -193,6 +193,7 @@ def run_search(robust_keywords: str, timestamp: int):
     # 生成验证码
     uuids = DATABASE.get_uuids_with_keywords(robust_keywords)
     for uuid in uuids:
+        uuid = uuid[0]
         user = DATABASE.get_user(uuid)
         email = user.email
         username = user.username
