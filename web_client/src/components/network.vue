@@ -85,8 +85,11 @@
 
 <script>
 import G6 from "@antv/g6";
+// import { GraphLayoutPredict } from '@antv/vis-predict-engine';
 let graph;
+// const { GraphLayoutPredict } = window.GraphLayoutPredict
 import example from "../../../test_data/example_test.json"
+let shift = true;
 export default {
   name: "network",
   props: {
@@ -97,9 +100,9 @@ export default {
       }
     },
     drawSelect: {
-      type: Array,
+      type: String,
       default: function (){
-        return []
+        return ''
       }
     },
     drawOptions: {
@@ -125,13 +128,20 @@ export default {
     return{
       drawSelected:this.drawSelect,
       selected_edgeInfo:[],
-      test:example.clue_info
+      selected_nodeInfo:[],
+      test:example.clue_info,
+      draw_loading:this.loading
+    }
+  },
+  watch:{
+    loading(newloading){
+      this.draw_loading=newloading
     }
   },
   computed:{
-    draw_loading: function (){
-      return this.loading
-    },
+    // draw_loading: function (){
+    //   return this.loading
+    // },
     Text_separated: function (){
       return function (text){
         return text.split('|')
@@ -209,6 +219,7 @@ export default {
           stroke: 'red',
           lineWidth: 2,
         },
+
       },
       // 边在各状态下的样式
       edgeStateStyles: {
@@ -222,21 +233,30 @@ export default {
       layout: {
         type: 'fruchterman',
         // center: [200, 200], // 可选，默认为图的中心
-        gravity: 0, // 可选
-        speed: 2, // 可选
-        clustering: true, // 可选
-        clusterGravity: 5, // 可选
-        maxIteration: 300, // 可选，迭代次数
-        workerEnabled: true, // 可选，开启 web-worker
-        gpuEnabled: true, // 可选，开启 GPU 并行计算，G6 4.0 支持
-        // linkDistance: 1000,
-        preventOverlap: true,
-        nodeStrength: -30,
-        edgeStrength: 0.1,
+        gravity: 3, // 可选
+        // speed: 2, // 可选
+        // clustering: true, // 可选
+        // clusterGravity: 0.1, // 可选
+        // maxIteration: 500, // 可选，迭代次数
+        // // linkDistance: 1000,
+        // preventOverlap: true,
+        // nodeStrength: 20,         // 可选
+        // edgeStrength: 0.5,        // 可选
+        // nodeSize: 30,             // 可选
+        // onTick: () => {           // 可选
+        //   console.log('ticking');
+        // },
+        onLayoutEnd: () => {      // 可选
+          console.log('force layout done');
+          this.draw_loading=false
+          console.log("完成绘制")
+        },
+        workerEnabled: true,      // 可选，开启 web-worker
+        gpuEnabled: true          // 可选，开启 GPU 并行计算，G6 4.0 支持
       },
       // 内置交互
       modes: {
-        default: ['drag-canvas', 'zoom-canvas', 'drag-node'],
+        default: ['drag-canvas', 'zoom-canvas', 'drag-node','brush-select'],
       },
       // plugins: [minimap,legend],
       plugins: [tooltip],
@@ -351,6 +371,7 @@ export default {
           message: '无数据，请重新选择！',
           type: 'warning'
         });
+        this.draw_loading=false
       }
 
       nodes.forEach((node) => {
@@ -418,21 +439,20 @@ export default {
       // graph.clear();
       graph.data(this.selected_network);
       graph.render();
-      this.draw_loading=false
-      console.log("完成绘制")
+
 
       // 监听鼠标进入节点
       graph.on('node:mouseenter', (e) => {
         const nodeItem = e.item;
         // 设置目标节点的 hover 状态 为 true
-        graph.setItemState(nodeItem, 'hover', true);
+        graph.setItemState(nodeItem, 'active', true);
 
       });
       // 监听鼠标离开节点
       graph.on('node:mouseleave', (e) => {
         const nodeItem = e.item;
         // 设置目标节点的 hover 状态 false
-        graph.setItemState(nodeItem, 'hover', false);
+        graph.setItemState(nodeItem, 'active', false);
       });
       // 监听鼠标点击节点
       graph.on('node:click', (e) => {
@@ -446,7 +466,7 @@ export default {
         graph.setItemState(nodeItem, 'click', true);
         console.log(e.item);
       });
-      // 监听鼠标点击节点
+      // 监听鼠标点击边
       graph.on('edge:click', (e) => {
         // 先将所有当前有 click 状态的边的 click 状态置为 false
         const clickEdges = graph.findAllByState('edge', 'click');
@@ -458,7 +478,6 @@ export default {
         this.selected_edgeInfo=[];
         graph.setItemState(edgeItem, 'click', true);
         const model = e.item.getModel();
-        console.log('test:',model)
         this.selected_edgeInfo.push({
           Id:model.id,
           Node1:model.source,
@@ -469,6 +488,33 @@ export default {
         })
         console.log('test1:',this.selected_edgeInfo);
       });
+
+      graph.on('nodeselectchange', (e) => {
+        console.log('e.selectedItems:',e.selectedItems )
+        this.selected_edgeInfo=[];
+        e.selectedItems.edges.forEach((edge) => {
+          const model = edge._cfg.model
+          this.selected_edgeInfo.push({
+            Id:model.id,
+            Node1:model.source,
+            Node2:model.target,
+            Edge_Type:model.edge_type,
+            Weight:model.weight,
+            Original_Text:model.original_text
+          })
+        });
+        e.selectedItems.nodes.forEach((node) => {
+          const model = node._cfg.model
+          console.log(model)
+          this.selected_nodeInfo.push({
+            Id:model.id,
+            Node_Type:model.class,
+          })
+        });
+
+      });
+
+
     },
     //请求单篇paper数据
     getpaperdetails(pmid){
