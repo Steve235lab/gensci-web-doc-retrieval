@@ -1,0 +1,1 @@
+create table history(history_id int(11)not null, result_path_id int(11), raw_keywords varchar(256), search_completed_flag int(11), uuid int(11), favourite_flag int(11), start_time varchar(16), end_time varchar(16), filters enum(''), primary key(history_id));
