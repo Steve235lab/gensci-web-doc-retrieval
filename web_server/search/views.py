@@ -83,6 +83,8 @@ def search(request):
                 for f in article_type:
                     robust_keywords += '(' + f + '[FILT]) OR ('
                 robust_keywords = robust_keywords[:-5] + ')'
+        else:
+            article_type = None
         if language is not None and len(language) > 0 and language != '[]':
             language = language.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(language) > 0:
@@ -90,6 +92,8 @@ def search(request):
                 for f in language:
                     robust_keywords += '(' + f + '[Language]) OR ('
                 robust_keywords = robust_keywords[:-5] + ')'
+        else:
+            language = None
         if species is not None and len(species) > 0 and species != '[]':
             species = species.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(species) > 0:
@@ -97,6 +101,8 @@ def search(request):
                 for f in species:
                     robust_keywords += '(' + f + '[FILT]) OR ('
                 robust_keywords = robust_keywords[:-5] + ')'
+        else:
+            species = None
         if sex is not None and len(sex) > 0 and sex != '[]':
             sex = sex.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(sex) > 0:
@@ -104,6 +110,8 @@ def search(request):
                 for f in sex:
                     robust_keywords += '(' + f + '[FILT]) OR ('
                 robust_keywords = robust_keywords[:-5] + ')'
+        else:
+            sex = None
         if age is not None and len(age) > 0 and age != '[]':
             age = age.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(age) > 0:
@@ -111,6 +119,8 @@ def search(request):
                 for f in age:
                     robust_keywords += '(' + f + '[FILT]) OR ('
                 robust_keywords = robust_keywords[:-5] + ')'
+        else:
+            age = None
 
         print("Search keywords: ", robust_keywords)
 
