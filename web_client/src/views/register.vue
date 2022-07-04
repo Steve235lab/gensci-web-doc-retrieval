@@ -32,12 +32,11 @@
         </el-col>
       </el-form-item>
       <el-form-item prop="code" label="验证码 " style="letter-spacing: 4px">
-        <el-col :span="12">
+        <el-col :span="10">
           <el-input placeholder="请输⼊验证码" v-model="loginForm.code"></el-input>
         </el-col>
-        <el-col :span="6">
-          <el-button  @click="sendemail" type="success">获取</el-button>
-        </el-col>
+          <el-button v-show="show" type="success" style="width: 30%;padding: 12px 0;font-size: 13px;" @click="sendemail">获取短信验证码</el-button>
+          <el-button v-show="!show" type="warning" style="width: 30%;padding: 12px 0;font-size: 13px;" disabled>{{count}} s</el-button>
       </el-form-item>
 
       <el-form-item>
@@ -105,13 +104,15 @@ export default {
     };
     return {
       token:'',
+      show:true,
+      count:'',
+      timer:null,
       loginForm: {
         username: "",
         email: "",
         password: "",
         epassword: "",
         code: "",
-
       },
       loginrules: {
         username: [
@@ -158,7 +159,7 @@ export default {
         method:"post",
         url:"http://42.192.44.52:8000/sign_up/email_confirm/",
         data:qs.stringify({
-          message_type: "email_confirm",
+          message_type: "email_confirmed",
           token: this.token,
           confirm_code: this.loginForm.code
         })
@@ -187,7 +188,21 @@ export default {
       this.$router.push('login')
     },
     sendemail(){
-      var that=this;
+       var that=this;
+      const TIME_COUNT = 60;
+        if (!that.timer) {
+          that.count = TIME_COUNT;
+          that.show = false;
+          that.timer = setInterval(() => {
+          if (that.count > 0 && that.count <= TIME_COUNT) {
+            that.count--;
+          } else {
+            that.show = true;
+            clearInterval(that.timer);
+            that.timer = null;
+          }
+        }, 1000)
+      }
       that.axios({
         method:"post",
         url:"http://42.192.44.52:8000/sign_up/",
@@ -200,7 +215,7 @@ export default {
       })
           .then(function(res){
             console.log(res)
-            if(res.data.result==='True'){
+            if(res.data.result==='success'){
               that.$message({message:'已发送验证码',type:'success'})
               that.token=res.data.token;
             }
@@ -211,7 +226,7 @@ export default {
           .catch(function(err){
             console.log(err)
           })
-    }
+    },
   }
   
 }
