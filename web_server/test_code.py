@@ -4,9 +4,11 @@ conn = connect(host='42.192.44.52', port=3306, user='root', password='root',
                     database='gensci-web-doc-retrieval-db', charset='utf8')
 cursor = conn.cursor()
 
-sql = """select history_id from new_search_history"""
+sql = """select * from new_search_history"""
 cursor.execute(sql)
-max_id = max(cursor.fetchall())
+history = cursor.fetchall()
+cache = history[9][9]
+print(cache)
 #
 # print(history[8].split(','))
 
@@ -14,4 +16,4 @@ max_id = max(cursor.fetchall())
 # cursor.execute(sql)
 # conn.commit()
 
-print(max_id)
+

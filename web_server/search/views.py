@@ -264,8 +264,75 @@ def get_history(request):
         # 将历史记录放入 'history' 字段
         for history in history_list:
             timestamp = history[0]
-            raw_keywords = history[6]
-            robust_keywords = history[2]
+            raw_keywords = history[2]
+            start_time = history[6]
+            end_time = history[7]
+            article_type_int = str(history[8])
+            article_type = ''
+            for i in range(len(article_type_int)):
+                if article_type_int[i] == '1':
+                    if i == 0:
+                        article_type += 'Books and Documents'
+                    elif i == 1:
+                        if article_type != '':
+                            article_type += 'OR Clinical Trial'
+                        else:
+                            article_type += 'Clinical Trial'
+                    elif i == 2:
+                        if article_type != '':
+                            article_type += 'OR Meta-Analysis'
+                        else:
+                            article_type += 'Meta-Analysis'
+                    elif i == 3:
+                        if article_type != '':
+                            article_type += 'OR Randomized Controlled Trial'
+                        else:
+                            article_type += 'Randomized Controlled Trial'
+                    elif i == 4:
+                        if article_type != '':
+                            article_type += 'OR Review'
+                        else:
+                            article_type += 'Review'
+                    elif i == 5:
+                        if article_type != '':
+                            article_type += 'OR Systematic Review'
+                        else:
+                            article_type += 'Systematic Review'
+            if article_type != '':
+                article_type = '(' + article_type + '[FILT])'
+            age = history[9]
+            if age.find(',') != -1:
+                age_ls = age.split(',')
+                age = '(' + age_ls[0] + ' OR ' + age_ls[1] + '[FILT])'
+            else:
+                if age != '':
+                    age = '(' + age + '[FILT])'
+            language = history[10]
+            if language.find(',') != -1:
+                language_ls = language.split(',')
+                language = '(' + language_ls[0] + ' OR ' + language_ls[1] + '[FILT])'
+            else:
+                if language != '':
+                    language = '(' + language + '[FILT])'
+            species = history[11]
+            if species.find(',') != -1:
+                species_ls = species.split(',')
+                species = '(' + species_ls[0] + ' OR ' + species_ls[1] + '[FILT])'
+            else:
+                if species != '':
+                    species = '(' + species + '[FILT])'
+            sex = history[12]
+            if sex.find(',') != -1:
+                sex_ls = sex.split(',')
+                sex = '(' + sex_ls[0] + ' OR ' + sex_ls[1] + '[FILT])'
+            else:
+                if sex != '':
+                    sex = '(' + sex + '[FILT])'
+
+            robust_keywords = '(' + raw_keywords + ') AND ("' + start_time + '"[Date - Publication]:' + '"' + \
+                              end_time + '"[Date - Publication])' + ' AND ' + article_type + ' AND ' + age + ' AND ' + \
+                              language + ' AND ' + species + ' AND ' + sex
+
             history_dic = {'timestamp': timestamp, 'raw_keywords': raw_keywords, 'robust_keywords': robust_keywords}
             json_rsp['history'].append(history_dic)
 
