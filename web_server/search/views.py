@@ -115,7 +115,7 @@ def search(request):
         print("Search keywords: ", robust_keywords)
 
         # 保存搜索记录
-        timestamp = DATABASE.add_search_history(robust_keywords, uuid, keywords)
+        timestamp = DATABASE.add_search_history(uuid, keywords, start_time, end_time, article_type, age, language, species, sex)
 
         # 开启一个单独的线程运行搜索服务并在搜索完成后执行善后处理
         search_thread = Thread(target=run_search, args=(robust_keywords, timestamp))

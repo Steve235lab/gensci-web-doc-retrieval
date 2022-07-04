@@ -130,37 +130,47 @@ class Database:
         # 为 self.user_list 中的用户初始化 search_history 成员
         for index in range(len(self.user_list)):
             uuid = self.user_list[index].uuid
-            sql = """select * from search_history where uuid = '%d' """ % uuid
+            sql = """select * from new_search_history where uuid = '%d' """ % uuid
             self.cursor.execute(sql)
             histories = self.cursor.fetchall()
             for history in histories:
-                timestamp = history[0]
-                result_timestamp = history[1]
-                keywords = history[2]
+                history_id = history[0]
+                result_path_id = history[1]
+                raw_keywords = history[2]
                 search_completed_flag = history[3]
                 uuid = history[4]
                 favourite_flag = history[5]
-                self.user_list[index].search_history[timestamp] = [result_timestamp, keywords, search_completed_flag,
-                                                                   uuid, favourite_flag]
+                start_time = history[6]
+                end_time = history[7]
+                filter_article_type = history[8]
+                filter_age = history[9]
+                filter_language = history[10]
+                filter_species = history[11]
+                filter_sex = history[12]
+                self.user_list[index].search_history[history_id] = [result_path_id, raw_keywords, search_completed_flag,
+                                                                    uuid, favourite_flag, start_time, end_time,
+                                                                    filter_article_type, filter_age, filter_language,
+                                                                    filter_species, filter_sex]
 
         # 遍历 search_history 表，初始化searched_keywords
-        sql = """select * from search_history"""
+        sql = """select * from new_search_history"""
         self.cursor.execute(sql)
         histories = self.cursor.fetchall()
         for history in histories:
-            keywords = history[2]
+            keywords = history[2] + history[6] + history[7] + history[8] + history[9] + history[10] + history[11] + \
+                       history[12]
             if keywords in self.searched_keywords:  # searched_keywords中已经有相同关键词的搜索记录
                 favourite_flag = history[5]
                 if favourite_flag == 'True':
                     self.searched_keywords[keywords][1] = True
             else:  # 此条记录是第一条搜索该关键词的搜索记录
-                result_timestamp = history[1]
+                result_path_id = history[1]
                 favourite_flag = history[5]
                 if favourite_flag == 'True':
                     favourite_flag = True
                 else:
                     favourite_flag = False
-                self.searched_keywords[keywords] = [result_timestamp, favourite_flag]
+                self.searched_keywords[keywords] = [result_path_id, favourite_flag]
 
     def is_connected(self):
         """数据库连接保活
@@ -247,19 +257,27 @@ class Database:
                                   confirm_code=confirm_code, email_confirmed=email_confirmed,
                                   permissions=permissions)
 
-                sql = """select * from search_history where uuid = '%d' """ % uuid
+                sql = """select * from new_search_history where uuid = '%d' """ % uuid
                 self.cursor.execute(sql)
                 histories = self.cursor.fetchall()
                 for history in histories:
-                    timestamp = history[0]
-                    result_timestamp = history[1]
-                    keywords = history[2]
+                    history_id = history[0]
+                    result_path_id = history[1]
+                    raw_keywords = history[2]
                     search_completed_flag = history[3]
                     uuid = history[4]
                     favourite_flag = history[5]
-                    found_user.search_history[timestamp] = [result_timestamp, keywords,
-                                                            search_completed_flag,
-                                                            uuid, favourite_flag]
+                    start_time = history[6]
+                    end_time = history[7]
+                    filter_article_type = history[8]
+                    filter_age = history[9]
+                    filter_language = history[10]
+                    filter_species = history[11]
+                    filter_sex = history[12]
+                    found_user.search_history[history_id] = [result_path_id, raw_keywords, search_completed_flag,
+                                                             uuid, favourite_flag, start_time, end_time,
+                                                             filter_article_type, filter_age, filter_language,
+                                                             filter_species, filter_sex]
 
                 self.user_list.append(found_user)
 
@@ -325,7 +343,7 @@ class Database:
             self.cursor.execute(sql)
             self.conn.commit()
 
-    def add_search_history(self, keywords: str, uuid: int, raw_keywords: str):
+    def add_search_history(self, uuid: int, raw_keywords: str, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex):
         """向数据库中添加一条新的搜索记录
 
         生成当前时间戳，查找并更新 self.searched_keywords 确定 result_timestamp，写入数据库
@@ -335,21 +353,26 @@ class Database:
         :param uuid: (int) 进行该次搜索的用户序号
         :return: (int) timestamp 该条新历史记录的时间戳
         """
-        timestamp: int = int(time.mktime(time.localtime(time.time())))
+        # timestamp: int = int(time.mktime(time.localtime(time.time())))
+        sql = """select history_id from new_search_history"""
+        self.cursor.execute(sql)
+        max_id = max(self.cursor.fetchall())[0]
+        history_id = max_id + 1
+
+        keywords = raw_keywords + start_time + end_time + filter_article_type + filter_age + filter_language + filter_species + filter_sex
 
         if keywords in self.searched_keywords:
-            result_timestamp = self.searched_keywords[keywords][0]
+            result_id_path = self.searched_keywords[keywords][1]
         else:
-            result_timestamp = timestamp
-            self.searched_keywords[keywords] = [timestamp, False]
+            result_id_path = history_id
+            self.searched_keywords[keywords] = [history_id, False]
 
         self.is_connected()
-        sql = """insert into search_history values ('%d', '%d', '%s', '%s', '%d', '%s', '%s')""" % (
-            timestamp, result_timestamp, keywords, "False", uuid, "False", raw_keywords)
+        sql = """insert into new_search_history values ('%d', '%d', '%s', '%d', '%d', '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s')""" % (history_id, result_id_path, raw_keywords, 0, uuid, 0, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex)
         self.cursor.execute(sql)
         self.conn.commit()
 
-        return timestamp
+        return history_id
 
     def get_search_history(self, uuid: int):
         """获取给定uuid用户的搜索记录
@@ -361,46 +384,46 @@ class Database:
         max_history_num = 100
 
         self.is_connected()
-        sql = """select * from search_history where uuid = '%d' AND search_completed_flag = 'True' """ % uuid
+        sql = """select * from new_search_history where uuid = '%d' AND search_completed_flag = 1 """ % uuid
         self.cursor.execute(sql)
         history_list = self.cursor.fetchall()
         if len(history_list) <= max_history_num:
             return history_list
         else:
-            return history_list[(-1*max_history_num):]
+            return history_list[(-1 * max_history_num):]
 
-    def get_result(self, timestamp: int):
+    def get_result(self, history_id: int):
         """获取给定时间戳的历史记录
 
         :param timestamp: 该次搜索的时间戳
         :return: history 根据给定时间戳从数据表中找到的一条历史记录
         """
         self.is_connected()
-        sql = """select * from search_history where timestamp = '%d' """ % timestamp
+        sql = """select * from new_search_history where history_id = '%d' """ % history_id
         self.cursor.execute(sql)
         history = self.cursor.fetchall()
 
         return history
 
-    def search_completed(self, keywords: str):
+    def search_completed(self, raw_keywords: str, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex):
         """将数据库中所有搜索该关键词的搜索记录标记为已完成搜索
 
         :param keywords: (str) 关键词组合
         :return: None
         """
         self.is_connected()
-        sql = """update search_history set search_completed_flag = 'True' where keywords = ('%s')""" % keywords
+        sql = """update new_search_history set search_completed_flag = 1 where raw_keywords = ('%s') AND start_time = ('%s') AND end_time = ('%s') AND filter_article_type = ('%d') AND filter_age = ('%s') AND filter_language = ('%s') AND filter_species = ('%s') AND filter_sex = ('%s')""" % (raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex)
         self.cursor.execute(sql)
         self.conn.commit()
 
-    def get_uuids_with_keywords(self, keywords: str):
+    def get_uuids_with_keywords(self, raw_keywords: str, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex):
         """通过搜索关键词查找发起搜索的用户uuid
 
         :param keywords:  (str) 关键词组合
         :return: (list) 所有搜索过该关键词组合的用户uuid
         """
         self.is_connected()
-        sql = """select uuid from search_history where keywords = ('%s')""" % keywords
+        sql = """select uuid from new_search_history where raw_keywords = ('%s') AND start_time = ('%s') AND end_time = ('%s') AND filter_article_type = ('%d') AND filter_age = ('%s') AND filter_language = ('%s') AND filter_species = ('%s') AND filter_sex = ('%s')""" % (raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex)
         self.cursor.execute(sql)
         uuids = self.cursor.fetchall()
 
@@ -421,7 +444,8 @@ class Database:
             self.conn.commit()
         except:
             self.is_connected()
-            sql = """update paper_abstract set highlight_abstract = ('%s') where pmid = ('%d')""" % (highlight_abstract_escaped, pmid)
+            sql = """update paper_abstract set highlight_abstract = ('%s') where pmid = ('%d')""" % (
+            highlight_abstract_escaped, pmid)
             self.cursor.execute(sql)
             self.conn.commit()
 
@@ -441,7 +465,6 @@ class Database:
 
 # 唯一全局对象
 DATABASE = Database()
-
 
 if __name__ == "__main__":
     # test
