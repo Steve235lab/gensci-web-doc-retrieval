@@ -359,7 +359,7 @@ class Database:
         max_id = max(self.cursor.fetchall())[0]
         history_id = max_id + 1
 
-        keywords = raw_keywords + start_time + end_time + filter_article_type + filter_age + filter_language + filter_species + filter_sex
+        keywords = raw_keywords + start_time + end_time + str(filter_article_type) + filter_age + filter_language + filter_species + filter_sex
 
         if keywords in self.searched_keywords:
             result_id_path = self.searched_keywords[keywords][1]
