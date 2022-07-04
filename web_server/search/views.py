@@ -84,17 +84,17 @@ def search(request):
                 for f in article_type:
                     robust_keywords += '(' + f + '[FILT]) OR ('
                     if f == 'Books and Documents':
-                        article_type_int[0] = 1
+                        article_type_int[0] = '1'
                     if f == 'Clinical Trial':
-                        article_type_int[1] = 1
+                        article_type_int[1] = '1'
                     if f == 'Meta-Analysis':
-                        article_type_int[2] = 1
+                        article_type_int[2] = '1'
                     if f == 'Randomized Controlled Trial':
-                        article_type_int[3] = 1
+                        article_type_int[3] = '1'
                     if f == 'Review':
-                        article_type_int[4] = 1
+                        article_type_int[4] = '1'
                     if f == 'Systematic Review':
-                        article_type_int[5] = 1
+                        article_type_int[5] = '1'
                 article_type_int = int(article_type_int)
                 robust_keywords = robust_keywords[:-5] + ')'
         else:
