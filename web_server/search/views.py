@@ -142,7 +142,15 @@ def search(request):
         print("Search keywords: ", robust_keywords)
 
         # 保存搜索记录
-        print(uuid, keywords, start_time, end_time, article_type_int, age, language, species, sex)
+        print(uuid)
+        print(keywords)
+        print(start_time)
+        print(end_time)
+        print(article_type_int)
+        print(age)
+        print(language)
+        print(species)
+        print(sex)
         timestamp = DATABASE.add_search_history(uuid, keywords, start_time, end_time, article_type_int, age, language, species, sex)
 
         # 开启一个单独的线程运行搜索服务并在搜索完成后执行善后处理
