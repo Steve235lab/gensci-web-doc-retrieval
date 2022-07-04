@@ -109,20 +109,20 @@
             </el-col>
             <el-col :sm="24" :md="20" :lg="21">
               <el-checkbox-group v-model="age" style="float:left;">
-                <el-checkbox label="Child: birth-18 years"/>
-                <el-checkbox label="Newborn: birth-1 month"/>
-                <el-checkbox label="Infant: birth-23 months"/>
-                <el-checkbox label="Infant: 1-23 months"/>
-                <el-checkbox label="Preschool Child: 2-5 years"/>
-                <el-checkbox label="Child: 6-12 years"/>
-                <el-checkbox label="Adolescent: 13-18 years" />
-                <el-checkbox label="Adult: 19+ years" />
-                <el-checkbox label="Young Adult: 19-24 years" />
-                <el-checkbox label="Adult: 19-44 years" />
-                <el-checkbox label="Middle Aged + Aged: 45+ years"/>
-                <el-checkbox label="Middle Aged: 45-64 years" />
-                <el-checkbox label="Aged: 65+ years" />
-                <el-checkbox label="80 and over: 80+ years" />
+                <el-checkbox label="0-18y" >Child: birth-18 years</el-checkbox>
+                <el-checkbox label="0-1m">Newborn: birth-1 month</el-checkbox>
+                <el-checkbox label="0-23m">Infant: birth-23 months</el-checkbox>
+                <el-checkbox label="1-23m">Infant: 1-23 months</el-checkbox>
+                <el-checkbox label="2-5y">Preschool Child: 2-5 years</el-checkbox>
+                <el-checkbox label="6-12y">Child: 6-12 years</el-checkbox>
+                <el-checkbox label="13-18y" >Adolescent: 13-18 years</el-checkbox>
+                <el-checkbox label="19+y" >Adult: 19+ years</el-checkbox>
+                <el-checkbox label="19-24y">Young Adult: 19-24 years</el-checkbox>
+                <el-checkbox label="19-44y" >Adult: 19-44 years</el-checkbox>
+                <el-checkbox label="45+y">Middle Aged + Aged: 45+ years</el-checkbox>
+                <el-checkbox label="45-64y" >Middle Aged: 45-64 years</el-checkbox>
+                <el-checkbox label="65+y" >Aged: 65+ years</el-checkbox>
+                <el-checkbox label="80+y" >80 and over: 80+ years</el-checkbox>
               </el-checkbox-group>
             </el-col>
           </el-row>
@@ -177,7 +177,7 @@
   <!--    历史记录及结果显示-->
       <el-row :gutter="20" type="flex" justify="space-around" style="flex-wrap: wrap;flex-direction: row">
   <!--      历史记录-->
-        <el-col :xs="24" :sm="24" :md="history_lg+1" :lg="history_lg" >
+        <el-col :sm="24" :md="history_lg+1" :lg="history_lg" >
           <el-card :body-style="{ padding: '0px' }" class="box-card" style="max-height: 650px">
             <div slot="header" class="clearfix" style="text-align:center;">
               <span >当前可查看</span>
@@ -205,24 +205,22 @@
         </el-col>
 
   <!--      结果显示-->
-        <el-col :xs="24" :sm="24" :md="result_lg-1" :lg="result_lg">
+        <el-col :sm="24" :md="result_lg-1" :lg="result_lg">
   <!--        paper_info/clue_info/network标签页-->
           <div>
 
-            <el-row :gutter="5">
-              <el-col :span="18" >
+            <el-row :gutter="5" type="flex" justify="space-around" style="flex-wrap: wrap;flex-direction: row">
+              <el-col :xs="24" :sm="16" :md="12" :lg="12">
                 <div style="margin-top: 15px;float: left">
                   <el-radio-group v-model="tabselect" @change="TabSelect" size="small" >
                     <el-radio-button label="Paper Info" :disabled=paper_disable></el-radio-button>
                     <el-radio-button label="Clue Info" :disabled=clue_disable></el-radio-button>
                     <el-radio-button label="Network" :disabled=network_disable></el-radio-button>
-                    <el-radio-button label="Table_Flag"  :disabled=!network_disable>
-                      <i class="el-icon-s-grid"></i>
-                    </el-radio-button>
                   </el-radio-group>
+
                 </div>
               </el-col>
-              <el-col :span="6">
+              <el-col :xs="24" :sm="8" :md="12" :lg="12">
                 <div style="margin-top: 15px;float: right">
                   <el-input
                       placeholder="请输入Pmid"
@@ -255,7 +253,6 @@
                     :paper_details="paper_details[item.index]"
                     :drawSelect="drawSelect"
                     :drawOptions="drawOptions"
-                    :table_flag.sync="table_flag"
                     :paper_page="paper_page_Info.currentNumber"
                     :paper_total="paper_page_Info.total"
                     :clue_page="clue_page_Info.currentNumber"
@@ -281,22 +278,12 @@ import example from "../../../test_data/example_test.json"
 import history_test from "../../../test_data/history_test.json"
 import qs from "qs";
 import G6 from '@antv/g6';
-import insertCss from 'insert-css';
+
 import Paper_info from "@/components/paper_info";
 import Clue_info from "@/components/clue_info";
 import Network from "@/components/network";
 import Paper_details from "@/components/paper_details";
-insertCss(`
-  .g6-component-tooltip {
-    border: 1px solid #e2e2e2;
-    border-radius: 4px;
-    font-size: 16px;
-    color: #000;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 10px 8px;
-    box-shadow: rgb(174, 174, 174) 0px 0px 10px;
-  }
-`);
+
 
 export default {
   components: {
@@ -318,12 +305,10 @@ export default {
       network_tab:'off',
       loading:true,
       dialogVisible: false,
-      table_flag:false,
       history_lg:24,
       result_lg:0,
       timestamp:'',
       tabselect:'',
-      tab_last:'',
       paper_index:-1,
       activeIndex: '0',
       activeState:'',
@@ -437,6 +422,9 @@ export default {
         });
       }
     },
+    age(test){
+      console.log(test)
+    }
 
   },
   methods: {
@@ -457,9 +445,11 @@ export default {
             that.message_type = res.data.message_type
             if(res.data.message_type==="history_list"){
               console.log(res.data)
-              that.history = res.data.history
-              that.token = res.data.token
+              if(res.data.history==='[]')
+              console.log('test')
             }
+            that.history = res.data.history
+            that.token = res.data.token
           })
           .catch(function(err){
             console.log(err)
@@ -489,10 +479,7 @@ export default {
         this.addTab('network')
         this.tabselect=''
       }
-      else if(tab==='Table_Flag'){
-        this.table_flag=!this.table_flag
-        this.tabselect=''
-      }
+
     },
 
     //增加标签页
