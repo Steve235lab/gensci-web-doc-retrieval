@@ -84,7 +84,7 @@ def search(request):
                     robust_keywords += '(' + f + '[FILT]) OR ('
                 robust_keywords = robust_keywords[:-5] + ')'
         else:
-            article_type = ''
+            article_type = 000000
         if language is not None and len(language) > 0 and language != '[]':
             language = language.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(language) > 0:
