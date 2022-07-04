@@ -80,11 +80,25 @@ def search(request):
             article_type = article_type.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(article_type) > 0:
                 robust_keywords += ' AND ('
+                article_type_int = '000000'
                 for f in article_type:
                     robust_keywords += '(' + f + '[FILT]) OR ('
+                    if f == 'Books and Documents':
+                        article_type_int[0] = 1
+                    if f == 'Clinical Trial':
+                        article_type_int[1] = 1
+                    if f == 'Meta-Analysis':
+                        article_type_int[2] = 1
+                    if f == 'Randomized Controlled Trial':
+                        article_type_int[3] = 1
+                    if f == 'Review':
+                        article_type_int[4] = 1
+                    if f == 'Systematic Review':
+                        article_type_int[5] = 1
+                article_type_int = int(article_type_int)
                 robust_keywords = robust_keywords[:-5] + ')'
         else:
-            article_type = 000000
+            article_type_int = 000000
         if language is not None and len(language) > 0 and language != '[]':
             language = language.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(language) > 0:
@@ -125,7 +139,7 @@ def search(request):
         print("Search keywords: ", robust_keywords)
 
         # 保存搜索记录
-        timestamp = DATABASE.add_search_history(uuid, keywords, start_time, end_time, article_type, age, language, species, sex)
+        timestamp = DATABASE.add_search_history(uuid, keywords, start_time, end_time, article_type_int, age, language, species, sex)
 
         # 开启一个单独的线程运行搜索服务并在搜索完成后执行善后处理
         search_thread = Thread(target=run_search, args=(robust_keywords, timestamp))
