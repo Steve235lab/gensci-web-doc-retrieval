@@ -142,7 +142,7 @@ def search(request):
         timestamp = DATABASE.add_search_history(uuid, keywords, start_time, end_time, article_type_int, age, language, species, sex)
 
         # 开启一个单独的线程运行搜索服务并在搜索完成后执行善后处理
-        search_thread = Thread(target=run_search, args=(robust_keywords, timestamp))
+        search_thread = Thread(target=run_search, args=(robust_keywords, timestamp, keywords, start_time, end_time, article_type, age, language, species, sex))
         search_thread.start()
 
         # 向前端返回响应
@@ -161,7 +161,7 @@ def search(request):
     return cache
 
 
-def run_search(robust_keywords: str, timestamp: int):
+def run_search(robust_keywords: str, timestamp: int, raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex):
     """适用于单个线程的执行搜索及搜索完成善后任务的函数
 
     将 robust_keywords 输入搜索脚本，启动搜索服务；完成搜索后将本次搜索在 search_history 表中的条目修改为已完成搜索
@@ -211,7 +211,7 @@ def run_search(robust_keywords: str, timestamp: int):
         DATABASE.add_paper_highlight_abstract(pmid, abstract_highlight_str)
 
     # 将数据库中所有搜索该关键词的搜索记录标记为已完成搜索
-    DATABASE.search_completed(robust_keywords)
+    DATABASE.search_completed(raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex)
 
     # 向发起搜索的用户发送提醒邮件
     # 生成验证码
