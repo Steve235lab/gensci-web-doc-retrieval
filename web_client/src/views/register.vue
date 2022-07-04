@@ -166,8 +166,7 @@ export default {
           .then(function(res){
             console.log(res)
             console.log(res.data);
-            var yanzhengma=res.data.confirmed;
-            if(yanzhengma==='True'){
+            if(res.data.confirmed==='True'){
             that.$message({message:'注册成功',type:'success'})
             that.router.push('login')
             }
@@ -201,7 +200,7 @@ export default {
       })
           .then(function(res){
             console.log(res)
-            if(res.data.result==='success'){
+            if(res.data.result==='True'){
               that.$message({message:'已发送验证码',type:'success'})
               that.token=res.data.token;
             }
