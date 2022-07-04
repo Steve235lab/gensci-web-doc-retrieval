@@ -142,7 +142,7 @@ def search(request):
         timestamp = DATABASE.add_search_history(uuid, keywords, start_time, end_time, article_type_int, age, language, species, sex)
 
         # 开启一个单独的线程运行搜索服务并在搜索完成后执行善后处理
-        search_thread = Thread(target=run_search, args=(robust_keywords, timestamp, keywords, start_time, end_time, article_type, age, language, species, sex))
+        search_thread = Thread(target=run_search, args=(robust_keywords, timestamp, keywords, start_time, end_time, article_type_int, age, language, species, sex))
         search_thread.start()
 
         # 向前端返回响应
