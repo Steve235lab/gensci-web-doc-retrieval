@@ -80,7 +80,7 @@ def search(request):
             article_type = article_type.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(article_type) > 0:
                 robust_keywords += ' AND ('
-                article_type_int = '000000'
+                article_type_int = ['0', '0', '0', '0', '0', '0']
                 for f in article_type:
                     robust_keywords += '(' + f + '[FILT]) OR ('
                     if f == 'Books and Documents':
@@ -95,7 +95,10 @@ def search(request):
                         article_type_int[4] = '1'
                     if f == 'Systematic Review':
                         article_type_int[5] = '1'
-                article_type_int = int(article_type_int)
+                cache = ''
+                for i in article_type_int:
+                    cache += i
+                article_type_int = int(cache)
                 robust_keywords = robust_keywords[:-5] + ')'
         else:
             article_type_int = 000000
