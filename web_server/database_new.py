@@ -157,7 +157,7 @@ class Database:
         self.cursor.execute(sql)
         histories = self.cursor.fetchall()
         for history in histories:
-            keywords = history[2] + history[6] + history[7] + history[8] + history[9] + history[10] + history[11] + \
+            keywords = history[2] + history[6] + history[7] + str(history[8]) + history[9] + history[10] + history[11] + \
                        history[12]
             if keywords in self.searched_keywords:  # searched_keywords中已经有相同关键词的搜索记录
                 favourite_flag = history[5]
