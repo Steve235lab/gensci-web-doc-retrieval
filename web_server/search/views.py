@@ -102,39 +102,51 @@ def search(request):
                 robust_keywords = robust_keywords[:-5] + ')'
         else:
             article_type_int = 000000
+        language_str = ''
         if language is not None and len(language) > 0 and language != '[]':
             language = language.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(language) > 0:
                 robust_keywords += ' AND ('
                 for f in language:
                     robust_keywords += '(' + f + '[Language]) OR ('
+                    language_str += f + ','
+                language_str = language_str[:-1]
                 robust_keywords = robust_keywords[:-5] + ')'
         else:
             language = ''
+        species_str = ''
         if species is not None and len(species) > 0 and species != '[]':
             species = species.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(species) > 0:
                 robust_keywords += ' AND ('
                 for f in species:
                     robust_keywords += '(' + f + '[FILT]) OR ('
+                    species_str += f + ','
+                species_str = species_str[:-1]
                 robust_keywords = robust_keywords[:-5] + ')'
         else:
             species = ''
+        sex_str = ''
         if sex is not None and len(sex) > 0 and sex != '[]':
             sex = sex.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(sex) > 0:
                 robust_keywords += ' AND ('
                 for f in sex:
                     robust_keywords += '(' + f + '[FILT]) OR ('
+                    sex_str += f + ','
+                sex_str = species_str[:-1]
                 robust_keywords = robust_keywords[:-5] + ')'
         else:
             sex = ''
+        age_str = ''
         if age is not None and len(age) > 0 and age != '[]':
             age = age.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(age) > 0:
                 robust_keywords += ' AND ('
                 for f in age:
                     robust_keywords += '(' + f + '[FILT]) OR ('
+                    age_str += f + ','
+                age_str = age_str[:-1]
                 robust_keywords = robust_keywords[:-5] + ')'
         else:
             age = ''
@@ -142,16 +154,16 @@ def search(request):
         print("Search keywords: ", robust_keywords)
 
         # 保存搜索记录
-        print(uuid)
-        print(keywords)
-        print(start_time)
-        print(end_time)
-        print(article_type_int)
-        print(age)
-        print(language)
-        print(species)
-        print(sex)
-        timestamp = DATABASE.add_search_history(uuid, keywords, start_time, end_time, article_type_int, age, language, species, sex)
+        # print(uuid)
+        # print(keywords)
+        # print(start_time)
+        # print(end_time)
+        # print(article_type_int)
+        # print(age)
+        # print(language)
+        # print(species)
+        # print(sex)
+        timestamp = DATABASE.add_search_history(uuid, keywords, start_time, end_time, article_type_int, age_str, language_str, species_str, sex_str)
 
         # 开启一个单独的线程运行搜索服务并在搜索完成后执行善后处理
         search_thread = Thread(target=run_search, args=(robust_keywords, timestamp, keywords, start_time, end_time, article_type_int, age, language, species, sex))
