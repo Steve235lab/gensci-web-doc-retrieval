@@ -13,8 +13,9 @@
         <el-col :span="13">
             <el-input placeholder="请输⼊验证码"  v-model="loginForm.code" ></el-input>
         </el-col>
-        <el-col :span="4">
-            <el-button  @click="send" type="success">发送</el-button>
+        <el-col :span="6">
+            <el-button v-show="show" type="success" style="width: 100%;padding: 12px 0;font-size: 13px;" @click="send">发送验证码</el-button>
+            <el-button v-show="!show" type="warning" style="width: 100%;padding: 12px 0;font-size: 13px;" disabled>{{count}} s</el-button>
         </el-col>
       </el-form-item>
       <el-form-item prop="password" label="新密码"  style="letter-spacing: 4px">
@@ -46,6 +47,9 @@ import setStorage from './storage.js';
 export default {
   data(){
     return{
+      show:true,
+      count:'',
+      timer:null,
       loginForm:{
         email:'',
         password:'',
@@ -71,7 +75,21 @@ export default {
   },
   methods:{
     send(){
-      var that=this;
+       var that=this;
+      const TIME_COUNT = 60;
+        if (!that.timer) {
+          that.count = TIME_COUNT;
+          that.show = false;
+          that.timer = setInterval(() => {
+          if (that.count > 0 && that.count <= TIME_COUNT) {
+            that.count--;
+          } else {
+            that.show = true;
+            clearInterval(that.timer);
+            that.timer = null;
+          }
+        }, 1000)
+      }
       that.axios({
         method:"post",
         url:"http://42.192.44.52:8000/sign_in/email_confirm/",
