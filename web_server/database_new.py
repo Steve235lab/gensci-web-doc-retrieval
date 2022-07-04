@@ -167,11 +167,7 @@ class Database:
 
         每次数据库操作前执行，确保该进程与MySQL数据库的连接处于可用状态，如果检测到连接已断开则执行重连操作
         """
-        try:
-            self.conn.ping(reconnect=True)
-        except:
-            self.conn = connect(host='42.192.44.52', port=3306, user='root', password='root',
-                                database='gensci-web-doc-retrieval-db', charset='utf8')
+        self.conn.ping(reconnect=True)
 
     def write_user(self, user: User):
         """将User对象拆分为基本数据元，然后写入数据库
