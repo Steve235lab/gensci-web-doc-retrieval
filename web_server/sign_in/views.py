@@ -98,7 +98,7 @@ def email_confirm(request):
         username = user.username
         # 发送验证邮件
         email_sender = EmailSender(email, username)
-        email_sender.generate_content()
+        email_sender.generate_reset_password_content()
         email_sender.send()
 
     cache = JsonResponse(json_rsp)
