@@ -1,13 +1,14 @@
 import json
 import datetime
 from threading import Thread
+import os
 import sys
 
 sys.path.append('..')
 
 from emoji import emojize
 import openpyxl
-from django.http import JsonResponse
+from django.http import JsonResponse, FileResponse, Http404
 
 from database_new import DATABASE
 from uuid_token import forge_token, get_uuid_from_token
@@ -910,3 +911,49 @@ def get_paper_details(request):
             cache = JsonResponse(json_rsp)
             cache["Access-Control-Allow-Origin"] = "*"
             return cache
+
+
+def download_file(request):
+    """处理结果文件下载请求
+
+    url: 42.192.44.52:8000/search/download/
+    """
+    # 解包前端请求
+    if request.method == 'GET':
+        token = request.GET.get('token')
+        history_id = request.GET.get('timestamp')
+        file_name = request.GET.get('file_name')
+    if request.method == 'POST':
+        token = request.POST.get('token')
+        history_id = request.POST.get('timestamp')
+        file_name = request.POST.get('file_name')
+
+    print(file_name)
+
+    # 请求合法性判断
+    # 从token中获取uuid
+    uuid_str = get_uuid_from_token(token)
+    # token时效性判断
+    if uuid_str == 'token expired':
+        raise Http404
+    else:
+        uuid = int(uuid_str)
+        history_id = int(history_id)
+        # 使用 timestamp 到数据库中查找此条历史记录
+        history = DATABASE.get_result(history_id)[0]
+        if uuid == int(history[4]):  # 身份验证通过
+            # 获取结果数据的后端目录
+            result_timestamp = history[1]
+            file_dir = 'static/search_result/' + str(result_timestamp) + '/'
+
+    if CONTROLLER.test_mode is True:
+        file_dir = 'static/search_result/114514/'
+
+    file_path = file_dir + file_name
+    try:
+        response = FileResponse(open(file_path, 'rb'))
+        response['content_type'] = "application/octet-stream"
+        response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(file_path)
+        return response
+    except Exception:
+        raise Http404

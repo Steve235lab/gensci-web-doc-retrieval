@@ -8,6 +8,8 @@ import time
 from pymysql import connect
 from pymysql.converters import escape_string
 
+from controller import CONTROLLER
+
 # DATABASE对象中user_list成员的最大长度
 USER_LIST_MAX_LENGTH = 1024
 
@@ -96,8 +98,8 @@ class Database:
         self.user_index = {}  # {email: uuid}
         self.searched_keywords = {}  # {keywords: [result_timestamp, favourite_flag]}
         # 连接到MySQL服务
-        self.conn = connect(host='42.192.44.52', port=3306, user='root', password='root',
-                            database='gensci-web-doc-retrieval-db', charset='utf8')
+        self.conn = connect(host=CONTROLLER.db_host, port=CONTROLLER.db_port, user=CONTROLLER.db_user,
+                            password=CONTROLLER.db_password, database=CONTROLLER.db_name, charset=CONTROLLER.db_charset)
         self.cursor = self.conn.cursor()
         # 使用 User 表和 search_history 表中的数据初始化 self.user_list 和 self.all_uuids
         # 读 User 表

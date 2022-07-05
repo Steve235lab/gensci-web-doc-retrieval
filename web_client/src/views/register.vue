@@ -167,6 +167,7 @@ export default {
           .then(function(res){
             console.log(res)
             console.log(res.data);
+            console.log(res.data.confirmed);
             if(res.data.confirmed==='True'){
             that.$message({message:'注册成功',type:'success'})
             that.router.push('login')

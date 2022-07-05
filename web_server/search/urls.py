@@ -7,4 +7,5 @@ urlpatterns = [
     path('paper_info/', views.get_paper_info),
     path('clue_info/', views.get_clue_info),
     path('paper_details/', views.get_paper_details),
+    path('download/', views.download_file),
 ]

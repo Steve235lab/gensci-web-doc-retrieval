@@ -98,8 +98,10 @@ def email_confirm(request):
         username = user.username
         # 发送验证邮件
         email_sender = EmailSender(email, username)
-        email_sender.generate_content()
-        # email_sender.send()
+        email_sender.generate_reset_password_content()
+        user.confirm_code = email_sender.confirm_code
+        DATABASE.rewrite_user(user)
+        email_sender.send()
 
     cache = JsonResponse(json_rsp)
     cache["Access-Control-Allow-Origin"] = "*"
@@ -109,7 +111,7 @@ def email_confirm(request):
 def reset_password(request):
     """修改密码请求处理函数
 
-    url: 42.192.44.52:8000/sign_in/reset_keywords/
+    url: 42.192.44.52:8000/sign_in/reset_password/
     """
     # 解包前端请求
     if request.method == 'GET':
