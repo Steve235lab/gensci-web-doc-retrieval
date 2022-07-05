@@ -8,7 +8,7 @@ import jwt
 
 KEY = 'django-insecure-aae68)ppyyk0y=-4of$%^d96-h48fxqcry2!g@j1g0ns6=zapa'
 SALT = 'Steve235Lab'
-TIME_OUT = 60 * 30  # 30min
+TIME_OUT = 60 * 60 * 24  # 24h
 
 
 def forge_token(uuid):
