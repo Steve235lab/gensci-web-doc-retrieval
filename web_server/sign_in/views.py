@@ -99,7 +99,7 @@ def email_confirm(request):
         # 发送验证邮件
         email_sender = EmailSender(email, username)
         email_sender.generate_content()
-        # email_sender.send()
+        email_sender.send()
 
     cache = JsonResponse(json_rsp)
     cache["Access-Control-Allow-Origin"] = "*"

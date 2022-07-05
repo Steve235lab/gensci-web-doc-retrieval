@@ -100,13 +100,13 @@ def email_confirm(request):
             json_rsp = {
                 "message_type": "rsp_email_confirm",
                 "token": new_token,
-                "confirmed": True
+                "confirmed": 'True'
             }
         else:
             json_rsp = {
                 "message_type": "rsp_email_confirm",
                 "token": new_token,
-                "confirmed": False
+                "confirmed": 'False'
             }
 
     if CONTROLLER.emoji_status is True:
