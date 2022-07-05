@@ -99,6 +99,8 @@ def email_confirm(request):
         # 发送验证邮件
         email_sender = EmailSender(email, username)
         email_sender.generate_reset_password_content()
+        user.confirm_code = email_sender.confirm_code
+        DATABASE.rewrite_user(user)
         email_sender.send()
 
     cache = JsonResponse(json_rsp)

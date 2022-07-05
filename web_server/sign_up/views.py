@@ -102,6 +102,8 @@ def email_confirm(request):
                 "token": new_token,
                 "confirmed": 'True'
             }
+            user.email_confirmed = True
+            DATABASE.rewrite_user(user)
         else:
             json_rsp = {
                 "message_type": "rsp_email_confirm",
