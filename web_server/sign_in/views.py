@@ -109,7 +109,7 @@ def email_confirm(request):
 def reset_password(request):
     """修改密码请求处理函数
 
-    url: 42.192.44.52:8000/sign_in/reset_keywords/
+    url: 42.192.44.52:8000/sign_in/reset_password/
     """
     # 解包前端请求
     if request.method == 'GET':
