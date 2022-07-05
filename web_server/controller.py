@@ -27,11 +27,26 @@ class Controller:
         self.paper_info_data_source: str = 'json'
         self.clue_info_data_source: str = 'json'
 
+        # MySQL数据库相关设定
+        self.db_host = '42.192.44.52'
+        self.db_port = 3306
+        self.db_user = 'root'
+        self.db_password = 'root'
+        self.db_name = 'gensci-web-doc-retrieval-db'
+        self.db_charset = 'utf8'
+
         # 发送邮件相关设定
         self.email_sender = 'xuchixuchixu@foxmail.com'
         self.email_auth_passport = 'idmbeadoeeohbaja'
-        self.email_subject = 'gensci-web-doc-retrieval sign up confirming email'
+        self.email_subject = 'gensci-web-doc-retrieval'
         self.smtp_host = 'smtp.qq.com'
+
+        # token过期时间
+        self.token_survive_time = 60 * 60 * 24  # 24h
+        # token加盐
+        self.token_salt = 'Steve235Lab'
+        # token密钥
+        self.token_key = 'django-insecure-aae68)ppyyk0y=-4of$%^d96-h48fxqcry2!g@j1g0ns6=zapa'
 
 
 CONTROLLER = Controller()

@@ -5,10 +5,12 @@
 import time
 import jwt
 
+from controller import CONTROLLER
 
-KEY = 'django-insecure-aae68)ppyyk0y=-4of$%^d96-h48fxqcry2!g@j1g0ns6=zapa'
-SALT = 'Steve235Lab'
-TIME_OUT = 60 * 60 * 24  # 24h
+
+KEY = CONTROLLER.token_key
+SALT = CONTROLLER.token_salt
+TIME_OUT = CONTROLLER.token_survive_time
 
 
 def forge_token(uuid):
