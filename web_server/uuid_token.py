@@ -42,8 +42,15 @@ def get_uuid_from_token(token):
         return "token expired"
 
 
+def forge_eternal_token(uuid):
+    payload = {
+        "uuid": str(uuid),
+    }
+    return jwt.encode(payload, KEY, algorithm="HS256")
+
+
 if __name__ == "__main__":
-    token = forge_token('001')
+    token = forge_eternal_token('42')
     print(token)
     uuid = get_uuid_from_token(token)
     print(uuid)
