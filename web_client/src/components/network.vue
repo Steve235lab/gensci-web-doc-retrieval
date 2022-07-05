@@ -19,6 +19,7 @@
           :data="selected_edgeInfo"
           v-loading="loading"
           element-loading-text="拼命加载中"
+          :default-expand-all=true
           style="width: 100%"
           height=300>
         <!--                折叠面板-->
@@ -285,7 +286,7 @@ export default {
           this.draw_loading=false
           this.finished=true
           console.log("完成绘制")
-          this.legendtest()
+
           graph.downloadImage('test', 'image/jpeg','#fff')
         },
         workerEnabled: true,      // 可选，开启 web-worker
