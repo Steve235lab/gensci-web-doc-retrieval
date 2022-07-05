@@ -121,14 +121,15 @@ export default {
         method:"post",
         url:"http://42.192.44.52:8000/sign_in/reset_password/",
         data:qs.stringify({
-          code:this.loginForm.code,
-          email:this.loginForm.email,
-          password:md5(this.loginForm.password),
+          code:that.loginForm.code,
+          email:that.loginForm.email,
+          password:md5(that.loginForm.password),
         })
       })
           .then(function(res){
             console.log(res)
             console.log(res.data);
+            console.log(res.data.result);
           if(res.data.result==='success'){
             that.$message({message:'身份验证成功,密码已重置',type:'success'})
             //console.log('身份验证成功,密码已重置')
