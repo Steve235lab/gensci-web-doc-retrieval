@@ -365,7 +365,7 @@ class Database:
         keywords = raw_keywords + start_time + end_time + str(filter_article_type) + filter_age + filter_language + filter_species + filter_sex
 
         if keywords in self.searched_keywords:
-            result_id_path = self.searched_keywords[keywords][1]
+            result_id_path = self.searched_keywords[keywords][0]
         else:
             result_id_path = history_id
             self.searched_keywords[keywords] = [history_id, False]
