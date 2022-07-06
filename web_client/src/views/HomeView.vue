@@ -217,8 +217,13 @@
                     <el-radio-button label="Clue Info" :disabled=clue_disable></el-radio-button>
                     <el-radio-button label="Network" :disabled=network_disable></el-radio-button>
                   </el-radio-group>
-
+                  
+                  <el-button type="primary" @click="download1">Paper_Info</el-button>
+                  <el-button type="primary" @click="download2">Clue_Info</el-button>
+                  <el-button type="primary" @click="download3">Network</el-button>
+                  <span style="flex-wrap: wrap">点击下载</span>
                 </div>
+                
               </el-col>
               <el-col :xs="24" :sm="8" :md="12" :lg="12">
                 <div style="margin-top: 15px;float: right">
@@ -456,6 +461,59 @@ export default {
             console.log('连接失败')
             that.message_type = err.message;
           })
+    },
+
+    //下载
+    download1(){
+        var that=this;
+        that.axios({
+        method:"get",
+        url:"http://42.192.44.52:8000/search/download/",
+        params:{
+          message_type: 'download',
+          token: this.token,
+          timestamp:this.timestamp,
+          file_name:'paper_info.xlsx',
+        }
+        
+      })
+       
+          .then(function(res){
+             location.href="http://42.192.44.52:8000/search/download/"
+              + "?token=" + that.token 
+              + "&timestamp=" + that.timestamp 
+              + "&file_name=paper_info.xlsx"
+          })
+          .catch(function(err){
+            console.log(err)
+          })
+    },
+
+    download2(){
+        var that=this;
+        that.axios({
+        method:"get",
+        url:"http://42.192.44.52:8000/search/download/",
+        params:{
+          message_type: 'download',
+          token: this.token,
+          timestamp:this.timestamp,
+          file_name:'clue_info.xlsx',
+        },
+      })
+          .then(function(res){
+            location.href="http://42.192.44.52:8000/search/download/"
+              + "?token=" + that.token 
+              + "&timestamp=" + that.timestamp 
+              + "&file_name=clue_info.xlsx"
+          })
+          .catch(function(err){
+            console.log(err)
+          })
+    },
+
+    download3(){
+
     },
 
     //监听结果显示标签页选择事件
