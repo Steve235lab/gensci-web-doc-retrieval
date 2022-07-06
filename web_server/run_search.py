@@ -102,10 +102,7 @@ class Runner:
             if len(self.search_task_queue) > 0:
                 search_task = self.search_task_queue[0]
                 self.search_task_queue.pop(0)
-                try:
-                    self.run_search(search_task[0], search_task[1], search_task[2], search_task[3], search_task[4], search_task[5], search_task[6], search_task[7], search_task[8], search_task[9])
-                except:
-                    pass
+                self.run_search(search_task[0], search_task[1], search_task[2], search_task[3], search_task[4], search_task[5], search_task[6], search_task[7], search_task[8], search_task[9])
             else:
                 time.sleep(1)
 
