@@ -131,6 +131,7 @@ export default {
             console.log(res.data);
             console.log(res.data.result);
           if(res.data.result==='success'){
+            that.$router.push('login')
             that.$message({message:'身份验证成功,密码已重置',type:'success'})
             //console.log('身份验证成功,密码已重置')
           }
