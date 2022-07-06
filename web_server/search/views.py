@@ -14,6 +14,7 @@ from database_new import DATABASE
 from uuid_token import forge_token, get_uuid_from_token
 from controller import CONTROLLER
 from email_sender import EmailSender
+from run_search import SEARCH_RUNNER
 
 
 def search(request):
@@ -77,32 +78,37 @@ def search(request):
         if end_time is None:
             end_time = datetime.datetime.now().strftime('%Y-%m-%d')
         robust_keywords = '(' + keywords + ') AND ("' + start_time + '"[Date - Publication]:' + '"' + end_time + '"[Date - Publication])'
+        article_type_str = ''
         if article_type is not None and len(article_type) > 0 and article_type != '[]':
             article_type = article_type.replace('[', '').replace('"', '').replace(']', '').split(',')
             if len(article_type) > 0:
                 robust_keywords += ' AND ('
-                article_type_int = ['0', '0', '0', '0', '0', '0']
                 for f in article_type:
                     robust_keywords += '(' + f + '[FILT]) OR ('
-                    if f == 'Books and Documents':
-                        article_type_int[0] = '1'
-                    if f == 'Clinical Trial':
-                        article_type_int[1] = '1'
-                    if f == 'Meta-Analysis':
-                        article_type_int[2] = '1'
-                    if f == 'Randomized Controlled Trial':
-                        article_type_int[3] = '1'
-                    if f == 'Review':
-                        article_type_int[4] = '1'
-                    if f == 'Systematic Review':
-                        article_type_int[5] = '1'
-                cache = ''
-                for i in article_type_int:
-                    cache += i
-                article_type_int = int(cache)
+                    article_type_str += f + ' OR '
+                # article_type_int = ['0', '0', '0', '0', '0', '0']
+                # for f in article_type:
+                #     robust_keywords += '(' + f + '[FILT]) OR ('
+                #     if f == 'Books and Documents':
+                #         article_type_int[0] = '1'
+                #     if f == 'Clinical Trial':
+                #         article_type_int[1] = '1'
+                #     if f == 'Meta-Analysis':
+                #         article_type_int[2] = '1'
+                #     if f == 'Randomized Controlled Trial':
+                #         article_type_int[3] = '1'
+                #     if f == 'Review':
+                #         article_type_int[4] = '1'
+                #     if f == 'Systematic Review':
+                #         article_type_int[5] = '1'
+                # cache = ''
+                # for i in article_type_int:
+                #     cache += i
+                # article_type_int = int(cache)
                 robust_keywords = robust_keywords[:-5] + ')'
+                article_type_str = article_type_str[:-4]
         else:
-            article_type_int = 000000
+            article_type_str = ''
         language_str = ''
         if language is not None and len(language) > 0 and language != '[]':
             language = language.replace('[', '').replace('"', '').replace(']', '').split(',')
@@ -159,16 +165,19 @@ def search(request):
         print(keywords)
         print(start_time)
         print(end_time)
-        print(article_type_int)
+        print(article_type_str)
         print(age_str)
         print(language_str)
         print(species_str)
         print(sex_str)
-        timestamp = DATABASE.add_search_history(uuid, keywords, start_time, end_time, article_type_int, age_str, language_str, species_str, sex_str)
+        timestamp = DATABASE.add_search_history(uuid, keywords, start_time, end_time, article_type_str, age_str, language_str, species_str, sex_str)
 
         # 开启一个单独的线程运行搜索服务并在搜索完成后执行善后处理
-        search_thread = Thread(target=run_search, args=(robust_keywords, timestamp, keywords, start_time, end_time, article_type_int, age, language, species, sex))
-        search_thread.start()
+        # search_thread = Thread(target=run_search, args=(robust_keywords, timestamp, keywords, start_time, end_time, article_type_int, age, language, species, sex))
+        # search_thread.start()
+
+        # 将搜索任务放入任务队列
+        SEARCH_RUNNER.search_task_queue.append((robust_keywords, timestamp, keywords, start_time, end_time, article_type_str, age, language, species, sex))
 
         # 向前端返回响应
         new_token = forge_token(uuid_str)
@@ -186,70 +195,70 @@ def search(request):
     return cache
 
 
-def run_search(robust_keywords: str, timestamp: int, raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex):
-    """适用于单个线程的执行搜索及搜索完成善后任务的函数
-
-    将 robust_keywords 输入搜索脚本，启动搜索服务；完成搜索后将本次搜索在 search_history 表中的条目修改为已完成搜索
-
-    :param robust_keywords: (str) 经过鲁棒性处理后的搜索关键词组合
-    :param timestamp: (int) 本次搜索对应的搜索记录的时间戳
-    :return: None
-    """
-    # 获取结果保存路径
-    history = DATABASE.get_result(timestamp)[0]
-    result_timestamp = history[1]
-    result_dir = 'static/search_result/' + str(result_timestamp) + '/'
-
-    # TODO: 启动搜索，使用 robust_keywords 作为关键词进行搜索，将 paper_info.xlsx 和 clue_info.xlsx 两个文件输出到 result_dir 下
-
-    # 从json文件中提取结果文献的 abstract_highlight 字段，生成HTML标签，保存至数据库 paper_abstract 表
-    if CONTROLLER.test_mode is True:
-        # 更改至测试用路径
-        result_dir = 'static/json_data_test/'
-
-    # 读取 file.list 获取包含结果文献信息的json文件目录
-    file_list = open(result_dir + 'file.list', 'r')
-    json_dir_list = file_list.readlines()
-    for json_dir in json_dir_list:
-        json_dir = json_dir[:-1]    # 删除换行符 \n
-        raw_paper_info = json.load(open(json_dir, 'r'))
-        pmid = int(raw_paper_info['pmid'])
-        abstract_highlight_list = raw_paper_info['abstract_highlight']
-        # 生成带有高亮的HTML字符串
-        abstract_highlight_str = ''
-        for i in range(len(abstract_highlight_list)):
-            word = abstract_highlight_list[i]
-            if word != '':
-                if word[0] == '<':
-                    color_sp = word.find('font_color=') + 11
-                    color_ep = word.find('>')
-                    color = word[color_sp:color_ep]
-                    abstract_highlight_str += '<span style="font-weight: bold; font-style: italic; color: ' + color + ';">'
-                    abstract_highlight_str += abstract_highlight_list[i + 1] + '</span>'
-                    try:
-                        abstract_highlight_list[i + 1] = ''
-                    except:
-                        pass
-                else:
-                    abstract_highlight_str += word
-        # 写入数据库
-        DATABASE.add_paper_highlight_abstract(pmid, abstract_highlight_str)
-
-    # 将数据库中所有搜索该关键词的搜索记录标记为已完成搜索
-    DATABASE.search_completed(raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex)
-
-    # 向发起搜索的用户发送提醒邮件
-    # 生成验证码
-    uuids = DATABASE.get_uuids_with_keywords(robust_keywords)
-    for uuid in uuids:
-        uuid = uuid[0]
-        user = DATABASE.get_user(uuid)
-        email = user.email
-        username = user.username
-        email_sender = EmailSender(email, username)
-        email_sender.generate_search_completed_content(robust_keywords)
-        # 发送验证邮件
-        email_sender.send()
+# def run_search(robust_keywords: str, timestamp: int, raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex):
+#     """适用于单个线程的执行搜索及搜索完成善后任务的函数
+#
+#     将 robust_keywords 输入搜索脚本，启动搜索服务；完成搜索后将本次搜索在 search_history 表中的条目修改为已完成搜索
+#
+#     :param robust_keywords: (str) 经过鲁棒性处理后的搜索关键词组合
+#     :param timestamp: (int) 本次搜索对应的搜索记录的时间戳
+#     :return: None
+#     """
+#     # 获取结果保存路径
+#     history = DATABASE.get_result(timestamp)[0]
+#     result_timestamp = history[1]
+#     result_dir = 'static/search_result/' + str(result_timestamp) + '/'
+#
+#     # TODO: 启动搜索，使用 robust_keywords 作为关键词进行搜索，将 paper_info.xlsx 和 clue_info.xlsx 两个文件输出到 result_dir 下
+#
+#     # 从json文件中提取结果文献的 abstract_highlight 字段，生成HTML标签，保存至数据库 paper_abstract 表
+#     if CONTROLLER.test_mode is True:
+#         # 更改至测试用路径
+#         result_dir = 'static/json_data_test/'
+#
+#     # 读取 file.list 获取包含结果文献信息的json文件目录
+#     file_list = open(result_dir + 'file.list', 'r')
+#     json_dir_list = file_list.readlines()
+#     for json_dir in json_dir_list:
+#         json_dir = json_dir[:-1]    # 删除换行符 \n
+#         raw_paper_info = json.load(open(json_dir, 'r'))
+#         pmid = int(raw_paper_info['pmid'])
+#         abstract_highlight_list = raw_paper_info['abstract_highlight']
+#         # 生成带有高亮的HTML字符串
+#         abstract_highlight_str = ''
+#         for i in range(len(abstract_highlight_list)):
+#             word = abstract_highlight_list[i]
+#             if word != '':
+#                 if word[0] == '<':
+#                     color_sp = word.find('font_color=') + 11
+#                     color_ep = word.find('>')
+#                     color = word[color_sp:color_ep]
+#                     abstract_highlight_str += '<span style="font-weight: bold; font-style: italic; color: ' + color + ';">'
+#                     abstract_highlight_str += abstract_highlight_list[i + 1] + '</span>'
+#                     try:
+#                         abstract_highlight_list[i + 1] = ''
+#                     except:
+#                         pass
+#                 else:
+#                     abstract_highlight_str += word
+#         # 写入数据库
+#         DATABASE.add_paper_highlight_abstract(pmid, abstract_highlight_str)
+#
+#     # 将数据库中所有搜索该关键词的搜索记录标记为已完成搜索
+#     DATABASE.search_completed(raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex)
+#
+#     # 向发起搜索的用户发送提醒邮件
+#     # 生成验证码
+#     uuids = DATABASE.get_uuids_with_keywords(robust_keywords)
+#     for uuid in uuids:
+#         uuid = uuid[0]
+#         user = DATABASE.get_user(uuid)
+#         email = user.email
+#         username = user.username
+#         email_sender = EmailSender(email, username)
+#         email_sender.generate_search_completed_content(robust_keywords)
+#         # 发送验证邮件
+#         email_sender.send()
 
 
 def get_history(request):
@@ -292,39 +301,40 @@ def get_history(request):
             raw_keywords = history[2]
             start_time = history[6]
             end_time = history[7]
-            article_type_int = str(history[8])
-            article_type = ''
-            for i in range(len(article_type_int)):
-                if article_type_int[i] == '1':
-                    if i == 0:
-                        article_type += 'Books and Documents'
-                    elif i == 1:
-                        if article_type != '':
-                            article_type += 'OR Clinical Trial'
-                        else:
-                            article_type += 'Clinical Trial'
-                    elif i == 2:
-                        if article_type != '':
-                            article_type += 'OR Meta-Analysis'
-                        else:
-                            article_type += 'Meta-Analysis'
-                    elif i == 3:
-                        if article_type != '':
-                            article_type += 'OR Randomized Controlled Trial'
-                        else:
-                            article_type += 'Randomized Controlled Trial'
-                    elif i == 4:
-                        if article_type != '':
-                            article_type += 'OR Review'
-                        else:
-                            article_type += 'Review'
-                    elif i == 5:
-                        if article_type != '':
-                            article_type += 'OR Systematic Review'
-                        else:
-                            article_type += 'Systematic Review'
-            if article_type != '':
-                article_type = '(' + article_type + '[FILT])'
+            # article_type_int = str(history[8])
+            # article_type = ''
+            # for i in range(len(article_type_int)):
+            #     if article_type_int[i] == '1':
+            #         if i == 0:
+            #             article_type += 'Books and Documents'
+            #         elif i == 1:
+            #             if article_type != '':
+            #                 article_type += 'OR Clinical Trial'
+            #             else:
+            #                 article_type += 'Clinical Trial'
+            #         elif i == 2:
+            #             if article_type != '':
+            #                 article_type += 'OR Meta-Analysis'
+            #             else:
+            #                 article_type += 'Meta-Analysis'
+            #         elif i == 3:
+            #             if article_type != '':
+            #                 article_type += 'OR Randomized Controlled Trial'
+            #             else:
+            #                 article_type += 'Randomized Controlled Trial'
+            #         elif i == 4:
+            #             if article_type != '':
+            #                 article_type += 'OR Review'
+            #             else:
+            #                 article_type += 'Review'
+            #         elif i == 5:
+            #             if article_type != '':
+            #                 article_type += 'OR Systematic Review'
+            #             else:
+            #                 article_type += 'Systematic Review'
+            # if article_type != '':
+            #     article_type = '(' + article_type + '[FILT])'
+            article_type = history[8]
             age = history[9]
             if age.find(',') != -1:
                 age_ls = age.split(',')
