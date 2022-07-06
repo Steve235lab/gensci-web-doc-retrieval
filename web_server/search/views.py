@@ -140,7 +140,7 @@ def search(request):
                 for f in sex:
                     robust_keywords += '(' + f + '[FILT]) OR ('
                     sex_str += f + ','
-                sex_str = species_str[:-1]
+                sex_str = sex_str[:-1]
                 robust_keywords = robust_keywords[:-5] + ')'
         else:
             sex = ''
