@@ -5,6 +5,7 @@
 import json
 import time
 import os
+from threading import Thread
 
 from database_new import DATABASE
 from email_sender import EmailSender
@@ -19,17 +20,8 @@ class Runner:
     """
     def __init__(self):
         self.search_task_queue = []
-
-        while True:
-            if len(self.search_task_queue) > 0:
-                search_task = self.search_task_queue[0]
-                self.search_task_queue.pop(0)
-                try:
-                    self.run_search(search_task[0], search_task[1], search_task[2], search_task[3], search_task[4], search_task[5], search_task[6], search_task[7], search_task[8], search_task[9])
-                except:
-                    pass
-            else:
-                time.sleep(1)
+        self.thread = Thread(target=self.search_thread)
+        self.thread.start()
 
     def run_search(self, robust_keywords: str, timestamp: int, raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex):
         """适用于单个线程的执行搜索及搜索完成善后任务的函数
@@ -99,6 +91,18 @@ class Runner:
                 email_sender.generate_search_completed_content(robust_keywords)
                 # 发送验证邮件
                 email_sender.send()
+
+    def search_thread(self):
+        while True:
+            if len(self.search_task_queue) > 0:
+                search_task = self.search_task_queue[0]
+                self.search_task_queue.pop(0)
+                try:
+                    self.run_search(search_task[0], search_task[1], search_task[2], search_task[3], search_task[4], search_task[5], search_task[6], search_task[7], search_task[8], search_task[9])
+                except:
+                    pass
+            else:
+                time.sleep(1)
 
 
 SEARCH_RUNNER = Runner()
