@@ -355,8 +355,17 @@ def get_history(request):
                     sex = '(' + sex + '[FILT])'
 
             robust_keywords = '(' + raw_keywords + ') AND ("' + start_time + '"[Date - Publication]:' + '"' + \
-                              end_time + '"[Date - Publication])' + ' AND ' + article_type + ' AND ' + age + ' AND ' + \
-                              language + ' AND ' + species + ' AND ' + sex
+                              end_time + '"[Date - Publication])'
+            if article_type != '':
+                robust_keywords += ' AND ' + article_type
+            if age != '':
+                robust_keywords += ' AND ' + age
+            if language != '':
+                robust_keywords += 'AND' + language
+            if species != '':
+                robust_keywords += ' AND ' + species
+            if sex != '':
+                robust_keywords += ' AND ' + sex
 
             history_dic = {'timestamp': timestamp, 'raw_keywords': raw_keywords, 'robust_keywords': robust_keywords}
             json_rsp['history'].append(history_dic)
@@ -803,6 +812,7 @@ def get_clue_info(request):
             if page_num == 0:
                 # 统计 edge_type 类型集合
                 edge_type_set = json.load(open(file_name, 'r'))['header']
+                print(edge_type_set)
                 edge_type_list = []
                 for edge_type in edge_type_set.keys:
                     if edge_type_set[edge_type]['has_BFS_edge'] is True:
