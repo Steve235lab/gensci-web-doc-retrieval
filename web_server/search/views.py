@@ -811,7 +811,7 @@ def get_clue_info(request):
 
             if page_num == 0:
                 # 统计 edge_type 类型集合
-                edge_type_set = json.load(open(file_name, 'r'))['header']
+                edge_type_set = json.load(open(file_name, 'r'))['header']['Edge_Type']
                 print(edge_type_set)
                 edge_type_list = []
                 for edge_type in edge_type_set.keys:
