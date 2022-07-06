@@ -11,7 +11,7 @@ def enable_undeadthread():
     cnt = 10
     while cnt:
         try:
-            requests.get("http://0.0.0.0:8000/undeadthread", )
+            requests.get("http://42.192.44.52:8000/undeadthread", )
         except Exception:
             cnt -= 1
             sleep(1)
