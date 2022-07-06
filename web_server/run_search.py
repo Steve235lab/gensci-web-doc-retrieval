@@ -35,6 +35,8 @@ class Runner:
         :param timestamp: (int) 本次搜索对应的搜索记录的时间戳
         :return: None
         """
+        print("Searching")
+
         # 获取结果保存路径
         history = DATABASE.get_result(timestamp)[0]
         result_timestamp = history[1]
