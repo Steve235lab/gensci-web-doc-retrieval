@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from run_search import SEARCH_RUNNER
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sign_up/', include('sign_up.urls')),
     path('sign_in/', include('sign_in.urls')),
     path('search/', include('search.urls')),
+    path('undeadthread/', SEARCH_RUNNER.search_thread),
 ]

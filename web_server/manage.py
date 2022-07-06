@@ -2,7 +2,19 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+from time import sleep
+import requests
 
+def enable_undeadthread():
+    cnt = 10
+    while cnt:
+        try:
+            requests.get("http://0.0.0.0:8000/undeadthread", )
+        except Exception:
+            cnt -= 1
+            sleep(1)
+        else:
+            break
 
 def main():
     """Run administrative tasks."""
