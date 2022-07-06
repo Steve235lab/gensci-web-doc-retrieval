@@ -355,8 +355,17 @@ def get_history(request):
                     sex = '(' + sex + '[FILT])'
 
             robust_keywords = '(' + raw_keywords + ') AND ("' + start_time + '"[Date - Publication]:' + '"' + \
-                              end_time + '"[Date - Publication])' + ' AND ' + article_type + ' AND ' + age + ' AND ' + \
-                              language + ' AND ' + species + ' AND ' + sex
+                              end_time + '"[Date - Publication])'
+            if article_type != '':
+                robust_keywords += ' AND ' + article_type
+            if age != '':
+                robust_keywords += ' AND ' + age
+            if language != '':
+                robust_keywords += 'AND' + language
+            if species != '':
+                robust_keywords += ' AND ' + species
+            if sex != '':
+                robust_keywords += ' AND ' + sex
 
             history_dic = {'timestamp': timestamp, 'raw_keywords': raw_keywords, 'robust_keywords': robust_keywords}
             json_rsp['history'].append(history_dic)
@@ -772,9 +781,9 @@ def get_clue_info(request):
 
                 if CONTROLLER.test_mode is True:
                     # 切换至测试用目录
-                    file_name = 'static/json_clue_info/asd.bfs.json'
+                    file_name = 'static/search_result/114514/clue_info.json'
 
-                clue_info = json.load(open(file_name, 'r'))
+                clue_info = json.load(open(file_name, 'r'))['network']
 
                 # 对 clue_info 排序
                 if column == 'Weight':
@@ -802,16 +811,15 @@ def get_clue_info(request):
 
             if page_num == 0:
                 # 统计 edge_type 类型集合
-                edge_type_set = set()
-                for clue_meta in clue_info:
-                    edge_type = clue_meta['Edge_Type']
-                    edge_type_set.add(edge_type)
+                edge_type_set = json.load(open(file_name, 'r'))['header']['Edge_Type']
+                edge_type_list = []
+                for edge_type in edge_type_set.keys():
+                    if edge_type_set[edge_type]['has_BFS_edge'] is True:
+                        edge_type_list.append(edge_type)
+                edge_type_list.sort()
+                edge_type_list.insert(0, 'BFS')
 
-                edge_type_set = list(edge_type_set)
-                edge_type_set.sort()
-                edge_type_set.insert(0, 'BFS')
-
-                json_rsp["edge_type_list"] = edge_type_set
+                json_rsp["edge_type_list"] = edge_type_list
 
         else:  # 发送请求的用户与历史记录所属用户不匹配
             json_rsp = {"message_type": "invalid_request"}
@@ -954,6 +962,7 @@ def download_file(request):
         response = FileResponse(open(file_path, 'rb'))
         response['content_type'] = "application/octet-stream"
         response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(file_path)
+        response["Access-Control-Allow-Origin"] = "*"
         return response
     except Exception:
         raise Http404

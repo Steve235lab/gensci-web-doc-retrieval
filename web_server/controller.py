@@ -23,7 +23,7 @@ class Controller:
     """
     def __init__(self):
         self.test_mode: bool = True
-        self.emoji_status: bool = True
+        self.emoji_status: bool = False
         self.paper_info_data_source: str = 'json'
         self.clue_info_data_source: str = 'json'
 
