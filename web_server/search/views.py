@@ -812,13 +812,12 @@ def get_clue_info(request):
             if page_num == 0:
                 # 统计 edge_type 类型集合
                 edge_type_set = json.load(open(file_name, 'r'))['header']['Edge_Type']
-                print(edge_type_set)
                 edge_type_list = []
-                for edge_type in edge_type_set.keys:
+                for edge_type in edge_type_set.keys():
                     if edge_type_set[edge_type]['has_BFS_edge'] is True:
                         edge_type_list.append(edge_type)
-                edge_type_set.sort()
-                edge_type_set.insert(0, 'BFS')
+                edge_type_list.sort()
+                edge_type_list.insert(0, 'BFS')
 
                 json_rsp["edge_type_list"] = edge_type_list
 
