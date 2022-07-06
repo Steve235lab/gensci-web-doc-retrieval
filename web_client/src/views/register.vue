@@ -35,7 +35,7 @@
         <el-col :span="10">
           <el-input placeholder="请输⼊验证码" v-model="loginForm.code"></el-input>
         </el-col>
-          <el-button v-show="show" type="success" style="width: 30%;padding: 12px 0;font-size: 13px;" @click="sendemail">获取短信验证码</el-button>
+          <el-button v-show="show" type="success" style="width: 30%;padding: 12px 0;font-size: 13px;" @click="sendemail">获取邮箱验证码</el-button>
           <el-button v-show="!show" type="warning" style="width: 30%;padding: 12px 0;font-size: 13px;" disabled>{{count}} s</el-button>
       </el-form-item>
 
@@ -169,8 +169,9 @@ export default {
             console.log(res.data);
             console.log(res.data.confirmed);
             if(res.data.confirmed==='True'){
+            that.$router.push('login')
             that.$message({message:'注册成功',type:'success'})
-            that.router.push('login')
+            
             }
             else{
               that.$message({message:'验证码错误',type:'warning'})
