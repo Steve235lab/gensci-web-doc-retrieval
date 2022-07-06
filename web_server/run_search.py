@@ -5,7 +5,8 @@
 import json
 import time
 import os
-from threading import Thread
+# from threading import Thread
+from multiprocessing import Process
 
 from database_new import DATABASE
 from email_sender import EmailSender
@@ -20,8 +21,10 @@ class Runner:
     """
     def __init__(self):
         self.search_task_queue = []
-        self.thread = Thread(target=self.search_thread)
-        self.thread.start()
+        # self.thread = Thread(target=self.search_thread)
+        # self.thread.start()
+        self.process = Process(target=self.search_thread)
+        self.process.start()
 
     def run_search(self, robust_keywords: str, timestamp: int, raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex):
         """适用于单个线程的执行搜索及搜索完成善后任务的函数
