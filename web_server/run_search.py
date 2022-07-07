@@ -61,6 +61,10 @@ class Runner:
         # translate_thread.join()       # 添加函数后取消注释
         # NLP_thread.join()     # 添加函数后取消注释
 
+        # 测试模式
+        if CONTROLLER.test_mode is True:
+            result_dir = 'static/search_result/114514/'
+
         # 查看结果文件是否已写入指定目录
         if os.path.exists(result_dir+'paper_info.xlsx') and os.path.exists(result_dir+'clue_info.xlsx') and os.path.exists(result_dir+'web_session.zip') and os.path.exists(result_dir+'clue_info.json') and os.path.exists(result_dir+'file.list'):
             # 从json文件中提取结果文献的 abstract_highlight 字段，生成HTML标签，保存至数据库 paper_abstract 表
@@ -94,7 +98,17 @@ class Runner:
                         else:
                             abstract_highlight_str += word
                 # 写入数据库
-                DATABASE.add_paper_highlight_abstract(pmid, abstract_highlight_str)
+                # DATABASE.add_paper_highlight_abstract(pmid, abstract_highlight_str)
+
+                # 讲高亮文本以文本文件的形式保存至指定目录
+                highlight_dir = 'static/highlight_text/'
+                category_num = pmid % 996       # pmid 除 996 取余数作为存放目录
+                highlight_dir += str(category_num) + '/'
+                if os.path.exists(highlight_dir) is False:
+                    os.mkdir(highlight_dir)
+                highlight_text_file = open(highlight_dir + str(pmid) + '.txt', 'w')
+                highlight_text_file.write(abstract_highlight_str)
+                highlight_text_file.close()
 
             # 将数据库中所有搜索该关键词的搜索记录标记为已完成搜索
             DATABASE.search_completed(raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language,
@@ -121,7 +135,10 @@ class Runner:
                 self.search_task_queue.pop(0)
                 eventlet.monkey_patch()
                 with eventlet.Timeout(CONTROLLER.search_max_time, False):
-                    self.run_search(search_task[0], search_task[1], search_task[2], search_task[3], search_task[4], search_task[5], search_task[6], search_task[7], search_task[8], search_task[9])
+                    try:
+                        self.run_search(search_task[0], search_task[1], search_task[2], search_task[3], search_task[4], search_task[5], search_task[6], search_task[7], search_task[8], search_task[9])
+                    except:
+                        pass
             else:
                 time.sleep(1)
 
