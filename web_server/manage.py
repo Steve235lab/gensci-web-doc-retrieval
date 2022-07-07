@@ -2,6 +2,21 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+from time import sleep
+import requests
+import threading
+
+
+def enable_undeadthread():
+    cnt = 10
+    while cnt:
+        try:
+            requests.get("http://42.192.44.52:8000/undeadthread/", )
+        except Exception:
+            cnt -= 1
+            sleep(1)
+        else:
+            break
 
 
 def main():
@@ -16,6 +31,8 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
+
+    threading.Thread(target=enable_undeadthread, daemon=True).start()
 
 
 if __name__ == '__main__':

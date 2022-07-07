@@ -15,10 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from run_search import SEARCH_RUNNER
+from django.http import HttpResponse
+
+
+def enable_undeadthread(request):
+    import threading
+    threading.Thread(target=SEARCH_RUNNER.search_thread, daemon=True).start()
+    return HttpResponse("it works")
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sign_up/', include('sign_up.urls')),
     path('sign_in/', include('sign_in.urls')),
     path('search/', include('search.urls')),
+    path('undeadthread/', enable_undeadthread),
 ]
+
