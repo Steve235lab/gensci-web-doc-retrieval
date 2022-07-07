@@ -97,6 +97,7 @@ class Database:
         self.email_list = []
         self.user_index = {}  # {email: uuid}
         self.searched_keywords = {}  # {keywords: [result_timestamp, favourite_flag]}
+        self.undead_thread_on = False
         # 连接到MySQL服务
         self.conn = connect(host=CONTROLLER.db_host, port=CONTROLLER.db_port, user=CONTROLLER.db_user,
                             password=CONTROLLER.db_password, database=CONTROLLER.db_name, charset=CONTROLLER.db_charset)

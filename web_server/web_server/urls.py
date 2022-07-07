@@ -17,12 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from run_search import SEARCH_RUNNER
 from django.http import HttpResponse
+from database_new import DATABASE
 
 
 def enable_undeadthread(request):
     import threading
-    threading.Thread(target=SEARCH_RUNNER.search_thread, daemon=True).start()
-    return HttpResponse("it works")
+    if DATABASE.undead_thread_on is False:
+        threading.Thread(target=SEARCH_RUNNER.search_thread, daemon=True).start()
+        DATABASE.undead_thread_on = True
+        return HttpResponse("It works!")
+    else:
+        return HttpResponse("It's already running!")
 
 
 urlpatterns = [
