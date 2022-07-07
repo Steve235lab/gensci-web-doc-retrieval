@@ -208,22 +208,33 @@
           <div>
 
             <el-row :gutter="5" type="flex" justify="space-around" style="flex-wrap: wrap;flex-direction: row">
-              <el-col :xs="24" :sm="16" :md="12" :lg="12">
+              <el-col :xs="22" :sm="15" :md="12" :lg="12">
                 <div style="margin-top: 15px;float: left">
                   <el-radio-group v-model="tabselect" @change="TabSelect" size="small" >
                     <el-radio-button label="Paper Info" :disabled=paper_disable></el-radio-button>
                     <el-radio-button label="Clue Info" :disabled=clue_disable></el-radio-button>
                     <el-radio-button label="Network" :disabled=network_disable></el-radio-button>
                   </el-radio-group>
-                  
-                  <el-button type="primary" @click="download1">Paper_Info</el-button>
-                  <el-button type="primary" @click="download2">Clue_Info</el-button>
-                  <el-button type="primary" @click="download3">Network</el-button>
-                  <span style="flex-wrap: wrap">点击下载</span>
+                  &emsp;
+                  <el-link class="el-icon-download" :underline="false" style="font-size: 25px" @click="downloadVisible=true"></el-link>
+                  <el-dialog
+                      title="请选择需要下载的文件"
+                      :visible.sync="downloadVisible"
+                      width="30%">
+                      <el-radio v-model="downloadList" label="paper_info.xlsx">Paper Info</el-radio>
+                      <el-radio v-model="downloadList" label="clue_info.xlsx">Clue Info</el-radio>
+                      <el-radio v-model="downloadList" label="web_session.zip">Network</el-radio>
+                    <span slot="footer" class="dialog-footer">
+                      <el-button @click="downloadVisible = false">取 消</el-button>
+                      <el-button type="primary" @click="download">确 定</el-button>
+                    </span>
+                  </el-dialog>
                 </div>
-                
               </el-col>
-              <el-col :xs="24" :sm="8" :md="12" :lg="12">
+              <el-col :span="2">
+
+              </el-col>
+              <el-col :xs="24" :sm="7" :md="10" :lg="10">
                 <div style="margin-top: 15px;float: right">
                   <el-input
                       placeholder="请输入Pmid"
@@ -235,6 +246,16 @@
                       autocomplete="on">
                     <el-button slot="append" icon="el-icon-search" @click="Search_Pmid"></el-button>
                   </el-input>
+<!--                  <el-dropdown>-->
+<!--                    <el-button type="success" size="small" @command="download">-->
+<!--                      <b>download</b><i class="el-icon-arrow-down el-icon&#45;&#45;right"></i>-->
+<!--                    </el-button>-->
+<!--                    <el-dropdown-menu slot="dropdown">-->
+<!--                      <el-dropdown-item command="paper_info.xlsx">Paper Info</el-dropdown-item>-->
+<!--                      <el-dropdown-item command="clue_info.xlsx">Clue Info</el-dropdown-item>-->
+<!--                      <el-dropdown-item command="web_session.zip">Network</el-dropdown-item>-->
+<!--                    </el-dropdown-menu>-->
+<!--                  </el-dropdown>-->
                 </div>
               </el-col>
             </el-row>
@@ -309,6 +330,7 @@ export default {
       network_tab:'off',
       loading:true,
       dialogVisible: false,
+      downloadVisible:false,
       history_lg:24,
       result_lg:0,
       timestamp:'',
@@ -324,6 +346,7 @@ export default {
       sex: [],
       age: [],
       publication_date: [],
+      downloadList:'',
       tabName:'',
       editableTabsValue: '',
       editableTabs: [],
@@ -398,12 +421,7 @@ export default {
 
   },
   computed: {
-    // 计算属性的 getter
-    // Pmid_separated: function (){
-    //   return function (pmid){
-    //     return Array.from(new Set(pmid.split('|')))
-    //   }
-    // },
+
 
   },
   watch:{
@@ -469,55 +487,9 @@ export default {
     },
 
     //下载
-    download1(){
-        var that=this;
-        that.axios({
-        method:"get",
-        url:"http://42.192.44.52:8000/search/download/",
-        params:{
-          message_type: 'download',
-          token: this.token,
-          timestamp:this.timestamp,
-          file_name:'paper_info.xlsx',
-        }
-        
-      })
-       
-          .then(function(res){
-             location.href="http://42.192.44.52:8000/search/download/"
-              + "?token=" + that.token 
-              + "&timestamp=" + that.timestamp 
-              + "&file_name=paper_info.xlsx"
-          })
-          .catch(function(err){
-            console.log(err)
-          })
-    },
-
-    download2(){
-        var that=this;
-        that.axios({
-        method:"get",
-        url:"http://42.192.44.52:8000/search/download/",
-        params:{
-          message_type: 'download',
-          token: this.token,
-          timestamp:this.timestamp,
-          file_name:'clue_info.xlsx',
-        },
-      })
-          .then(function(res){
-            location.href="http://42.192.44.52:8000/search/download/"
-              + "?token=" + that.token 
-              + "&timestamp=" + that.timestamp 
-              + "&file_name=clue_info.xlsx"
-          })
-          .catch(function(err){
-            console.log(err)
-          })
-    },
-
-    download3(){
+    download(filename) {
+      console.log(this.downloadList)
+      this.downloadVisible=false
       var that=this;
       that.axios({
         method:"get",
@@ -526,37 +498,17 @@ export default {
           message_type: 'download',
           token: this.token,
           timestamp:this.timestamp,
-          file_name:'web_session.zip',
+          file_name:this.downloadList,
         }
 
       })
 
           .then(function(res){
+            console.log(res)
             location.href="http://42.192.44.52:8000/search/download/"
                 + "?token=" + that.token
                 + "&timestamp=" + that.timestamp
-                + "&file_name=web_session.zip"
-          })
-          .catch(function(err){
-            console.log(err)
-          })
-
-      var that=this;
-        that.axios({
-        method:"get",
-        url:"http://42.192.44.52:8000/search/download/",
-        params:{
-          message_type: 'download',
-          token: this.token,
-          timestamp:this.timestamp,
-          file_name:'web_session.zip',
-        },
-      })
-          .then(function(res){
-            location.href="http://42.192.44.52:8000/search/download/"
-              + "?token=" + that.token
-              + "&timestamp=" + that.timestamp
-              + "&file_name=web_session.zip"
+                + "&file_name=" + that.downloadList
           })
           .catch(function(err){
             console.log(err)
@@ -962,5 +914,10 @@ export default {
   padding: 10px 10px;
   border-bottom: 1px solid #EBEEF5;
   box-sizing: border-box;
+}
+.el-button--success {
+  color: #FFF;
+  background-color: #51a34d;
+  border-color: #51a34d;
 }
 </style>
