@@ -65,7 +65,7 @@
         <el-table-column label="Node1" prop="Node1" />
         <el-table-column label="Edge_Type" prop="Edge_Type" />
         <el-table-column label="Node2" prop="Node2" />
-        <el-table-column label="Weight" prop="Weight" sortable="custom"/>
+        <el-table-column label="Weight" prop="Weight" sortable/>
         <!--      <el-table-column label="Paper_List" prop="Paper_List" sortable>-->
         <!--        <template slot-scope="props">-->
         <!--          <div v-for="(row,item) in props.row" :key="item">-->
@@ -294,7 +294,10 @@ export default {
       },
       // 内置交互
       modes: {
-        default: ['drag-canvas', 'zoom-canvas', 'drag-node','brush-select'],
+        default: ['drag-canvas', 'zoom-canvas', 'drag-node','brush-select','click-select'],
+        'click-select':{
+
+          }
       },
       // plugins: [minimap,legend],
       plugins: [tooltip],
