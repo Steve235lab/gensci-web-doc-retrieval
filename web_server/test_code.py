@@ -1,2 +1,2 @@
-cache = 11699489 % 996
-print(cache)
+dic = {"a": 1}
+print(dic.setdefault("b", ""))
