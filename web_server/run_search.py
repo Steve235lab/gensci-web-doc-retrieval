@@ -100,7 +100,7 @@ class Runner:
                 # 写入数据库
                 # DATABASE.add_paper_highlight_abstract(pmid, abstract_highlight_str)
 
-                # 讲高亮文本以文本文件的形式保存至指定目录
+                # 将高亮文本以文本文件的形式保存至指定目录
                 highlight_dir = 'static/highlight_text/'
                 category_num = pmid % 996       # pmid 除 996 取余数作为存放目录
                 highlight_dir += str(category_num) + '/'
@@ -135,9 +135,11 @@ class Runner:
                 self.search_task_queue.pop(0)
                 eventlet.monkey_patch()
                 with eventlet.Timeout(CONTROLLER.search_max_time, False):
-
-                    print(search_task)
-                    self.run_search(search_task[0], search_task[1], search_task[2], search_task[3], search_task[4], search_task[5], search_task[6], search_task[7], search_task[8], search_task[9])
+                    try:
+                        # print(search_task)
+                        self.run_search(search_task[0], search_task[1], search_task[2], search_task[3], search_task[4], search_task[5], search_task[6], search_task[7], search_task[8], search_task[9])
+                    except:
+                        pass
             else:
                 time.sleep(1)
 
