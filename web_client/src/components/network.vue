@@ -10,14 +10,12 @@
             :value="item">
         </el-option>
       </el-select>
-<!--      <button @click="legendtest">test</button>-->
     </div>
     <div style="position: absolute;width: 100%;top:400px;background-color: rgb(255,255,255,0.9)">
       <el-table
           :header-cell-style="{background:'rbg(255,255,255,0.9)',color:'rbg(255,255,255,0.9)'}"
           v-if="table_flag"
           :data="selected_edgeInfo"
-          v-loading="loading"
           element-loading-text="拼命加载中"
           :default-expand-all=true
           style="width: 100%"
@@ -212,6 +210,8 @@ export default {
       fitView: true,
       //v3.5.1 后支持。开启后，图将会被平移，图的中心将对齐到画布中心，但不缩放。优先级低于 fitView
       fitCenter: true,
+      //渲染方式 svg/canvas
+      // renderer: 'svg',
       // 节点默认配置
       defaultNode: {
         labelCfg: {
@@ -268,15 +268,15 @@ export default {
       layout: {
         type: 'fruchterman',
         // center: [200, 200], // 可选，默认为图的中心
-        gravity: 3, // 可选
-        speed: 10, // 可选
+        gravity: 1, // 可选
+        speed: 20, // 可选
         clustering: true, // 可选
-        // clusterGravity: 0.1, // 可选
+        clusterGravity: 0.1, // 可选
         // maxIteration: 500, // 可选，迭代次数
         // // linkDistance: 1000,
         // preventOverlap: true,
-        // nodeStrength: 20,         // 可选
-        // edgeStrength: 0.5,        // 可选
+        // nodeStrength: -10,         // 可选
+        // edgeStrength: 0.1,        // 可选
         // nodeSize: 30,             // 可选
         onTick: () => {           // 可选
           console.log('ticking');
@@ -287,7 +287,7 @@ export default {
           this.finished=true
           console.log("完成绘制")
 
-          graph.downloadImage('test', 'image/jpeg','#fff')
+
         },
         workerEnabled: true,      // 可选，开启 web-worker
         gpuEnabled: true          // 可选，开启 GPU 并行计算，G6 4.0 支持
@@ -333,6 +333,8 @@ export default {
         type: 'grid',
         nodeSize: 30,
         cols:3,
+        workerEnabled: true,      // 可选，开启 web-worker
+        // gpuEnabled: true          // 可选，开启 GPU 并行计算，G6 4.0 支持
         // center: [200, 200], // 可选，默认为图的中心
       },
     });
@@ -470,6 +472,7 @@ export default {
     draw_network(class1,class2) {
 
       this.getdrawInfo(class1,class2);
+      this.legendtest()
 
       const nodes = this.selected_network.nodes;
       const edges = this.selected_network.edges;
