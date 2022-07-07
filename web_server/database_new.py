@@ -416,7 +416,7 @@ class Database:
         :return: None
         """
         self.is_connected()
-        sql = """update new_search_history set search_completed_flag = 1 where raw_keywords = ('%s') AND start_time = ('%s') AND end_time = ('%s') AND filter_article_type = ('%d') AND filter_age = ('%s') AND filter_language = ('%s') AND filter_species = ('%s') AND filter_sex = ('%s')""" % (raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex)
+        sql = """update new_search_history set search_completed_flag = 1 where raw_keywords = ('%s') AND start_time = ('%s') AND end_time = ('%s') AND filter_article_type = ('%s') AND filter_age = ('%s') AND filter_language = ('%s') AND filter_species = ('%s') AND filter_sex = ('%s')""" % (raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex)
         self.cursor.execute(sql)
         self.conn.commit()
 
