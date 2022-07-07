@@ -3,8 +3,8 @@ module.exports = defineConfig({
   transpileDependencies: true,
   //vue.config.js
     devServer: {
-      host: 'localhost',
-      port: 8080,//本地运行的端口
+      // host: 'localhost',
+      // port: 8080,//本地运行的端口
       //接口代理
       proxy: {
         '/api': {
