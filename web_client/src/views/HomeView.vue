@@ -175,7 +175,7 @@
   <!--    历史记录及结果显示-->
       <el-row :gutter="20" type="flex" justify="space-around" style="flex-wrap: wrap;flex-direction: row">
   <!--      历史记录-->
-        <el-col :sm="24" :md="history_lg+1" :lg="history_lg" >
+        <el-col :xs="history_xs" :sm="history_sm" :md="history_md" :lg="history_lg" >
           <el-card :body-style="{ padding: '0px' }" class="box-card" style="max-height: 650px">
             <div slot="header" class="clearfix" style="text-align:center;">
               <span >当前可查看</span>
@@ -203,7 +203,7 @@
         </el-col>
 
   <!--      结果显示-->
-        <el-col :sm="24" :md="result_lg-1" :lg="result_lg">
+        <el-col :xs="result_xs" :sm="result_sm" :md="result_md" :lg="result_lg">
   <!--        paper_info/clue_info/network标签页-->
           <div>
 
@@ -235,6 +235,7 @@
                 <div style="margin-top: 15px;float: right">
                   <el-input
                       placeholder="请输入Pmid"
+                      oninput = "value=value.replace(/[^\d]/g,'')"
                       v-model="Pmid_input"
                       class="input-with-select"
                       clearable
@@ -250,7 +251,7 @@
                 <div style="margin-top: 15px;float: left">
                   <el-dropdown @command="download">
                     <el-button type="success" size="small" >
-                      <b>download</b><i class="el-icon-arrow-down el-icon--right"></i>
+                      <b>Download</b><i class="el-icon-arrow-down el-icon--right"></i>
                     </el-button>
                     <el-dropdown-menu slot="dropdown">
                       <el-dropdown-item command="paper_info.xlsx">Paper Info</el-dropdown-item>
@@ -332,7 +333,13 @@ export default {
       dialogVisible: false,
       downloadVisible:false,
       history_lg:24,
+      history_md:24,
+      history_sm:24,
+      history_xs:24,
       result_lg:0,
+      result_md:0,
+      result_sm:0,
+      result_xs:0,
       timestamp:'',
       tabselect:'',
       paper_index:-1,
@@ -489,6 +496,11 @@ export default {
     //下载
     download(filename) {
       console.log(this.downloadList)
+      this.$message({
+        showClose: true,
+        message: '正在获取'+filename+',请稍候！',
+        type: 'success'
+      });
       this.downloadVisible=false
       var that=this;
       that.axios({
@@ -543,7 +555,13 @@ export default {
         this.paper_tabIndex=newTabName
         this.paper_page_Info.currentNumber=1
         this.history_lg=0;
+        this.history_md=0;
+        this.history_sm=0;
+        this.history_xs=0;
         this.result_lg=24;
+        this.result_md=24;
+        this.result_sm=24;
+        this.result_xs=24;
         this.paperInfo()
         this.paper_disable = true
         this.editableTabs.push({
@@ -554,6 +572,14 @@ export default {
       }
       else if(newTab==='clue'){
         this.clue_tab='on';
+        this.history_lg=0;
+        this.history_md=0;
+        this.history_sm=0;
+        this.history_xs=0;
+        this.result_lg=24;
+        this.result_md=24;
+        this.result_sm=24;
+        this.result_xs=24;
         this.clue_tabIndex=newTabName
         this.clue_page_Info.currentNumber=1
         this.clueInfo()
@@ -566,6 +592,14 @@ export default {
       }
       else if(newTab==='network'){
         this.network_tab='on';
+        this.history_lg=0;
+        this.history_md=0;
+        this.history_sm=0;
+        this.history_xs=0;
+        this.result_lg=24;
+        this.result_md=24;
+        this.result_sm=24;
+        this.result_xs=24;
         this.network_tabIndex=newTabName
         this.clue_page_Info.currentNumber = 0;
         this.clueInfo()
@@ -606,7 +640,13 @@ export default {
       }
       if(this.paper_disable===false&&this.clue_disable===false&&this.network_disable===false){
         this.history_lg=3;
+        this.history_md=4;
+        this.history_sm=24;
+        this.history_xs=24;
         this.result_lg=21;
+        this.result_md=20;
+        this.result_sm=24;
+        this.result_xs=24;
       }
       if (activeName === targetName) {
         tabs.forEach((tab, index) => {
@@ -861,6 +901,13 @@ export default {
               that.token = res.data.token
               that.addTab(that.Pmid)
               that.loading = false
+              if(!res.data.paper_info){
+                that.$message({
+                  showClose: true,
+                  message: '请检查Pmid是否正确！',
+                  type: 'warning'
+                })
+              }
             }
           })
           .catch(function(err){
