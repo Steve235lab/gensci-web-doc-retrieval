@@ -136,6 +136,7 @@ class Runner:
                 eventlet.monkey_patch()
                 with eventlet.Timeout(CONTROLLER.search_max_time, False):
                     try:
+                        print(search_task)
                         self.run_search(search_task[0], search_task[1], search_task[2], search_task[3], search_task[4], search_task[5], search_task[6], search_task[7], search_task[8], search_task[9])
                     except:
                         pass
