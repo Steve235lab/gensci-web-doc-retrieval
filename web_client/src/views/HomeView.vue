@@ -73,10 +73,10 @@
       <p></p>
       <!--        发表时间-->
       <el-row :gutter="20" type="flex" justify="space-around" style="flex-wrap: wrap;flex-direction: row">
-        <el-col  :sm="24" :md="4" :lg="3" >
+        <el-col :xs="24" :sm="24" :md="4" :lg="3" >
           <div style="float:left;font-weight :bold;">PUBLICATION DATE</div>
         </el-col>
-        <el-col  :sm="24" :md="20" :lg="21" >
+        <el-col :xs="23" :sm="23" :md="19" :lg="20" >
           <div class="block">
             <el-date-picker
                 v-model="publication_date"
@@ -91,18 +91,17 @@
             </el-date-picker>
           </div>
         </el-col>
-        <!--          <el-col :span="2" :offset="9">-->
-        <!--            <el-button type="primary" round @click="handleSearch">高级检索</el-button>-->
-        <!--          </el-col>-->
+        <el-col :xs="1" :sm="1" :md="1" :lg="1">
+          <el-link v-show="!hidden_flag" class="el-icon-arrow-down" @click="handleHidden" :underline="false"></el-link>
+          <el-link v-show="hidden_flag" class="el-icon-arrow-up" @click="handleHidden" :underline="false"></el-link>
+        </el-col>
 
       </el-row>
-      <!--    筛选条件折叠面板-->
-      <el-collapse style="display:inline;width: 1500px" v-model="activeState" >
-        <el-collapse-item >
-          <template slot="title">
-            <div style="font-weight :bold;font-size: 16px;float: left;text-align: left">More Filters</div>
-          </template>
+
+      <!--    筛选条件折叠-->
           <!--        年龄-->
+      <p></p>
+      <div v-show="hidden_flag">
           <el-row :gutter="20" type="flex" justify="space-around" style="flex-wrap: wrap;flex-direction: row">
             <el-col :sm="24" :md="4" :lg="3">
               <div style="float:left;font-weight :bold;">AGE</div>
@@ -171,8 +170,7 @@
               </el-checkbox-group>
             </el-col>
           </el-row>
-        </el-collapse-item>
-      </el-collapse>
+      </div>
       <p></p>
   <!--    历史记录及结果显示-->
       <el-row :gutter="20" type="flex" justify="space-around" style="flex-wrap: wrap;flex-direction: row">
@@ -300,6 +298,7 @@ export default {
 
   data() {
     return {
+      hidden_flag: false,
       token:'',
       userName:'',
       paper_disable:false,
@@ -433,6 +432,11 @@ export default {
 
   },
   methods: {
+    handleHidden(){
+      this.hidden_flag=!this.hidden_flag
+      console.log(this.hidden_flag)
+    },
+
     //获取历史记录
     getHistory(){
       var that = this;
@@ -450,6 +454,7 @@ export default {
             that.message_type = res.data.message_type
             if(res.data.message_type==="history_list"){
               console.log(res.data)
+              console.log(res)
               if(res.data.history==='[]')
               console.log('test')
             }
@@ -502,7 +507,7 @@ export default {
         },
       })
           .then(function(res){
-            location.href="http://42.192.44.52:8000/search/download/"
+            location.href="/search/download/"
               + "?token=" + that.token 
               + "&timestamp=" + that.timestamp 
               + "&file_name=clue_info.xlsx"
@@ -513,6 +518,28 @@ export default {
     },
 
     download3(){
+      var that=this;
+      that.axios({
+        method:"get",
+        url:"http://42.192.44.52:8000/search/download/",
+        params:{
+          message_type: 'download',
+          token: this.token,
+          timestamp:this.timestamp,
+          file_name:'web_session.zip',
+        }
+
+      })
+
+          .then(function(res){
+            location.href="http://42.192.44.52:8000/search/download/"
+                + "?token=" + that.token
+                + "&timestamp=" + that.timestamp
+                + "&file_name=web_session.zip"
+          })
+          .catch(function(err){
+            console.log(err)
+          })
 
     },
 
@@ -695,6 +722,7 @@ export default {
         })
             .then(function(res){
               that.message_type = res.data.message_type
+              console.log(res)
               if(res.data.message_type==="search_received"){
                 that.$message({
                   showClose: true,
