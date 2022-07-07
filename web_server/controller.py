@@ -15,15 +15,18 @@ class Controller:
         True: 打开请求应答详情输出，推荐在支持 emoji 输出的终端中使用
         False: 关闭请求应答详情输出，控制台只打印Django默认的信息
     -paper_info_data_source: search/views.py 的 get_paper_info 函数数据来源选择器
-        excel: 使用excel文件作为数据源，加载速度较慢
+        excel: 使用excel文件作为数据源，加载速度较慢 （已弃用）
         json: 使用json文件作为数据源，加载速度较快
     -clue_info_data_source: search/views.py 的 get_clue_info 函数数据来源选择器
-        excel: 使用excel文件作为数据源，加载速度较慢
+        excel: 使用excel文件作为数据源，加载速度较慢 （已弃用）
         json: 使用json文件作为数据源，加载速度较快
     """
     def __init__(self):
         # 对外的公网ip与端口号，或者使用域名
         self.public_ip = '42.192.44.52:8000'
+
+        # 日志路径
+        self.log_dir = 'static/logs/'
 
         self.test_mode: bool = True
         self.emoji_status: bool = False
