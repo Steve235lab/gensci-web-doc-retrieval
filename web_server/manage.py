@@ -9,7 +9,7 @@ import threading
 
 
 def enable_undeadthread():
-    time.sleep(5)
+    sleep(5)
     cnt = 10
     while cnt:
         try:
