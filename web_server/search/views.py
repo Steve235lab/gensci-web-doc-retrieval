@@ -176,7 +176,7 @@ def search(request):
         # search_thread.start()
 
         # 将搜索任务放入任务队列
-        SEARCH_RUNNER.search_task_queue.append((robust_keywords, timestamp, keywords, start_time, end_time, article_type_str, age, language, species, sex))
+        SEARCH_RUNNER.search_task_queue.append((robust_keywords, timestamp, keywords, start_time, end_time, article_type_str, age_str, language_str, species_str, sex_str))
 
         # 向前端返回响应
         new_token = forge_token(uuid_str)
