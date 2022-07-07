@@ -659,7 +659,12 @@ def get_paper_info(request):
                         paper_info['Corresponding_Author'] = raw_paper_info['corresponding_author']
                         paper_info['Authors'] = raw_paper_info['authors']
                         paper_info['Affiliations'] = raw_paper_info['affiliations']
-                        paper_info['Abstract'] = DATABASE.get_highlight_abstract_with_pmid(pmid)
+                        highlight_dir = 'static/highlight_text/'
+                        category_num = pmid % 996  # pmid 除 996 取余数作为存放目录
+                        highlight_dir += str(category_num) + '/'
+                        highlight_text_file = open(highlight_dir + str(pmid) + '.txt', 'r')
+                        abstract = highlight_text_file.read()
+                        paper_info['Abstract'] = abstract
                         paper_info['Keywords'] = raw_paper_info['keywords']
                         paper_info['Doi'] = raw_paper_info['doi']
                         paper_info['Journal_If'] = raw_paper_info['journal_if']
