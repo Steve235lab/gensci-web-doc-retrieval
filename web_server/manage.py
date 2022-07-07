@@ -2,15 +2,16 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-import time
 from time import sleep
 import requests
 import threading
 
+from controller import CONTROLLER
+
 
 def enable_undeadthread():
     sleep(5)
-    requests.get("http://0.0.0.0:8000/undeadthread/")
+    requests.get("http://" + CONTROLLER.public_ip + "/undeadthread/")
 
 
 def main():

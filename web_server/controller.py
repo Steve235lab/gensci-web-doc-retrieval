@@ -22,6 +22,9 @@ class Controller:
         json: 使用json文件作为数据源，加载速度较快
     """
     def __init__(self):
+        # 对外的公网ip与端口号，或者使用域名
+        self.public_ip = '42.192.44.52:8000'
+
         self.test_mode: bool = True
         self.emoji_status: bool = False
         self.paper_info_data_source: str = 'json'
