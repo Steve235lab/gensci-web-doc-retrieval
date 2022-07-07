@@ -753,7 +753,7 @@ export default {
             console.log(err)
             that.paper_disable=false;
             that.message_type = err.message;
-            that.paper_result = example.paper_info_4 //测试用
+            // that.paper_result = example.paper_info_4 //测试用
           })
 
     },
@@ -802,9 +802,9 @@ export default {
           .catch(function(err){
             console.log(err)
             that.message_type = err.message;
-            that.clue_result = network_result //测试用
-            that.network_data = network_result  //测试用
-            that.drawOptions = ["BFS","anatomy","antibody_to_anatomy", "bacteria","bacteria_to_anatomy","bacteria_to_antibody","bacteria_to_chemical","bacteria_to_disease","bacteria_to_mechanism","bacteria_to_nutrient","chemical","chemical_to_anatomy","chemical_to_disease","chemical_to_mechanism","disease","disease_to_anatomy","disease_to_antibody","disease_to_mechanism","mechanism","mechanism_to_anatomy","mechanism_to_antibody","nutrient_to_anatomy","nutrient_to_chemical","nutrient_to_disease","nutrient_to_mechanism"]
+            // that.clue_result = network_result //测试用
+            // that.network_data = network_result  //测试用
+            // that.drawOptions = ["BFS","anatomy","antibody_to_anatomy", "bacteria","bacteria_to_anatomy","bacteria_to_antibody","bacteria_to_chemical","bacteria_to_disease","bacteria_to_mechanism","bacteria_to_nutrient","chemical","chemical_to_anatomy","chemical_to_disease","chemical_to_mechanism","disease","disease_to_anatomy","disease_to_antibody","disease_to_mechanism","mechanism","mechanism_to_anatomy","mechanism_to_antibody","nutrient_to_anatomy","nutrient_to_chemical","nutrient_to_disease","nutrient_to_mechanism"]
 
           })
 
