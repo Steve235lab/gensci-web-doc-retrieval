@@ -53,7 +53,7 @@ class Runner:
         # NLP_thread = Thread(target=, args=())     # 添加函数后取消注释
         # NLP_thread.start()        # 添加函数后取消注释
 
-        # 阻塞翻译和NLP线程
+        # 阻塞主线程
         # translate_thread.join()       # 添加函数后取消注释
         # NLP_thread.join()     # 添加函数后取消注释
 
