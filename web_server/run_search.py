@@ -5,8 +5,10 @@
 import json
 import time
 import os
-# from threading import Thread
+from threading import Thread
 # from multiprocessing import Process
+
+import eventlet
 
 from database_new import DATABASE
 from email_sender import EmailSender
@@ -43,6 +45,17 @@ class Runner:
         result_dir = 'static/search_result/' + str(result_timestamp) + '/'
 
         # TODO: 启动搜索，使用 robust_keywords 作为关键词进行搜索，将 paper_info.xlsx 和 clue_info.xlsx 两个文件输出到 result_dir 下
+
+        # TODO: 在这里执行翻译，Thread()中 target=函数名（不要加括号） args=实参元组
+        # translate_thread = Thread(target=, args=())       # 添加函数后取消注释
+        # translate_thread.start()      # 添加函数后取消注释
+        # TODO: 在这里执行NLP
+        # NLP_thread = Thread(target=, args=())     # 添加函数后取消注释
+        # NLP_thread.start()        # 添加函数后取消注释
+
+        # 阻塞翻译和NLP线程
+        # translate_thread.join()       # 添加函数后取消注释
+        # NLP_thread.join()     # 添加函数后取消注释
 
         # 查看结果文件是否已写入指定目录
         if os.path.exists(result_dir+'paper_info.xlsx') and os.path.exists(result_dir+'clue_info.xlsx') and os.path.exists(result_dir+'web_session.zip') and os.path.exists(result_dir+'clue_info.json') and os.path.exists(result_dir+'file.list'):
@@ -102,7 +115,9 @@ class Runner:
             if len(self.search_task_queue) > 0:
                 search_task = self.search_task_queue[0]
                 self.search_task_queue.pop(0)
-                self.run_search(search_task[0], search_task[1], search_task[2], search_task[3], search_task[4], search_task[5], search_task[6], search_task[7], search_task[8], search_task[9])
+                eventlet.monkey_patch()
+                with eventlet.Timeout(CONTROLLER.search_max_time, False):
+                    self.run_search(search_task[0], search_task[1], search_task[2], search_task[3], search_task[4], search_task[5], search_task[6], search_task[7], search_task[8], search_task[9])
             else:
                 time.sleep(1)
 

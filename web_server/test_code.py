@@ -1,4 +1,11 @@
-import json
+import time
+import eventlet#导入eventlet
 
-edge_type_set = json.load(open('static/search_result/114514/clue_info.json', 'r'))['header']['Edge_Type']
-key_list = edge_type_set.keys()
+def say():
+    time.sleep(3)
+    print('1')
+
+eventlet.monkey_patch()#引入patch
+with eventlet.Timeout(2,False):#设置超时时间为2秒
+    say()
+print('2')

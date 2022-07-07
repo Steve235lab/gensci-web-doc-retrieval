@@ -48,5 +48,8 @@ class Controller:
         # token密钥
         self.token_key = 'django-insecure-aae68)ppyyk0y=-4of$%^d96-h48fxqcry2!g@j1g0ns6=zapa'
 
+        # 单次 搜索 + 翻译 + NLP 处理最大时间 （单位：秒）
+        self.search_max_time = 1500     # 25分钟
+
 
 CONTROLLER = Controller()
