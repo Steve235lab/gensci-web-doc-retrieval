@@ -507,7 +507,7 @@ export default {
         },
       })
           .then(function(res){
-            location.href="/search/download/"
+            location.href="http://42.192.44.52:8000/search/download/"
               + "?token=" + that.token 
               + "&timestamp=" + that.timestamp 
               + "&file_name=clue_info.xlsx"
@@ -541,6 +541,26 @@ export default {
             console.log(err)
           })
 
+      var that=this;
+        that.axios({
+        method:"get",
+        url:"http://42.192.44.52:8000/search/download/",
+        params:{
+          message_type: 'download',
+          token: this.token,
+          timestamp:this.timestamp,
+          file_name:'web_session.zip',
+        },
+      })
+          .then(function(res){
+            location.href="http://42.192.44.52:8000/search/download/"
+              + "?token=" + that.token
+              + "&timestamp=" + that.timestamp
+              + "&file_name=web_session.zip"
+          })
+          .catch(function(err){
+            console.log(err)
+          })
     },
 
     //监听结果显示标签页选择事件

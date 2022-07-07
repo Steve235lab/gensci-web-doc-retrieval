@@ -97,6 +97,7 @@ class Database:
         self.email_list = []
         self.user_index = {}  # {email: uuid}
         self.searched_keywords = {}  # {keywords: [result_timestamp, favourite_flag]}
+        self.undead_thread_on = False
         # 连接到MySQL服务
         self.conn = connect(host=CONTROLLER.db_host, port=CONTROLLER.db_port, user=CONTROLLER.db_user,
                             password=CONTROLLER.db_password, database=CONTROLLER.db_name, charset=CONTROLLER.db_charset)
@@ -414,8 +415,9 @@ class Database:
         :param keywords: (str) 关键词组合
         :return: None
         """
+        print('HERE')
         self.is_connected()
-        sql = """update new_search_history set search_completed_flag = 1 where raw_keywords = ('%s') AND start_time = ('%s') AND end_time = ('%s') AND filter_article_type = ('%d') AND filter_age = ('%s') AND filter_language = ('%s') AND filter_species = ('%s') AND filter_sex = ('%s')""" % (raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex)
+        sql = """update new_search_history set search_completed_flag = 1 where raw_keywords = ('%s') AND start_time = ('%s') AND end_time = ('%s') AND filter_article_type = ('%s') AND filter_age = ('%s') AND filter_language = ('%s') AND filter_species = ('%s') AND filter_sex = ('%s')""" % (raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex)
         self.cursor.execute(sql)
         self.conn.commit()
 
@@ -426,7 +428,7 @@ class Database:
         :return: (list) 所有搜索过该关键词组合的用户uuid
         """
         self.is_connected()
-        sql = """select uuid from new_search_history where raw_keywords = ('%s') AND start_time = ('%s') AND end_time = ('%s') AND filter_article_type = ('%d') AND filter_age = ('%s') AND filter_language = ('%s') AND filter_species = ('%s') AND filter_sex = ('%s')""" % (raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex)
+        sql = """select uuid from new_search_history where raw_keywords = ('%s') AND start_time = ('%s') AND end_time = ('%s') AND filter_article_type = ('%s') AND filter_age = ('%s') AND filter_language = ('%s') AND filter_species = ('%s') AND filter_sex = ('%s')""" % (raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language, filter_species, filter_sex)
         self.cursor.execute(sql)
         uuids = self.cursor.fetchall()
 

@@ -83,7 +83,7 @@ def search(request):
             if len(article_type) > 0:
                 robust_keywords += ' AND ('
                 for f in article_type:
-                    robust_keywords += '(' + f + '[FILT]) OR ('
+                    robust_keywords += '(' + f + '[FILT]) OR '
                     article_type_str += f + ' OR '
                 # article_type_int = ['0', '0', '0', '0', '0', '0']
                 # for f in article_type:
@@ -104,7 +104,7 @@ def search(request):
                 # for i in article_type_int:
                 #     cache += i
                 # article_type_int = int(cache)
-                robust_keywords = robust_keywords[:-5] + ')'
+                robust_keywords = robust_keywords[:-4] + ')'
                 article_type_str = article_type_str[:-4]
         else:
             article_type_str = ''
@@ -114,10 +114,10 @@ def search(request):
             if len(language) > 0:
                 robust_keywords += ' AND ('
                 for f in language:
-                    robust_keywords += '(' + f + '[Language]) OR ('
+                    robust_keywords += '(' + f + '[Language]) OR '
                     language_str += f + ','
                 language_str = language_str[:-1]
-                robust_keywords = robust_keywords[:-5] + ')'
+                robust_keywords = robust_keywords[:-4] + ')'
         else:
             language = ''
         species_str = ''
@@ -126,10 +126,10 @@ def search(request):
             if len(species) > 0:
                 robust_keywords += ' AND ('
                 for f in species:
-                    robust_keywords += '(' + f + '[FILT]) OR ('
+                    robust_keywords += '(' + f + '[FILT]) OR '
                     species_str += f + ','
                 species_str = species_str[:-1]
-                robust_keywords = robust_keywords[:-5] + ')'
+                robust_keywords = robust_keywords[:-4] + ')'
         else:
             species = ''
         sex_str = ''
@@ -138,10 +138,10 @@ def search(request):
             if len(sex) > 0:
                 robust_keywords += ' AND ('
                 for f in sex:
-                    robust_keywords += '(' + f + '[FILT]) OR ('
+                    robust_keywords += '(' + f + '[FILT]) OR '
                     sex_str += f + ','
                 sex_str = sex_str[:-1]
-                robust_keywords = robust_keywords[:-5] + ')'
+                robust_keywords = robust_keywords[:-4] + ')'
         else:
             sex = ''
         age_str = ''
@@ -150,25 +150,25 @@ def search(request):
             if len(age) > 0:
                 robust_keywords += ' AND ('
                 for f in age:
-                    robust_keywords += '(' + f + '[FILT]) OR ('
+                    robust_keywords += '(' + f + '[FILT]) OR '
                     age_str += f + ','
                 age_str = age_str[:-1]
-                robust_keywords = robust_keywords[:-5] + ')'
+                robust_keywords = robust_keywords[:-4] + ')'
         else:
             age = ''
 
         print("Search keywords: ", robust_keywords)
 
         # 保存搜索记录
-        print(uuid)
-        print(keywords)
-        print(start_time)
-        print(end_time)
-        print(article_type_str)
-        print(age_str)
-        print(language_str)
-        print(species_str)
-        print(sex_str)
+        # print(uuid)
+        # print(keywords)
+        # print(start_time)
+        # print(end_time)
+        # print(article_type_str)
+        # print(age_str)
+        # print(language_str)
+        # print(species_str)
+        # print(sex_str)
         timestamp = DATABASE.add_search_history(uuid, keywords, start_time, end_time, article_type_str, age_str, language_str, species_str, sex_str)
 
         # 开启一个单独的线程运行搜索服务并在搜索完成后执行善后处理
@@ -176,7 +176,7 @@ def search(request):
         # search_thread.start()
 
         # 将搜索任务放入任务队列
-        SEARCH_RUNNER.search_task_queue.append((robust_keywords, timestamp, keywords, start_time, end_time, article_type_str, age, language, species, sex))
+        SEARCH_RUNNER.search_task_queue.append((robust_keywords, timestamp, keywords, start_time, end_time, article_type_str, age_str, language_str, species_str, sex_str))
 
         # 向前端返回响应
         new_token = forge_token(uuid_str)
@@ -648,37 +648,32 @@ def get_paper_info(request):
                     for i in range(row_start, row_end):
                         raw_paper_info = sorted_paper_info[i]
                         paper_info = {}
-                        paper_info['Pmid'] = raw_paper_info['pmid']
-                        pmid = int(raw_paper_info['pmid'])
-                        paper_info['Journal'] = raw_paper_info['journal']
-                        paper_info['Publication_Type'] = raw_paper_info['publication_type']
-                        paper_info['Publication_Year'] = raw_paper_info['publication_year']
-                        paper_info['Publication_Date'] = raw_paper_info['publication_date']
-                        paper_info['Title'] = raw_paper_info['title']
-                        paper_info['First_Author'] = raw_paper_info['first_author']
-                        paper_info['Corresponding_Author'] = raw_paper_info['corresponding_author']
-                        paper_info['Authors'] = raw_paper_info['authors']
-                        paper_info['Affiliations'] = raw_paper_info['affiliations']
-                        paper_info['Abstract'] = DATABASE.get_highlight_abstract_with_pmid(pmid)
-                        paper_info['Keywords'] = raw_paper_info['keywords']
-                        paper_info['Doi'] = raw_paper_info['doi']
-                        paper_info['Journal_If'] = raw_paper_info['journal_if']
-                        paper_info['Chinese_Title'] = raw_paper_info['title_zh']
-                        paper_info['Chinese_Abstract'] = raw_paper_info['abstract_zh']
-                        paper_info['Sample_Size'] = raw_paper_info['sample_size']
-                        # 以下3个字段可能在原始json文件中不存在
-                        try:
-                            paper_info['Conclusion'] = raw_paper_info['conclusion']
-                        except:
-                            paper_info['Conclusion'] = ''
-                        try:
-                            paper_info['Location'] = raw_paper_info['location']
-                        except:
-                            paper_info['Location'] = ''
-                        try:
-                            paper_info['Organization'] = raw_paper_info['organization']
-                        except:
-                            paper_info['Organization'] = ''
+                        paper_info['Pmid'] = raw_paper_info.setdefault('pmid', '')
+                        pmid = int(raw_paper_info.setdefault('pmid', ''))
+                        paper_info['Journal'] = raw_paper_info.setdefault('journal', '')
+                        paper_info['Publication_Type'] = raw_paper_info.setdefault('publication_type', '')
+                        paper_info['Publication_Year'] = raw_paper_info.setdefault('publication_year', '')
+                        paper_info['Publication_Date'] = raw_paper_info.setdefault('publication_date', '')
+                        paper_info['Title'] = raw_paper_info.setdefault('title', '')
+                        paper_info['First_Author'] = raw_paper_info.setdefault('first_author', '')
+                        paper_info['Corresponding_Author'] = raw_paper_info.setdefault('corresponding_author', '')
+                        paper_info['Authors'] = raw_paper_info.setdefault('authors', '')
+                        paper_info['Affiliations'] = raw_paper_info.setdefault('affiliations', '')
+                        highlight_dir = 'static/highlight_text/'
+                        category_num = pmid % 996  # pmid 除 996 取余数作为存放目录
+                        highlight_dir += str(category_num) + '/'
+                        highlight_text_file = open(highlight_dir + str(pmid) + '.txt', 'r')
+                        abstract = highlight_text_file.read()
+                        paper_info['Abstract'] = abstract
+                        paper_info['Keywords'] = raw_paper_info.setdefault('keywords', '')
+                        paper_info['Doi'] = raw_paper_info.setdefault('doi', '')
+                        paper_info['Journal_If'] = raw_paper_info.setdefault('journal_if', '')
+                        paper_info['Chinese_Title'] = raw_paper_info.setdefault('title_zh', '')
+                        paper_info['Chinese_Abstract'] = raw_paper_info.setdefault('abstract_zh', '')
+                        paper_info['Sample_Size'] = raw_paper_info.setdefault('sample_size', '')
+                        paper_info['Conclusion'] = raw_paper_info.setdefault('conclusion', '')
+                        paper_info['Location'] = raw_paper_info.setdefault('location', '')
+                        paper_info['Organization'] = raw_paper_info.setdefault('organization', '')
 
                         json_rsp["paper_info"].append(paper_info)
                         # print(paper_info)

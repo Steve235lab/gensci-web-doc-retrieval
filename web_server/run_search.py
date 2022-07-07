@@ -5,8 +5,10 @@
 import json
 import time
 import os
-# from threading import Thread
+from threading import Thread
 # from multiprocessing import Process
+
+import eventlet
 
 from database_new import DATABASE
 from email_sender import EmailSender
@@ -42,7 +44,26 @@ class Runner:
         result_timestamp = history[1]
         result_dir = 'static/search_result/' + str(result_timestamp) + '/'
 
+        # 判断结果保存路径是否已经存在
+        if os.path.exists(result_dir) is False:
+            os.mkdir(result_dir)
+
         # TODO: 启动搜索，使用 robust_keywords 作为关键词进行搜索，将 paper_info.xlsx 和 clue_info.xlsx 两个文件输出到 result_dir 下
+
+        # TODO: 在这里执行翻译，Thread()中 target=函数名（不要加括号） args=实参元组
+        # translate_thread = Thread(target=, args=())       # 添加函数后取消注释
+        # translate_thread.start()      # 添加函数后取消注释
+        # TODO: 在这里执行NLP
+        # NLP_thread = Thread(target=, args=())     # 添加函数后取消注释
+        # NLP_thread.start()        # 添加函数后取消注释
+
+        # 阻塞主线程
+        # translate_thread.join()       # 添加函数后取消注释
+        # NLP_thread.join()     # 添加函数后取消注释
+
+        # 测试模式
+        if CONTROLLER.test_mode is True:
+            result_dir = 'static/search_result/114514/'
 
         # 查看结果文件是否已写入指定目录
         if os.path.exists(result_dir+'paper_info.xlsx') and os.path.exists(result_dir+'clue_info.xlsx') and os.path.exists(result_dir+'web_session.zip') and os.path.exists(result_dir+'clue_info.json') and os.path.exists(result_dir+'file.list'):
@@ -77,7 +98,17 @@ class Runner:
                         else:
                             abstract_highlight_str += word
                 # 写入数据库
-                DATABASE.add_paper_highlight_abstract(pmid, abstract_highlight_str)
+                # DATABASE.add_paper_highlight_abstract(pmid, abstract_highlight_str)
+
+                # 将高亮文本以文本文件的形式保存至指定目录
+                highlight_dir = 'static/highlight_text/'
+                category_num = pmid % 996       # pmid 除 996 取余数作为存放目录
+                highlight_dir += str(category_num) + '/'
+                if os.path.exists(highlight_dir) is False:
+                    os.mkdir(highlight_dir)
+                highlight_text_file = open(highlight_dir + str(pmid) + '.txt', 'w')
+                highlight_text_file.write(abstract_highlight_str)
+                highlight_text_file.close()
 
             # 将数据库中所有搜索该关键词的搜索记录标记为已完成搜索
             DATABASE.search_completed(raw_keywords, start_time, end_time, filter_article_type, filter_age, filter_language,
@@ -102,7 +133,10 @@ class Runner:
             if len(self.search_task_queue) > 0:
                 search_task = self.search_task_queue[0]
                 self.search_task_queue.pop(0)
-                self.run_search(search_task[0], search_task[1], search_task[2], search_task[3], search_task[4], search_task[5], search_task[6], search_task[7], search_task[8], search_task[9])
+                eventlet.monkey_patch()
+                with eventlet.Timeout(CONTROLLER.search_max_time, False):
+                    # print(search_task)
+                    self.run_search(search_task[0], search_task[1], search_task[2], search_task[3], search_task[4], search_task[5], search_task[6], search_task[7], search_task[8], search_task[9])
             else:
                 time.sleep(1)
 
