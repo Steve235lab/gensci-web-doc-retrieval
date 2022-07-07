@@ -2,16 +2,18 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import time
 from time import sleep
 import requests
 import threading
 
 
 def enable_undeadthread():
+    time.sleep(5)
     cnt = 10
     while cnt:
         try:
-            requests.get("http://42.192.44.52:8000/undeadthread/", )
+            requests.get("http://0.0.0.0:8000/undeadthread/", )
         except Exception:
             cnt -= 1
             sleep(1)
