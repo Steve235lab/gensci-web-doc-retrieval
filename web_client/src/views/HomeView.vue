@@ -215,24 +215,21 @@
                     <el-radio-button label="Clue Info" :disabled=clue_disable></el-radio-button>
                     <el-radio-button label="Network" :disabled=network_disable></el-radio-button>
                   </el-radio-group>
-                  &emsp;
-                  <el-link class="el-icon-download" :underline="false" style="font-size: 25px" @click="downloadVisible=true"></el-link>
-                  <el-dialog
-                      title="请选择需要下载的文件"
-                      :visible.sync="downloadVisible"
-                      width="30%">
-                      <el-radio v-model="downloadList" label="paper_info.xlsx">Paper Info</el-radio>
-                      <el-radio v-model="downloadList" label="clue_info.xlsx">Clue Info</el-radio>
-                      <el-radio v-model="downloadList" label="web_session.zip">Network</el-radio>
-                    <span slot="footer" class="dialog-footer">
-                      <el-button @click="downloadVisible = false">取 消</el-button>
-                      <el-button type="primary" @click="download">确 定</el-button>
-                    </span>
-                  </el-dialog>
+<!--                  &emsp;-->
+<!--                  <el-link class="el-icon-download" :underline="false" style="font-size: 25px" @click="downloadVisible=true"></el-link>-->
+<!--                  <el-dialog-->
+<!--                      title="请选择需要下载的文件"-->
+<!--                      :visible.sync="downloadVisible"-->
+<!--                      width="30%">-->
+<!--                      <el-radio v-model="downloadList" label="paper_info.xlsx">Paper Info</el-radio>-->
+<!--                      <el-radio v-model="downloadList" label="clue_info.xlsx">Clue Info</el-radio>-->
+<!--                      <el-radio v-model="downloadList" label="web_session.zip">Network</el-radio>-->
+<!--                    <span slot="footer" class="dialog-footer">-->
+<!--                      <el-button @click="downloadVisible = false">取 消</el-button>-->
+<!--                      <el-button type="primary" @click="download">确 定</el-button>-->
+<!--                    </span>-->
+<!--                  </el-dialog>-->
                 </div>
-              </el-col>
-              <el-col :span="2">
-
               </el-col>
               <el-col :xs="24" :sm="7" :md="10" :lg="10">
                 <div style="margin-top: 15px;float: right">
@@ -246,16 +243,21 @@
                       autocomplete="on">
                     <el-button slot="append" icon="el-icon-search" @click="Search_Pmid"></el-button>
                   </el-input>
-<!--                  <el-dropdown>-->
-<!--                    <el-button type="success" size="small" @command="download">-->
-<!--                      <b>download</b><i class="el-icon-arrow-down el-icon&#45;&#45;right"></i>-->
-<!--                    </el-button>-->
-<!--                    <el-dropdown-menu slot="dropdown">-->
-<!--                      <el-dropdown-item command="paper_info.xlsx">Paper Info</el-dropdown-item>-->
-<!--                      <el-dropdown-item command="clue_info.xlsx">Clue Info</el-dropdown-item>-->
-<!--                      <el-dropdown-item command="web_session.zip">Network</el-dropdown-item>-->
-<!--                    </el-dropdown-menu>-->
-<!--                  </el-dropdown>-->
+
+                </div>
+              </el-col>
+              <el-col :span="2">
+                <div style="margin-top: 15px;float: left">
+                  <el-dropdown @command="download">
+                    <el-button type="success" size="small" >
+                      <b>download</b><i class="el-icon-arrow-down el-icon--right"></i>
+                    </el-button>
+                    <el-dropdown-menu slot="dropdown">
+                      <el-dropdown-item command="paper_info.xlsx">Paper Info</el-dropdown-item>
+                      <el-dropdown-item command="clue_info.xlsx">Clue Info</el-dropdown-item>
+                      <el-dropdown-item command="web_session.zip">Network</el-dropdown-item>
+                    </el-dropdown-menu>
+                  </el-dropdown>
                 </div>
               </el-col>
             </el-row>
@@ -498,7 +500,7 @@ export default {
           message_type: 'download',
           token: this.token,
           timestamp:this.timestamp,
-          file_name:this.downloadList,
+          file_name:filename,
         }
 
       })
@@ -508,7 +510,7 @@ export default {
             location.href="http://42.192.44.52:8000/search/download/"
                 + "?token=" + that.token
                 + "&timestamp=" + that.timestamp
-                + "&file_name=" + that.downloadList
+                + "&file_name=" + filename
           })
           .catch(function(err){
             console.log(err)
