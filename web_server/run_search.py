@@ -44,6 +44,10 @@ class Runner:
         result_timestamp = history[1]
         result_dir = 'static/search_result/' + str(result_timestamp) + '/'
 
+        # 判断结果保存路径是否已经存在
+        if os.path.exists(result_dir) is False:
+            os.mkdir(result_dir)
+
         # TODO: 启动搜索，使用 robust_keywords 作为关键词进行搜索，将 paper_info.xlsx 和 clue_info.xlsx 两个文件输出到 result_dir 下
 
         # TODO: 在这里执行翻译，Thread()中 target=函数名（不要加括号） args=实参元组
