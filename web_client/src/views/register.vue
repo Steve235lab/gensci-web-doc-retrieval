@@ -52,7 +52,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import md5 from 'js-md5';
 import qs from 'qs';
 export default {
@@ -157,7 +156,7 @@ export default {
       var that=this;
       that.axios({
         method:"post",
-        url:"http://42.192.44.52:8000/sign_up/email_confirm/",
+        url:"/sign_up/email_confirm/",
         data:qs.stringify({
           message_type: "email_confirmed",
           token: this.token,
@@ -169,9 +168,11 @@ export default {
             console.log(res.data);
             console.log(res.data.confirmed);
             if(res.data.confirmed==='True'){
+              that.router.push('login')
+              that.$message({message:'注册成功',type:'success'})
             that.$router.push('login')
             that.$message({message:'注册成功',type:'success'})
-            
+
             }
             else{
               that.$message({message:'验证码错误',type:'warning'})
@@ -207,7 +208,7 @@ export default {
       }
       that.axios({
         method:"post",
-        url:"http://42.192.44.52:8000/sign_up/",
+        url:"/sign_up/",
         data:qs.stringify({
           message_type: "sign_up",
           username:this.loginForm.username,
@@ -240,7 +241,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image:url('/src/assets/beijing.png');
+  background-image:url('../assets/beijing.png');
   background-size: 100% 100%;
   .loginForm {
     height: 450px;

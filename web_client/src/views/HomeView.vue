@@ -301,9 +301,7 @@
 <script>
 import network_result from "../../../test_data/asd.bfs.json"
 import example from "../../../test_data/example_test.json"
-import history_test from "../../../test_data/history_test.json"
 import qs from "qs";
-import G6 from '@antv/g6';
 
 import Paper_info from "@/components/paper_info";
 import Clue_info from "@/components/clue_info";
@@ -462,7 +460,7 @@ export default {
       var that = this;
       that.axios({
         method:"get",
-        url:"http://42.192.44.52:8000/search/history/",
+        url:"/search/history/",
         params:{
           message_type: "get_history",
           token: this.token
@@ -495,7 +493,7 @@ export default {
       var that=this;
       that.axios({
         method:"get",
-        url:"http://42.192.44.52:8000/search/download/",
+        url:"/search/download/",
         params:{
           message_type: 'download',
           token: this.token,
@@ -506,11 +504,7 @@ export default {
       })
 
           .then(function(res){
-            console.log(res)
-            location.href="http://42.192.44.52:8000/search/download/"
-                + "?token=" + that.token
-                + "&timestamp=" + that.timestamp
-                + "&file_name=" + filename
+            location.href = res.request.responseURL
           })
           .catch(function(err){
             console.log(err)
@@ -679,7 +673,7 @@ export default {
         var that=this;
         that.axios({
           method:"post",
-          url:"http://42.192.44.52:8000/search/",
+          url:"/search/",
           data:qs.stringify({
             "token": this.token,
             "message_type": "search",
@@ -730,7 +724,7 @@ export default {
       var that=this;
       that.axios({
         method:"post",
-        url:"http://42.192.44.52:8000/search/paper_info/",
+        url:"/search/paper_info/",
         data:qs.stringify({
           "token": this.token,
           "message_type": "get_paper_info",
@@ -771,7 +765,7 @@ export default {
       var that=this;
       that.axios({
         method:"post",
-        url:"http://42.192.44.52:8000/search/clue_info/",
+        url:"/search/clue_info/",
         data:qs.stringify({
           "token": this.token,
           "message_type": "get_clue_info",
@@ -848,7 +842,7 @@ export default {
       var that=this;
       that.axios({
         method:"post",
-        url:"http://42.192.44.52:8000/search/paper_details/",
+        url:"/search/paper_details/",
         data:qs.stringify({
           "token": this.token,
           "message_type": "get_paper_details",

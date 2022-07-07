@@ -34,10 +34,8 @@
 </template>
 
 <script>
-import axios from 'axios';
 import md5 from 'js-md5';
 import qs from 'qs';
-import setStorage from './storage.js';
 export default {
   data(){
     return{
@@ -75,7 +73,7 @@ export default {
       var that=this;
       that.axios({
         method:"post",
-        url:"http://42.192.44.52:8000/sign_in/",
+        url:"/sign_in/",
         data:qs.stringify({
           message_type: "sign_in",
           email:this.loginForm.email,

@@ -11,6 +11,7 @@ import Vuex from 'vuex'
 
 
 // import vueResource from 'vue-resource'
+axios.defaults.baseURL='/api'
 
 Vue.prototype.$cookies = cookies;
 Vue.prototype.$http = axios
