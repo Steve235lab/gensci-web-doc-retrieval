@@ -10,15 +10,7 @@ import threading
 
 def enable_undeadthread():
     sleep(5)
-    cnt = 10
-    while cnt:
-        try:
-            requests.get("http://0.0.0.0:8000/undeadthread/", )
-        except Exception:
-            cnt -= 1
-            sleep(1)
-        else:
-            break
+    requests.get("http://0.0.0.0:8000/undeadthread/")
 
 
 def main():
