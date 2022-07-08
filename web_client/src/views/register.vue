@@ -168,11 +168,8 @@ export default {
             console.log(res.data);
             console.log(res.data.confirmed);
             if(res.data.confirmed==='True'){
-              that.router.push('login')
+              that.$router.push('login')
               that.$message({message:'注册成功',type:'success'})
-            that.$router.push('login')
-            that.$message({message:'注册成功',type:'success'})
-
             }
             else{
               that.$message({message:'验证码错误',type:'warning'})
