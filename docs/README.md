@@ -45,3 +45,9 @@ pip install -r requirements.txt
 
 * 服务器防火墙开放8000端口
 
+## 2. 前端环境配置
+* 在node.js官网下载最新版安装包，下载完成后安装即可
+* 打开cmd，输入node -v 查看安装是否成功，若显示版本号，说明成功安装
+* 跳转至需要添加的项目路径，安装npm淘宝镜像，输入npm config set registry https://registry.npm.taobao.org
+* 输入npm config get registry查看是否安装成功，若成功则执行npm run start，并且所在项目文件夹会多出一个node_modules文件夹，若安装失败可以改变本机的sass下载的数据源，执行npm config set sass-binary-site http://npm.taobao.org/mirrors/node-sass 后执行npm install
+* node和npm都成功安装后，在cmd输入npm install -g vue-cli，等待vue脚手架构建工具安装，安装成功后即完成环境配置，根据需要调用的函数安装对应的环境，如npm install --save js.md5即可在Vue中使用md5加密了
