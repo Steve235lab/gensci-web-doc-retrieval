@@ -1,5 +1,6 @@
 from pymysql import connect
 import json
+from controller import CONTROLLER
 
 
 # 读取集合配置文件
@@ -13,7 +14,12 @@ sql = sql[:-1] + ')'
 print(sql)
 
 # 创建数据表
-conn = connect(host='42.192.44.52', port=3306, user='root', password='root', database='gensci-web-doc-retrieval-db',
-               charset='utf8')
+conn = connect(host=CONTROLLER.db_host, port=CONTROLLER.db_port, user=CONTROLLER.db_user,
+               password=CONTROLLER.db_password, database=CONTROLLER.db_name, charset=CONTROLLER.db_charset)
 cursor = conn.cursor()
 cursor.execute(sql)
+
+# 添加0号记录
+sql = """insert into new_search_history values ('%d', '%d', '%s', '%d', '%d', '%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s')""" % (0, 0, 'raw_keywords', 0, 0, 0, '2022-07-08', '2022-07-08', 'filter_article_type', '0-18y', 'English', 'Humans', 'Female')
+cursor.execute(sql)
+conn.commit()
