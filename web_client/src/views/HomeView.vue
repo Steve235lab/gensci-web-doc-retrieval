@@ -187,7 +187,7 @@
             </div>
             <div style="max-height: 650px;min-height: 300px;word-break:break-all; white-space: pre-line;padding-left: 10px;padding-right: 10px">
               <div v-for="(row,item) in history" :key="item" style="text-align:left;">
-                <el-tooltip effect="dark" placement="right">
+                <el-tooltip effect="dark" placement="right" >
                   <div slot="content" class="tips" style="word-wrap:break-word;width: 400px;line-height: 20px" >
                     <b>{{row.robust_keywords}}</b>
                   </div>
@@ -464,6 +464,14 @@ export default {
 
     //获取历史记录
     getHistory(){
+      if(this.token==='null'||this.token==='undefined'){
+        this.gotoLogin()
+        this.$message({
+          showClose: true,
+          message: '尚未登录，请先登录！',
+          type: 'warning'
+        })
+      }
       var that = this;
       that.axios({
         method:"get",
