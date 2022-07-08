@@ -191,7 +191,7 @@
                   <div slot="content" class="tips" style="word-wrap:break-word;width: 400px;line-height: 20px" >
                     <b>{{row.robust_keywords}}</b>
                   </div>
-                  <el-link :underline="false" :disabled="paper_disable" @click="gettimestamp(row.timestamp)" style="font-size: 16px;line-height: 18px;padding-top: 10px">
+                  <el-link :underline="false" :disabled="paper_disable" @click="gettimestamp(row.timestamp)" @touchstart.native.prevent="gettimestamp(row.timestamp)" style="font-size: 16px;line-height: 18px;padding-top: 10px">
                       {{row.raw_keywords}}
 
                   </el-link>
